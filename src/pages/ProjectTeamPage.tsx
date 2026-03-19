@@ -103,7 +103,12 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
             ))
 
         if (loadedTeam && teamChanged) {
-          const nextTeam: Team = { ...loadedTeam, slots: sanitizedSlots, updatedAt: Date.now() }
+          const nextTeam: Team = {
+            ...loadedTeam,
+            slots: sanitizedSlots,
+            selectedEvolutionByPokemonId: loadedTeam.selectedEvolutionByPokemonId ?? {},
+            updatedAt: Date.now(),
+          }
           await db.teams.put(nextTeam)
           if (!active) return
           setTeam(nextTeam)
@@ -111,6 +116,7 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
           setTeam(loadedTeam ?? null)
         }
 
+        setSelectedEvolutionByPokemonId(loadedTeam?.selectedEvolutionByPokemonId ?? {})
         setEncounters(caughtEncounters)
         setError('')
       } catch (loadError) {
@@ -175,6 +181,27 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
       id: team?.id ?? crypto.randomUUID(),
       projectId,
       slots: nextSlots.sort((a, b) => a.slot - b.slot),
+      selectedEvolutionByPokemonId,
+      updatedAt: Date.now(),
+    }
+
+    await db.teams.put(nextTeam)
+    setTeam(nextTeam)
+  }
+
+  const persistSelectedEvolution = async (pokemonId: number, evolutionId: number) => {
+    const nextSelectedEvolutionByPokemonId = {
+      ...selectedEvolutionByPokemonId,
+      [pokemonId]: evolutionId,
+    }
+
+    setSelectedEvolutionByPokemonId(nextSelectedEvolutionByPokemonId)
+
+    const nextTeam: Team = {
+      id: team?.id ?? crypto.randomUUID(),
+      projectId,
+      slots: (team?.slots ?? []).slice().sort((a, b) => a.slot - b.slot),
+      selectedEvolutionByPokemonId: nextSelectedEvolutionByPokemonId,
       updatedAt: Date.now(),
     }
 
@@ -379,9 +406,7 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
                 options={evolutionOptionsByPokemonId[entry.pokemonId] ?? []}
                 selectedEvolutionId={selectedEvolutionByPokemonId[entry.pokemonId] ?? entry.pokemonId}
                 onToggleExpand={() => void toggleExpand(entry)}
-                onSelectedEvolutionChange={(nextId) =>
-                  setSelectedEvolutionByPokemonId((prev) => ({ ...prev, [entry.pokemonId]: nextId }))
-                }
+                onSelectedEvolutionChange={(nextId) => void persistSelectedEvolution(entry.pokemonId, nextId)}
                 onAssign={() => void assignSelectedEvolutionFromEntry(entry)}
               />
             ))}

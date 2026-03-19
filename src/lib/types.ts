@@ -74,6 +74,7 @@ export type Team = {
   id: string
   projectId: string
   slots: TeamSlot[]
+  selectedEvolutionByPokemonId?: Record<number, number>
   updatedAt: number
 }
 
