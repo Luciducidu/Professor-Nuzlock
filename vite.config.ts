@@ -5,6 +5,10 @@ import { VitePWA } from 'vite-plugin-pwa'
 // https://vite.dev/config/
 export default defineConfig({
   base: '/Professor-Nuzlock/',
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+  },
   plugins: [
     
     react(),
