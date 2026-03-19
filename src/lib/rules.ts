@@ -53,7 +53,7 @@ export function checkDupesClauseForPokemon(params: {
       return {
         allowed: false,
         reason: 'species',
-        message: 'Nein. Dupes Clause: Dieses Pokemon wurde bereits registriert.',
+        message: 'Nein. Dupes Clause: Dieses Pokémon wurde bereits registriert.',
         duplicateEncounter: duplicate,
       }
     }
@@ -114,8 +114,7 @@ function buildSuccessfulSoulLinkPairs(
     if (currentEncounterIds.includes(partner.id)) continue
     if (currentCreatedAt !== undefined && partner.createdAt >= currentCreatedAt) continue
 
-    const existing = pairs.get(encounter.linkGroupId)
-    if (existing) continue
+    if (pairs.has(encounter.linkGroupId)) continue
 
     const p1 = encounter.playerId === 'p1' ? encounter : partner.playerId === 'p1' ? partner : null
     const p2 = encounter.playerId === 'p2' ? encounter : partner.playerId === 'p2' ? partner : null
@@ -136,7 +135,8 @@ function checkSoulLinkPartnerDupesForPokemon(params: {
   currentLinkGroupId?: string | null
   currentCreatedAt?: number
 }): SoulLinkPartnerDupesCheckResult {
-  const { project, pokemon, encounters, currentEncounterId, currentEncounterIds, currentLinkGroupId, currentCreatedAt } = params
+  const { project, pokemon, encounters, currentEncounterId, currentEncounterIds, currentLinkGroupId, currentCreatedAt } =
+    params
 
   if (!isSoulLinkProject(project)) {
     return { allowed: true, reason: 'none' }
@@ -162,10 +162,8 @@ function checkSoulLinkPartnerDupesForPokemon(params: {
 
   const blocked = successfulPairs.some(
     (pair) =>
-      pair.p1.evolution_chain_id !== null &&
-      pair.p1.evolution_chain_id === pokemon.evolution_chain_id ||
-      pair.p2.evolution_chain_id !== null &&
-      pair.p2.evolution_chain_id === pokemon.evolution_chain_id,
+      (pair.p1.evolution_chain_id !== null && pair.p1.evolution_chain_id === pokemon.evolution_chain_id) ||
+      (pair.p2.evolution_chain_id !== null && pair.p2.evolution_chain_id === pokemon.evolution_chain_id),
   )
 
   if (blocked) return { allowed: false, reason: 'evolution' }
@@ -234,7 +232,7 @@ export function validateEncounterSelection(params: {
         allowed: false,
         message:
           dupesCheck.reason === 'species'
-            ? 'Dupes Clause: Dieses Pokemon wurde bereits registriert.'
+            ? 'Dupes Clause: Dieses Pokémon wurde bereits registriert.'
             : 'Dupes Clause: Diese Evolutionslinie wurde bereits registriert.',
         warning,
       }
@@ -256,8 +254,8 @@ export function validateEncounterSelection(params: {
       allowed: false,
       message:
         soulLinkCheck.reason === 'species'
-          ? 'Soullink-Regel: Dieses Pokemon ist fur beide Spieler bereits gesperrt.'
-          : 'Soullink-Regel: Diese Entwicklungsreihe ist fur beide Spieler bereits gesperrt.',
+          ? 'Soullink-Regel: Dieses Pokémon ist für beide Spieler bereits gesperrt.'
+          : 'Soullink-Regel: Diese Entwicklungsreihe ist für beide Spieler bereits gesperrt.',
       warning,
     }
   }

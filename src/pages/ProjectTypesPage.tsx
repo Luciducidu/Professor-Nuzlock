@@ -21,17 +21,33 @@ export function ProjectTypesPage() {
             Angreifer = Attacken-Typ (Zeilen), Verteidiger = Pokémon-Typ (Spalten). Bei zwei Typen werden die Multiplikatoren multipliziert.
           </p>
 
-          <div className="mt-4 overflow-x-auto">
-            <table className="min-w-[980px] border-collapse text-sm">
+          <div className="mt-4 grid gap-3 lg:grid-cols-2">
+            <div className="rounded-lg border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-sky-900">
+              <span className="font-semibold">Links:</span> Angreifer
+              <span className="mx-2 text-sky-400">•</span>
+              <span className="font-semibold">Zeilen</span>
+            </div>
+            <div className="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
+              <span className="font-semibold">Oben:</span> Verteidiger
+              <span className="mx-2 text-emerald-400">•</span>
+              <span className="font-semibold">Spalten</span>
+            </div>
+          </div>
+
+          <div className="mt-4 -mx-2 overflow-x-auto px-2 xl:mx-[-1.5rem] xl:px-6">
+            <table className="min-w-[1120px] border-collapse text-sm xl:min-w-full">
               <thead>
                 <tr>
-                  <th className="sticky left-0 z-10 border border-slate-200 bg-slate-100 px-3 py-2 text-left font-semibold text-slate-900">
-                    Angreifer \\ Verteidiger
+                  <th className="sticky left-0 z-10 min-w-[150px] border border-slate-200 bg-slate-100 px-3 py-3 text-left font-semibold text-slate-900">
+                    <div className="space-y-1">
+                      <div>Links: Angreifer</div>
+                      <div className="text-xs font-medium text-slate-600">Oben: Verteidiger</div>
+                    </div>
                   </th>
                   {TYPE_ORDER.map((defender) => (
                     <th
                       key={defender}
-                      className="border border-slate-200 bg-slate-100 px-3 py-2 text-center font-semibold text-slate-900"
+                      className="min-w-[64px] border border-slate-200 bg-slate-100 px-2 py-3 text-center font-semibold text-slate-900"
                     >
                       {TYPE_NAMES_DE[defender]}
                     </th>
@@ -41,7 +57,7 @@ export function ProjectTypesPage() {
               <tbody>
                 {TYPE_ORDER.map((attacker) => (
                   <tr key={attacker}>
-                    <th className="sticky left-0 z-10 border border-slate-200 bg-white px-3 py-3 text-left font-semibold text-slate-900">
+                    <th className="sticky left-0 z-10 min-w-[150px] border border-slate-200 bg-white px-3 py-3 text-left font-semibold text-slate-900">
                       {TYPE_NAMES_DE[attacker]}
                     </th>
                     {TYPE_ORDER.map((defender) => {
@@ -49,7 +65,7 @@ export function ProjectTypesPage() {
                       return (
                         <td
                           key={`${attacker}-${defender}`}
-                          className={`border border-slate-200 px-3 py-3 text-center ${
+                          className={`min-w-[64px] border border-slate-200 px-2 py-3 text-center ${
                             mult === 2
                               ? 'bg-red-100 text-red-700 font-semibold'
                               : mult === 0.5

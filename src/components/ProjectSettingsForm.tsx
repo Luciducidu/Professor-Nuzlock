@@ -118,10 +118,10 @@ export function ProjectSettingsForm({
         {isSoullink ? (
           <div>
             <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="soullink-partner-dupes-mode">
-              Soullink-Paare sperren fur beide Spieler
+              Soullink-Paare sperren für beide Spieler
             </label>
             <p className="mb-2 text-xs text-slate-500">
-              Wenn ein Soullink-Paar gefangen wurde, konnen diese Arten oder Reihen fur beide Spieler gesperrt werden.
+              Wenn ein Soullink-Paar gefangen wurde, können diese Arten oder Reihen für beide Spieler gesperrt werden.
             </p>
             <select
               id="soullink-partner-dupes-mode"
@@ -188,7 +188,7 @@ export function ProjectSettingsForm({
         {value.levelCapsEnabled ? (
           <div>
             <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="level-cap-progress">
-              Nachster Boss
+              Nächster Boss
             </label>
             <select
               id="level-cap-progress"

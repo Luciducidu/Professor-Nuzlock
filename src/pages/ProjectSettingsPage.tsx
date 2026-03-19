@@ -102,7 +102,7 @@ export function ProjectSettingsPage() {
       />
       {submitDisabled ? (
         <div className="mt-3 rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-700">
-          Bitte beide Spielernamen fur die Soullink Challenge eintragen.
+          Bitte beide Spielernamen für die Soullink Challenge eintragen.
         </div>
       ) : null}
     </AppShell>
@@ -115,7 +115,7 @@ function BackButton({ to }: { to: string }) {
       to={to}
       className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
     >
-      Zuruck
+      Zurück
     </Link>
   )
 }

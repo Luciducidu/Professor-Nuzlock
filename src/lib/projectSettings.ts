@@ -22,18 +22,18 @@ export const DEFAULT_PROJECT_SETTINGS: ProjectSettings = {
 
 export const DUPES_MODE_OPTIONS: Array<{ value: DupesMode; label: string }> = [
   { value: 'none', label: 'Duplikate erlaubt' },
-  { value: 'species', label: 'Nur exakt dasselbe Pokemon verboten' },
+  { value: 'species', label: 'Nur exakt dasselbe Pokémon verboten' },
   { value: 'evolution', label: 'Ganze Entwicklungsreihe verboten' },
 ]
 
 export const SOULLINK_PARTNER_DUPES_OPTIONS: Array<{ value: SoulLinkPartnerDupesMode; label: string }> = [
-  { value: 'none', label: 'Keine zusaetzliche Sperre' },
-  { value: 'species', label: 'Nur exakt dieselben Pokemon sperren' },
-  { value: 'evolution', label: 'Ganze Entwicklungsreihen fuer beide sperren' },
+  { value: 'none', label: 'Keine zusätzliche Sperre' },
+  { value: 'species', label: 'Nur exakt dieselben Pokémon sperren' },
+  { value: 'evolution', label: 'Ganze Entwicklungsreihen für beide sperren' },
 ]
 
 export const GAME_OPTIONS: Array<{ value: ProjectGame; label: string }> = [
-  { value: 'platinum', label: 'Pokemon Platin' },
+  { value: 'platinum', label: 'Pokémon Platin' },
 ]
 
 export const LEVEL_CAP_OPTIONS = PLATINUM_LEVEL_CAPS_DE.map((entry) => ({
@@ -47,7 +47,7 @@ export const CHALLENGE_TYPE_OPTIONS: Array<{ value: ChallengeType; label: string
 ]
 
 export const formatGameName = (game: ProjectGame): string => {
-  if (game === 'platinum') return 'Pokemon Platin'
+  if (game === 'platinum') return 'Pokémon Platin'
   return game
 }
 
@@ -97,7 +97,7 @@ export function formatChallengeType(challengeType: ChallengeType): string {
 }
 
 export function formatSoulLinkPartnerDupesMode(mode: SoulLinkPartnerDupesMode): string {
-  if (mode === 'species') return 'Exakte Pokemon'
+  if (mode === 'species') return 'Exakte Pokémon'
   if (mode === 'evolution') return 'Entwicklungsreihen'
   return 'Keine'
 }
