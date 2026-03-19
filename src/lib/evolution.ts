@@ -4,7 +4,26 @@ import type { EvolutionOption, PokemonIndexEntry } from './types'
 
 const POKEMON_INDEX = pokemonIndex as PokemonIndexEntry[]
 
+const byId = new Map<number, PokemonIndexEntry>(POKEMON_INDEX.map((entry) => [entry.id, entry]))
 const bySlug = new Map<string, PokemonIndexEntry>(POKEMON_INDEX.map((entry) => [entry.slug, entry]))
+
+export function getPokemonIndexEntryById(pokemonId: number): PokemonIndexEntry | null {
+  return byId.get(pokemonId) ?? null
+}
+
+export function toEvolutionOption(entry: Pick<PokemonIndexEntry, 'id' | 'slug' | 'nameDe' | 'evolution_chain_id'>): EvolutionOption {
+  return {
+    pokemonId: entry.id,
+    slug: entry.slug,
+    nameDe: entry.nameDe,
+    evolution_chain_id: entry.evolution_chain_id,
+  }
+}
+
+export function resolveEvolutionOptionById(pokemonId: number): EvolutionOption | null {
+  const entry = getPokemonIndexEntryById(pokemonId)
+  return entry ? toEvolutionOption(entry) : null
+}
 
 function parseChainId(evolutionChainUrl: string): number | null {
   const match = evolutionChainUrl.match(/\/evolution-chain\/(\d+)\/?$/)

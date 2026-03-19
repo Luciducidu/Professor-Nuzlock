@@ -122,6 +122,7 @@ export async function importProjectBackup(file: File): Promise<{ projectId: stri
     game: sourceProject.game ?? 'platinum',
     createdAt: Date.now(),
     settings: normalizeProjectSettings(sourceProject.settings),
+    selectedEvolutionByPokemonId: sourceProject.selectedEvolutionByPokemonId ?? {},
   }
 
   const locationIdMap = new Map<string, string>()

@@ -39,6 +39,7 @@ export function NewProjectPage() {
         game,
         createdAt: Date.now(),
         settings,
+        selectedEvolutionByPokemonId: {},
       })
 
       try {

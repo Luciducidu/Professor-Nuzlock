@@ -18,6 +18,7 @@ export type Project = {
   game: ProjectGame
   createdAt: number
   settings: ProjectSettings
+  selectedEvolutionByPokemonId?: Record<number, number>
 }
 
 export type LocationType = 'route' | 'city' | 'other'

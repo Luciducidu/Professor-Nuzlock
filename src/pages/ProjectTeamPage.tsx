@@ -11,7 +11,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { PokemonLabel } from '../components/PokemonLabel'
 import { ProjectLayout } from '../components/ProjectLayout'
 import { db, ensureDatabaseReady } from '../lib/db'
-import { getEvolutionOptions } from '../lib/evolution'
+import { getEvolutionOptions, resolveEvolutionOptionById } from '../lib/evolution'
 import type {
   Encounter,
   EvolutionOption,
@@ -74,8 +74,14 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
 
   const [expandedPokemonId, setExpandedPokemonId] = useState<number | null>(null)
   const [evolutionOptionsByPokemonId, setEvolutionOptionsByPokemonId] = useState<Record<number, EvolutionOption[]>>({})
-  const [selectedEvolutionByPokemonId, setSelectedEvolutionByPokemonId] = useState<Record<number, number>>({})
+  const [selectedEvolutionByPokemonId, setSelectedEvolutionByPokemonId] = useState<Record<number, number>>(
+    project.selectedEvolutionByPokemonId ?? {},
+  )
   const [loadingEvolutionsByPokemonId, setLoadingEvolutionsByPokemonId] = useState<Record<number, boolean>>({})
+
+  useEffect(() => {
+    setSelectedEvolutionByPokemonId(project.selectedEvolutionByPokemonId ?? {})
+  }, [project.selectedEvolutionByPokemonId])
 
   useEffect(() => {
     let active = true
@@ -106,7 +112,6 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
           const nextTeam: Team = {
             ...loadedTeam,
             slots: sanitizedSlots,
-            selectedEvolutionByPokemonId: loadedTeam.selectedEvolutionByPokemonId ?? {},
             updatedAt: Date.now(),
           }
           await db.teams.put(nextTeam)
@@ -116,7 +121,6 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
           setTeam(loadedTeam ?? null)
         }
 
-        setSelectedEvolutionByPokemonId(loadedTeam?.selectedEvolutionByPokemonId ?? {})
         setEncounters(caughtEncounters)
         setError('')
       } catch (loadError) {
@@ -164,9 +168,17 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
     if (!normalized) return boxEntries
 
     return boxEntries.filter(
-      (entry) => entry.nameDe.toLowerCase().includes(normalized) || entry.slug.toLowerCase().includes(normalized),
+      (entry) => {
+        const resolved = resolveSelectedEvolution(entry)
+        return (
+          entry.nameDe.toLowerCase().includes(normalized) ||
+          entry.slug.toLowerCase().includes(normalized) ||
+          resolved.nameDe.toLowerCase().includes(normalized) ||
+          resolved.slug.toLowerCase().includes(normalized)
+        )
+      },
     )
-  }, [boxEntries, search])
+  }, [boxEntries, search, selectedEvolutionByPokemonId])
 
   const slotsByNumber = useMemo(() => {
     const map = new Map<TeamSlotNumber, TeamSlot>()
@@ -181,7 +193,6 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
       id: team?.id ?? crypto.randomUUID(),
       projectId,
       slots: nextSlots.sort((a, b) => a.slot - b.slot),
-      selectedEvolutionByPokemonId,
       updatedAt: Date.now(),
     }
 
@@ -196,17 +207,38 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
     }
 
     setSelectedEvolutionByPokemonId(nextSelectedEvolutionByPokemonId)
+    await db.projects.update(projectId, { selectedEvolutionByPokemonId: nextSelectedEvolutionByPokemonId })
 
-    const nextTeam: Team = {
-      id: team?.id ?? crypto.randomUUID(),
-      projectId,
-      slots: (team?.slots ?? []).slice().sort((a, b) => a.slot - b.slot),
-      selectedEvolutionByPokemonId: nextSelectedEvolutionByPokemonId,
-      updatedAt: Date.now(),
-    }
+    const resolvedEvolution = resolveEvolutionOptionById(evolutionId)
+    if (!resolvedEvolution) return
 
-    await db.teams.put(nextTeam)
-    setTeam(nextTeam)
+    const updatedSlots = (team?.slots ?? []).map((slot) => {
+      const basePokemonId = slot.sourcePokemonId ?? slot.pokemonId
+      if (basePokemonId !== pokemonId) return slot
+      return {
+        ...slot,
+        pokemonId: resolvedEvolution.pokemonId,
+        slug: resolvedEvolution.slug,
+        nameDe: resolvedEvolution.nameDe,
+        evolution_chain_id: resolvedEvolution.evolution_chain_id,
+        sourcePokemonId: basePokemonId,
+      }
+    })
+
+    if (!team || updatedSlots.every((slot, index) => slot === team.slots[index])) return
+    await persistTeam(updatedSlots)
+  }
+
+  const resolveSelectedEvolution = (entry: Pick<BoxPokemonEntry, 'pokemonId' | 'slug' | 'nameDe' | 'evolution_chain_id'>) => {
+    const selectedId = selectedEvolutionByPokemonId[entry.pokemonId]
+    return (
+      (selectedId ? resolveEvolutionOptionById(selectedId) : null) ?? {
+        pokemonId: entry.pokemonId,
+        slug: entry.slug,
+        nameDe: entry.nameDe,
+        evolution_chain_id: entry.evolution_chain_id,
+      }
+    )
   }
 
   const assignPokemonToSlot = async (
@@ -224,7 +256,8 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
     }
 
     const withoutSlot = (team?.slots ?? []).filter(
-      (entry) => entry.slot !== slot && entry.pokemonId !== pokemon.pokemonId,
+      (entry) =>
+        entry.slot !== slot && (entry.sourcePokemonId ?? entry.pokemonId) !== (sourcePokemonId ?? pokemon.pokemonId),
     )
     await persistTeam([...withoutSlot, nextSlot])
   }
@@ -270,7 +303,7 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
       const defaultOption = normalized.find((option) => option.pokemonId === entry.pokemonId) ?? normalized[0]
       setSelectedEvolutionByPokemonId((prev) => ({
         ...prev,
-        [entry.pokemonId]: prev[entry.pokemonId] ?? defaultOption.pokemonId,
+        [entry.pokemonId]: prev[entry.pokemonId] ?? project.selectedEvolutionByPokemonId?.[entry.pokemonId] ?? defaultOption.pokemonId,
       }))
     } catch (loadError) {
       console.error(loadError)
@@ -287,7 +320,7 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
       }))
       setSelectedEvolutionByPokemonId((prev) => ({
         ...prev,
-        [entry.pokemonId]: prev[entry.pokemonId] ?? entry.pokemonId,
+        [entry.pokemonId]: prev[entry.pokemonId] ?? project.selectedEvolutionByPokemonId?.[entry.pokemonId] ?? entry.pokemonId,
       }))
     } finally {
       setLoadingEvolutionsByPokemonId((prev) => ({ ...prev, [entry.pokemonId]: false }))
@@ -336,7 +369,8 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
     if (!overSlot || !activeData) return
 
     if (activeData.type === 'box') {
-      await assignPokemonToSlot(overSlot, activeData.pokemon, activeData.pokemon.pokemonId)
+      const resolvedPokemon = resolveSelectedEvolution(activeData.pokemon)
+      await assignPokemonToSlot(overSlot, resolvedPokemon, activeData.pokemon.pokemonId)
       setActiveSlot(overSlot)
       return
     }
@@ -401,6 +435,7 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
               <BoxGridItem
                 key={entry.pokemonId}
                 entry={entry}
+                displayEntry={resolveSelectedEvolution(entry)}
                 expanded={expandedPokemonId === entry.pokemonId}
                 loadingOptions={Boolean(loadingEvolutionsByPokemonId[entry.pokemonId])}
                 options={evolutionOptionsByPokemonId[entry.pokemonId] ?? []}
@@ -521,6 +556,7 @@ function TeamSlotCard({
 
 function BoxGridItem({
   entry,
+  displayEntry,
   expanded,
   loadingOptions,
   options,
@@ -530,6 +566,7 @@ function BoxGridItem({
   onAssign,
 }: {
   entry: BoxPokemonEntry
+  displayEntry: EvolutionOption
   expanded: boolean
   loadingOptions: boolean
   options: EvolutionOption[]
@@ -542,13 +579,13 @@ function BoxGridItem({
     id: toBoxId(entry.pokemonId),
     data: {
       type: 'box',
-      pokemon: {
-        pokemonId: entry.pokemonId,
-        slug: entry.slug,
-        nameDe: entry.nameDe,
-        evolution_chain_id: entry.evolution_chain_id,
+        pokemon: {
+          pokemonId: entry.pokemonId,
+          slug: entry.slug,
+          nameDe: entry.nameDe,
+          evolution_chain_id: entry.evolution_chain_id,
+        },
       },
-    },
   })
 
   const style = {
@@ -558,7 +595,12 @@ function BoxGridItem({
 
   return (
     <div ref={draggable.setNodeRef} style={style} className="rounded-xl border border-slate-200 bg-white p-3">
-      <PokemonLabel pokemonId={entry.pokemonId} nameDe={entry.nameDe} slug={entry.slug} size="md" />
+      <PokemonLabel
+        pokemonId={displayEntry.pokemonId}
+        nameDe={displayEntry.nameDe}
+        slug={displayEntry.slug}
+        size="md"
+      />
 
       <div className="mt-2 flex items-center gap-2 text-xs text-slate-600">
         {entry.count > 1 ? <span className="rounded-full bg-slate-100 px-2 py-0.5">x{entry.count}</span> : null}
@@ -632,9 +674,10 @@ function sanitizeTeamSlots(slots: TeamSlot[], alivePokemonIds: Set<number>): Tea
   const next: TeamSlot[] = []
 
   for (const slot of sorted) {
-    if (!alivePokemonIds.has(slot.pokemonId)) continue
-    if (seen.has(slot.pokemonId)) continue
-    seen.add(slot.pokemonId)
+    const basePokemonId = slot.sourcePokemonId ?? slot.pokemonId
+    if (!alivePokemonIds.has(basePokemonId)) continue
+    if (seen.has(basePokemonId)) continue
+    seen.add(basePokemonId)
     next.push(slot)
   }
 

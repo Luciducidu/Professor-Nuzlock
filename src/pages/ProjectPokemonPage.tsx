@@ -4,6 +4,7 @@ import { PokemonLabel } from '../components/PokemonLabel'
 import { PokemonSearch } from '../components/PokemonSearch'
 import { ProjectLayout } from '../components/ProjectLayout'
 import { db } from '../lib/db'
+import { resolveEvolutionOptionById } from '../lib/evolution'
 import { checkDupesClauseForPokemon } from '../lib/rules'
 import type { Encounter, EncounterType, PokemonIndexEntry, Project } from '../lib/types'
 
@@ -69,6 +70,16 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
     setEncounters(loadedEncounters)
   }
 
+  const resolveEncounterDisplay = (encounter: Encounter) => {
+    const selectedEvolutionId = project.selectedEvolutionByPokemonId?.[encounter.pokemonId]
+    return (selectedEvolutionId ? resolveEvolutionOptionById(selectedEvolutionId) : null) ?? {
+      pokemonId: encounter.pokemonId,
+      slug: encounter.slug,
+      nameDe: encounter.nameDe,
+      evolution_chain_id: encounter.evolution_chain_id,
+    }
+  }
+
   const caughtEncounters = useMemo(
     () => encounters.filter((encounter) => encounter.outcome === 'caught').sort((a, b) => b.createdAt - a.createdAt),
     [encounters],
@@ -81,26 +92,32 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
     if (!normalized) return caughtEncounters
 
     return caughtEncounters.filter((encounter) => {
+      const resolved = resolveEncounterDisplay(encounter)
       return (
         encounter.nameDe.toLowerCase().includes(normalized) ||
         encounter.slug.toLowerCase().includes(normalized) ||
-        (encounter.nickname ?? '').toLowerCase().includes(normalized)
+        (encounter.nickname ?? '').toLowerCase().includes(normalized) ||
+        resolved.nameDe.toLowerCase().includes(normalized) ||
+        resolved.slug.toLowerCase().includes(normalized)
       )
     })
-  }, [caughtEncounters, search])
+  }, [caughtEncounters, project.selectedEvolutionByPokemonId, search])
 
   const filteredDeathbox = useMemo(() => {
     const normalized = search.trim().toLowerCase()
     if (!normalized) return deathboxEncounters
 
     return deathboxEncounters.filter((encounter) => {
+      const resolved = resolveEncounterDisplay(encounter)
       return (
         encounter.nameDe.toLowerCase().includes(normalized) ||
         encounter.slug.toLowerCase().includes(normalized) ||
-        (encounter.nickname ?? '').toLowerCase().includes(normalized)
+        (encounter.nickname ?? '').toLowerCase().includes(normalized) ||
+        resolved.nameDe.toLowerCase().includes(normalized) ||
+        resolved.slug.toLowerCase().includes(normalized)
       )
     })
-  }, [deathboxEncounters, search])
+  }, [deathboxEncounters, project.selectedEvolutionByPokemonId, search])
 
   const checkResult = useMemo(() => {
     if (!selectedPokemon) return null
@@ -157,55 +174,58 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
           {filteredCaught.length === 0 ? (
             <InfoCard text="Keine gefangenen Pokémon gefunden." />
           ) : (
-            filteredCaught.map((encounter) => (
-              <article key={encounter.id} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <PokemonLabel
-                      pokemonId={encounter.pokemonId}
-                      nameDe={encounter.nameDe}
-                      slug={encounter.slug}
-                      isDead={encounter.isDead}
-                      size="lg"
-                    />
-                    {encounter.nickname ? <p className="mt-1 text-sm text-slate-700">Spitzname: {encounter.nickname}</p> : null}
-                    <p className="mt-1 text-sm text-slate-600">Ort: {locationNameById[encounter.locationId] ?? 'Unbekannter Ort'}</p>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      <Badge>{ENCOUNTER_TYPE_LABELS[encounter.encounterType]}</Badge>
-                      <Badge>Gefangen</Badge>
-                      {encounter.isDead ? <Badge tone="danger">Verstorben</Badge> : null}
+            filteredCaught.map((encounter) => {
+              const display = resolveEncounterDisplay(encounter)
+              return (
+                <article key={encounter.id} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <PokemonLabel
+                        pokemonId={display.pokemonId}
+                        nameDe={display.nameDe}
+                        slug={display.slug}
+                        isDead={encounter.isDead}
+                        size="lg"
+                      />
+                      {encounter.nickname ? <p className="mt-1 text-sm text-slate-700">Spitzname: {encounter.nickname}</p> : null}
+                      <p className="mt-1 text-sm text-slate-600">Ort: {locationNameById[encounter.locationId] ?? 'Unbekannter Ort'}</p>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        <Badge>{ENCOUNTER_TYPE_LABELS[encounter.encounterType]}</Badge>
+                        <Badge>Gefangen</Badge>
+                        {encounter.isDead ? <Badge tone="danger">Verstorben</Badge> : null}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setEditingEncounter(encounter)
+                          setEncounterModalOpen(true)
+                        }}
+                        className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                      >
+                        Bearbeiten
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleToggleDead(encounter)}
+                        className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                      >
+                        {encounter.isDead ? 'Wiederbeleben' : 'Als verstorben markieren'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setDeleteTarget(encounter)}
+                        className="rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-rose-500"
+                      >
+                        Löschen
+                      </button>
                     </div>
                   </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setEditingEncounter(encounter)
-                        setEncounterModalOpen(true)
-                      }}
-                      className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-                    >
-                      Bearbeiten
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleToggleDead(encounter)}
-                      className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-                    >
-                      {encounter.isDead ? 'Wiederbeleben' : 'Als verstorben markieren'}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setDeleteTarget(encounter)}
-                      className="rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-rose-500"
-                    >
-                      Löschen
-                    </button>
-                  </div>
-                </div>
-              </article>
-            ))
+                </article>
+              )
+            })
           )}
         </section>
       ) : null}
@@ -223,17 +243,22 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
                   key={encounter.id}
                   className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-slate-200 px-3 py-3"
                 >
-                  <div>
-                    <PokemonLabel
-                      pokemonId={encounter.pokemonId}
-                      nameDe={encounter.nameDe}
-                      slug={encounter.slug}
-                      isDead
-                      size="lg"
-                    />
-                    {encounter.nickname ? <p className="text-sm text-slate-700">Spitzname: {encounter.nickname}</p> : null}
-                    <p className="text-sm text-slate-600">Ort: {locationNameById[encounter.locationId] ?? 'Unbekannter Ort'}</p>
-                  </div>
+                  {(() => {
+                    const display = resolveEncounterDisplay(encounter)
+                    return (
+                      <div>
+                        <PokemonLabel
+                          pokemonId={display.pokemonId}
+                          nameDe={display.nameDe}
+                          slug={display.slug}
+                          isDead
+                          size="lg"
+                        />
+                        {encounter.nickname ? <p className="text-sm text-slate-700">Spitzname: {encounter.nickname}</p> : null}
+                        <p className="text-sm text-slate-600">Ort: {locationNameById[encounter.locationId] ?? 'Unbekannter Ort'}</p>
+                      </div>
+                    )
+                  })()}
 
                   <button
                     type="button"
