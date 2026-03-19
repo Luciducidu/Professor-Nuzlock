@@ -15,7 +15,7 @@ export default defineConfig({
         name: 'Professor Nuzlock',
         short_name: 'Nuzlock',
         description: 'Nuzlocke-Tracker für Pokémon',
-        start_url: '/',
+        start_url: ''/Professor-Nuzlock/'',
         display: 'standalone',
         background_color: '#f1f5f9',
         theme_color: '#0f172a',
