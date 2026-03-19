@@ -36,7 +36,7 @@ export function PokemonLabel({
         <span className={`${spriteSizeClass} shrink-0 rounded bg-slate-100`} aria-hidden="true" />
       ) : (
         <img
-          src={`/sprites/${pokemonId}.png`}
+          src={`${import.meta.env.BASE_URL}sprites/${pokemonId}.png`}
           alt={nameDe}
           className={`${spriteSizeClass} shrink-0`}
           loading="lazy"
