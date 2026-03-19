@@ -1,0 +1,626 @@
+{
+  "version": 1,
+  "exportedAt": 1772614279006,
+  "project": {
+    "id": "a48039ae-997c-491f-b51c-90fa0cf10675",
+    "name": "Platin Nuzlock",
+    "game": "platinum",
+    "createdAt": 1772475675585,
+    "settings": {
+      "dupesMode": "evolution",
+      "shinyClauseEnabled": true,
+      "staticClauseEnabled": true,
+      "shinyBypassesDupes": true,
+      "staticBypassesDupes": true,
+      "levelCapsEnabled": true,
+      "levelCapsProgressKey": "gym2"
+    }
+  },
+  "locations": [
+    {
+      "id": "0229dc18-f7e7-4e58-875a-782fc3269f55",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 229",
+      "type": "route",
+      "order": 229,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "0d8b718a-950d-4d47-b809-0188d1cd631e",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Sonnewik",
+      "type": "city",
+      "order": 100,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "1075763f-8174-4e93-ad4d-aad647f4d3e4",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 218",
+      "type": "route",
+      "order": 218,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "14ff2361-0d15-42b7-bf21-c672ba9462e8",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 216",
+      "type": "route",
+      "order": 216,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "1524b414-cd0a-4fbf-bb2a-77d17f11cab9",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Erzelingen Miene",
+      "type": "other",
+      "order": 233,
+      "createdAt": 1772478631951,
+      "notes": ""
+    },
+    {
+      "id": "1584c220-69c3-48ae-84ec-542d77c8b527",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 221",
+      "type": "route",
+      "order": 221,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "1ad0f7a5-69dc-4ce3-ba45-252c1a45c390",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Fleetburg",
+      "type": "city",
+      "order": 70,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "1e48e5cd-930c-4deb-81db-48910e70851f",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 225",
+      "type": "route",
+      "order": 225,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "1f9fa499-f2f2-4231-b6e2-405b1b9757af",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 226",
+      "type": "route",
+      "order": 226,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "20c8a2e2-e96d-4952-8cbb-bcc3ba87716e",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 222",
+      "type": "route",
+      "order": 222,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "2b4e6260-e5b3-4329-b73f-a1b3433a4d15",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 211",
+      "type": "route",
+      "order": 211,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "2d13e68f-5747-436e-a0eb-97f58312878e",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Ewigenau",
+      "type": "city",
+      "order": 40,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "3b41510e-cb8a-4b32-b866-29a56dd9de0b",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 224",
+      "type": "route",
+      "order": 224,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "3c3d5372-6752-459a-ac1f-79e39a76fb37",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Erzelingen",
+      "type": "city",
+      "order": 80,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "465f6f53-1311-47b3-9d19-a91446f8b407",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Blizzach",
+      "type": "city",
+      "order": 90,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "48582161-d234-4e0d-868e-b978f62276c6",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 201",
+      "type": "route",
+      "order": 201,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "48f08892-0efe-457b-a0d6-da0b580cd6e5",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Schleiede",
+      "type": "city",
+      "order": 60,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "51949561-cd75-4a68-a5ef-e0515faf028b",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 228",
+      "type": "route",
+      "order": 228,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "521cbfa1-1fd8-437d-a692-3bc2c5f40971",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Starter",
+      "type": "other",
+      "order": 0,
+      "createdAt": 1772475675592,
+      "notes": ""
+    },
+    {
+      "id": "52d4a3d6-dd1e-4a7f-a484-e6d8d49c7232",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 210",
+      "type": "route",
+      "order": 210,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "546dcd46-096b-4603-8a5a-93347b65e55d",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Sandgemme",
+      "type": "city",
+      "order": 20,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "5ec918c0-79d6-48ad-9608-124bfb784309",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 206",
+      "type": "route",
+      "order": 206,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "63dfa55c-b620-4f36-b573-5e3a386f5127",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 213",
+      "type": "route",
+      "order": 213,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "65545f6c-4d5e-4f1e-890d-8121616982da",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 219",
+      "type": "route",
+      "order": 219,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "75925974-a48e-4c15-9bbd-85ac2fce1698",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 212",
+      "type": "route",
+      "order": 212,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "82cd3937-5f1f-4754-8e87-60b001cc231d",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 202",
+      "type": "route",
+      "order": 202,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "841e2824-7b72-4924-ad0a-153c0bff628e",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 230",
+      "type": "route",
+      "order": 230,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "8685539c-22a8-4bbd-9e8e-31268581d64b",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 215",
+      "type": "route",
+      "order": 215,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "8f64f509-ada3-40af-baa3-214db4bb5e4a",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "See der Wahrheit",
+      "type": "other",
+      "order": 231,
+      "createdAt": 1772475783675,
+      "notes": ""
+    },
+    {
+      "id": "90d25a18-2752-4ca1-bd24-ed30ecc9c5f7",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 203",
+      "type": "route",
+      "order": 203,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "987c6e72-5ea5-40b7-bcc9-fc859594264b",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 208",
+      "type": "route",
+      "order": 208,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "a9fcfc32-6542-4dc7-b722-bd099d944050",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Pokémon-Liga",
+      "type": "city",
+      "order": 120,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "acbf1a37-00ac-4101-a613-cf791471464c",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 204",
+      "type": "route",
+      "order": 204,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "b248e5b9-3fc5-4b03-b325-10dacd76eb92",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 209",
+      "type": "route",
+      "order": 209,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "b5c2e0b7-2f1f-483f-86c8-b81a37fb5e11",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 220",
+      "type": "route",
+      "order": 220,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "bbcdf865-a4eb-4ea6-b788-5a1ed8bfb1d5",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Herzhofen",
+      "type": "city",
+      "order": 50,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "c029b746-dc54-42c7-9046-60810eeca9ab",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Erzelingen Tor",
+      "type": "other",
+      "order": 232,
+      "createdAt": 1772477923166,
+      "notes": ""
+    },
+    {
+      "id": "c0302abb-0fb0-47d4-912d-3fa5d13b84b2",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Jubelstadt",
+      "type": "city",
+      "order": 30,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "ceae715b-aa8c-4f1e-b1ff-14048d53ddf0",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 214",
+      "type": "route",
+      "order": 214,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "cf29880f-8223-4052-a1d7-03ca2efbb059",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Zweiblattdorf",
+      "type": "city",
+      "order": 10,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "d023ae3f-1b69-4428-89ed-232bd002a20f",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 227",
+      "type": "route",
+      "order": 227,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "d0d6be60-df49-4be0-ac65-67493c85f725",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Weideburg",
+      "type": "city",
+      "order": 110,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "ddd76568-a477-410f-b0ac-0e24d9f62a5b",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 207",
+      "type": "route",
+      "order": 207,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "df8f18eb-f6aa-4fc4-baee-536dd2923c7d",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 223",
+      "type": "route",
+      "order": 223,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "e0c19b19-aac6-48a0-bba2-b1aab9894379",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Verwüsteter Pfad",
+      "type": "route",
+      "order": 234,
+      "createdAt": 1772483949845,
+      "notes": ""
+    },
+    {
+      "id": "e631ed1e-58de-4ea3-a373-1f398a2962f7",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 205",
+      "type": "route",
+      "order": 205,
+      "createdAt": 1772475715172,
+      "notes": ""
+    },
+    {
+      "id": "ef75c928-64ba-4d40-941d-55832bde3c21",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "name": "Route 217",
+      "type": "route",
+      "order": 217,
+      "createdAt": 1772475715172,
+      "notes": ""
+    }
+  ],
+  "encounters": [
+    {
+      "id": "06b53f2b-be21-4d7a-9f25-0bd78e30abb0",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "90d25a18-2752-4ca1-bd24-ed30ecc9c5f7",
+      "createdAt": 1772477709944,
+      "pokemonId": 293,
+      "slug": "whismur",
+      "nameDe": "Flurmel",
+      "evolution_chain_id": 145,
+      "nickname": "Puppengesicht",
+      "encounterType": "normal",
+      "outcome": "caught",
+      "isDead": false,
+      "notes": ""
+    },
+    {
+      "id": "3c126139-f674-478a-8566-5a17ce567626",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "48582161-d234-4e0d-868e-b978f62276c6",
+      "createdAt": 1772475751763,
+      "pokemonId": 2,
+      "slug": "ivysaur",
+      "nameDe": "Bisaknosp",
+      "evolution_chain_id": 1,
+      "nickname": "OMTrick",
+      "encounterType": "normal",
+      "outcome": "caught",
+      "isDead": false,
+      "notes": ""
+    },
+    {
+      "id": "50e9cf27-047b-42fc-a8db-66bdd958d706",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "1524b414-cd0a-4fbf-bb2a-77d17f11cab9",
+      "createdAt": 1772478932669,
+      "pokemonId": 468,
+      "slug": "togekiss",
+      "nameDe": "Togekiss",
+      "evolution_chain_id": 87,
+      "nickname": "Lufticht",
+      "encounterType": "normal",
+      "outcome": "caught",
+      "isDead": false,
+      "notes": ""
+    },
+    {
+      "id": "5a21158f-772c-4f3d-bdb5-ed0b159e0957",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "82cd3937-5f1f-4754-8e87-60b001cc231d",
+      "createdAt": 1772475771124,
+      "pokemonId": 149,
+      "slug": "dragonite",
+      "nameDe": "Dragoran",
+      "evolution_chain_id": 76,
+      "nickname": "",
+      "encounterType": "normal",
+      "outcome": "not_caught",
+      "isDead": false,
+      "notes": ""
+    },
+    {
+      "id": "6e8e789e-05ce-4977-bc83-7db25f6af49e",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "e0c19b19-aac6-48a0-bba2-b1aab9894379",
+      "createdAt": 1772483964998,
+      "pokemonId": 349,
+      "slug": "feebas",
+      "nameDe": "Barschwa",
+      "evolution_chain_id": 178,
+      "nickname": "",
+      "encounterType": "normal",
+      "outcome": "not_caught",
+      "isDead": false,
+      "notes": ""
+    },
+    {
+      "id": "8650b1e4-a9b6-41c3-9bfd-1e2fbf15c9e3",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "8f64f509-ada3-40af-baa3-214db4bb5e4a",
+      "createdAt": 1772475798804,
+      "pokemonId": 359,
+      "slug": "absol",
+      "nameDe": "Absol",
+      "evolution_chain_id": 185,
+      "nickname": "",
+      "encounterType": "normal",
+      "outcome": "not_caught",
+      "isDead": false,
+      "notes": ""
+    },
+    {
+      "id": "97ed4cc7-1597-4ddb-be26-cead647031a4",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "ddd76568-a477-410f-b0ac-0e24d9f62a5b",
+      "createdAt": 1772485862833,
+      "pokemonId": 448,
+      "slug": "lucario",
+      "nameDe": "Lucario",
+      "evolution_chain_id": 232,
+      "nickname": "Reese",
+      "encounterType": "normal",
+      "outcome": "caught",
+      "isDead": false,
+      "notes": ""
+    },
+    {
+      "id": "a6b437c7-1b6d-4b11-8b0d-a979c3628080",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "65545f6c-4d5e-4f1e-890d-8121616982da",
+      "createdAt": 1772482510572,
+      "pokemonId": 286,
+      "slug": "breloom",
+      "nameDe": "Kapilz",
+      "evolution_chain_id": 142,
+      "nickname": "Toad",
+      "encounterType": "normal",
+      "outcome": "caught",
+      "isDead": false,
+      "notes": ""
+    },
+    {
+      "id": "abc6e08b-285c-4aee-bd0b-5fca6d26a92e",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "acbf1a37-00ac-4101-a613-cf791471464c",
+      "createdAt": 1772481305000,
+      "pokemonId": 37,
+      "slug": "vulpix",
+      "nameDe": "Vulpix",
+      "evolution_chain_id": 15,
+      "nickname": "Oxida",
+      "encounterType": "normal",
+      "outcome": "caught",
+      "isDead": true,
+      "notes": ""
+    },
+    {
+      "id": "d00577ca-064b-407a-a3ea-2322b5c06fd8",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "cf29880f-8223-4052-a1d7-03ca2efbb059",
+      "createdAt": 1772481848955,
+      "pokemonId": 440,
+      "slug": "happiny",
+      "nameDe": "Wonneira",
+      "evolution_chain_id": 51,
+      "nickname": "Rotbäck",
+      "encounterType": "normal",
+      "outcome": "caught",
+      "isDead": false,
+      "notes": ""
+    },
+    {
+      "id": "e07d3754-86ef-4d69-9ac0-adb588d320e6",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "521cbfa1-1fd8-437d-a692-3bc2c5f40971",
+      "createdAt": 1772475701045,
+      "pokemonId": 107,
+      "slug": "hitmonchan",
+      "nameDe": "Nockchan",
+      "evolution_chain_id": 47,
+      "nickname": "Heftbefehl",
+      "encounterType": "static",
+      "outcome": "caught",
+      "isDead": false,
+      "notes": ""
+    },
+    {
+      "id": "f9e303b3-68cd-4fe8-a4c1-b3d8222b23c2",
+      "projectId": "a48039ae-997c-491f-b51c-90fa0cf10675",
+      "locationId": "c029b746-dc54-42c7-9046-60810eeca9ab",
+      "createdAt": 1772480123898,
+      "pokemonId": 443,
+      "slug": "gible",
+      "nameDe": "Kaumalat",
+      "evolution_chain_id": 230,
+      "nickname": "",
+      "encounterType": "normal",
+      "outcome": "caught",
+      "isDead": false,
+      "notes": ""
+    }
+  ]
+}
