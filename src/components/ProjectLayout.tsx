@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { db, ensureDatabaseReady, resetDatabase } from '../lib/db'
-import { normalizeProjectSettings } from '../lib/projectSettings'
+import { normalizeProject } from '../lib/projectSettings'
 import type { Project } from '../lib/types'
 import { AppShell } from './AppShell'
 import { ProjectNav } from './ProjectNav'
@@ -32,14 +32,7 @@ export function ProjectLayout({ children, actions, showBackupNav = true }: Proje
         const loadedProject = await db.projects.get(projectId)
         if (!active) return
 
-        setProject(
-          loadedProject
-            ? {
-                ...loadedProject,
-                settings: normalizeProjectSettings(loadedProject.settings),
-              }
-            : null,
-        )
+        setProject(loadedProject ? normalizeProject(loadedProject) : null)
         setError('')
         setDbResetNotice(
           ready.resetPerformed

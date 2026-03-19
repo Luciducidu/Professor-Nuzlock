@@ -1,9 +1,19 @@
 export type ProjectGame = 'platinum'
 
 export type DupesMode = 'none' | 'species' | 'evolution'
+export type ChallengeType = 'nuzlocke' | 'soullink'
+export type SoulLinkPartnerDupesMode = 'none' | 'species' | 'evolution'
+
+export type SoulLinkPlayer = {
+  id: 'p1' | 'p2'
+  name: string
+}
+
+export type PlayerId = SoulLinkPlayer['id']
 
 export type ProjectSettings = {
   dupesMode: DupesMode
+  soulLinkPartnerDupesMode: SoulLinkPartnerDupesMode
   shinyClauseEnabled: boolean
   staticClauseEnabled: boolean
   shinyBypassesDupes: boolean
@@ -18,6 +28,8 @@ export type Project = {
   game: ProjectGame
   createdAt: number
   settings: ProjectSettings
+  challengeType?: ChallengeType
+  players?: SoulLinkPlayer[]
   selectedEvolutionByPokemonId?: Record<number, number>
 }
 
@@ -42,6 +54,9 @@ export type Encounter = {
   projectId: string
   locationId: string
   createdAt: number
+  playerId?: PlayerId
+  linkedEncounterId?: string | null
+  linkGroupId?: string | null
   pokemonId: number
   slug: string
   nameDe: string
@@ -64,6 +79,9 @@ export type TeamSlotNumber = 1 | 2 | 3 | 4 | 5 | 6
 
 export type TeamSlot = {
   slot: TeamSlotNumber
+  playerId?: PlayerId
+  sourceEncounterId?: string
+  linkedEncounterId?: string | null
   pokemonId: number
   slug: string
   nameDe: string

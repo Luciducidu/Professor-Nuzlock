@@ -4,8 +4,10 @@ import { PokemonLabel } from '../components/PokemonLabel'
 import { PokemonSearch } from '../components/PokemonSearch'
 import { ProjectLayout } from '../components/ProjectLayout'
 import { db } from '../lib/db'
+import { isSoulLinkProject } from '../lib/projectSettings'
 import { resolveEvolutionOptionById } from '../lib/evolution'
 import { checkDupesClauseForPokemon } from '../lib/rules'
+import { updateEncounterDeathState } from '../lib/soullink'
 import type { Encounter, EncounterType, PokemonIndexEntry, Project } from '../lib/types'
 
 type TabKey = 'caught' | 'deathbox' | 'check'
@@ -130,7 +132,11 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
   }, [project, selectedPokemon, encounters])
 
   const handleToggleDead = async (encounter: Encounter) => {
-    await db.encounters.update(encounter.id, { isDead: !encounter.isDead })
+    if (isSoulLinkProject(project)) {
+      await updateEncounterDeathState(project, encounter.id, !encounter.isDead)
+    } else {
+      await db.encounters.update(encounter.id, { isDead: !encounter.isDead })
+    }
     await refreshData()
   }
 
@@ -193,6 +199,7 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
                         <Badge>{ENCOUNTER_TYPE_LABELS[encounter.encounterType]}</Badge>
                         <Badge>Gefangen</Badge>
                         {encounter.isDead ? <Badge tone="danger">Verstorben</Badge> : null}
+                        {isSoulLinkProject(project) && encounter.linkedEncounterId ? <Badge>Mit Partner verknüpft</Badge> : null}
                       </div>
                     </div>
 
@@ -254,6 +261,9 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
                           isDead
                           size="lg"
                         />
+                        {isSoulLinkProject(project) && encounter.linkedEncounterId ? (
+                          <p className="mt-1 text-xs text-slate-500">Mit Partner verknüpft</p>
+                        ) : null}
                         {encounter.nickname ? <p className="text-sm text-slate-700">Spitzname: {encounter.nickname}</p> : null}
                         <p className="text-sm text-slate-600">Ort: {locationNameById[encounter.locationId] ?? 'Unbekannter Ort'}</p>
                       </div>

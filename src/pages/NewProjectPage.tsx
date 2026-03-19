@@ -5,17 +5,26 @@ import { ProjectSettingsForm } from '../components/ProjectSettingsForm'
 import { db, ensureDatabaseReady } from '../lib/db'
 import { ensureStarterLocation } from '../lib/locations'
 import { DEFAULT_PROJECT_SETTINGS, GAME_OPTIONS } from '../lib/projectSettings'
-import type { ProjectGame, ProjectSettings } from '../lib/types'
+import type { ChallengeType, ProjectGame, ProjectSettings, SoulLinkPlayer } from '../lib/types'
 
 export function NewProjectPage() {
   const navigate = useNavigate()
 
   const [name, setName] = useState('')
   const [game, setGame] = useState<ProjectGame>('platinum')
+  const [challengeType, setChallengeType] = useState<ChallengeType>('nuzlocke')
+  const [players, setPlayers] = useState<[SoulLinkPlayer, SoulLinkPlayer]>([
+    { id: 'p1', name: '' },
+    { id: 'p2', name: '' },
+  ])
   const [settings, setSettings] = useState<ProjectSettings>(DEFAULT_PROJECT_SETTINGS)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
-  const canSubmit = useMemo(() => name.trim().length > 0 && !saving, [name, saving])
+  const soulLinkPlayersValid = useMemo(() => players.every((player) => player.name.trim().length > 0), [players])
+  const canSubmit = useMemo(
+    () => name.trim().length > 0 && !saving && (challengeType === 'nuzlocke' || soulLinkPlayersValid),
+    [challengeType, name, saving, soulLinkPlayersValid],
+  )
 
   const handleCreateProject = async () => {
     if (!canSubmit) return
@@ -30,6 +39,9 @@ export function NewProjectPage() {
       if (!trimmedName) {
         throw new Error('Projektname fehlt')
       }
+      if (challengeType === 'soullink' && !soulLinkPlayersValid) {
+        throw new Error('Bitte beide Spielernamen für die Soullink Challenge eintragen.')
+      }
 
       const id = crypto.randomUUID()
 
@@ -39,6 +51,8 @@ export function NewProjectPage() {
         game,
         createdAt: Date.now(),
         settings,
+        challengeType,
+        players: challengeType === 'soullink' ? players.map((player) => ({ ...player, name: player.name.trim() })) : undefined,
         selectedEvolutionByPokemonId: {},
       })
 
@@ -101,12 +115,17 @@ export function NewProjectPage() {
             ))}
           </select>
         </div>
+
       </div>
 
       <div className="mt-4">
         <ProjectSettingsForm
           value={settings}
           onChange={setSettings}
+          challengeType={challengeType}
+          onChallengeTypeChange={setChallengeType}
+          players={players}
+          onPlayersChange={setPlayers}
           onSubmit={handleCreateProject}
           submitLabel={saving ? 'Speichert...' : 'Speichern'}
           disabled={saving}

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
 import { importProjectBackup } from '../lib/backup'
 import { db, ensureDatabaseReady, resetDatabase } from '../lib/db'
-import { formatGameName } from '../lib/projectSettings'
+import { formatGameName, normalizeProject } from '../lib/projectSettings'
 import type { Project } from '../lib/types'
 
 export function ProjectListPage() {
@@ -26,7 +26,7 @@ export function ProjectListPage() {
         const list = await db.projects.orderBy('createdAt').reverse().toArray()
         if (!active) return
 
-        setProjects(list)
+        setProjects(list.map(normalizeProject))
         setError('')
         setDbResetNotice(
           ready.resetPerformed

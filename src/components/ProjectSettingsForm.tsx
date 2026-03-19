@@ -1,9 +1,19 @@
-﻿import { DUPES_MODE_OPTIONS, LEVEL_CAP_OPTIONS } from '../lib/projectSettings'
-import type { ProjectSettings } from '../lib/types'
+import type { ReactNode } from 'react'
+import {
+  CHALLENGE_TYPE_OPTIONS,
+  DUPES_MODE_OPTIONS,
+  LEVEL_CAP_OPTIONS,
+  SOULLINK_PARTNER_DUPES_OPTIONS,
+} from '../lib/projectSettings'
+import type { ChallengeType, ProjectSettings, SoulLinkPlayer } from '../lib/types'
 
 type ProjectSettingsFormProps = {
   value: ProjectSettings
   onChange: (next: ProjectSettings) => void
+  challengeType?: ChallengeType
+  onChallengeTypeChange?: (next: ChallengeType) => void
+  players?: [SoulLinkPlayer, SoulLinkPlayer]
+  onPlayersChange?: (next: [SoulLinkPlayer, SoulLinkPlayer]) => void
   onSubmit: () => void
   submitLabel: string
   disabled?: boolean
@@ -13,6 +23,10 @@ type ProjectSettingsFormProps = {
 export function ProjectSettingsForm({
   value,
   onChange,
+  challengeType,
+  onChallengeTypeChange,
+  players,
+  onPlayersChange,
   onSubmit,
   submitLabel,
   disabled = false,
@@ -22,87 +36,176 @@ export function ProjectSettingsForm({
     onChange({ ...value, [key]: nextValue })
   }
 
+  const isSoullink = challengeType === 'soullink'
+
   return (
     <div className="space-y-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div>
-        <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="dupes-mode">
-          Duplikate (Dupes Clause)
-        </label>
-        <p className="mb-2 text-xs text-slate-500">Legt fest, ob du Pokémon erneut fangen darfst.</p>
-        <select
-          id="dupes-mode"
-          value={value.dupesMode}
-          onChange={(event) => setField('dupesMode', event.target.value as ProjectSettings['dupesMode'])}
-          className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 focus:ring-2"
-          disabled={disabled}
-        >
-          {DUPES_MODE_OPTIONS.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <ToggleRow
-        label="Shiny-Regel aktiviert"
-        checked={value.shinyClauseEnabled}
-        disabled={disabled}
-        onChange={(checked) => setField('shinyClauseEnabled', checked)}
-      />
-
-      {value.shinyClauseEnabled ? (
-        <ToggleRow
-          label="Shiny umgeht Dupes"
-          checked={value.shinyBypassesDupes}
-          disabled={disabled}
-          onChange={(checked) => setField('shinyBypassesDupes', checked)}
-        />
+      {challengeType && onChallengeTypeChange ? (
+        <Section title="Challenge">
+          <div className="grid gap-3 sm:grid-cols-2">
+            {CHALLENGE_TYPE_OPTIONS.map((option) => (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => onChallengeTypeChange(option.value)}
+                disabled={disabled}
+                className={`rounded-xl border px-4 py-4 text-left transition ${
+                  challengeType === option.value
+                    ? 'border-slate-900 bg-slate-900 text-white'
+                    : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
+                }`}
+              >
+                <p className="text-sm font-semibold">{option.label}</p>
+              </button>
+            ))}
+          </div>
+        </Section>
       ) : null}
 
-      <ToggleRow
-        label="Static-Regel aktiviert"
-        checked={value.staticClauseEnabled}
-        disabled={disabled}
-        onChange={(checked) => setField('staticClauseEnabled', checked)}
-      />
-
-      {value.staticClauseEnabled ? (
-        <ToggleRow
-          label="Static umgeht Dupes"
-          checked={value.staticBypassesDupes}
-          disabled={disabled}
-          onChange={(checked) => setField('staticBypassesDupes', checked)}
-        />
+      {isSoullink && players && onPlayersChange ? (
+        <Section title="Spieler">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label htmlFor="soullink-player-1" className="mb-2 block text-sm font-medium text-slate-700">
+                Spieler 1
+              </label>
+              <input
+                id="soullink-player-1"
+                value={players[0].name}
+                onChange={(event) => onPlayersChange([{ ...players[0], name: event.target.value }, players[1]])}
+                placeholder="Spieler 1"
+                disabled={disabled}
+                className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 transition focus:ring-2 disabled:bg-slate-100"
+              />
+            </div>
+            <div>
+              <label htmlFor="soullink-player-2" className="mb-2 block text-sm font-medium text-slate-700">
+                Spieler 2
+              </label>
+              <input
+                id="soullink-player-2"
+                value={players[1].name}
+                onChange={(event) => onPlayersChange([players[0], { ...players[1], name: event.target.value }])}
+                placeholder="Spieler 2"
+                disabled={disabled}
+                className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 transition focus:ring-2 disabled:bg-slate-100"
+              />
+            </div>
+          </div>
+        </Section>
       ) : null}
 
-      <ToggleRow
-        label="Levelbegrenzung (Level Cap) aktiv"
-        checked={value.levelCapsEnabled}
-        disabled={disabled}
-        onChange={(checked) => setField('levelCapsEnabled', checked)}
-      />
-
-      {value.levelCapsEnabled ? (
+      <Section title={isSoullink ? 'Soullink-Regeln' : 'Regeln'}>
         <div>
-          <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="level-cap-progress">
-            Nächster Boss
+          <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="dupes-mode">
+            Dupes-Regel
           </label>
           <select
-            id="level-cap-progress"
-            value={value.levelCapsProgressKey}
-            onChange={(event) => setField('levelCapsProgressKey', event.target.value)}
+            id="dupes-mode"
+            value={value.dupesMode}
+            onChange={(event) => setField('dupesMode', event.target.value as ProjectSettings['dupesMode'])}
             className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 focus:ring-2"
             disabled={disabled}
           >
-            {LEVEL_CAP_OPTIONS.map((option) => (
+            {DUPES_MODE_OPTIONS.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
             ))}
           </select>
         </div>
-      ) : null}
+
+        {isSoullink ? (
+          <div>
+            <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="soullink-partner-dupes-mode">
+              Soullink-Paare sperren fur beide Spieler
+            </label>
+            <p className="mb-2 text-xs text-slate-500">
+              Wenn ein Soullink-Paar gefangen wurde, konnen diese Arten oder Reihen fur beide Spieler gesperrt werden.
+            </p>
+            <select
+              id="soullink-partner-dupes-mode"
+              value={value.soulLinkPartnerDupesMode}
+              onChange={(event) =>
+                setField(
+                  'soulLinkPartnerDupesMode',
+                  event.target.value as ProjectSettings['soulLinkPartnerDupesMode'],
+                )
+              }
+              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 focus:ring-2"
+              disabled={disabled}
+            >
+              {SOULLINK_PARTNER_DUPES_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        ) : null}
+
+        <ToggleRow
+          label="Shiny-Regel"
+          checked={value.shinyClauseEnabled}
+          disabled={disabled}
+          onChange={(checked) => setField('shinyClauseEnabled', checked)}
+        />
+
+        {value.shinyClauseEnabled ? (
+          <ToggleRow
+            label="Shiny umgeht Dupes"
+            checked={value.shinyBypassesDupes}
+            disabled={disabled}
+            onChange={(checked) => setField('shinyBypassesDupes', checked)}
+          />
+        ) : null}
+
+        <ToggleRow
+          label="Static-Regel"
+          checked={value.staticClauseEnabled}
+          disabled={disabled}
+          onChange={(checked) => setField('staticClauseEnabled', checked)}
+        />
+
+        {value.staticClauseEnabled ? (
+          <ToggleRow
+            label="Static umgeht Dupes"
+            checked={value.staticBypassesDupes}
+            disabled={disabled}
+            onChange={(checked) => setField('staticBypassesDupes', checked)}
+          />
+        ) : null}
+      </Section>
+
+      <Section title="Levelbegrenzung">
+        <ToggleRow
+          label="Levelbegrenzung aktiv"
+          checked={value.levelCapsEnabled}
+          disabled={disabled}
+          onChange={(checked) => setField('levelCapsEnabled', checked)}
+        />
+
+        {value.levelCapsEnabled ? (
+          <div>
+            <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="level-cap-progress">
+              Nachster Boss
+            </label>
+            <select
+              id="level-cap-progress"
+              value={value.levelCapsProgressKey}
+              onChange={(event) => setField('levelCapsProgressKey', event.target.value)}
+              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 focus:ring-2"
+              disabled={disabled}
+            >
+              {LEVEL_CAP_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        ) : null}
+      </Section>
 
       <div className="pt-1">
         <button
@@ -118,6 +221,15 @@ export function ProjectSettingsForm({
   )
 }
 
+function Section({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <section className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+      <h2 className="text-base font-semibold text-slate-900">{title}</h2>
+      <div className="mt-4 space-y-4">{children}</div>
+    </section>
+  )
+}
+
 type ToggleRowProps = {
   label: string
   checked: boolean
@@ -127,7 +239,7 @@ type ToggleRowProps = {
 
 function ToggleRow({ label, checked, disabled, onChange }: ToggleRowProps) {
   return (
-    <label className="flex items-center justify-between gap-4 rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700">
+    <label className="flex items-center justify-between gap-4 rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700">
       <span>{label}</span>
       <input
         type="checkbox"

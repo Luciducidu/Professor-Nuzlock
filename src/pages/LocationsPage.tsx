@@ -6,7 +6,9 @@ import { ProjectLayout } from '../components/ProjectLayout'
 import { PLATINUM_LOCATIONS_DE } from '../data/platinumLocations.de'
 import { db } from '../lib/db'
 import { ensureStarterLocation } from '../lib/locations'
-import type { Encounter, Location, LocationType } from '../lib/types'
+import { isSoulLinkProject } from '../lib/projectSettings'
+import { getPlayerName, getPrimarySoullinkPair, getSoullinkExtras, isSoullinkEncounterDead } from '../lib/soullink'
+import type { Encounter, Location, LocationType, Project } from '../lib/types'
 
 const TYPE_LABELS: Record<LocationType, string> = {
   route: 'Route',
@@ -16,22 +18,15 @@ const TYPE_LABELS: Record<LocationType, string> = {
 
 type LocationFilter = 'all' | 'without' | 'with' | 'routes' | 'cities'
 
-type LocationSummary = {
-  primary: Encounter | null
-  extras: number
-}
-
 export function LocationsPage() {
   return (
     <ProjectLayout>
-      {({ project, projectId }) => (
-        <LocationsContent projectId={projectId} projectName={project.name} />
-      )}
+      {({ project, projectId }) => <LocationsContent project={project} projectId={projectId} projectName={project.name} />}
     </ProjectLayout>
   )
 }
 
-function LocationsContent({ projectId, projectName }: { projectId: string; projectName: string }) {
+function LocationsContent({ project, projectId, projectName }: { project: Project; projectId: string; projectName: string }) {
   const [locations, setLocations] = useState<Location[]>([])
   const [encounters, setEncounters] = useState<Encounter[]>([])
   const [query, setQuery] = useState('')
@@ -77,7 +72,7 @@ function LocationsContent({ projectId, projectName }: { projectId: string; proje
     }
   }, [projectId, reloadToken])
 
-  const summariesByLocation = useMemo(() => {
+  const encountersByLocation = useMemo(() => {
     const grouped = new Map<string, Encounter[]>()
 
     for (const encounter of encounters) {
@@ -89,16 +84,11 @@ function LocationsContent({ projectId, projectName }: { projectId: string; proje
       }
     }
 
-    const summary = new Map<string, LocationSummary>()
-    for (const [locationId, list] of grouped.entries()) {
+    for (const list of grouped.values()) {
       list.sort((a, b) => a.createdAt - b.createdAt)
-      summary.set(locationId, {
-        primary: list[0] ?? null,
-        extras: Math.max(0, list.length - 1),
-      })
     }
 
-    return summary
+    return grouped
   }, [encounters])
 
   const filteredLocations = useMemo(() => {
@@ -109,7 +99,7 @@ function LocationsContent({ projectId, projectName }: { projectId: string; proje
         normalizedQuery.length === 0 || location.name.toLowerCase().includes(normalizedQuery)
       if (!matchesSearch) return false
 
-      const hasEncounter = Boolean(summariesByLocation.get(location.id)?.primary)
+      const hasEncounter = (encountersByLocation.get(location.id) ?? []).length > 0
 
       if (filter === 'without') return !hasEncounter
       if (filter === 'with') return hasEncounter
@@ -118,7 +108,7 @@ function LocationsContent({ projectId, projectName }: { projectId: string; proje
 
       return true
     })
-  }, [locations, query, filter, summariesByLocation])
+  }, [encountersByLocation, filter, locations, query])
 
   const handleImportClick = async () => {
     const count = await db.locations.where('projectId').equals(projectId).count()
@@ -184,9 +174,11 @@ function LocationsContent({ projectId, projectName }: { projectId: string; proje
           <InfoCard text="Keine Orte für die aktuelle Filterung gefunden." />
         ) : (
           filteredLocations.map((location) => {
-            const summary = summariesByLocation.get(location.id)
-            const primary = summary?.primary ?? null
-            const extras = summary?.extras ?? 0
+            const locationEncounters = encountersByLocation.get(location.id) ?? []
+            const primary = locationEncounters[0] ?? null
+            const extras = Math.max(0, locationEncounters.length - 1)
+            const soulLinkPair = getPrimarySoullinkPair(locationEncounters)
+            const soulLinkExtras = getSoullinkExtras(locationEncounters)
             const isFailedOrDead =
               primary?.outcome === 'not_caught' || (primary?.outcome === 'caught' && Boolean(primary.isDead))
 
@@ -205,7 +197,15 @@ function LocationsContent({ projectId, projectName }: { projectId: string; proje
                   </div>
 
                   <div className="min-w-[280px] text-sm text-slate-700">
-                    {primary ? (
+                    {isSoulLinkProject(project) ? (
+                      <div className="grid gap-3 lg:grid-cols-2">
+                        <PlayerLocationSummary title={getPlayerName(project, 'p1')} encounter={soulLinkPair.p1} />
+                        <PlayerLocationSummary title={getPlayerName(project, 'p2')} encounter={soulLinkPair.p2} />
+                        {soulLinkExtras.length > 0 ? (
+                          <p className="text-xs text-slate-500 lg:col-span-2">+{soulLinkExtras.length} Extra-Begegnungen</p>
+                        ) : null}
+                      </div>
+                    ) : primary ? (
                       <>
                         <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Begegnung</p>
                         <PokemonLabel
@@ -217,9 +217,7 @@ function LocationsContent({ projectId, projectName }: { projectId: string; proje
                         />
                         <div className="mt-2 flex flex-wrap gap-2">
                           <Badge>{primary.outcome === 'caught' ? 'Gefangen' : 'Nicht gefangen'}</Badge>
-                          {isFailedOrDead ? (
-                            <Badge tone="danger">Verstorben</Badge>
-                          ) : null}
+                          {isFailedOrDead ? <Badge tone="danger">Verstorben</Badge> : null}
                         </div>
                         {extras > 0 ? <p className="mt-2 text-xs text-slate-500">+{extras} extra</p> : null}
                       </>
@@ -302,6 +300,32 @@ function FilterButton({ label, active, onClick }: { label: string; active: boole
     >
       {label}
     </button>
+  )
+}
+
+function PlayerLocationSummary({ title, encounter }: { title: string; encounter: Encounter | null }) {
+  return (
+    <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">{title}</p>
+      {encounter ? (
+        <>
+          <PokemonLabel
+            pokemonId={encounter.pokemonId}
+            nameDe={encounter.nameDe}
+            slug={encounter.slug}
+            isDead={isSoullinkEncounterDead(encounter)}
+            size="md"
+          />
+          <div className="mt-2 flex flex-wrap gap-2">
+            <Badge>{encounter.outcome === 'caught' ? 'Gefangen' : 'Nicht gefangen'}</Badge>
+            {isSoullinkEncounterDead(encounter) ? <Badge tone="danger">Verstorben</Badge> : null}
+            {encounter.linkedEncounterId ? <Badge>Mit Partner verknüpft</Badge> : null}
+          </div>
+        </>
+      ) : (
+        <p className="text-slate-500">Keine Begegnung</p>
+      )}
+    </div>
   )
 }
 

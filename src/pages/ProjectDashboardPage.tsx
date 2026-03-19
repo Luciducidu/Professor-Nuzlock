@@ -4,11 +4,14 @@ import { ProjectLayout } from '../components/ProjectLayout'
 import { db } from '../lib/db'
 import {
   DUPES_MODE_OPTIONS,
+  formatChallengeType,
   formatGameName,
+  formatSoulLinkPartnerDupesMode,
+  getSoulLinkPlayers,
   getLevelCapByKey,
   normalizeProjectSettings,
 } from '../lib/projectSettings'
-import type { Encounter, Location, ProjectSettings } from '../lib/types'
+import type { Encounter, Location, Project, ProjectSettings } from '../lib/types'
 
 const DUPES_LABELS: Record<string, string> = Object.fromEntries(
   DUPES_MODE_OPTIONS.map((option) => [option.value, option.label]),
@@ -46,6 +49,7 @@ export function ProjectDashboardPage() {
     >
       {({ project, projectId }) => (
         <DashboardContent
+          project={project}
           projectId={projectId}
           gameLabel={formatGameName(project.game)}
           settings={normalizeProjectSettings(project.settings)}
@@ -58,12 +62,14 @@ export function ProjectDashboardPage() {
 }
 
 function DashboardContent({
+  project,
   projectId,
   gameLabel,
   settings,
   stats,
   onStatsChange,
 }: {
+  project: Project
   projectId: string
   gameLabel: string
   settings: ProjectSettings
@@ -102,6 +108,7 @@ function DashboardContent({
   )
 
   const currentCap = getLevelCapByKey(settings.levelCapsProgressKey)
+  const soulLinkPlayers = getSoulLinkPlayers(project)
 
   return (
     <>
@@ -109,7 +116,16 @@ function DashboardContent({
         <h2 className="text-base font-semibold text-slate-900">Regelzusammenfassung</h2>
         <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
           <SummaryRow label="Spiel" value={gameLabel} />
+          <SummaryRow label="Challenge-Typ" value={formatChallengeType(project.challengeType ?? 'nuzlocke')} />
+          {soulLinkPlayers ? <SummaryRow label="Spieler 1" value={soulLinkPlayers[0].name || 'Spieler 1'} /> : null}
+          {soulLinkPlayers ? <SummaryRow label="Spieler 2" value={soulLinkPlayers[1].name || 'Spieler 2'} /> : null}
           <SummaryRow label="Dupes-Regel" value={DUPES_LABELS[settings.dupesMode] ?? settings.dupesMode} />
+          {soulLinkPlayers ? (
+            <SummaryRow
+              label="Soullink-Sperre"
+              value={formatSoulLinkPartnerDupesMode(settings.soulLinkPartnerDupesMode)}
+            />
+          ) : null}
           <SummaryRow label="Shiny-Regel" value={settings.shinyClauseEnabled ? 'Aktiviert' : 'Deaktiviert'} />
           <SummaryRow label="Static-Regel" value={settings.staticClauseEnabled ? 'Aktiviert' : 'Deaktiviert'} />
           <SummaryRow

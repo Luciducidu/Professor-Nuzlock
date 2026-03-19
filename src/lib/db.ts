@@ -38,6 +38,15 @@ class ProfessorNuzlockDB extends Dexie {
       teams: 'id, &projectId, updatedAt',
       evoCache: 'chainId, updatedAt',
     })
+
+    this.version(5).stores({
+      projects: 'id, createdAt, game, name',
+      locations: 'id, projectId, [projectId+order], [projectId+name], type, order, createdAt',
+      encounters:
+        'id, projectId, locationId, playerId, linkGroupId, linkedEncounterId, [projectId+locationId], [projectId+playerId], [projectId+pokemonId], [projectId+evolution_chain_id], createdAt, outcome',
+      teams: 'id, &projectId, updatedAt',
+      evoCache: 'chainId, updatedAt',
+    })
   }
 }
 

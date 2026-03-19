@@ -2,9 +2,12 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { EncounterFormModal } from '../components/EncounterFormModal'
 import { PokemonLabel } from '../components/PokemonLabel'
+import { SoullinkEncounterPairModal } from '../components/SoullinkEncounterPairModal'
 import { ProjectLayout } from '../components/ProjectLayout'
 import { db, ensureDatabaseReady } from '../lib/db'
-import type { Encounter, EncounterType, Location, LocationType, Project } from '../lib/types'
+import { isSoulLinkProject } from '../lib/projectSettings'
+import { deleteEncounterWithPartner, getPlayerName, getPrimarySoullinkPair, getSoullinkExtras } from '../lib/soullink'
+import type { Encounter, EncounterType, Location, LocationType, PlayerId, Project } from '../lib/types'
 
 const LOCATION_TYPE_OPTIONS: Array<{ value: LocationType; label: string }> = [
   { value: 'route', label: 'Route' },
@@ -45,8 +48,10 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
   const [editMode, setEditMode] = useState(false)
   const [showLocationDeleteModal, setShowLocationDeleteModal] = useState(false)
   const [encounterModalOpen, setEncounterModalOpen] = useState(false)
+  const [pairModalOpen, setPairModalOpen] = useState(false)
   const [editingEncounter, setEditingEncounter] = useState<Encounter | undefined>(undefined)
   const [deleteEncounterTarget, setDeleteEncounterTarget] = useState<Encounter | null>(null)
+  const [extraPlayerId, setExtraPlayerId] = useState<PlayerId>('p1')
 
   const [name, setName] = useState('')
   const [type, setType] = useState<LocationType>('route')
@@ -156,7 +161,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
 
   const handleDeleteEncounter = async () => {
     if (!deleteEncounterTarget) return
-    await db.encounters.delete(deleteEncounterTarget.id)
+    await deleteEncounterWithPartner(project, deleteEncounterTarget)
     setDeleteEncounterTarget(null)
     await refreshEncounters()
   }
@@ -164,6 +169,10 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
   if (loading) return <InfoCard text="Ort wird geladen..." />
   if (error) return <InfoCard text={error} />
   if (!location) return <InfoCard text="Der Ort existiert nicht oder gehört zu einem anderen Projekt." />
+
+  const soulLinkMode = isSoulLinkProject(project)
+  const soulLinkPair = getPrimarySoullinkPair(encountersAtLocation)
+  const soulLinkExtras = getSoullinkExtras(encountersAtLocation)
 
   return (
     <>
@@ -278,72 +287,115 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
       <section className="mt-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
         <div className="mb-4 flex items-center justify-between gap-3">
           <h2 className="text-2xl font-bold text-slate-900">Begegnungen</h2>
-          <button
-            type="button"
-            onClick={() => {
-              setEditingEncounter(undefined)
-              setEncounterModalOpen(true)
-            }}
-            className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
-          >
-            Begegnung hinzufügen
-          </button>
+          <div className="flex flex-wrap gap-2">
+            {soulLinkMode ? (
+              <>
+                <button
+                  type="button"
+                  onClick={() => setPairModalOpen(true)}
+                  className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+                >
+                  Soullink-Paar erfassen
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEditingEncounter(undefined)
+                    setExtraPlayerId('p1')
+                    setEncounterModalOpen(true)
+                  }}
+                  className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                >
+                  Extra-Begegnung hinzufügen
+                </button>
+              </>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  setEditingEncounter(undefined)
+                  setEncounterModalOpen(true)
+                }}
+                className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+              >
+                Begegnung hinzufügen
+              </button>
+            )}
+          </div>
         </div>
 
-        {encountersAtLocation.length === 0 ? (
+        {soulLinkMode ? (
+          <div className="space-y-4">
+            <div className="grid gap-4 lg:grid-cols-2">
+              <SoullinkEncounterCard
+                title={getPlayerName(project, 'p1')}
+                encounter={soulLinkPair.p1}
+                onEdit={() => setPairModalOpen(true)}
+                onDelete={() => soulLinkPair.p1 && setDeleteEncounterTarget(soulLinkPair.p1)}
+              />
+              <SoullinkEncounterCard
+                title={getPlayerName(project, 'p2')}
+                encounter={soulLinkPair.p2}
+                onEdit={() => setPairModalOpen(true)}
+                onDelete={() => soulLinkPair.p2 && setDeleteEncounterTarget(soulLinkPair.p2)}
+              />
+            </div>
+
+            <div>
+              <h3 className="text-base font-semibold text-slate-900">Extra-Begegnungen</h3>
+              {soulLinkExtras.length === 0 ? (
+                <p className="mt-2 text-sm text-slate-600">Keine Extra-Begegnungen gespeichert.</p>
+              ) : (
+                <div className="mt-3 space-y-3">
+                  {soulLinkExtras.map((encounter) => (
+                    <EncounterArticle
+                      key={encounter.id}
+                      encounter={encounter}
+                      titlePrefix={encounter.playerId ? `${getPlayerName(project, encounter.playerId)}: ` : ''}
+                      onEdit={() => {
+                        setEditingEncounter(encounter)
+                        setExtraPlayerId(encounter.playerId ?? 'p1')
+                        setEncounterModalOpen(true)
+                      }}
+                      onDelete={() => setDeleteEncounterTarget(encounter)}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        ) : encountersAtLocation.length === 0 ? (
           <p className="text-sm text-slate-600">Noch keine Begegnungen gespeichert.</p>
         ) : (
           <div className="space-y-3">
             {encountersAtLocation.map((encounter) => {
-              const isFailedOrDead =
-                encounter.outcome === 'not_caught' || (encounter.outcome === 'caught' && encounter.isDead)
-
               return (
-                <article key={encounter.id} className="rounded-lg border border-slate-200 px-4 py-4">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div>
-                      <PokemonLabel
-                        pokemonId={encounter.pokemonId}
-                        nameDe={encounter.nameDe}
-                        slug={encounter.slug}
-                        isDead={isFailedOrDead}
-                        size="lg"
-                      />
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      <Badge>{ENCOUNTER_TYPE_LABELS[encounter.encounterType]}</Badge>
-                      <Badge>{encounter.outcome === 'caught' ? 'Gefangen' : 'Nicht gefangen'}</Badge>
-                      {encounter.outcome === 'not_caught' || encounter.isDead ? <Badge tone="danger">Verstorben</Badge> : null}
-                    </div>
-                    {encounter.nickname ? <p className="mt-2 text-sm text-slate-700">Spitzname: {encounter.nickname}</p> : null}
-                    {encounter.notes ? <p className="mt-1 text-sm text-slate-600">Notiz: {encounter.notes}</p> : null}
-                  </div>
-
-                  <div className="flex gap-2">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setEditingEncounter(encounter)
-                        setEncounterModalOpen(true)
-                      }}
-                      className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-                    >
-                      Bearbeiten
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setDeleteEncounterTarget(encounter)}
-                      className="rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-rose-500"
-                    >
-                      Löschen
-                    </button>
-                    </div>
-                  </div>
-                </article>
+                <EncounterArticle
+                  key={encounter.id}
+                  encounter={encounter}
+                  onEdit={() => {
+                    setEditingEncounter(encounter)
+                    setEncounterModalOpen(true)
+                  }}
+                  onDelete={() => setDeleteEncounterTarget(encounter)}
+                />
               )
             })}
           </div>
         )}
       </section>
+
+      {pairModalOpen ? (
+        <SoullinkEncounterPairModal
+          project={project}
+          projectId={projectId}
+          locationId={location.id}
+          encountersInProject={projectEncounters}
+          initialPair={{ p1: soulLinkPair.p1, p2: soulLinkPair.p2 }}
+          onClose={() => setPairModalOpen(false)}
+          onSaved={refreshEncounters}
+        />
+      ) : null}
 
       {encounterModalOpen ? (
         <EncounterFormModal
@@ -353,6 +405,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
           locationId={location.id}
           encountersInProject={projectEncounters}
           initialEncounter={editingEncounter}
+          playerId={soulLinkMode ? extraPlayerId : undefined}
           onClose={() => {
             setEncounterModalOpen(false)
             setEditingEncounter(undefined)
@@ -415,6 +468,123 @@ function ConfirmModal({
           </button>
         </div>
       </div>
+    </div>
+  )
+}
+
+function EncounterArticle({
+  encounter,
+  onEdit,
+  onDelete,
+  titlePrefix = '',
+}: {
+  encounter: Encounter
+  onEdit: () => void
+  onDelete: () => void
+  titlePrefix?: string
+}) {
+  const isFailedOrDead = encounter.outcome === 'not_caught' || (encounter.outcome === 'caught' && encounter.isDead)
+
+  return (
+    <article className="rounded-lg border border-slate-200 px-4 py-4">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          {titlePrefix ? <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">{titlePrefix}</p> : null}
+          <PokemonLabel
+            pokemonId={encounter.pokemonId}
+            nameDe={encounter.nameDe}
+            slug={encounter.slug}
+            isDead={isFailedOrDead}
+            size="lg"
+          />
+          <div className="mt-2 flex flex-wrap gap-2">
+            <Badge>{ENCOUNTER_TYPE_LABELS[encounter.encounterType]}</Badge>
+            <Badge>{encounter.outcome === 'caught' ? 'Gefangen' : 'Nicht gefangen'}</Badge>
+            {isFailedOrDead ? <Badge tone="danger">Verstorben</Badge> : null}
+            {encounter.linkedEncounterId ? <Badge>Mit Partner verknüpft</Badge> : null}
+          </div>
+          {encounter.nickname ? <p className="mt-2 text-sm text-slate-700">Spitzname: {encounter.nickname}</p> : null}
+          {encounter.notes ? <p className="mt-1 text-sm text-slate-600">Notiz: {encounter.notes}</p> : null}
+        </div>
+
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={onEdit}
+            className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            Bearbeiten
+          </button>
+          <button
+            type="button"
+            onClick={onDelete}
+            className="rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-rose-500"
+          >
+            Löschen
+          </button>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+function SoullinkEncounterCard({
+  title,
+  encounter,
+  onEdit,
+  onDelete,
+}: {
+  title: string
+  encounter: Encounter | null
+  onEdit: () => void
+  onDelete: () => void
+}) {
+  return (
+    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={onEdit}
+            className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            Bearbeiten
+          </button>
+          {encounter ? (
+            <button
+              type="button"
+              onClick={onDelete}
+              className="rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-rose-500"
+            >
+              Löschen
+            </button>
+          ) : null}
+        </div>
+      </div>
+      {encounter ? (
+        <div className="rounded-lg border border-slate-200 bg-white px-4 py-4">
+          <PokemonLabel
+            pokemonId={encounter.pokemonId}
+            nameDe={encounter.nameDe}
+            slug={encounter.slug}
+            isDead={encounter.outcome === 'not_caught' || (encounter.outcome === 'caught' && encounter.isDead)}
+            size="lg"
+          />
+          <div className="mt-2 flex flex-wrap gap-2">
+            <Badge>{ENCOUNTER_TYPE_LABELS[encounter.encounterType]}</Badge>
+            <Badge>{encounter.outcome === 'caught' ? 'Gefangen' : 'Nicht gefangen'}</Badge>
+            {encounter.outcome === 'not_caught' || encounter.isDead ? <Badge tone="danger">Verstorben</Badge> : null}
+            {encounter.linkedEncounterId ? <Badge>Mit Partner verknüpft</Badge> : null}
+          </div>
+          {encounter.nickname ? <p className="mt-2 text-sm text-slate-700">Spitzname: {encounter.nickname}</p> : null}
+          {encounter.notes ? <p className="mt-1 text-sm text-slate-600">Notiz: {encounter.notes}</p> : null}
+        </div>
+      ) : (
+        <div className="rounded-lg border border-dashed border-slate-300 bg-white px-4 py-4 text-sm text-slate-500">
+          Keine Begegnung
+        </div>
+      )}
     </div>
   )
 }

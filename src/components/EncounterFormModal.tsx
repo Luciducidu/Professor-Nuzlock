@@ -1,11 +1,13 @@
 import { useMemo, useState } from 'react'
 import { PokemonSearch } from './PokemonSearch'
 import { db } from '../lib/db'
+import { isSoulLinkProject } from '../lib/projectSettings'
 import { validateEncounterSelection } from '../lib/rules'
 import type {
   Encounter,
   EncounterOutcome,
   EncounterType,
+  PlayerId,
   PokemonIndexEntry,
   Project,
 } from '../lib/types'
@@ -16,6 +18,7 @@ type EncounterFormModalProps = {
   locationId: string
   encountersInProject: Encounter[]
   initialEncounter?: Encounter
+  playerId?: PlayerId
   onClose: () => void
   onSaved: () => void
 }
@@ -37,6 +40,7 @@ export function EncounterFormModal({
   locationId,
   encountersInProject,
   initialEncounter,
+  playerId,
   onClose,
   onSaved,
 }: EncounterFormModalProps) {
@@ -55,6 +59,7 @@ export function EncounterFormModal({
   const [outcome, setOutcome] = useState<EncounterOutcome>(initialEncounter?.outcome ?? 'caught')
   const [isDead, setIsDead] = useState(initialEncounter?.isDead ?? false)
   const [notes, setNotes] = useState(initialEncounter?.notes ?? '')
+  const [selectedPlayerId, setSelectedPlayerId] = useState<PlayerId>(initialEncounter?.playerId ?? playerId ?? 'p1')
   const [saving, setSaving] = useState(false)
 
   const validation = useMemo(() => {
@@ -66,8 +71,21 @@ export function EncounterFormModal({
       encounterType,
       encounters: encountersInProject,
       currentEncounterId: initialEncounter?.id,
+      currentEncounterIds: initialEncounter ? [initialEncounter.id] : [],
+      currentLinkGroupId: initialEncounter?.linkGroupId ?? null,
+      currentCreatedAt: initialEncounter?.createdAt,
+      playerId: selectedPlayerId,
     })
-  }, [project, selectedPokemon, encounterType, encountersInProject, initialEncounter?.id])
+  }, [
+    project,
+    selectedPokemon,
+    encounterType,
+    encountersInProject,
+    initialEncounter?.createdAt,
+    initialEncounter?.id,
+    initialEncounter?.linkGroupId,
+    selectedPlayerId,
+  ])
 
   const canSave = Boolean(selectedPokemon) && !saving && (validation ? validation.allowed : false)
 
@@ -81,6 +99,9 @@ export function EncounterFormModal({
       projectId,
       locationId,
       createdAt: initialEncounter?.createdAt ?? Date.now(),
+      playerId: isSoulLinkProject(project) ? selectedPlayerId : undefined,
+      linkedEncounterId: initialEncounter?.linkedEncounterId ?? null,
+      linkGroupId: initialEncounter?.linkGroupId ?? null,
       pokemonId: selectedPokemon.id,
       slug: selectedPokemon.slug,
       nameDe: selectedPokemon.nameDe,
@@ -92,7 +113,14 @@ export function EncounterFormModal({
       notes: notes.trim(),
     }
 
-    await db.encounters.put(payload)
+    if (isSoulLinkProject(project) && payload.linkedEncounterId) {
+      await db.transaction('rw', db.encounters, async () => {
+        await db.encounters.put(payload)
+        await db.encounters.update(payload.linkedEncounterId!, { isDead: payload.isDead })
+      })
+    } else {
+      await db.encounters.put(payload)
+    }
     setSaving(false)
     onSaved()
     onClose()
@@ -106,6 +134,24 @@ export function EncounterFormModal({
         </h2>
 
         <div className="mt-4 space-y-4">
+          {isSoulLinkProject(project) ? (
+            <div>
+              <label htmlFor="encounter-player" className="mb-2 block text-sm font-medium text-slate-700">
+                Spieler
+              </label>
+              <select
+                id="encounter-player"
+                value={selectedPlayerId}
+                onChange={(event) => setSelectedPlayerId(event.target.value as PlayerId)}
+                disabled={Boolean(playerId)}
+                className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 transition focus:ring-2 disabled:bg-slate-100"
+              >
+                <option value="p1">Spieler 1</option>
+                <option value="p2">Spieler 2</option>
+              </select>
+            </div>
+          ) : null}
+
           <PokemonSearch onSelect={setSelectedPokemon} />
 
           {selectedPokemon ? (

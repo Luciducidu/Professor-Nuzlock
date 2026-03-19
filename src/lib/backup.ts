@@ -1,5 +1,5 @@
 import { db } from './db'
-import { normalizeProjectSettings } from './projectSettings'
+import { normalizeProject, normalizeProjectSettings } from './projectSettings'
 import type { Encounter, EncounterOutcome, EncounterType, Location, LocationType, Project } from './types'
 
 type BackupV1 = {
@@ -112,7 +112,7 @@ export async function importProjectBackup(file: File): Promise<{ projectId: stri
   const locations = Array.isArray(data.locations) ? data.locations : []
   const encounters = Array.isArray(data.encounters) ? data.encounters : []
 
-  const sourceProject = data.project as Project
+  const sourceProject = normalizeProject(data.project as Project)
   const projectName = await ensureUniqueImportName(sourceProject.name || 'Projekt')
   const newProjectId = crypto.randomUUID()
 
@@ -122,6 +122,8 @@ export async function importProjectBackup(file: File): Promise<{ projectId: stri
     game: sourceProject.game ?? 'platinum',
     createdAt: Date.now(),
     settings: normalizeProjectSettings(sourceProject.settings),
+    challengeType: sourceProject.challengeType,
+    players: sourceProject.players,
     selectedEvolutionByPokemonId: sourceProject.selectedEvolutionByPokemonId ?? {},
   }
 
@@ -142,20 +144,41 @@ export async function importProjectBackup(file: File): Promise<{ projectId: stri
     }
   })
 
+  const encounterIdMap = new Map<string, string>()
+  for (const item of encounters) {
+    const oldId = String((item as Encounter).id ?? crypto.randomUUID())
+    encounterIdMap.set(oldId, crypto.randomUUID())
+  }
+
   const importedEncounters: Encounter[] = encounters
     .map((item): Encounter | null => {
       const oldLocationId = String((item as Encounter).locationId ?? '')
       const mappedLocationId = locationIdMap.get(oldLocationId)
       if (!mappedLocationId) return null
 
+      const oldEncounterId = String((item as Encounter).id ?? '')
+      const mappedEncounterId = encounterIdMap.get(oldEncounterId)
+      if (!mappedEncounterId) return null
+
       const pokemonId = Number((item as Encounter).pokemonId)
       if (!Number.isFinite(pokemonId)) return null
 
+      const linkedEncounterId =
+        typeof (item as Encounter).linkedEncounterId === 'string'
+          ? encounterIdMap.get((item as Encounter).linkedEncounterId ?? '') ?? null
+          : null
+
       const mappedEncounter: Encounter = {
-        id: crypto.randomUUID(),
+        id: mappedEncounterId,
         projectId: newProjectId,
         locationId: mappedLocationId,
         createdAt: Number((item as Encounter).createdAt) || Date.now(),
+        playerId:
+          (item as Encounter).playerId === 'p1' || (item as Encounter).playerId === 'p2'
+            ? (item as Encounter).playerId
+            : undefined,
+        linkedEncounterId,
+        linkGroupId: typeof (item as Encounter).linkGroupId === 'string' ? String((item as Encounter).linkGroupId) : null,
         pokemonId,
         slug: String((item as Encounter).slug ?? ''),
         nameDe: String((item as Encounter).nameDe ?? ''),

@@ -12,9 +12,12 @@ import { PokemonLabel } from '../components/PokemonLabel'
 import { ProjectLayout } from '../components/ProjectLayout'
 import { db, ensureDatabaseReady } from '../lib/db'
 import { getEvolutionOptions, resolveEvolutionOptionById } from '../lib/evolution'
+import { isSoulLinkProject } from '../lib/projectSettings'
+import { getPlayerName } from '../lib/soullink'
 import type {
   Encounter,
   EvolutionOption,
+  PlayerId,
   Project,
   Team,
   TeamSlot,
@@ -63,6 +66,14 @@ export function ProjectTeamPage() {
 }
 
 function ProjectTeamContent({ project, projectId }: { project: Project; projectId: string }) {
+  if (isSoulLinkProject(project)) {
+    return <SoullinkTeamContent project={project} projectId={projectId} />
+  }
+
+  return <SoloTeamContent project={project} projectId={projectId} />
+}
+
+function SoloTeamContent({ project, projectId }: { project: Project; projectId: string }) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [encounters, setEncounters] = useState<Encounter[]>([])
@@ -664,8 +675,380 @@ function BoxGridItem({
   )
 }
 
+type SoullinkPairEntry = {
+  linkGroupId: string
+  p1: Encounter
+  p2: Encounter
+}
+
+function SoullinkTeamContent({ project, projectId }: { project: Project; projectId: string }) {
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+  const [encounters, setEncounters] = useState<Encounter[]>([])
+  const [team, setTeam] = useState<Team | null>(null)
+  const [activeSlot, setActiveSlot] = useState<TeamSlotNumber>(1)
+  const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    let active = true
+
+    const loadData = async () => {
+      try {
+        await ensureDatabaseReady()
+        const [caughtEncounters, loadedTeam] = await Promise.all([
+          db.encounters.where('projectId').equals(projectId).filter((entry) => entry.outcome === 'caught').toArray(),
+          db.teams.where('projectId').equals(projectId).first(),
+        ])
+
+        if (!active) return
+
+        const validPairs = buildSoullinkPairEntries(caughtEncounters)
+        const sanitizedSlots = sanitizeSoullinkTeamSlots(loadedTeam?.slots ?? [], validPairs)
+        const teamChanged =
+          Boolean(loadedTeam) &&
+          (sanitizedSlots.length !== (loadedTeam?.slots.length ?? 0) ||
+            sanitizedSlots.some((slot, index) => serializeSoulLinkTeamSlot(slot) !== serializeSoulLinkTeamSlot(loadedTeam!.slots[index])))
+
+        if (loadedTeam && teamChanged) {
+          const nextTeam: Team = { ...loadedTeam, slots: sanitizedSlots, updatedAt: Date.now() }
+          await db.teams.put(nextTeam)
+          if (!active) return
+          setTeam(nextTeam)
+        } else {
+          setTeam(loadedTeam ?? null)
+        }
+
+        setEncounters(caughtEncounters)
+        setError('')
+      } catch (loadError) {
+        console.error(loadError)
+        if (!active) return
+        setError('Teamdaten konnten nicht geladen werden.')
+      } finally {
+        if (!active) return
+        setLoading(false)
+      }
+    }
+
+    void loadData()
+
+    return () => {
+      active = false
+    }
+  }, [projectId])
+
+  const pairEntries = useMemo(() => buildSoullinkPairEntries(encounters), [encounters])
+  const filteredPairs = useMemo(() => {
+    const normalized = search.trim().toLowerCase()
+    if (!normalized) return pairEntries
+    return pairEntries.filter((pair) => {
+      const p1Display = resolveEncounterDisplayForProject(project, pair.p1)
+      const p2Display = resolveEncounterDisplayForProject(project, pair.p2)
+      return (
+        p1Display.nameDe.toLowerCase().includes(normalized) ||
+        p1Display.slug.toLowerCase().includes(normalized) ||
+        p2Display.nameDe.toLowerCase().includes(normalized) ||
+        p2Display.slug.toLowerCase().includes(normalized) ||
+        (pair.p1.nickname ?? '').toLowerCase().includes(normalized) ||
+        (pair.p2.nickname ?? '').toLowerCase().includes(normalized)
+      )
+    })
+  }, [pairEntries, project, search])
+
+  const slotsByPlayer = useMemo(() => {
+    const p1 = new Map<TeamSlotNumber, TeamSlot>()
+    const p2 = new Map<TeamSlotNumber, TeamSlot>()
+    for (const slot of team?.slots ?? []) {
+      if (slot.playerId === 'p2') {
+        p2.set(slot.slot, slot)
+      } else {
+        p1.set(slot.slot, slot)
+      }
+    }
+    return { p1, p2 }
+  }, [team])
+
+  const pairSlotByGroupId = useMemo(() => {
+    const map = new Map<string, TeamSlotNumber>()
+    for (const slot of team?.slots ?? []) {
+      if (slot.linkedEncounterId && slot.sourceEncounterId) {
+        const encounter = encounters.find((entry) => entry.id === slot.sourceEncounterId)
+        if (encounter?.linkGroupId) map.set(encounter.linkGroupId, slot.slot)
+      }
+    }
+    return map
+  }, [encounters, team])
+
+  const persistTeam = async (nextSlots: TeamSlot[]) => {
+    const nextTeam: Team = {
+      id: team?.id ?? crypto.randomUUID(),
+      projectId,
+      slots: nextSlots.sort(compareTeamSlots),
+      updatedAt: Date.now(),
+    }
+
+    await db.teams.put(nextTeam)
+    setTeam(nextTeam)
+  }
+
+  const assignPairToSlot = async (pair: SoullinkPairEntry, slotNumber: TeamSlotNumber) => {
+    const p1Display = resolveEncounterDisplayForProject(project, pair.p1)
+    const p2Display = resolveEncounterDisplayForProject(project, pair.p2)
+
+    const nextSlots = (team?.slots ?? []).filter((slot) => {
+      if (slot.slot === slotNumber) return false
+      return slot.sourceEncounterId !== pair.p1.id && slot.sourceEncounterId !== pair.p2.id
+    })
+
+    nextSlots.push(
+      {
+        slot: slotNumber,
+        playerId: 'p1',
+        sourceEncounterId: pair.p1.id,
+        linkedEncounterId: pair.p2.id,
+        pokemonId: p1Display.pokemonId,
+        slug: p1Display.slug,
+        nameDe: p1Display.nameDe,
+        evolution_chain_id: p1Display.evolution_chain_id,
+      },
+      {
+        slot: slotNumber,
+        playerId: 'p2',
+        sourceEncounterId: pair.p2.id,
+        linkedEncounterId: pair.p1.id,
+        pokemonId: p2Display.pokemonId,
+        slug: p2Display.slug,
+        nameDe: p2Display.nameDe,
+        evolution_chain_id: p2Display.evolution_chain_id,
+      },
+    )
+
+    await persistTeam(nextSlots)
+  }
+
+  const clearSlot = async (slotNumber: TeamSlotNumber) => {
+    await persistTeam((team?.slots ?? []).filter((slot) => slot.slot !== slotNumber))
+  }
+
+  if (loading) return <InfoCard text="Team wird geladen..." />
+  if (error) return <InfoCard text={error} />
+
+  return (
+    <>
+      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-semibold text-slate-900">Soullink-Team ({project.name})</h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Slot {activeSlot} ist gekoppelt. Setzt du links oder rechts ein Pokémon, wird der Partner automatisch übernommen.
+            </p>
+          </div>
+          <div className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700">Aktiver Slot: {activeSlot}</div>
+        </div>
+
+        <div className="mt-4 grid gap-4 xl:grid-cols-2">
+          <SoullinkTeamColumn
+            title={getPlayerName(project, 'p1')}
+            activeSlot={activeSlot}
+            slots={slotsByPlayer.p1}
+            onSelectSlot={setActiveSlot}
+            onClearSlot={(slot) => void clearSlot(slot)}
+          />
+          <SoullinkTeamColumn
+            title={getPlayerName(project, 'p2')}
+            activeSlot={activeSlot}
+            slots={slotsByPlayer.p2}
+            onSelectSlot={setActiveSlot}
+            onClearSlot={(slot) => void clearSlot(slot)}
+          />
+        </div>
+      </section>
+
+      <section className="mt-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-lg font-semibold text-slate-900">Soullink-Box</h2>
+          <div className="w-full max-w-sm">
+            <label htmlFor="soullink-team-search" className="mb-1 block text-sm font-medium text-slate-700">
+              Pokémon suchen
+            </label>
+            <input
+              id="soullink-team-search"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Name eingeben..."
+              className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 transition focus:ring-2"
+            />
+          </div>
+        </div>
+
+        <div className="mt-4 grid gap-4 xl:grid-cols-2">
+          <SoullinkBoxColumn
+            title={getPlayerName(project, 'p1')}
+            playerId="p1"
+            pairs={filteredPairs}
+            pairSlotByGroupId={pairSlotByGroupId}
+            project={project}
+            activeSlot={activeSlot}
+            onAssignPair={(pair) => void assignPairToSlot(pair, activeSlot)}
+          />
+          <SoullinkBoxColumn
+            title={getPlayerName(project, 'p2')}
+            playerId="p2"
+            pairs={filteredPairs}
+            pairSlotByGroupId={pairSlotByGroupId}
+            project={project}
+            activeSlot={activeSlot}
+            onAssignPair={(pair) => void assignPairToSlot(pair, activeSlot)}
+          />
+        </div>
+
+        {filteredPairs.length === 0 ? (
+          <p className="mt-4 text-sm text-slate-600">Keine gültigen Soullink-Paare für die aktuelle Suche gefunden.</p>
+        ) : null}
+      </section>
+    </>
+  )
+}
+
 function InfoCard({ text }: { text: string }) {
   return <div className="rounded-xl border border-slate-200 bg-white p-6 text-sm text-slate-600 shadow-sm">{text}</div>
+}
+
+function SoullinkTeamColumn({
+  title,
+  activeSlot,
+  slots,
+  onSelectSlot,
+  onClearSlot,
+}: {
+  title: string
+  activeSlot: TeamSlotNumber
+  slots: Map<TeamSlotNumber, TeamSlot>
+  onSelectSlot: (slot: TeamSlotNumber) => void
+  onClearSlot: (slot: TeamSlotNumber) => void
+}) {
+  return (
+    <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+      <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {SLOT_NUMBERS.map((slotNumber) => (
+          <SoullinkTeamSlotCard
+            key={`${title}-${slotNumber}`}
+            slotNumber={slotNumber}
+            slot={slots.get(slotNumber)}
+            isActive={activeSlot === slotNumber}
+            onSelect={onSelectSlot}
+            onClear={() => onClearSlot(slotNumber)}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function SoullinkTeamSlotCard({
+  slotNumber,
+  slot,
+  isActive,
+  onSelect,
+  onClear,
+}: {
+  slotNumber: TeamSlotNumber
+  slot?: TeamSlot
+  isActive: boolean
+  onSelect: (slot: TeamSlotNumber) => void
+  onClear: () => void
+}) {
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={() => onSelect(slotNumber)}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') onSelect(slotNumber)
+      }}
+      className={`rounded-xl border bg-white p-3 transition-colors ${
+        isActive ? 'border-slate-900 ring-2 ring-slate-200' : 'border-slate-200 hover:bg-slate-50'
+      }`}
+    >
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Slot {slotNumber}</p>
+        <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">Verlinkt</span>
+      </div>
+      <div className="mt-2 min-h-[96px]">
+        {slot ? (
+          <PokemonLabel pokemonId={slot.pokemonId} nameDe={slot.nameDe} slug={slot.slug} size="lg" />
+        ) : (
+          <div className="flex h-16 items-center justify-center rounded-md bg-slate-100 text-sm text-slate-500">Leer</div>
+        )}
+      </div>
+      {slot ? (
+        <button
+          type="button"
+          onClick={(event) => {
+            event.stopPropagation()
+            onClear()
+          }}
+          className="mt-2 w-full rounded-md border border-slate-300 bg-white px-2 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-50"
+        >
+          Entfernen
+        </button>
+      ) : null}
+    </div>
+  )
+}
+
+function SoullinkBoxColumn({
+  title,
+  playerId,
+  pairs,
+  pairSlotByGroupId,
+  project,
+  activeSlot,
+  onAssignPair,
+}: {
+  title: string
+  playerId: PlayerId
+  pairs: SoullinkPairEntry[]
+  pairSlotByGroupId: Map<string, TeamSlotNumber>
+  project: Project
+  activeSlot: TeamSlotNumber
+  onAssignPair: (pair: SoullinkPairEntry) => void
+}) {
+  return (
+    <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+      <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+      <div className="mt-3 space-y-3">
+        {pairs.map((pair) => {
+          const encounter = playerId === 'p1' ? pair.p1 : pair.p2
+          const display = resolveEncounterDisplayForProject(project, encounter)
+          const assignedSlot = pairSlotByGroupId.get(pair.linkGroupId)
+
+          return (
+            <div key={`${playerId}-${pair.linkGroupId}`} className="rounded-xl border border-slate-200 bg-white p-3">
+              <PokemonLabel pokemonId={display.pokemonId} nameDe={display.nameDe} slug={display.slug} size="md" />
+              <div className="mt-2 flex flex-wrap gap-2">
+                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">
+                  Partner: {playerId === 'p1' ? pair.p2.nameDe : pair.p1.nameDe}
+                </span>
+                {assignedSlot ? (
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">In Slot {assignedSlot}</span>
+                ) : null}
+              </div>
+              {encounter.nickname ? <p className="mt-2 text-sm text-slate-700">Spitzname: {encounter.nickname}</p> : null}
+              <button
+                type="button"
+                onClick={() => onAssignPair(pair)}
+                className="mt-3 w-full rounded-md bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+              >
+                In Slot {activeSlot} setzen
+              </button>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
 }
 
 function sanitizeTeamSlots(slots: TeamSlot[], alivePokemonIds: Set<number>): TeamSlot[] {
@@ -682,4 +1065,92 @@ function sanitizeTeamSlots(slots: TeamSlot[], alivePokemonIds: Set<number>): Tea
   }
 
   return next
+}
+
+function buildSoullinkPairEntries(encounters: Encounter[]): SoullinkPairEntry[] {
+  const byId = new Map(encounters.map((encounter) => [encounter.id, encounter]))
+  const pairs = new Map<string, SoullinkPairEntry>()
+
+  for (const encounter of encounters) {
+    if (encounter.playerId !== 'p1' && encounter.playerId !== 'p2') continue
+    if (encounter.isDead || !encounter.linkedEncounterId || !encounter.linkGroupId) continue
+
+    const partner = byId.get(encounter.linkedEncounterId)
+    if (!partner || partner.isDead || partner.outcome !== 'caught') continue
+    if (partner.linkedEncounterId !== encounter.id || partner.linkGroupId !== encounter.linkGroupId) continue
+    if (encounter.outcome !== 'caught') continue
+
+    const existing = pairs.get(encounter.linkGroupId) ?? { linkGroupId: encounter.linkGroupId, p1: null, p2: null } as unknown as SoullinkPairEntry
+    if (encounter.playerId === 'p1') {
+      existing.p1 = encounter
+    } else {
+      existing.p2 = encounter
+    }
+    if (partner.playerId === 'p1') {
+      existing.p1 = partner
+    } else if (partner.playerId === 'p2') {
+      existing.p2 = partner
+    }
+    if (existing.p1 && existing.p2) {
+      pairs.set(encounter.linkGroupId, existing)
+    }
+  }
+
+  return Array.from(pairs.values()).sort((a, b) => a.p1.createdAt - b.p1.createdAt)
+}
+
+function sanitizeSoullinkTeamSlots(slots: TeamSlot[], validPairs: SoullinkPairEntry[]): TeamSlot[] {
+  const validByGroup = new Map(validPairs.map((pair) => [pair.linkGroupId, pair]))
+  const validEncounterToGroup = new Map<string, string>()
+  for (const pair of validPairs) {
+    validEncounterToGroup.set(pair.p1.id, pair.linkGroupId)
+    validEncounterToGroup.set(pair.p2.id, pair.linkGroupId)
+  }
+
+  const result: TeamSlot[] = []
+  for (const slotNumber of SLOT_NUMBERS) {
+    const p1 = slots.find((slot) => slot.slot === slotNumber && (slot.playerId ?? 'p1') === 'p1')
+    const p2 = slots.find((slot) => slot.slot === slotNumber && slot.playerId === 'p2')
+    if (!p1 || !p2 || !p1.sourceEncounterId || !p2.sourceEncounterId) continue
+
+    const group1 = validEncounterToGroup.get(p1.sourceEncounterId)
+    const group2 = validEncounterToGroup.get(p2.sourceEncounterId)
+    if (!group1 || group1 !== group2) continue
+
+    const pair = validByGroup.get(group1)
+    if (!pair) continue
+    if (pair.p1.id !== p1.sourceEncounterId || pair.p2.id !== p2.sourceEncounterId) continue
+
+    result.push(p1, p2)
+  }
+
+  return result.sort(compareTeamSlots)
+}
+
+function compareTeamSlots(a: TeamSlot, b: TeamSlot) {
+  if (a.slot !== b.slot) return a.slot - b.slot
+  return (a.playerId ?? 'p1').localeCompare(b.playerId ?? 'p1')
+}
+
+function serializeSoulLinkTeamSlot(slot: TeamSlot | undefined) {
+  if (!slot) return ''
+  return [
+    slot.slot,
+    slot.playerId ?? 'p1',
+    slot.sourceEncounterId ?? '',
+    slot.linkedEncounterId ?? '',
+    slot.pokemonId,
+    slot.slug,
+    slot.nameDe,
+  ].join(':')
+}
+
+function resolveEncounterDisplayForProject(project: Project, encounter: Encounter) {
+  const selectedEvolutionId = project.selectedEvolutionByPokemonId?.[encounter.pokemonId]
+  return (selectedEvolutionId ? resolveEvolutionOptionById(selectedEvolutionId) : null) ?? {
+    pokemonId: encounter.pokemonId,
+    slug: encounter.slug,
+    nameDe: encounter.nameDe,
+    evolution_chain_id: encounter.evolution_chain_id,
+  }
 }

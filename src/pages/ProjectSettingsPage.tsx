@@ -1,10 +1,10 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
 import { ProjectSettingsForm } from '../components/ProjectSettingsForm'
 import { db } from '../lib/db'
-import { normalizeProjectSettings } from '../lib/projectSettings'
-import type { ProjectSettings } from '../lib/types'
+import { normalizeProject } from '../lib/projectSettings'
+import type { ChallengeType, ProjectSettings, SoulLinkPlayer } from '../lib/types'
 
 export function ProjectSettingsPage() {
   const { id } = useParams<{ id: string }>()
@@ -12,6 +12,11 @@ export function ProjectSettingsPage() {
 
   const [projectName, setProjectName] = useState('')
   const [settings, setSettings] = useState<ProjectSettings | null>(null)
+  const [challengeType, setChallengeType] = useState<ChallengeType>('nuzlocke')
+  const [players, setPlayers] = useState<[SoulLinkPlayer, SoulLinkPlayer]>([
+    { id: 'p1', name: '' },
+    { id: 'p2', name: '' },
+  ])
   const [saving, setSaving] = useState(false)
   const [notFound, setNotFound] = useState(false)
 
@@ -21,16 +26,22 @@ export function ProjectSettingsPage() {
     let active = true
 
     const loadProject = async () => {
-      const project = await db.projects.get(id)
+      const loadedProject = await db.projects.get(id)
       if (!active) return
 
-      if (!project) {
+      if (!loadedProject) {
         setNotFound(true)
         return
       }
 
+      const project = normalizeProject(loadedProject)
       setProjectName(project.name)
-      setSettings(normalizeProjectSettings(project.settings))
+      setSettings(project.settings)
+      setChallengeType(project.challengeType ?? 'nuzlocke')
+      setPlayers([
+        project.players?.find((player) => player.id === 'p1') ?? { id: 'p1', name: '' },
+        project.players?.find((player) => player.id === 'p2') ?? { id: 'p2', name: '' },
+      ])
     }
 
     void loadProject()
@@ -40,11 +51,22 @@ export function ProjectSettingsPage() {
     }
   }, [id])
 
+  const soulLinkPlayersValid = useMemo(() => players.every((player) => player.name.trim().length > 0), [players])
+  const submitDisabled = challengeType === 'soullink' && !soulLinkPlayersValid
+
   const handleSave = async () => {
     if (!id || !settings || saving) return
+    if (challengeType === 'soullink' && !soulLinkPlayersValid) return
 
     setSaving(true)
-    await db.projects.update(id, { settings })
+    await db.projects.update(id, {
+      settings,
+      challengeType,
+      players:
+        challengeType === 'soullink'
+          ? players.map((player) => ({ ...player, name: player.name.trim() }))
+          : undefined,
+    })
     navigate(`/project/${id}`)
   }
 
@@ -69,10 +91,20 @@ export function ProjectSettingsPage() {
       <ProjectSettingsForm
         value={settings}
         onChange={setSettings}
+        challengeType={challengeType}
+        onChallengeTypeChange={setChallengeType}
+        players={players}
+        onPlayersChange={setPlayers}
         onSubmit={handleSave}
         submitLabel={saving ? 'Speichert...' : 'Speichern'}
         disabled={saving}
+        submitDisabled={submitDisabled}
       />
+      {submitDisabled ? (
+        <div className="mt-3 rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-700">
+          Bitte beide Spielernamen fur die Soullink Challenge eintragen.
+        </div>
+      ) : null}
     </AppShell>
   )
 }
@@ -83,7 +115,7 @@ function BackButton({ to }: { to: string }) {
       to={to}
       className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
     >
-      Zurück
+      Zuruck
     </Link>
   )
 }
