@@ -77,5 +77,14 @@ export async function resetDatabase(): Promise<void> {
   window.location.reload()
 }
 
+export async function deleteProjectCascade(projectId: string): Promise<void> {
+  await db.transaction('rw', db.projects, db.locations, db.encounters, db.teams, async () => {
+    await db.encounters.where('projectId').equals(projectId).delete()
+    await db.locations.where('projectId').equals(projectId).delete()
+    await db.teams.where('projectId').equals(projectId).delete()
+    await db.projects.delete(projectId)
+  })
+}
+
 
 

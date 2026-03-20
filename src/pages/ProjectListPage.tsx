@@ -2,7 +2,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
 import { importProjectBackup } from '../lib/backup'
-import { db, ensureDatabaseReady, resetDatabase } from '../lib/db'
+import { db, deleteProjectCascade, ensureDatabaseReady, resetDatabase } from '../lib/db'
 import { formatGameName, normalizeProject } from '../lib/projectSettings'
 import type { Project } from '../lib/types'
 
@@ -16,6 +16,7 @@ export function ProjectListPage() {
   const [importFile, setImportFile] = useState<File | null>(null)
   const [importing, setImporting] = useState(false)
   const [importError, setImportError] = useState('')
+  const [deletingProjectId, setDeletingProjectId] = useState<string | null>(null)
 
   useEffect(() => {
     let active = true
@@ -69,6 +70,26 @@ export function ProjectListPage() {
       console.error(importFailure)
       setImportError(importFailure instanceof Error ? importFailure.message : 'Import fehlgeschlagen')
       setImporting(false)
+    }
+  }
+
+  const handleDeleteProject = async (project: Project) => {
+    const confirmed = window.confirm(
+      `Projekt "${project.name}" wirklich löschen?\n\nAlle Orte, Begegnungen und Teams dieses Projekts werden ebenfalls entfernt.`,
+    )
+    if (!confirmed) return
+
+    setDeletingProjectId(project.id)
+
+    try {
+      await deleteProjectCascade(project.id)
+      setProjects((currentProjects) => currentProjects.filter((entry) => entry.id !== project.id))
+      setError('')
+    } catch (deleteError) {
+      console.error(deleteError)
+      setError('Projekt konnte nicht gelöscht werden.')
+    } finally {
+      setDeletingProjectId(null)
     }
   }
 
@@ -142,9 +163,8 @@ export function ProjectListPage() {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2">
           {projects.map((project) => (
-            <Link
+            <article
               key={project.id}
-              to={`/project/${project.id}`}
               className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-slate-300 hover:shadow"
             >
               <h2 className="text-lg font-semibold text-slate-900">{project.name}</h2>
@@ -152,7 +172,23 @@ export function ProjectListPage() {
               <p className="mt-3 text-xs text-slate-500">
                 Erstellt: {new Date(project.createdAt).toLocaleString()}
               </p>
-            </Link>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Link
+                  to={`/project/${project.id}`}
+                  className="rounded-md bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+                >
+                  Öffnen
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => void handleDeleteProject(project)}
+                  disabled={deletingProjectId === project.id}
+                  className="rounded-md border border-rose-300 bg-white px-3 py-2 text-sm font-semibold text-rose-700 transition hover:bg-rose-50 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400"
+                >
+                  {deletingProjectId === project.id ? 'Löscht...' : 'Löschen'}
+                </button>
+              </div>
+            </article>
           ))}
         </div>
       )}
