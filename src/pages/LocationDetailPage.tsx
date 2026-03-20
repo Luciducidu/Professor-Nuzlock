@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { EncounterFormModal } from '../components/EncounterFormModal'
 import { PokemonLabel } from '../components/PokemonLabel'
@@ -6,8 +6,14 @@ import { SoullinkEncounterPairModal } from '../components/SoullinkEncounterPairM
 import { ProjectLayout } from '../components/ProjectLayout'
 import { db, ensureDatabaseReady } from '../lib/db'
 import { isSoulLinkProject } from '../lib/projectSettings'
-import { deleteEncounterWithPartner, getPlayerName, getPrimarySoullinkPair, getSoullinkExtras } from '../lib/soullink'
-import type { Encounter, EncounterType, Location, LocationType, PlayerId, Project } from '../lib/types'
+import {
+  deleteEncounterWithPartner,
+  getPlayerName,
+  getPrimarySoullinkPair,
+  getSoullinkExtraPairs,
+  type SoullinkEncounterPair,
+} from '../lib/soullink'
+import type { Encounter, EncounterType, Location, LocationType, Project } from '../lib/types'
 
 const LOCATION_TYPE_OPTIONS: Array<{ value: LocationType; label: string }> = [
   { value: 'route', label: 'Route' },
@@ -25,7 +31,10 @@ const ENCOUNTER_TYPE_LABELS: Record<EncounterType, string> = {
   normal: 'Normal',
   shiny: 'Shiny',
   static: 'Static',
+  gift: 'Geschenk',
 }
+
+type PairModalMode = 'main' | 'extra' | null
 
 export function LocationDetailPage() {
   return (
@@ -48,10 +57,10 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
   const [editMode, setEditMode] = useState(false)
   const [showLocationDeleteModal, setShowLocationDeleteModal] = useState(false)
   const [encounterModalOpen, setEncounterModalOpen] = useState(false)
-  const [pairModalOpen, setPairModalOpen] = useState(false)
+  const [pairModalMode, setPairModalMode] = useState<PairModalMode>(null)
   const [editingEncounter, setEditingEncounter] = useState<Encounter | undefined>(undefined)
+  const [editingPair, setEditingPair] = useState<SoullinkEncounterPair | null>(null)
   const [deleteEncounterTarget, setDeleteEncounterTarget] = useState<Encounter | null>(null)
-  const [extraPlayerId, setExtraPlayerId] = useState<PlayerId>('p1')
 
   const [name, setName] = useState('')
   const [type, setType] = useState<LocationType>('route')
@@ -172,7 +181,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
 
   const soulLinkMode = isSoulLinkProject(project)
   const soulLinkPair = getPrimarySoullinkPair(encountersAtLocation)
-  const soulLinkExtras = getSoullinkExtras(encountersAtLocation)
+  const soulLinkExtraPairs = getSoullinkExtraPairs(encountersAtLocation)
 
   return (
     <>
@@ -292,17 +301,19 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
               <>
                 <button
                   type="button"
-                  onClick={() => setPairModalOpen(true)}
+                  onClick={() => {
+                    setEditingPair(null)
+                    setPairModalMode('main')
+                  }}
                   className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
                 >
-                  Soullink-Paar erfassen
+                  Hauptbegegnung erfassen
                 </button>
                 <button
                   type="button"
                   onClick={() => {
-                    setEditingEncounter(undefined)
-                    setExtraPlayerId('p1')
-                    setEncounterModalOpen(true)
+                    setEditingPair(null)
+                    setPairModalMode('extra')
                   }}
                   className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                 >
@@ -325,40 +336,66 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
         </div>
 
         {soulLinkMode ? (
-          <div className="space-y-4">
-            <div className="grid gap-4 lg:grid-cols-2">
-              <SoullinkEncounterCard
-                title={getPlayerName(project, 'p1')}
-                encounter={soulLinkPair.p1}
-                onEdit={() => setPairModalOpen(true)}
-                onDelete={() => soulLinkPair.p1 && setDeleteEncounterTarget(soulLinkPair.p1)}
-              />
-              <SoullinkEncounterCard
-                title={getPlayerName(project, 'p2')}
-                encounter={soulLinkPair.p2}
-                onEdit={() => setPairModalOpen(true)}
-                onDelete={() => soulLinkPair.p2 && setDeleteEncounterTarget(soulLinkPair.p2)}
-              />
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-base font-semibold text-slate-900">Hauptbegegnung</h3>
+              <div className="mt-3 grid gap-4 lg:grid-cols-2">
+                <SoullinkEncounterCard
+                  title={getPlayerName(project, 'p1')}
+                  encounter={soulLinkPair.p1}
+                  onEdit={() => {
+                    setEditingPair(
+                      soulLinkPair.p1 && soulLinkPair.p2
+                        ? { linkGroupId: soulLinkPair.p1.linkGroupId ?? '', p1: soulLinkPair.p1, p2: soulLinkPair.p2 }
+                        : null,
+                    )
+                    setPairModalMode('main')
+                  }}
+                  onDelete={() => soulLinkPair.p1 && setDeleteEncounterTarget(soulLinkPair.p1)}
+                />
+                <SoullinkEncounterCard
+                  title={getPlayerName(project, 'p2')}
+                  encounter={soulLinkPair.p2}
+                  onEdit={() => {
+                    setEditingPair(
+                      soulLinkPair.p1 && soulLinkPair.p2
+                        ? { linkGroupId: soulLinkPair.p1.linkGroupId ?? '', p1: soulLinkPair.p1, p2: soulLinkPair.p2 }
+                        : null,
+                    )
+                    setPairModalMode('main')
+                  }}
+                  onDelete={() => soulLinkPair.p2 && setDeleteEncounterTarget(soulLinkPair.p2)}
+                />
+              </div>
             </div>
 
             <div>
               <h3 className="text-base font-semibold text-slate-900">Extra-Begegnungen</h3>
-              {soulLinkExtras.length === 0 ? (
+              {soulLinkExtraPairs.length === 0 ? (
                 <p className="mt-2 text-sm text-slate-600">Keine Extra-Begegnungen gespeichert.</p>
               ) : (
-                <div className="mt-3 space-y-3">
-                  {soulLinkExtras.map((encounter) => (
-                    <EncounterArticle
-                      key={encounter.id}
-                      encounter={encounter}
-                      titlePrefix={encounter.playerId ? `${getPlayerName(project, encounter.playerId)}: ` : ''}
-                      onEdit={() => {
-                        setEditingEncounter(encounter)
-                        setExtraPlayerId(encounter.playerId ?? 'p1')
-                        setEncounterModalOpen(true)
-                      }}
-                      onDelete={() => setDeleteEncounterTarget(encounter)}
-                    />
+                <div className="mt-3 space-y-4">
+                  {soulLinkExtraPairs.map((pair) => (
+                    <div key={pair.linkGroupId} className="grid gap-4 lg:grid-cols-2">
+                      <SoullinkEncounterCard
+                        title={getPlayerName(project, 'p1')}
+                        encounter={pair.p1}
+                        onEdit={() => {
+                          setEditingPair(pair)
+                          setPairModalMode('extra')
+                        }}
+                        onDelete={() => setDeleteEncounterTarget(pair.p1)}
+                      />
+                      <SoullinkEncounterCard
+                        title={getPlayerName(project, 'p2')}
+                        encounter={pair.p2}
+                        onEdit={() => {
+                          setEditingPair(pair)
+                          setPairModalMode('extra')
+                        }}
+                        onDelete={() => setDeleteEncounterTarget(pair.p2)}
+                      />
+                    </div>
                   ))}
                 </div>
               )}
@@ -368,31 +405,39 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
           <p className="text-sm text-slate-600">Noch keine Begegnungen gespeichert.</p>
         ) : (
           <div className="space-y-3">
-            {encountersAtLocation.map((encounter) => {
-              return (
-                <EncounterArticle
-                  key={encounter.id}
-                  encounter={encounter}
-                  onEdit={() => {
-                    setEditingEncounter(encounter)
-                    setEncounterModalOpen(true)
-                  }}
-                  onDelete={() => setDeleteEncounterTarget(encounter)}
-                />
-              )
-            })}
+            {encountersAtLocation.map((encounter) => (
+              <EncounterArticle
+                key={encounter.id}
+                encounter={encounter}
+                onEdit={() => {
+                  setEditingEncounter(encounter)
+                  setEncounterModalOpen(true)
+                }}
+                onDelete={() => setDeleteEncounterTarget(encounter)}
+              />
+            ))}
           </div>
         )}
       </section>
 
-      {pairModalOpen ? (
+      {pairModalMode ? (
         <SoullinkEncounterPairModal
           project={project}
           projectId={projectId}
           locationId={location.id}
           encountersInProject={projectEncounters}
-          initialPair={{ p1: soulLinkPair.p1, p2: soulLinkPair.p2 }}
-          onClose={() => setPairModalOpen(false)}
+          initialPair={
+            pairModalMode === 'main'
+              ? { p1: editingPair?.p1 ?? soulLinkPair.p1, p2: editingPair?.p2 ?? soulLinkPair.p2 }
+              : { p1: editingPair?.p1 ?? null, p2: editingPair?.p2 ?? null }
+          }
+          title={pairModalMode === 'main' ? 'Soullink-Hauptbegegnung' : 'Soullink-Extra-Begegnung'}
+          allowedEncounterTypes={pairModalMode === 'main' ? ['normal'] : ['shiny', 'static', 'gift']}
+          defaultEncounterType={pairModalMode === 'main' ? 'normal' : 'shiny'}
+          onClose={() => {
+            setPairModalMode(null)
+            setEditingPair(null)
+          }}
           onSaved={refreshEncounters}
         />
       ) : null}
@@ -405,7 +450,6 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
           locationId={location.id}
           encountersInProject={projectEncounters}
           initialEncounter={editingEncounter}
-          playerId={soulLinkMode ? extraPlayerId : undefined}
           onClose={() => {
             setEncounterModalOpen(false)
             setEditingEncounter(undefined)

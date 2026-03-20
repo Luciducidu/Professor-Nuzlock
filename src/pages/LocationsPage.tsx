@@ -6,9 +6,9 @@ import { ProjectLayout } from '../components/ProjectLayout'
 import { BW2_HIDDEN_GROTTO_LOCATIONS_DE } from '../data/bw2HiddenGrottoLocations.de'
 import type { SeedLocation } from '../data/seedLocations'
 import { db } from '../lib/db'
-import { ensureStarterLocation } from '../lib/locations'
+import { compareLocations, ensureStarterLocation } from '../lib/locations'
 import { formatGameName, getLocationSeedsForGame, isSoulLinkProject } from '../lib/projectSettings'
-import { getPlayerName, getPrimarySoullinkPair, getSoullinkExtras, isSoullinkEncounterDead } from '../lib/soullink'
+import { getPlayerName, getPrimarySoullinkPair, getSoullinkExtraPairs, isSoullinkEncounterDead } from '../lib/soullink'
 import type { Encounter, Location, LocationType, Project } from '../lib/types'
 
 const TYPE_LABELS: Record<LocationType, string> = {
@@ -53,14 +53,7 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
 
       if (!active) return
 
-      const sortedLocations = loadedLocations
-        .slice()
-        .sort((a, b) => {
-          if (a.name === 'Starter' && b.name !== 'Starter') return -1
-          if (b.name === 'Starter' && a.name !== 'Starter') return 1
-          if (a.order !== b.order) return a.order - b.order
-          return a.name.localeCompare(b.name, 'de')
-        })
+      const sortedLocations = loadedLocations.slice().sort(compareLocations)
 
       setLocations(sortedLocations)
       setEncounters(loadedEncounters)
@@ -205,7 +198,7 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
             const primary = locationEncounters[0] ?? null
             const extras = Math.max(0, locationEncounters.length - 1)
             const soulLinkPair = getPrimarySoullinkPair(locationEncounters)
-            const soulLinkExtras = getSoullinkExtras(locationEncounters)
+            const soulLinkExtras = getSoullinkExtraPairs(locationEncounters)
             const isFailedOrDead =
               primary?.outcome === 'not_caught' || (primary?.outcome === 'caught' && Boolean(primary.isDead))
 

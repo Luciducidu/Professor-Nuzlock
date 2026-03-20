@@ -1,6 +1,17 @@
 import { db } from './db'
 import type { Location } from './types'
 
+export function compareLocations(a: Location, b: Location): number {
+  if (a.name === 'Starter' && b.name !== 'Starter') return -1
+  if (b.name === 'Starter' && a.name !== 'Starter') return 1
+
+  const orderA = Number.isFinite(a.order) && a.order > 0 ? a.order : Number.MAX_SAFE_INTEGER
+  const orderB = Number.isFinite(b.order) && b.order > 0 ? b.order : Number.MAX_SAFE_INTEGER
+  if (orderA !== orderB) return orderA - orderB
+
+  return a.name.localeCompare(b.name, 'de')
+}
+
 export async function ensureStarterLocation(projectId: string): Promise<void> {
   await db.transaction('rw', db.locations, db.encounters, async () => {
     const locations = await db.locations.where('projectId').equals(projectId).toArray()

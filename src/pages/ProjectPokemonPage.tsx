@@ -1,13 +1,14 @@
-﻿import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { EncounterFormModal } from '../components/EncounterFormModal'
 import { PokemonLabel } from '../components/PokemonLabel'
 import { PokemonSearch } from '../components/PokemonSearch'
+import { SoullinkEncounterPairModal } from '../components/SoullinkEncounterPairModal'
 import { ProjectLayout } from '../components/ProjectLayout'
 import { db } from '../lib/db'
-import { isSoulLinkProject } from '../lib/projectSettings'
 import { resolveEvolutionOptionById } from '../lib/evolution'
+import { isSoulLinkProject } from '../lib/projectSettings'
 import { checkDupesClauseForPokemon } from '../lib/rules'
-import { updateEncounterDeathState } from '../lib/soullink'
+import { deleteEncounterWithPartner, updateEncounterDeathState } from '../lib/soullink'
 import type { Encounter, EncounterType, PokemonIndexEntry, Project } from '../lib/types'
 
 type TabKey = 'caught' | 'deathbox' | 'check'
@@ -16,6 +17,7 @@ const ENCOUNTER_TYPE_LABELS: Record<EncounterType, string> = {
   normal: 'Normal',
   shiny: 'Shiny',
   static: 'Static',
+  gift: 'Geschenk',
 }
 
 export function ProjectPokemonPage() {
@@ -37,6 +39,7 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
 
   const [editingEncounter, setEditingEncounter] = useState<Encounter | undefined>(undefined)
   const [encounterModalOpen, setEncounterModalOpen] = useState(false)
+  const [editingPairLead, setEditingPairLead] = useState<Encounter | null>(null)
   const [deleteTarget, setDeleteTarget] = useState<Encounter | null>(null)
 
   useEffect(() => {
@@ -142,10 +145,23 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
 
   const handleDeleteEncounter = async () => {
     if (!deleteTarget) return
-    await db.encounters.delete(deleteTarget.id)
+    if (isSoulLinkProject(project)) {
+      await deleteEncounterWithPartner(project, deleteTarget)
+    } else {
+      await db.encounters.delete(deleteTarget.id)
+    }
     setDeleteTarget(null)
     await refreshData()
   }
+
+  const editingPair = useMemo(() => {
+    if (!editingPairLead?.linkedEncounterId) return null
+    const partner = encounters.find((entry) => entry.id === editingPairLead.linkedEncounterId)
+    if (!partner) return null
+    return editingPairLead.playerId === 'p1'
+      ? { p1: editingPairLead, p2: partner }
+      : { p1: partner, p2: editingPairLead }
+  }, [editingPairLead, encounters])
 
   if (loading) return <InfoCard text="Daten werden geladen..." />
 
@@ -204,16 +220,26 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setEditingEncounter(encounter)
-                          setEncounterModalOpen(true)
-                        }}
-                        className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-                      >
-                        Bearbeiten
-                      </button>
+                      {isSoulLinkProject(project) && encounter.linkedEncounterId ? (
+                        <button
+                          type="button"
+                          onClick={() => setEditingPairLead(encounter)}
+                          className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                        >
+                          Paar bearbeiten
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setEditingEncounter(encounter)
+                            setEncounterModalOpen(true)
+                          }}
+                          className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                        >
+                          Bearbeiten
+                        </button>
+                      )}
                       <button
                         type="button"
                         onClick={() => handleToggleDead(encounter)}
@@ -315,6 +341,24 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
         </section>
       ) : null}
 
+      {editingPairLead && editingPair ? (
+        <SoullinkEncounterPairModal
+          project={project}
+          projectId={projectId}
+          locationId={editingPair.p1.locationId}
+          encountersInProject={encounters}
+          initialPair={editingPair}
+          title={editingPair.p1.encounterType === 'normal' ? 'Soullink-Hauptbegegnung' : 'Soullink-Extra-Begegnung'}
+          allowedEncounterTypes={editingPair.p1.encounterType === 'normal' ? ['normal'] : ['shiny', 'static', 'gift']}
+          defaultEncounterType={editingPair.p1.encounterType === 'normal' ? 'normal' : editingPair.p1.encounterType}
+          onClose={() => setEditingPairLead(null)}
+          onSaved={async () => {
+            setEditingPairLead(null)
+            await refreshData()
+          }}
+        />
+      ) : null}
+
       {encounterModalOpen && editingEncounter ? (
         <EncounterFormModal
           key={editingEncounter.id}
@@ -327,7 +371,11 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
             setEncounterModalOpen(false)
             setEditingEncounter(undefined)
           }}
-          onSaved={refreshData}
+          onSaved={async () => {
+            setEncounterModalOpen(false)
+            setEditingEncounter(undefined)
+            await refreshData()
+          }}
         />
       ) : null}
 
@@ -339,7 +387,7 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
             <div className="mt-4 flex gap-2">
               <button
                 type="button"
-                onClick={handleDeleteEncounter}
+                onClick={() => void handleDeleteEncounter()}
                 className="rounded-md bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-500"
               >
                 Löschen

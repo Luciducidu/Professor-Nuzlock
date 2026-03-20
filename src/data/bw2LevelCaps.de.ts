@@ -1,3 +1,15 @@
 export const BW2_LEVEL_CAPS_DE = [
-  { key: 'story', label: 'BW2-Levelcaps werden später ergänzt', cap: 0 },
+  { key: 'gym1', label: '1. Arenaleiter Cheren', cap: 13 },
+  { key: 'gym2', label: '2. Arenaleiter Roxie', cap: 18 },
+  { key: 'gym3', label: '3. Arenaleiter Burgh', cap: 24 },
+  { key: 'gym4', label: '4. Arenaleiter Elesa', cap: 30 },
+  { key: 'gym5', label: '5. Arenaleiter Clay', cap: 33 },
+  { key: 'gym6', label: '6. Arenaleiter Skyla', cap: 39 },
+  { key: 'gym7', label: '7. Arenaleiter Drayden', cap: 48 },
+  { key: 'gym8', label: '8. Arenaleiter Marlon', cap: 51 },
+  { key: 'e4-1', label: 'Top 4 Shauntal', cap: 58 },
+  { key: 'e4-2', label: 'Top 4 Grimsley', cap: 58 },
+  { key: 'e4-3', label: 'Top 4 Caitlin', cap: 58 },
+  { key: 'e4-4', label: 'Top 4 Marshal', cap: 58 },
+  { key: 'champ', label: 'Champ Iris', cap: 59 },
 ] as const

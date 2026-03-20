@@ -35,7 +35,7 @@ const normalizeLocationType = (value: unknown): LocationType => {
 }
 
 const normalizeEncounterType = (value: unknown): EncounterType => {
-  if (value === 'normal' || value === 'shiny' || value === 'static') return value
+  if (value === 'normal' || value === 'shiny' || value === 'static' || value === 'gift') return value
   return 'normal'
 }
 

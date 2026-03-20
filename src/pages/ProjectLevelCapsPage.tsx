@@ -9,6 +9,12 @@ import {
 } from '../lib/projectSettings'
 import type { ProjectGame, ProjectSettings } from '../lib/types'
 
+type LevelCapEntry = {
+  key: string
+  label: string
+  cap: number
+}
+
 export function ProjectLevelCapsPage() {
   return (
     <ProjectLayout>
@@ -48,6 +54,10 @@ function ProjectLevelCapsContent({
     [game, settings.levelCapsProgressKey],
   )
 
+  const gymCaps = useMemo(() => levelCaps.filter((entry) => entry.key.startsWith('gym')), [levelCaps])
+  const e4Caps = useMemo(() => levelCaps.filter((entry) => entry.key.startsWith('e4-')), [levelCaps])
+  const champCap = useMemo(() => levelCaps.filter((entry) => entry.key === 'champ'), [levelCaps])
+
   const handleSave = async () => {
     setSaving(true)
     setSaveMessage('')
@@ -75,9 +85,7 @@ function ProjectLevelCapsContent({
             <input
               type="checkbox"
               checked={settings.levelCapsEnabled}
-              onChange={(event) =>
-                setSettings((prev) => ({ ...prev, levelCapsEnabled: event.target.checked }))
-              }
+              onChange={(event) => setSettings((prev) => ({ ...prev, levelCapsEnabled: event.target.checked }))}
               className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-500"
             />
           </label>
@@ -89,9 +97,7 @@ function ProjectLevelCapsContent({
             <select
               id="levelcaps-progress"
               value={settings.levelCapsProgressKey}
-              onChange={(event) =>
-                setSettings((prev) => ({ ...prev, levelCapsProgressKey: event.target.value }))
-              }
+              onChange={(event) => setSettings((prev) => ({ ...prev, levelCapsProgressKey: event.target.value }))}
               className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 transition focus:ring-2"
             >
               {levelCapOptions.map((option) => (
@@ -126,32 +132,48 @@ function ProjectLevelCapsContent({
         </section>
       ) : null}
 
-      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-        <h3 className="text-lg font-semibold text-slate-900">Levelcaps</h3>
-        <div className="mt-3 divide-y divide-slate-200 rounded-md border border-slate-200">
-          {levelCaps.map((entry) => {
-            const isCurrent = entry.key === currentCap.key
-            return (
-              <div
-                key={entry.key}
-                className={`flex items-center justify-between px-3 py-4 text-base ${
-                  isCurrent ? 'bg-sky-50' : 'bg-white'
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-slate-900">{entry.label}</span>
-                  {isCurrent ? (
-                    <span className="rounded-full bg-sky-100 px-2 py-0.5 text-xs font-semibold text-sky-700">
-                      Aktuell
-                    </span>
-                  ) : null}
-                </div>
-                <span className="font-semibold text-slate-900">Level {entry.cap}</span>
-              </div>
-            )
-          })}
-        </div>
-      </section>
+      <LevelCapGroup title="Arenaleiter" entries={gymCaps} currentKey={currentCap.key} />
+      <LevelCapGroup title="Top 4" entries={e4Caps} currentKey={currentCap.key} />
+      <LevelCapGroup title="Champ" entries={champCap} currentKey={currentCap.key} />
     </div>
+  )
+}
+
+function LevelCapGroup({
+  title,
+  entries,
+  currentKey,
+}: {
+  title: string
+  entries: readonly LevelCapEntry[]
+  currentKey: string
+}) {
+  if (entries.length === 0) return null
+
+  return (
+    <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+      <div className="mt-3 divide-y divide-slate-200 rounded-md border border-slate-200">
+        {entries.map((entry) => {
+          const isCurrent = entry.key === currentKey
+          return (
+            <div
+              key={entry.key}
+              className={`flex items-center justify-between px-3 py-4 text-base ${isCurrent ? 'bg-sky-50' : 'bg-white'}`}
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-slate-900">{entry.label}</span>
+                {isCurrent ? (
+                  <span className="rounded-full bg-sky-100 px-2 py-0.5 text-xs font-semibold text-sky-700">
+                    Aktuell
+                  </span>
+                ) : null}
+              </div>
+              <span className="font-semibold text-slate-900">Level {entry.cap}</span>
+            </div>
+          )
+        })}
+      </div>
+    </section>
   )
 }

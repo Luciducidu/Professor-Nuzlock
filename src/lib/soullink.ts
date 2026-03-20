@@ -2,15 +2,41 @@ import { db } from './db'
 import { getSoulLinkPlayers, isSoulLinkProject } from './projectSettings'
 import type { Encounter, PlayerId, Project } from './types'
 
-export function getPrimarySoullinkEncounter(
-  encounters: Encounter[],
-  playerId: PlayerId,
-): Encounter | null {
-  const primary = encounters
-    .filter((encounter) => encounter.playerId === playerId && Boolean(encounter.linkGroupId))
-    .sort((a, b) => a.createdAt - b.createdAt)
+export type SoullinkEncounterPair = {
+  linkGroupId: string
+  p1: Encounter
+  p2: Encounter
+}
 
-  return primary[0] ?? null
+function buildSoullinkPairs(encounters: Encounter[]): SoullinkEncounterPair[] {
+  const byId = new Map(encounters.map((encounter) => [encounter.id, encounter]))
+  const pairs = new Map<string, SoullinkEncounterPair>()
+
+  for (const encounter of encounters) {
+    if (encounter.playerId !== 'p1' && encounter.playerId !== 'p2') continue
+    if (!encounter.linkGroupId || !encounter.linkedEncounterId) continue
+
+    const partner = byId.get(encounter.linkedEncounterId)
+    if (!partner) continue
+    if (partner.linkGroupId !== encounter.linkGroupId || partner.linkedEncounterId !== encounter.id) continue
+
+    const p1 = encounter.playerId === 'p1' ? encounter : partner.playerId === 'p1' ? partner : null
+    const p2 = encounter.playerId === 'p2' ? encounter : partner.playerId === 'p2' ? partner : null
+    if (!p1 || !p2) continue
+
+    pairs.set(encounter.linkGroupId, { linkGroupId: encounter.linkGroupId, p1, p2 })
+  }
+
+  return Array.from(pairs.values()).sort((a, b) => a.p1.createdAt - b.p1.createdAt)
+}
+
+export function getPrimarySoullinkEncounter(encounters: Encounter[], playerId: PlayerId): Encounter | null {
+  const primaryPair = buildSoullinkPairs(encounters).find(
+    (pair) => pair.p1.encounterType === 'normal' && pair.p2.encounterType === 'normal',
+  )
+
+  if (!primaryPair) return null
+  return playerId === 'p1' ? primaryPair.p1 : primaryPair.p2
 }
 
 export function getPrimarySoullinkPair(encounters: Encounter[]): Record<PlayerId, Encounter | null> {
@@ -20,10 +46,10 @@ export function getPrimarySoullinkPair(encounters: Encounter[]): Record<PlayerId
   }
 }
 
-export function getSoullinkExtras(encounters: Encounter[]): Encounter[] {
-  return encounters
-    .filter((encounter) => !encounter.linkGroupId)
-    .sort((a, b) => a.createdAt - b.createdAt)
+export function getSoullinkExtraPairs(encounters: Encounter[]): SoullinkEncounterPair[] {
+  return buildSoullinkPairs(encounters).filter(
+    (pair) => pair.p1.encounterType !== 'normal' || pair.p2.encounterType !== 'normal',
+  )
 }
 
 export function isSoullinkEncounterDead(encounter: Encounter): boolean {

@@ -27,6 +27,7 @@ const ENCOUNTER_TYPE_OPTIONS: Array<{ value: EncounterType; label: string }> = [
   { value: 'normal', label: 'Normal' },
   { value: 'shiny', label: 'Shiny' },
   { value: 'static', label: 'Static' },
+  { value: 'gift', label: 'Geschenk' },
 ]
 
 const OUTCOME_OPTIONS: Array<{ value: EncounterOutcome; label: string }> = [

@@ -11,6 +11,9 @@ type SoullinkEncounterPairModalProps = {
   locationId: string
   encountersInProject: Encounter[]
   initialPair?: { p1?: Encounter | null; p2?: Encounter | null }
+  title?: string
+  allowedEncounterTypes?: EncounterType[]
+  defaultEncounterType?: EncounterType
   onClose: () => void
   onSaved: () => void
 }
@@ -28,6 +31,7 @@ const ENCOUNTER_TYPE_OPTIONS: Array<{ value: EncounterType; label: string }> = [
   { value: 'normal', label: 'Normal' },
   { value: 'shiny', label: 'Shiny' },
   { value: 'static', label: 'Static' },
+  { value: 'gift', label: 'Geschenk' },
 ]
 
 const OUTCOME_OPTIONS: Array<{ value: EncounterOutcome; label: string }> = [
@@ -35,7 +39,7 @@ const OUTCOME_OPTIONS: Array<{ value: EncounterOutcome; label: string }> = [
   { value: 'not_caught', label: 'Nicht gefangen' },
 ]
 
-function toState(encounter?: Encounter | null): EncounterFormState {
+function toState(encounter: Encounter | null | undefined, defaultEncounterType: EncounterType): EncounterFormState {
   return {
     selectedPokemon: encounter
       ? {
@@ -46,7 +50,7 @@ function toState(encounter?: Encounter | null): EncounterFormState {
         }
       : null,
     nickname: encounter?.nickname ?? '',
-    encounterType: encounter?.encounterType ?? 'normal',
+    encounterType: encounter?.encounterType ?? defaultEncounterType,
     outcome: encounter?.outcome ?? 'caught',
     isDead: encounter?.isDead ?? false,
     notes: encounter?.notes ?? '',
@@ -59,11 +63,14 @@ export function SoullinkEncounterPairModal({
   locationId,
   encountersInProject,
   initialPair,
+  title,
+  allowedEncounterTypes = ['normal', 'shiny', 'static'],
+  defaultEncounterType = 'normal',
   onClose,
   onSaved,
 }: SoullinkEncounterPairModalProps) {
-  const [player1, setPlayer1] = useState<EncounterFormState>(toState(initialPair?.p1))
-  const [player2, setPlayer2] = useState<EncounterFormState>(toState(initialPair?.p2))
+  const [player1, setPlayer1] = useState<EncounterFormState>(toState(initialPair?.p1, defaultEncounterType))
+  const [player2, setPlayer2] = useState<EncounterFormState>(toState(initialPair?.p2, defaultEncounterType))
   const [saving, setSaving] = useState(false)
 
   const validationP1 = useMemo(() => {
@@ -154,7 +161,7 @@ export function SoullinkEncounterPairModal({
     <div className="fixed inset-0 z-30 flex items-center justify-center bg-slate-950/40 p-4">
       <div className="w-full max-w-6xl rounded-xl bg-white p-5 shadow-xl">
         <h2 className="text-lg font-semibold text-slate-900">
-          {initialPair?.p1 || initialPair?.p2 ? 'Soullink-Paar bearbeiten' : 'Soullink-Paar hinzufügen'}
+          {title ?? (initialPair?.p1 || initialPair?.p2 ? 'Soullink-Paar bearbeiten' : 'Soullink-Paar hinzufügen')}
         </h2>
 
         <div className="mt-4 grid gap-4 lg:grid-cols-2">
@@ -163,12 +170,14 @@ export function SoullinkEncounterPairModal({
             state={player1}
             onChange={setPlayer1}
             validation={validationP1}
+            allowedEncounterTypes={allowedEncounterTypes}
           />
           <PlayerEncounterForm
             title={getPlayerName(project, 'p2')}
             state={player2}
             onChange={setPlayer2}
             validation={validationP2}
+            allowedEncounterTypes={allowedEncounterTypes}
           />
         </div>
 
@@ -199,11 +208,13 @@ function PlayerEncounterForm({
   state,
   onChange,
   validation,
+  allowedEncounterTypes,
 }: {
   title: string
   state: EncounterFormState
   onChange: (next: EncounterFormState) => void
   validation: { allowed: boolean; message: string; warning?: string } | null
+  allowedEncounterTypes: EncounterType[]
 }) {
   return (
     <section className="rounded-xl border border-slate-200 bg-slate-50 p-4">
@@ -244,7 +255,7 @@ function PlayerEncounterForm({
             onChange={(event) => onChange({ ...state, encounterType: event.target.value as EncounterType })}
             className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 transition focus:ring-2"
           >
-            {ENCOUNTER_TYPE_OPTIONS.map((option) => (
+            {ENCOUNTER_TYPE_OPTIONS.filter((option) => allowedEncounterTypes.includes(option.value)).map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>

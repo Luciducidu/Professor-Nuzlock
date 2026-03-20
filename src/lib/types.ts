@@ -45,7 +45,7 @@ export type Location = {
   notes?: string
 }
 
-export type EncounterType = 'normal' | 'shiny' | 'static'
+export type EncounterType = 'normal' | 'shiny' | 'static' | 'gift'
 
 export type EncounterOutcome = 'caught' | 'not_caught'
 
