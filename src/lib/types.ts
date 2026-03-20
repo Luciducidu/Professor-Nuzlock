@@ -1,4 +1,4 @@
-export type ProjectGame = 'platinum'
+export type ProjectGame = 'platinum' | 'bw2'
 
 export type DupesMode = 'none' | 'species' | 'evolution'
 export type ChallengeType = 'nuzlocke' | 'soullink'

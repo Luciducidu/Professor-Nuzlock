@@ -1,12 +1,13 @@
-﻿import Dexie from 'dexie'
+import Dexie from 'dexie'
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PokemonLabel } from '../components/PokemonLabel'
 import { ProjectLayout } from '../components/ProjectLayout'
-import { PLATINUM_LOCATIONS_DE } from '../data/platinumLocations.de'
+import { BW2_HIDDEN_GROTTO_LOCATIONS_DE } from '../data/bw2HiddenGrottoLocations.de'
+import type { SeedLocation } from '../data/seedLocations'
 import { db } from '../lib/db'
 import { ensureStarterLocation } from '../lib/locations'
-import { isSoulLinkProject } from '../lib/projectSettings'
+import { formatGameName, getLocationSeedsForGame, isSoulLinkProject } from '../lib/projectSettings'
 import { getPlayerName, getPrimarySoullinkPair, getSoullinkExtras, isSoullinkEncounterDead } from '../lib/soullink'
 import type { Encounter, Location, LocationType, Project } from '../lib/types'
 
@@ -34,6 +35,7 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
   const [loading, setLoading] = useState(true)
   const [showImportModal, setShowImportModal] = useState(false)
   const [reloadToken, setReloadToken] = useState(0)
+  const [importNotice, setImportNotice] = useState('')
 
   useEffect(() => {
     let active = true
@@ -113,13 +115,23 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
   const handleImportClick = async () => {
     const count = await db.locations.where('projectId').equals(projectId).count()
     if (count === 0) {
-      await importSeedItems(projectId, false)
+      const imported = await importSeedItems(projectId, getLocationSeedsForGame(project.game), false)
+      setImportNotice(imported > 0 ? `${imported} Orte wurden importiert.` : 'Keine neuen Orte importiert.')
       setLoading(true)
       setReloadToken((value) => value + 1)
       return
     }
 
     setShowImportModal(true)
+  }
+
+  const handleHiddenGrottoImport = async () => {
+    const imported = await importSeedItems(projectId, BW2_HIDDEN_GROTTO_LOCATIONS_DE, true)
+    setImportNotice(
+      imported > 0 ? `${imported} Hidden Grottoes wurden importiert.` : 'Keine neuen Hidden Grottoes importiert.',
+    )
+    setLoading(true)
+    setReloadToken((value) => value + 1)
   }
 
   if (loading) {
@@ -137,8 +149,17 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
             onClick={handleImportClick}
             className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50"
           >
-            Standardliste (Platin) importieren
+            Standardliste ({formatGameName(project.game)}) importieren
           </button>
+          {project.game === 'bw2' ? (
+            <button
+              type="button"
+              onClick={() => void handleHiddenGrottoImport()}
+              className="rounded-md border border-sky-300 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-800 transition-colors hover:bg-sky-100"
+            >
+              Hidden Grottoes importieren
+            </button>
+          ) : null}
           <Link
             to={`/project/${projectId}/orte/neu`}
             className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-700"
@@ -167,6 +188,12 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
           <FilterButton label="Nur Routen" active={filter === 'routes'} onClick={() => setFilter('routes')} />
           <FilterButton label="Nur Städte" active={filter === 'cities'} onClick={() => setFilter('cities')} />
         </div>
+
+        {importNotice ? (
+          <div className="mt-4 rounded-md border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-700">
+            {importNotice}
+          </div>
+        ) : null}
       </section>
 
       <section className="mt-4 space-y-3">
@@ -191,9 +218,16 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <p className="text-xl font-bold text-slate-900">{location.name}</p>
-                    <span className="mt-2 inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-                      {TYPE_LABELS[location.type]}
-                    </span>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      <span className="inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+                        {TYPE_LABELS[location.type]}
+                      </span>
+                      {location.name.includes('Hidden Grotto') ? (
+                        <span className="inline-block rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700">
+                          BW2 Spezial
+                        </span>
+                      ) : null}
+                    </div>
                   </div>
 
                   <div className="min-w-[280px] text-sm text-slate-700">
@@ -241,7 +275,8 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
               <button
                 type="button"
                 onClick={async () => {
-                  await importSeedItems(projectId, true)
+                  const imported = await importSeedItems(projectId, getLocationSeedsForGame(project.game), true)
+                  setImportNotice(imported > 0 ? `${imported} Orte wurden importiert.` : 'Keine neuen Orte importiert.')
                   setLoading(true)
                   setReloadToken((value) => value + 1)
                   setShowImportModal(false)
@@ -265,15 +300,15 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
   )
 }
 
-async function importSeedItems(projectId: string, onlyMissing: boolean) {
+async function importSeedItems(projectId: string, seeds: readonly SeedLocation[], onlyMissing: boolean) {
   const existing = await db.locations.where('projectId').equals(projectId).toArray()
   const existingNames = new Set(existing.map((location) => location.name))
 
   const candidates = onlyMissing
-    ? PLATINUM_LOCATIONS_DE.filter((seed) => !existingNames.has(seed.name))
-    : PLATINUM_LOCATIONS_DE
+    ? seeds.filter((seed) => !existingNames.has(seed.name))
+    : seeds.filter((seed) => !existingNames.has(seed.name))
 
-  if (candidates.length === 0) return
+  if (candidates.length === 0) return 0
 
   const now = Date.now()
   const rows: Location[] = candidates.map((seed) => ({
@@ -283,10 +318,11 @@ async function importSeedItems(projectId: string, onlyMissing: boolean) {
     type: seed.type,
     order: seed.order,
     createdAt: now,
-    notes: '',
+    notes: seed.notes ?? '',
   }))
 
   await db.locations.bulkPut(rows)
+  return rows.length
 }
 
 function FilterButton({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {

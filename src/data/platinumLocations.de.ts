@@ -1,10 +1,4 @@
-import type { LocationType } from '../lib/types'
-
-type SeedLocation = {
-  name: string
-  type: LocationType
-  order: number
-}
+import type { SeedLocation } from './seedLocations'
 
 export const PLATINUM_LOCATIONS_DE: SeedLocation[] = [
   { name: 'Zweiblattdorf', type: 'city', order: 10 },

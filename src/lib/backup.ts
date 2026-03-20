@@ -121,7 +121,7 @@ export async function importProjectBackup(file: File): Promise<{ projectId: stri
     name: projectName,
     game: sourceProject.game ?? 'platinum',
     createdAt: Date.now(),
-    settings: normalizeProjectSettings(sourceProject.settings),
+    settings: normalizeProjectSettings(sourceProject.settings, sourceProject.game ?? 'platinum'),
     challengeType: sourceProject.challengeType,
     players: sourceProject.players,
     selectedEvolutionByPokemonId: sourceProject.selectedEvolutionByPokemonId ?? {},

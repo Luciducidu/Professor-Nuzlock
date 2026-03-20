@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 
 const OUT_DIR = "./pokedata";
-const MAX_ID = 493;
+const MAX_ID = 649;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -16,7 +16,7 @@ async function fetchJson(url) {
   return res.json();
 }
 
-console.log("Start Download...");
+console.log(`Start Download bis #${MAX_ID}...`);
 
 await mkdir(OUT_DIR, { recursive: true });
 

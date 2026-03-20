@@ -52,7 +52,7 @@ export function ProjectDashboardPage() {
           project={project}
           projectId={projectId}
           gameLabel={formatGameName(project.game)}
-          settings={normalizeProjectSettings(project.settings)}
+          settings={normalizeProjectSettings(project.settings, project.game)}
           stats={stats}
           onStatsChange={setStats}
         />
@@ -107,7 +107,7 @@ function DashboardContent({
     [stats],
   )
 
-  const currentCap = getLevelCapByKey(settings.levelCapsProgressKey)
+  const currentCap = getLevelCapByKey(project.game, settings.levelCapsProgressKey)
   const soulLinkPlayers = getSoulLinkPlayers(project)
 
   return (

@@ -1,17 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
-import { PLATINUM_LEVEL_CAPS_DE } from '../data/platinumLevelCaps.de'
 import { ProjectLayout } from '../components/ProjectLayout'
 import { db } from '../lib/db'
 import {
-  LEVEL_CAP_OPTIONS,
   getLevelCapByKey,
+  getLevelCapOptions,
+  getLevelCapsForGame,
   normalizeProjectSettings,
 } from '../lib/projectSettings'
-import type { ProjectSettings } from '../lib/types'
-
-const GYM_CAPS = PLATINUM_LEVEL_CAPS_DE.filter((entry) => entry.key.startsWith('gym'))
-const E4_CAPS = PLATINUM_LEVEL_CAPS_DE.filter((entry) => entry.key.startsWith('e4-'))
-const CHAMP_CAP = PLATINUM_LEVEL_CAPS_DE.filter((entry) => entry.key === 'champ')
+import type { ProjectGame, ProjectSettings } from '../lib/types'
 
 export function ProjectLevelCapsPage() {
   return (
@@ -19,7 +15,8 @@ export function ProjectLevelCapsPage() {
       {({ project, projectId }) => (
         <ProjectLevelCapsContent
           projectId={projectId}
-          initialSettings={normalizeProjectSettings(project.settings)}
+          game={project.game}
+          initialSettings={normalizeProjectSettings(project.settings, project.game)}
         />
       )}
     </ProjectLayout>
@@ -28,9 +25,11 @@ export function ProjectLevelCapsPage() {
 
 function ProjectLevelCapsContent({
   projectId,
+  game,
   initialSettings,
 }: {
   projectId: string
+  game: ProjectGame
   initialSettings: ProjectSettings
 }) {
   const [settings, setSettings] = useState<ProjectSettings>(initialSettings)
@@ -42,9 +41,11 @@ function ProjectLevelCapsContent({
     setSettings(initialSettings)
   }, [initialSettings])
 
+  const levelCaps = useMemo(() => getLevelCapsForGame(game), [game])
+  const levelCapOptions = useMemo(() => getLevelCapOptions(game), [game])
   const currentCap = useMemo(
-    () => getLevelCapByKey(settings.levelCapsProgressKey),
-    [settings.levelCapsProgressKey],
+    () => getLevelCapByKey(game, settings.levelCapsProgressKey),
+    [game, settings.levelCapsProgressKey],
   )
 
   const handleSave = async () => {
@@ -93,7 +94,7 @@ function ProjectLevelCapsContent({
               }
               className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 transition focus:ring-2"
             >
-              {LEVEL_CAP_OPTIONS.map((option) => (
+              {levelCapOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
@@ -125,48 +126,32 @@ function ProjectLevelCapsContent({
         </section>
       ) : null}
 
-      <LevelCapGroup title="Arenaleiter" entries={GYM_CAPS} currentKey={currentCap.key} />
-      <LevelCapGroup title="Top 4" entries={E4_CAPS} currentKey={currentCap.key} />
-      <LevelCapGroup title="Champ" entries={CHAMP_CAP} currentKey={currentCap.key} />
-    </div>
-  )
-}
-
-function LevelCapGroup({
-  title,
-  entries,
-  currentKey,
-}: {
-  title: string
-  entries: ReadonlyArray<{ key: string; label: string; cap: number }>
-  currentKey: string
-}) {
-  return (
-    <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-      <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
-      <div className="mt-3 divide-y divide-slate-200 rounded-md border border-slate-200">
-        {entries.map((entry) => {
-          const isCurrent = entry.key === currentKey
-          return (
-            <div
-              key={entry.key}
-              className={`flex items-center justify-between px-3 py-4 text-base ${
-                isCurrent ? 'bg-sky-50' : 'bg-white'
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-slate-900">{entry.label}</span>
-                {isCurrent ? (
-                  <span className="rounded-full bg-sky-100 px-2 py-0.5 text-xs font-semibold text-sky-700">
-                    Aktuell
-                  </span>
-                ) : null}
+      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h3 className="text-lg font-semibold text-slate-900">Levelcaps</h3>
+        <div className="mt-3 divide-y divide-slate-200 rounded-md border border-slate-200">
+          {levelCaps.map((entry) => {
+            const isCurrent = entry.key === currentCap.key
+            return (
+              <div
+                key={entry.key}
+                className={`flex items-center justify-between px-3 py-4 text-base ${
+                  isCurrent ? 'bg-sky-50' : 'bg-white'
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-900">{entry.label}</span>
+                  {isCurrent ? (
+                    <span className="rounded-full bg-sky-100 px-2 py-0.5 text-xs font-semibold text-sky-700">
+                      Aktuell
+                    </span>
+                  ) : null}
+                </div>
+                <span className="font-semibold text-slate-900">Level {entry.cap}</span>
               </div>
-              <span className="font-semibold text-slate-900">Level {entry.cap}</span>
-            </div>
-          )
-        })}
-      </div>
-    </section>
+            )
+          })}
+        </div>
+      </section>
+    </div>
   )
 }

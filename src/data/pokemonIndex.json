@@ -2956,5 +2956,941 @@
     "slug": "arceus",
     "nameDe": "Arceus",
     "evolution_chain_id": 254
+  },
+  {
+    "id": 494,
+    "slug": "victini",
+    "nameDe": "Victini",
+    "evolution_chain_id": 255
+  },
+  {
+    "id": 495,
+    "slug": "snivy",
+    "nameDe": "Serpifeu",
+    "evolution_chain_id": 256
+  },
+  {
+    "id": 496,
+    "slug": "servine",
+    "nameDe": "Efoserp",
+    "evolution_chain_id": 256
+  },
+  {
+    "id": 497,
+    "slug": "serperior",
+    "nameDe": "Serpiroyal",
+    "evolution_chain_id": 256
+  },
+  {
+    "id": 498,
+    "slug": "tepig",
+    "nameDe": "Floink",
+    "evolution_chain_id": 257
+  },
+  {
+    "id": 499,
+    "slug": "pignite",
+    "nameDe": "Ferkokel",
+    "evolution_chain_id": 257
+  },
+  {
+    "id": 500,
+    "slug": "emboar",
+    "nameDe": "Flambirex",
+    "evolution_chain_id": 257
+  },
+  {
+    "id": 501,
+    "slug": "oshawott",
+    "nameDe": "Ottaro",
+    "evolution_chain_id": 258
+  },
+  {
+    "id": 502,
+    "slug": "dewott",
+    "nameDe": "Zwottronin",
+    "evolution_chain_id": 258
+  },
+  {
+    "id": 503,
+    "slug": "samurott",
+    "nameDe": "Admurai",
+    "evolution_chain_id": 258
+  },
+  {
+    "id": 504,
+    "slug": "patrat",
+    "nameDe": "Nagelotz",
+    "evolution_chain_id": 259
+  },
+  {
+    "id": 505,
+    "slug": "watchog",
+    "nameDe": "Kukmarda",
+    "evolution_chain_id": 259
+  },
+  {
+    "id": 506,
+    "slug": "lillipup",
+    "nameDe": "Yorkleff",
+    "evolution_chain_id": 260
+  },
+  {
+    "id": 507,
+    "slug": "herdier",
+    "nameDe": "Terribark",
+    "evolution_chain_id": 260
+  },
+  {
+    "id": 508,
+    "slug": "stoutland",
+    "nameDe": "Bissbark",
+    "evolution_chain_id": 260
+  },
+  {
+    "id": 509,
+    "slug": "purrloin",
+    "nameDe": "Felilou",
+    "evolution_chain_id": 261
+  },
+  {
+    "id": 510,
+    "slug": "liepard",
+    "nameDe": "Kleoparda",
+    "evolution_chain_id": 261
+  },
+  {
+    "id": 511,
+    "slug": "pansage",
+    "nameDe": "Vegimak",
+    "evolution_chain_id": 262
+  },
+  {
+    "id": 512,
+    "slug": "simisage",
+    "nameDe": "Vegichita",
+    "evolution_chain_id": 262
+  },
+  {
+    "id": 513,
+    "slug": "pansear",
+    "nameDe": "Grillmak",
+    "evolution_chain_id": 263
+  },
+  {
+    "id": 514,
+    "slug": "simisear",
+    "nameDe": "Grillchita",
+    "evolution_chain_id": 263
+  },
+  {
+    "id": 515,
+    "slug": "panpour",
+    "nameDe": "Sodamak",
+    "evolution_chain_id": 264
+  },
+  {
+    "id": 516,
+    "slug": "simipour",
+    "nameDe": "Sodachita",
+    "evolution_chain_id": 264
+  },
+  {
+    "id": 517,
+    "slug": "munna",
+    "nameDe": "Somniam",
+    "evolution_chain_id": 265
+  },
+  {
+    "id": 518,
+    "slug": "musharna",
+    "nameDe": "Somnivora",
+    "evolution_chain_id": 265
+  },
+  {
+    "id": 519,
+    "slug": "pidove",
+    "nameDe": "Dusselgurr",
+    "evolution_chain_id": 266
+  },
+  {
+    "id": 520,
+    "slug": "tranquill",
+    "nameDe": "Navitaub",
+    "evolution_chain_id": 266
+  },
+  {
+    "id": 521,
+    "slug": "unfezant",
+    "nameDe": "Fasasnob",
+    "evolution_chain_id": 266
+  },
+  {
+    "id": 522,
+    "slug": "blitzle",
+    "nameDe": "Elezeba",
+    "evolution_chain_id": 267
+  },
+  {
+    "id": 523,
+    "slug": "zebstrika",
+    "nameDe": "Zebritz",
+    "evolution_chain_id": 267
+  },
+  {
+    "id": 524,
+    "slug": "roggenrola",
+    "nameDe": "Kiesling",
+    "evolution_chain_id": 268
+  },
+  {
+    "id": 525,
+    "slug": "boldore",
+    "nameDe": "Sedimantur",
+    "evolution_chain_id": 268
+  },
+  {
+    "id": 526,
+    "slug": "gigalith",
+    "nameDe": "Brockoloss",
+    "evolution_chain_id": 268
+  },
+  {
+    "id": 527,
+    "slug": "woobat",
+    "nameDe": "Fleknoil",
+    "evolution_chain_id": 269
+  },
+  {
+    "id": 528,
+    "slug": "swoobat",
+    "nameDe": "Fletiamo",
+    "evolution_chain_id": 269
+  },
+  {
+    "id": 529,
+    "slug": "drilbur",
+    "nameDe": "Rotomurf",
+    "evolution_chain_id": 270
+  },
+  {
+    "id": 530,
+    "slug": "excadrill",
+    "nameDe": "Stalobor",
+    "evolution_chain_id": 270
+  },
+  {
+    "id": 531,
+    "slug": "audino",
+    "nameDe": "Ohrdoch",
+    "evolution_chain_id": 271
+  },
+  {
+    "id": 532,
+    "slug": "timburr",
+    "nameDe": "Praktibalk",
+    "evolution_chain_id": 272
+  },
+  {
+    "id": 533,
+    "slug": "gurdurr",
+    "nameDe": "Strepoli",
+    "evolution_chain_id": 272
+  },
+  {
+    "id": 534,
+    "slug": "conkeldurr",
+    "nameDe": "Meistagrif",
+    "evolution_chain_id": 272
+  },
+  {
+    "id": 535,
+    "slug": "tympole",
+    "nameDe": "Schallquap",
+    "evolution_chain_id": 273
+  },
+  {
+    "id": 536,
+    "slug": "palpitoad",
+    "nameDe": "Mebrana",
+    "evolution_chain_id": 273
+  },
+  {
+    "id": 537,
+    "slug": "seismitoad",
+    "nameDe": "Branawarz",
+    "evolution_chain_id": 273
+  },
+  {
+    "id": 538,
+    "slug": "throh",
+    "nameDe": "Jiutesto",
+    "evolution_chain_id": 274
+  },
+  {
+    "id": 539,
+    "slug": "sawk",
+    "nameDe": "Karadonis",
+    "evolution_chain_id": 275
+  },
+  {
+    "id": 540,
+    "slug": "sewaddle",
+    "nameDe": "Strawickl",
+    "evolution_chain_id": 276
+  },
+  {
+    "id": 541,
+    "slug": "swadloon",
+    "nameDe": "Folikon",
+    "evolution_chain_id": 276
+  },
+  {
+    "id": 542,
+    "slug": "leavanny",
+    "nameDe": "Matrifol",
+    "evolution_chain_id": 276
+  },
+  {
+    "id": 543,
+    "slug": "venipede",
+    "nameDe": "Toxiped",
+    "evolution_chain_id": 277
+  },
+  {
+    "id": 544,
+    "slug": "whirlipede",
+    "nameDe": "Rollum",
+    "evolution_chain_id": 277
+  },
+  {
+    "id": 545,
+    "slug": "scolipede",
+    "nameDe": "Cerapendra",
+    "evolution_chain_id": 277
+  },
+  {
+    "id": 546,
+    "slug": "cottonee",
+    "nameDe": "Waumboll",
+    "evolution_chain_id": 278
+  },
+  {
+    "id": 547,
+    "slug": "whimsicott",
+    "nameDe": "Elfun",
+    "evolution_chain_id": 278
+  },
+  {
+    "id": 548,
+    "slug": "petilil",
+    "nameDe": "Lilminip",
+    "evolution_chain_id": 279
+  },
+  {
+    "id": 549,
+    "slug": "lilligant",
+    "nameDe": "Dressella",
+    "evolution_chain_id": 279
+  },
+  {
+    "id": 550,
+    "slug": "basculin",
+    "nameDe": "Barschuft",
+    "evolution_chain_id": 280
+  },
+  {
+    "id": 551,
+    "slug": "sandile",
+    "nameDe": "Ganovil",
+    "evolution_chain_id": 281
+  },
+  {
+    "id": 552,
+    "slug": "krokorok",
+    "nameDe": "Rokkaiman",
+    "evolution_chain_id": 281
+  },
+  {
+    "id": 553,
+    "slug": "krookodile",
+    "nameDe": "Rabigator",
+    "evolution_chain_id": 281
+  },
+  {
+    "id": 554,
+    "slug": "darumaka",
+    "nameDe": "Flampion",
+    "evolution_chain_id": 282
+  },
+  {
+    "id": 555,
+    "slug": "darmanitan",
+    "nameDe": "Flampivian",
+    "evolution_chain_id": 282
+  },
+  {
+    "id": 556,
+    "slug": "maractus",
+    "nameDe": "Maracamba",
+    "evolution_chain_id": 283
+  },
+  {
+    "id": 557,
+    "slug": "dwebble",
+    "nameDe": "Lithomith",
+    "evolution_chain_id": 284
+  },
+  {
+    "id": 558,
+    "slug": "crustle",
+    "nameDe": "Castellith",
+    "evolution_chain_id": 284
+  },
+  {
+    "id": 559,
+    "slug": "scraggy",
+    "nameDe": "Zurrokex",
+    "evolution_chain_id": 285
+  },
+  {
+    "id": 560,
+    "slug": "scrafty",
+    "nameDe": "Irokex",
+    "evolution_chain_id": 285
+  },
+  {
+    "id": 561,
+    "slug": "sigilyph",
+    "nameDe": "Symvolara",
+    "evolution_chain_id": 286
+  },
+  {
+    "id": 562,
+    "slug": "yamask",
+    "nameDe": "Makabaja",
+    "evolution_chain_id": 287
+  },
+  {
+    "id": 563,
+    "slug": "cofagrigus",
+    "nameDe": "Echnatoll",
+    "evolution_chain_id": 287
+  },
+  {
+    "id": 564,
+    "slug": "tirtouga",
+    "nameDe": "Galapaflos",
+    "evolution_chain_id": 288
+  },
+  {
+    "id": 565,
+    "slug": "carracosta",
+    "nameDe": "Karippas",
+    "evolution_chain_id": 288
+  },
+  {
+    "id": 566,
+    "slug": "archen",
+    "nameDe": "Flapteryx",
+    "evolution_chain_id": 289
+  },
+  {
+    "id": 567,
+    "slug": "archeops",
+    "nameDe": "Aeropteryx",
+    "evolution_chain_id": 289
+  },
+  {
+    "id": 568,
+    "slug": "trubbish",
+    "nameDe": "Unratütox",
+    "evolution_chain_id": 290
+  },
+  {
+    "id": 569,
+    "slug": "garbodor",
+    "nameDe": "Deponitox",
+    "evolution_chain_id": 290
+  },
+  {
+    "id": 570,
+    "slug": "zorua",
+    "nameDe": "Zorua",
+    "evolution_chain_id": 291
+  },
+  {
+    "id": 571,
+    "slug": "zoroark",
+    "nameDe": "Zoroark",
+    "evolution_chain_id": 291
+  },
+  {
+    "id": 572,
+    "slug": "minccino",
+    "nameDe": "Picochilla",
+    "evolution_chain_id": 292
+  },
+  {
+    "id": 573,
+    "slug": "cinccino",
+    "nameDe": "Chillabell",
+    "evolution_chain_id": 292
+  },
+  {
+    "id": 574,
+    "slug": "gothita",
+    "nameDe": "Mollimorba",
+    "evolution_chain_id": 293
+  },
+  {
+    "id": 575,
+    "slug": "gothorita",
+    "nameDe": "Hypnomorba",
+    "evolution_chain_id": 293
+  },
+  {
+    "id": 576,
+    "slug": "gothitelle",
+    "nameDe": "Morbitesse",
+    "evolution_chain_id": 293
+  },
+  {
+    "id": 577,
+    "slug": "solosis",
+    "nameDe": "Monozyto",
+    "evolution_chain_id": 294
+  },
+  {
+    "id": 578,
+    "slug": "duosion",
+    "nameDe": "Mitodos",
+    "evolution_chain_id": 294
+  },
+  {
+    "id": 579,
+    "slug": "reuniclus",
+    "nameDe": "Zytomega",
+    "evolution_chain_id": 294
+  },
+  {
+    "id": 580,
+    "slug": "ducklett",
+    "nameDe": "Piccolente",
+    "evolution_chain_id": 295
+  },
+  {
+    "id": 581,
+    "slug": "swanna",
+    "nameDe": "Swaroness",
+    "evolution_chain_id": 295
+  },
+  {
+    "id": 582,
+    "slug": "vanillite",
+    "nameDe": "Gelatini",
+    "evolution_chain_id": 296
+  },
+  {
+    "id": 583,
+    "slug": "vanillish",
+    "nameDe": "Gelatroppo",
+    "evolution_chain_id": 296
+  },
+  {
+    "id": 584,
+    "slug": "vanilluxe",
+    "nameDe": "Gelatwino",
+    "evolution_chain_id": 296
+  },
+  {
+    "id": 585,
+    "slug": "deerling",
+    "nameDe": "Sesokitz",
+    "evolution_chain_id": 297
+  },
+  {
+    "id": 586,
+    "slug": "sawsbuck",
+    "nameDe": "Kronjuwild",
+    "evolution_chain_id": 297
+  },
+  {
+    "id": 587,
+    "slug": "emolga",
+    "nameDe": "Emolga",
+    "evolution_chain_id": 298
+  },
+  {
+    "id": 588,
+    "slug": "karrablast",
+    "nameDe": "Laukaps",
+    "evolution_chain_id": 299
+  },
+  {
+    "id": 589,
+    "slug": "escavalier",
+    "nameDe": "Cavalanzas",
+    "evolution_chain_id": 299
+  },
+  {
+    "id": 590,
+    "slug": "foongus",
+    "nameDe": "Tarnpignon",
+    "evolution_chain_id": 300
+  },
+  {
+    "id": 591,
+    "slug": "amoonguss",
+    "nameDe": "Hutsassa",
+    "evolution_chain_id": 300
+  },
+  {
+    "id": 592,
+    "slug": "frillish",
+    "nameDe": "Quabbel",
+    "evolution_chain_id": 301
+  },
+  {
+    "id": 593,
+    "slug": "jellicent",
+    "nameDe": "Apoquallyp",
+    "evolution_chain_id": 301
+  },
+  {
+    "id": 594,
+    "slug": "alomomola",
+    "nameDe": "Mamolida",
+    "evolution_chain_id": 302
+  },
+  {
+    "id": 595,
+    "slug": "joltik",
+    "nameDe": "Wattzapf",
+    "evolution_chain_id": 303
+  },
+  {
+    "id": 596,
+    "slug": "galvantula",
+    "nameDe": "Voltula",
+    "evolution_chain_id": 303
+  },
+  {
+    "id": 597,
+    "slug": "ferroseed",
+    "nameDe": "Kastadur",
+    "evolution_chain_id": 304
+  },
+  {
+    "id": 598,
+    "slug": "ferrothorn",
+    "nameDe": "Tentantel",
+    "evolution_chain_id": 304
+  },
+  {
+    "id": 599,
+    "slug": "klink",
+    "nameDe": "Klikk",
+    "evolution_chain_id": 305
+  },
+  {
+    "id": 600,
+    "slug": "klang",
+    "nameDe": "Kliklak",
+    "evolution_chain_id": 305
+  },
+  {
+    "id": 601,
+    "slug": "klinklang",
+    "nameDe": "Klikdiklak",
+    "evolution_chain_id": 305
+  },
+  {
+    "id": 602,
+    "slug": "tynamo",
+    "nameDe": "Zapplardin",
+    "evolution_chain_id": 306
+  },
+  {
+    "id": 603,
+    "slug": "eelektrik",
+    "nameDe": "Zapplalek",
+    "evolution_chain_id": 306
+  },
+  {
+    "id": 604,
+    "slug": "eelektross",
+    "nameDe": "Zapplarang",
+    "evolution_chain_id": 306
+  },
+  {
+    "id": 605,
+    "slug": "elgyem",
+    "nameDe": "Pygraulon",
+    "evolution_chain_id": 307
+  },
+  {
+    "id": 606,
+    "slug": "beheeyem",
+    "nameDe": "Megalon",
+    "evolution_chain_id": 307
+  },
+  {
+    "id": 607,
+    "slug": "litwick",
+    "nameDe": "Lichtel",
+    "evolution_chain_id": 308
+  },
+  {
+    "id": 608,
+    "slug": "lampent",
+    "nameDe": "Laternecto",
+    "evolution_chain_id": 308
+  },
+  {
+    "id": 609,
+    "slug": "chandelure",
+    "nameDe": "Skelabra",
+    "evolution_chain_id": 308
+  },
+  {
+    "id": 610,
+    "slug": "axew",
+    "nameDe": "Milza",
+    "evolution_chain_id": 309
+  },
+  {
+    "id": 611,
+    "slug": "fraxure",
+    "nameDe": "Sharfax",
+    "evolution_chain_id": 309
+  },
+  {
+    "id": 612,
+    "slug": "haxorus",
+    "nameDe": "Maxax",
+    "evolution_chain_id": 309
+  },
+  {
+    "id": 613,
+    "slug": "cubchoo",
+    "nameDe": "Petznief",
+    "evolution_chain_id": 310
+  },
+  {
+    "id": 614,
+    "slug": "beartic",
+    "nameDe": "Siberio",
+    "evolution_chain_id": 310
+  },
+  {
+    "id": 615,
+    "slug": "cryogonal",
+    "nameDe": "Frigometri",
+    "evolution_chain_id": 311
+  },
+  {
+    "id": 616,
+    "slug": "shelmet",
+    "nameDe": "Schnuthelm",
+    "evolution_chain_id": 312
+  },
+  {
+    "id": 617,
+    "slug": "accelgor",
+    "nameDe": "Hydragil",
+    "evolution_chain_id": 312
+  },
+  {
+    "id": 618,
+    "slug": "stunfisk",
+    "nameDe": "Flunschlik",
+    "evolution_chain_id": 313
+  },
+  {
+    "id": 619,
+    "slug": "mienfoo",
+    "nameDe": "Lin-Fu",
+    "evolution_chain_id": 314
+  },
+  {
+    "id": 620,
+    "slug": "mienshao",
+    "nameDe": "Wie-Shu",
+    "evolution_chain_id": 314
+  },
+  {
+    "id": 621,
+    "slug": "druddigon",
+    "nameDe": "Shardrago",
+    "evolution_chain_id": 315
+  },
+  {
+    "id": 622,
+    "slug": "golett",
+    "nameDe": "Golbit",
+    "evolution_chain_id": 316
+  },
+  {
+    "id": 623,
+    "slug": "golurk",
+    "nameDe": "Golgantes",
+    "evolution_chain_id": 316
+  },
+  {
+    "id": 624,
+    "slug": "pawniard",
+    "nameDe": "Gladiantri",
+    "evolution_chain_id": 317
+  },
+  {
+    "id": 625,
+    "slug": "bisharp",
+    "nameDe": "Caesurio",
+    "evolution_chain_id": 317
+  },
+  {
+    "id": 626,
+    "slug": "bouffalant",
+    "nameDe": "Bisofank",
+    "evolution_chain_id": 318
+  },
+  {
+    "id": 627,
+    "slug": "rufflet",
+    "nameDe": "Geronimatz",
+    "evolution_chain_id": 319
+  },
+  {
+    "id": 628,
+    "slug": "braviary",
+    "nameDe": "Washakwil",
+    "evolution_chain_id": 319
+  },
+  {
+    "id": 629,
+    "slug": "vullaby",
+    "nameDe": "Skallyk",
+    "evolution_chain_id": 320
+  },
+  {
+    "id": 630,
+    "slug": "mandibuzz",
+    "nameDe": "Grypheldis",
+    "evolution_chain_id": 320
+  },
+  {
+    "id": 631,
+    "slug": "heatmor",
+    "nameDe": "Furnifraß",
+    "evolution_chain_id": 321
+  },
+  {
+    "id": 632,
+    "slug": "durant",
+    "nameDe": "Fermicula",
+    "evolution_chain_id": 322
+  },
+  {
+    "id": 633,
+    "slug": "deino",
+    "nameDe": "Kapuno",
+    "evolution_chain_id": 323
+  },
+  {
+    "id": 634,
+    "slug": "zweilous",
+    "nameDe": "Duodino",
+    "evolution_chain_id": 323
+  },
+  {
+    "id": 635,
+    "slug": "hydreigon",
+    "nameDe": "Trikephalo",
+    "evolution_chain_id": 323
+  },
+  {
+    "id": 636,
+    "slug": "larvesta",
+    "nameDe": "Ignivor",
+    "evolution_chain_id": 324
+  },
+  {
+    "id": 637,
+    "slug": "volcarona",
+    "nameDe": "Ramoth",
+    "evolution_chain_id": 324
+  },
+  {
+    "id": 638,
+    "slug": "cobalion",
+    "nameDe": "Kobalium",
+    "evolution_chain_id": 325
+  },
+  {
+    "id": 639,
+    "slug": "terrakion",
+    "nameDe": "Terrakium",
+    "evolution_chain_id": 326
+  },
+  {
+    "id": 640,
+    "slug": "virizion",
+    "nameDe": "Viridium",
+    "evolution_chain_id": 327
+  },
+  {
+    "id": 641,
+    "slug": "tornadus",
+    "nameDe": "Boreos",
+    "evolution_chain_id": 328
+  },
+  {
+    "id": 642,
+    "slug": "thundurus",
+    "nameDe": "Voltolos",
+    "evolution_chain_id": 329
+  },
+  {
+    "id": 643,
+    "slug": "reshiram",
+    "nameDe": "Reshiram",
+    "evolution_chain_id": 330
+  },
+  {
+    "id": 644,
+    "slug": "zekrom",
+    "nameDe": "Zekrom",
+    "evolution_chain_id": 331
+  },
+  {
+    "id": 645,
+    "slug": "landorus",
+    "nameDe": "Demeteros",
+    "evolution_chain_id": 332
+  },
+  {
+    "id": 646,
+    "slug": "kyurem",
+    "nameDe": "Kyurem",
+    "evolution_chain_id": 333
+  },
+  {
+    "id": 647,
+    "slug": "keldeo",
+    "nameDe": "Keldeo",
+    "evolution_chain_id": 334
+  },
+  {
+    "id": 648,
+    "slug": "meloetta",
+    "nameDe": "Meloetta",
+    "evolution_chain_id": 335
+  },
+  {
+    "id": 649,
+    "slug": "genesect",
+    "nameDe": "Genesect",
+    "evolution_chain_id": 336
   }
 ]

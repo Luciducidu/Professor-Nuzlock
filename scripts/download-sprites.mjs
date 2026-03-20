@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile, access } from 'node:fs/promises'
+import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename)
 const rootDir = path.resolve(__dirname, '..')
 const pokemonIndexPath = path.join(rootDir, 'src', 'data', 'pokemonIndex.json')
 const spritesDir = path.join(rootDir, 'public', 'sprites')
-const MAX_ID = 493
+const MAX_ID = 649
 const PAUSE_MS = 75
 const PROGRESS_EVERY = 25
 
@@ -97,10 +97,10 @@ async function downloadSprites() {
   }
 
   console.log('\nFertig.')
-  console.log(`Downloaded: ${downloaded}`)
-  console.log(`Skipped existing: ${skippedExisting}`)
-  console.log(`Skipped missing: ${skippedMissing}`)
-  console.log(`Errors: ${errors}`)
+  console.log(`Heruntergeladen: ${downloaded}`)
+  console.log(`Bereits vorhanden: ${skippedExisting}`)
+  console.log(`Ohne Sprite übersprungen: ${skippedMissing}`)
+  console.log(`Fehler: ${errors}`)
 }
 
 downloadSprites().catch((error) => {

@@ -1,10 +1,10 @@
-﻿import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
 import { ProjectSettingsForm } from '../components/ProjectSettingsForm'
 import { db, ensureDatabaseReady } from '../lib/db'
 import { ensureStarterLocation } from '../lib/locations'
-import { DEFAULT_PROJECT_SETTINGS, GAME_OPTIONS } from '../lib/projectSettings'
+import { createDefaultProjectSettings, getLevelCapOptions, GAME_OPTIONS } from '../lib/projectSettings'
 import type { ChallengeType, ProjectGame, ProjectSettings, SoulLinkPlayer } from '../lib/types'
 
 export function NewProjectPage() {
@@ -17,7 +17,7 @@ export function NewProjectPage() {
     { id: 'p1', name: '' },
     { id: 'p2', name: '' },
   ])
-  const [settings, setSettings] = useState<ProjectSettings>(DEFAULT_PROJECT_SETTINGS)
+  const [settings, setSettings] = useState<ProjectSettings>(createDefaultProjectSettings('platinum'))
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
   const soulLinkPlayersValid = useMemo(() => players.every((player) => player.name.trim().length > 0), [players])
@@ -25,6 +25,13 @@ export function NewProjectPage() {
     () => name.trim().length > 0 && !saving && (challengeType === 'nuzlocke' || soulLinkPlayersValid),
     [challengeType, name, saving, soulLinkPlayersValid],
   )
+
+  useEffect(() => {
+    setSettings((prev) => ({
+      ...prev,
+      levelCapsProgressKey: createDefaultProjectSettings(game).levelCapsProgressKey,
+    }))
+  }, [game])
 
   const handleCreateProject = async () => {
     if (!canSubmit) return
@@ -115,7 +122,6 @@ export function NewProjectPage() {
             ))}
           </select>
         </div>
-
       </div>
 
       <div className="mt-4">
@@ -126,6 +132,7 @@ export function NewProjectPage() {
           onChallengeTypeChange={setChallengeType}
           players={players}
           onPlayersChange={setPlayers}
+          levelCapOptions={getLevelCapOptions(game)}
           onSubmit={handleCreateProject}
           submitLabel={saving ? 'Speichert...' : 'Speichern'}
           disabled={saving}

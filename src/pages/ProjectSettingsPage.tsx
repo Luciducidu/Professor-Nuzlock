@@ -3,14 +3,15 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
 import { ProjectSettingsForm } from '../components/ProjectSettingsForm'
 import { db } from '../lib/db'
-import { normalizeProject } from '../lib/projectSettings'
-import type { ChallengeType, ProjectSettings, SoulLinkPlayer } from '../lib/types'
+import { getLevelCapOptions, normalizeProject } from '../lib/projectSettings'
+import type { ChallengeType, ProjectGame, ProjectSettings, SoulLinkPlayer } from '../lib/types'
 
 export function ProjectSettingsPage() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
 
   const [projectName, setProjectName] = useState('')
+  const [projectGame, setProjectGame] = useState<ProjectGame>('platinum')
   const [settings, setSettings] = useState<ProjectSettings | null>(null)
   const [challengeType, setChallengeType] = useState<ChallengeType>('nuzlocke')
   const [players, setPlayers] = useState<[SoulLinkPlayer, SoulLinkPlayer]>([
@@ -36,6 +37,7 @@ export function ProjectSettingsPage() {
 
       const project = normalizeProject(loadedProject)
       setProjectName(project.name)
+      setProjectGame(project.game)
       setSettings(project.settings)
       setChallengeType(project.challengeType ?? 'nuzlocke')
       setPlayers([
@@ -95,6 +97,7 @@ export function ProjectSettingsPage() {
         onChallengeTypeChange={setChallengeType}
         players={players}
         onPlayersChange={setPlayers}
+        levelCapOptions={getLevelCapOptions(projectGame)}
         onSubmit={handleSave}
         submitLabel={saving ? 'Speichert...' : 'Speichern'}
         disabled={saving}

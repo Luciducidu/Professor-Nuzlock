@@ -2,7 +2,6 @@ import type { ReactNode } from 'react'
 import {
   CHALLENGE_TYPE_OPTIONS,
   DUPES_MODE_OPTIONS,
-  LEVEL_CAP_OPTIONS,
   SOULLINK_PARTNER_DUPES_OPTIONS,
 } from '../lib/projectSettings'
 import type { ChallengeType, ProjectSettings, SoulLinkPlayer } from '../lib/types'
@@ -14,6 +13,7 @@ type ProjectSettingsFormProps = {
   onChallengeTypeChange?: (next: ChallengeType) => void
   players?: [SoulLinkPlayer, SoulLinkPlayer]
   onPlayersChange?: (next: [SoulLinkPlayer, SoulLinkPlayer]) => void
+  levelCapOptions: Array<{ value: string; label: string }>
   onSubmit: () => void
   submitLabel: string
   disabled?: boolean
@@ -27,6 +27,7 @@ export function ProjectSettingsForm({
   onChallengeTypeChange,
   players,
   onPlayersChange,
+  levelCapOptions,
   onSubmit,
   submitLabel,
   disabled = false,
@@ -197,7 +198,7 @@ export function ProjectSettingsForm({
               className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 focus:ring-2"
               disabled={disabled}
             >
-              {LEVEL_CAP_OPTIONS.map((option) => (
+              {levelCapOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
