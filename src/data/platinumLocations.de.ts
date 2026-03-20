@@ -44,6 +44,3 @@ export const PLATINUM_LOCATIONS_DE: SeedLocation[] = [
   { name: 'Route 229', type: 'route', order: 229 },
   { name: 'Route 230', type: 'route', order: 230 },
 ]
-
-
-
