@@ -7,6 +7,7 @@ import {
   toDraftEntry,
   toPokemonFromDraft,
 } from '../lib/encounterDrafts'
+import { getDefaultForm, getFormByKey, getPokedexEntry } from '../lib/pokedex'
 import { isSoulLinkProject } from '../lib/projectSettings'
 import { validateEncounterSelection } from '../lib/rules'
 import type {
@@ -66,6 +67,7 @@ export function EncounterFormModal({
       : null,
   )
   const [nickname, setNickname] = useState(initialEncounter?.nickname ?? '')
+  const [formKey, setFormKey] = useState(initialEncounter?.formKey ?? '')
   const [encounterType, setEncounterType] = useState<EncounterType>(initialEncounter?.encounterType ?? 'normal')
   const [outcome, setOutcome] = useState<EncounterOutcome>(initialEncounter?.outcome ?? 'caught')
   const [isDead, setIsDead] = useState(initialEncounter?.isDead ?? false)
@@ -89,6 +91,7 @@ export function EncounterFormModal({
       if (draft?.entry) {
         setSelectedPokemon(toPokemonFromDraft(draft.entry))
         setNickname(draft.entry.nickname)
+        setFormKey(draft.entry.formKey ?? '')
         setEncounterType(draft.entry.encounterType)
         setOutcome(draft.entry.outcome)
         setIsDead(draft.entry.isDead)
@@ -132,17 +135,39 @@ export function EncounterFormModal({
     selectedPlayerId,
   ])
 
+  const selectedPokedexEntry = useMemo(
+    () => (selectedPokemon ? getPokedexEntry(selectedPokemon.id) : null),
+    [selectedPokemon],
+  )
+  const availableForms = selectedPokedexEntry?.forms ?? []
+  const activeForm =
+    getFormByKey(selectedPokedexEntry, formKey) ?? getDefaultForm(selectedPokedexEntry)
+
+  useEffect(() => {
+    if (!selectedPokedexEntry) return
+    if (availableForms.length === 0) return
+
+    const nextDefaultKey = activeForm?.key ?? availableForms[0]?.key ?? ''
+    if (!formKey || !availableForms.some((form) => form.key === formKey)) {
+      setFormKey(nextDefaultKey)
+    }
+  }, [activeForm?.key, availableForms, formKey, selectedPokedexEntry])
+
   const draftEntry = useMemo(
     () =>
       toDraftEntry({
         selectedPokemon,
+        formKey: activeForm?.key,
+        formName: activeForm?.nameDe,
+        formSlug: activeForm?.slug,
+        formPokemonId: activeForm?.pokemonId ?? null,
         nickname,
         encounterType,
         outcome,
         isDead: outcome === 'caught' ? isDead : false,
         notes,
       }),
-    [encounterType, isDead, nickname, notes, outcome, selectedPokemon],
+    [activeForm?.key, activeForm?.nameDe, activeForm?.pokemonId, activeForm?.slug, encounterType, isDead, nickname, notes, outcome, selectedPokemon],
   )
 
   const finalSaveAllowed = Boolean(selectedPokemon) && Boolean(validation?.allowed)
@@ -205,6 +230,7 @@ export function EncounterFormModal({
     await discardEncounterDraft(projectId, locationId, 'single')
     setSelectedPokemon(null)
     setNickname('')
+    setFormKey('')
     setEncounterType('normal')
     setOutcome('caught')
     setIsDead(false)
@@ -232,6 +258,10 @@ export function EncounterFormModal({
       slug: selectedPokemon.slug,
       nameDe: selectedPokemon.nameDe,
       evolution_chain_id: selectedPokemon.evolution_chain_id,
+      formKey: activeForm?.key,
+      formName: activeForm?.nameDe,
+      formSlug: activeForm?.slug,
+      formPokemonId: activeForm?.pokemonId ?? null,
       nickname: nickname.trim(),
       encounterType,
       outcome,
@@ -314,6 +344,26 @@ export function EncounterFormModal({
               Bitte ein Pokémon wählen.
             </div>
           )}
+
+          {availableForms.length > 1 ? (
+            <div>
+              <label htmlFor="encounter-form" className="mb-2 block text-sm font-medium text-slate-700">
+                Form
+              </label>
+              <select
+                id="encounter-form"
+                value={activeForm?.key ?? ''}
+                onChange={(event) => setFormKey(event.target.value)}
+                className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 transition focus:ring-2"
+              >
+                {availableForms.map((form) => (
+                  <option key={form.key} value={form.key}>
+                    {form.nameDe}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ) : null}
 
           {validation?.warning ? (
             <div className="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">

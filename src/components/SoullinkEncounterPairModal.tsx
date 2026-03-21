@@ -7,8 +7,9 @@ import {
   toDraftEntry,
   toPokemonFromDraft,
 } from '../lib/encounterDrafts'
-import { getPlayerName } from '../lib/soullink'
+import { getDefaultForm, getFormByKey, getPokedexEntry } from '../lib/pokedex'
 import { validateEncounterSelection } from '../lib/rules'
+import { getPlayerName } from '../lib/soullink'
 import type {
   Encounter,
   EncounterDraftEntry,
@@ -38,6 +39,7 @@ type SoullinkEncounterPairModalProps = {
 
 type EncounterFormState = {
   selectedPokemon: PokemonIndexEntry | null
+  formKey: string
   nickname: string
   encounterType: EncounterType
   outcome: EncounterOutcome
@@ -69,6 +71,7 @@ function toState(encounter: Encounter | null | undefined, defaultEncounterType: 
           evolution_chain_id: encounter.evolution_chain_id,
         }
       : null,
+    formKey: encounter?.formKey ?? '',
     nickname: encounter?.nickname ?? '',
     encounterType: encounter?.encounterType ?? defaultEncounterType,
     outcome: encounter?.outcome ?? 'caught',
@@ -137,12 +140,14 @@ export function SoullinkEncounterPairModal({
     [encountersInProject, initialPair, player2, project],
   )
 
+  const activeFormP1 = useActiveForm(player1.selectedPokemon, player1.formKey)
+  const activeFormP2 = useActiveForm(player2.selectedPokemon, player2.formKey)
+
   const draftEntryP1 = useMemo(() => toDraftEntryFromState(player1), [player1])
   const draftEntryP2 = useMemo(() => toDraftEntryFromState(player2), [player2])
 
   const isComplete = Boolean(player1.selectedPokemon) && Boolean(player2.selectedPokemon)
-  const finalSaveAllowed =
-    isComplete && Boolean(validationP1?.allowed) && Boolean(validationP2?.allowed)
+  const finalSaveAllowed = isComplete && Boolean(validationP1?.allowed) && Boolean(validationP2?.allowed)
 
   useEffect(() => {
     if ((initialPair?.p1 || initialPair?.p2) || !draftLoaded) return
@@ -211,8 +216,8 @@ export function SoullinkEncounterPairModal({
       player1.outcome === 'caught' && player2.outcome === 'caught' ? player1.isDead || player2.isDead : false
 
     const payloads: Encounter[] = [
-      buildPayload('p1', player1, id1, id2, linkGroupId, projectId, locationId, initialPair?.p1?.createdAt, sharedDead),
-      buildPayload('p2', player2, id2, id1, linkGroupId, projectId, locationId, initialPair?.p2?.createdAt, sharedDead),
+      buildPayload('p1', player1, activeFormP1, id1, id2, linkGroupId, projectId, locationId, initialPair?.p1?.createdAt, sharedDead),
+      buildPayload('p2', player2, activeFormP2, id2, id1, linkGroupId, projectId, locationId, initialPair?.p2?.createdAt, sharedDead),
     ]
 
     await db.transaction('rw', db.encounters, async () => {
@@ -348,11 +353,26 @@ function PlayerEncounterForm({
   validation: RuleValidation
   allowedEncounterTypes: EncounterType[]
 }) {
+  const selectedEntry = useMemo(
+    () => (state.selectedPokemon ? getPokedexEntry(state.selectedPokemon.id) : null),
+    [state.selectedPokemon],
+  )
+  const availableForms = selectedEntry?.forms ?? []
+  const activeForm = getFormByKey(selectedEntry, state.formKey) ?? getDefaultForm(selectedEntry)
+
+  useEffect(() => {
+    if (!selectedEntry || availableForms.length === 0) return
+    const nextKey = activeForm?.key ?? availableForms[0]?.key ?? ''
+    if (!state.formKey || !availableForms.some((form) => form.key === state.formKey)) {
+      onChange({ ...state, formKey: nextKey })
+    }
+  }, [activeForm?.key, availableForms, onChange, selectedEntry, state])
+
   return (
     <section className="rounded-xl border border-slate-200 bg-slate-50 p-4">
       <h3 className="text-base font-semibold text-slate-900">{title}</h3>
       <div className="mt-4 space-y-4">
-        <PokemonSearch onSelect={(pokemon) => onChange({ ...state, selectedPokemon: pokemon })} />
+        <PokemonSearch onSelect={(pokemon) => onChange({ ...state, selectedPokemon: pokemon, formKey: '' })} />
 
         {state.selectedPokemon ? (
           <div className="rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700">
@@ -363,6 +383,23 @@ function PlayerEncounterForm({
             Bitte ein Pokémon wählen.
           </div>
         )}
+
+        {availableForms.length > 1 ? (
+          <div>
+            <label className="mb-2 block text-sm font-medium text-slate-700">Form</label>
+            <select
+              value={activeForm?.key ?? ''}
+              onChange={(event) => onChange({ ...state, formKey: event.target.value })}
+              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 transition focus:ring-2"
+            >
+              {availableForms.map((form) => (
+                <option key={form.key} value={form.key}>
+                  {form.nameDe}
+                </option>
+              ))}
+            </select>
+          </div>
+        ) : null}
 
         {state.selectedPokemon && validation?.allowed ? <EncounterValidBox /> : null}
         {state.selectedPokemon && validation && !validation.allowed ? (
@@ -452,6 +489,7 @@ function PlayerEncounterForm({
 function fromDraftEntry(entry: EncounterDraftEntry, defaultEncounterType: EncounterType): EncounterFormState {
   return {
     selectedPokemon: toPokemonFromDraft(entry),
+    formKey: entry.formKey ?? '',
     nickname: entry.nickname,
     encounterType: entry.encounterType ?? defaultEncounterType,
     outcome: entry.outcome,
@@ -461,8 +499,15 @@ function fromDraftEntry(entry: EncounterDraftEntry, defaultEncounterType: Encoun
 }
 
 function toDraftEntryFromState(state: EncounterFormState): EncounterDraftEntry | null {
+  const selectedEntry = state.selectedPokemon ? getPokedexEntry(state.selectedPokemon.id) : null
+  const activeForm = getFormByKey(selectedEntry, state.formKey) ?? getDefaultForm(selectedEntry)
+
   return toDraftEntry({
     selectedPokemon: state.selectedPokemon,
+    formKey: activeForm?.key,
+    formName: activeForm?.nameDe,
+    formSlug: activeForm?.slug,
+    formPokemonId: activeForm?.pokemonId ?? null,
     nickname: state.nickname,
     encounterType: state.encounterType,
     outcome: state.outcome,
@@ -493,9 +538,18 @@ function buildValidation(
   })
 }
 
+function useActiveForm(selectedPokemon: PokemonIndexEntry | null, formKey: string) {
+  const selectedEntry = useMemo(
+    () => (selectedPokemon ? getPokedexEntry(selectedPokemon.id) : null),
+    [selectedPokemon],
+  )
+  return getFormByKey(selectedEntry, formKey) ?? getDefaultForm(selectedEntry)
+}
+
 function buildPayload(
   playerId: PlayerId,
   state: EncounterFormState,
+  activeForm: ReturnType<typeof useActiveForm>,
   id: string,
   linkedEncounterId: string,
   linkGroupId: string,
@@ -520,6 +574,10 @@ function buildPayload(
     slug: state.selectedPokemon.slug,
     nameDe: state.selectedPokemon.nameDe,
     evolution_chain_id: state.selectedPokemon.evolution_chain_id,
+    formKey: activeForm?.key,
+    formName: activeForm?.nameDe,
+    formSlug: activeForm?.slug,
+    formPokemonId: activeForm?.pokemonId ?? null,
     nickname: state.nickname.trim(),
     encounterType: state.encounterType,
     outcome: state.outcome,

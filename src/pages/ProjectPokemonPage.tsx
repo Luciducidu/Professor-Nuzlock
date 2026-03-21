@@ -7,6 +7,7 @@ import { SoullinkEncounterPairModal } from '../components/SoullinkEncounterPairM
 import { ProjectLayout } from '../components/ProjectLayout'
 import { db } from '../lib/db'
 import { resolveEvolutionOptionById } from '../lib/evolution'
+import { getEncounterDisplay } from '../lib/pokemonDisplay'
 import { isSoulLinkProject } from '../lib/projectSettings'
 import { checkDupesClauseForPokemon } from '../lib/rules'
 import { deleteEncounterWithPartner, updateEncounterDeathState } from '../lib/soullink'
@@ -78,13 +79,19 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
   }
 
   const resolveEncounterDisplay = (encounter: Encounter) => {
+    const formDisplay = getEncounterDisplay(encounter)
     const selectedEvolutionId = project.selectedEvolutionByPokemonId?.[encounter.pokemonId]
-    return (selectedEvolutionId ? resolveEvolutionOptionById(selectedEvolutionId) : null) ?? {
-      pokemonId: encounter.pokemonId,
-      slug: encounter.slug,
-      nameDe: encounter.nameDe,
-      evolution_chain_id: encounter.evolution_chain_id,
+    const evolved = selectedEvolutionId ? resolveEvolutionOptionById(selectedEvolutionId) : null
+    if (evolved) {
+      return {
+        ...evolved,
+        formKey: undefined,
+        formName: undefined,
+        formSlug: undefined,
+        formPokemonId: null,
+      }
     }
+    return formDisplay
   }
 
   const caughtEncounters = useMemo(
@@ -208,6 +215,8 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
                         pokemonId={display.pokemonId}
                         nameDe={display.nameDe}
                         slug={display.slug}
+                        formKey={encounter.formKey}
+                        formName={display.formName}
                         isDead={encounter.isDead}
                         size="lg"
                         onOpenPokedex={openPokedex}
@@ -287,6 +296,8 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
                           pokemonId={display.pokemonId}
                           nameDe={display.nameDe}
                           slug={display.slug}
+                          formKey={encounter.formKey}
+                          formName={display.formName}
                           isDead
                           size="lg"
                           onOpenPokedex={openPokedex}

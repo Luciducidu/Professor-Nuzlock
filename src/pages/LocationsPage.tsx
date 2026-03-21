@@ -9,6 +9,7 @@ import type { SeedLocation } from '../data/seedLocations'
 import { db } from '../lib/db'
 import { getEncounterDraftsForProject } from '../lib/encounterDrafts'
 import { compareLocations, ensureStarterLocation } from '../lib/locations'
+import { getEncounterDisplay } from '../lib/pokemonDisplay'
 import { formatGameName, getLocationSeedsForGame, isSoulLinkProject } from '../lib/projectSettings'
 import { getPlayerName, getPrimarySoullinkPair, getSoullinkExtraPairs, isSoullinkEncounterDead } from '../lib/soullink'
 import type { Encounter, EncounterDraft, Location, LocationType, Project } from '../lib/types'
@@ -279,15 +280,24 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
                       </div>
                     ) : primary ? (
                       <>
+                        {(() => {
+                          const display = getEncounterDisplay(primary)
+                          return (
+                            <>
                         <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Begegnung</p>
                         <PokemonLabel
-                          pokemonId={primary.pokemonId}
-                          nameDe={primary.nameDe}
-                          slug={primary.slug}
+                          pokemonId={display.pokemonId}
+                          nameDe={display.nameDe}
+                          slug={display.slug}
+                          formKey={primary.formKey}
+                          formName={display.formName}
                           isDead={isFailedOrDead}
                           size="md"
                           onOpenPokedex={openPokedex}
                         />
+                            </>
+                          )
+                        })()}
                         <div className="mt-2 flex flex-wrap gap-2">
                           <Badge>{primary.outcome === 'caught' ? 'Gefangen' : 'Nicht gefangen'}</Badge>
                           {isFailedOrDead ? <Badge tone="danger">Verstorben</Badge> : null}
@@ -393,15 +403,18 @@ function PlayerLocationSummary({
   hasDraft: boolean
   onOpenPokedex: (pokemonId: number) => void
 }) {
+  const display = encounter ? getEncounterDisplay(encounter) : null
   return (
     <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
       <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">{title}</p>
       {encounter ? (
         <>
           <PokemonLabel
-            pokemonId={encounter.pokemonId}
-            nameDe={encounter.nameDe}
-            slug={encounter.slug}
+            pokemonId={display?.pokemonId ?? encounter.pokemonId}
+            nameDe={display?.nameDe ?? encounter.nameDe}
+            slug={display?.slug ?? encounter.slug}
+            formKey={encounter.formKey}
+            formName={display?.formName}
             isDead={isSoullinkEncounterDead(encounter)}
             size="md"
             onOpenPokedex={onOpenPokedex}

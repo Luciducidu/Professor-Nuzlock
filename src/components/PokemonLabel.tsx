@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { isDefaultFormName } from '../lib/pokemonDisplay'
 
 type PokemonLabelSize = 'sm' | 'md' | 'lg'
 
@@ -6,9 +7,11 @@ type PokemonLabelProps = {
   pokemonId: number
   nameDe: string
   slug: string
+  formKey?: string
+  formName?: string
   isDead?: boolean
   size?: PokemonLabelSize
-  onOpenPokedex?: (pokemonId: number) => void
+  onOpenPokedex?: (pokemonId: number, formKey?: string | null) => void
 }
 
 const SIZE_CLASSES: Record<PokemonLabelSize, string> = {
@@ -21,16 +24,16 @@ export function PokemonLabel({
   pokemonId,
   nameDe,
   slug,
+  formKey,
+  formName,
   isDead = false,
   size = 'md',
   onOpenPokedex,
 }: PokemonLabelProps) {
   const [hidden, setHidden] = useState(false)
   const spriteSizeClass = SIZE_CLASSES[size]
-  const textClassName = useMemo(
-    () => (isDead ? 'line-through text-slate-400' : 'text-slate-900'),
-    [isDead],
-  )
+  const textClassName = useMemo(() => (isDead ? 'line-through text-slate-400' : 'text-slate-900'), [isDead])
+  const showForm = Boolean(formName && !isDefaultFormName(formName))
 
   return (
     <div className="flex min-w-0 items-start gap-3">
@@ -51,17 +54,15 @@ export function PokemonLabel({
           <span className={`truncate font-medium ${textClassName}`}>
             {nameDe} ({slug})
           </span>
-          {isDead ? (
-            <span className="text-xl font-bold leading-none text-red-600" aria-label="Verstorben">
-              ✖
-            </span>
-          ) : null}
+          {isDead ? <span className="text-xl font-bold leading-none text-red-600" aria-label="Verstorben">✖</span> : null}
         </div>
+
+        {showForm ? <p className="mt-1 text-xs font-medium text-slate-500">Form: {formName}</p> : null}
 
         {onOpenPokedex ? (
           <button
             type="button"
-            onClick={() => onOpenPokedex(pokemonId)}
+            onClick={() => onOpenPokedex(pokemonId, formKey ?? null)}
             className="mt-1 rounded-md border border-sky-200 bg-sky-50 px-2.5 py-1 text-xs font-semibold text-sky-800 transition hover:bg-sky-100"
           >
             Pokédexeintrag

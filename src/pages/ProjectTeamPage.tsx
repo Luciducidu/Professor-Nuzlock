@@ -13,6 +13,7 @@ import { usePokedex } from '../components/PokedexProvider'
 import { ProjectLayout } from '../components/ProjectLayout'
 import { db, ensureDatabaseReady } from '../lib/db'
 import { getEvolutionOptions, resolveEvolutionOptionById } from '../lib/evolution'
+import { getEncounterDisplay, getTeamSlotDisplay } from '../lib/pokemonDisplay'
 import { isSoulLinkProject } from '../lib/projectSettings'
 import { getPlayerName } from '../lib/soullink'
 import type {
@@ -549,13 +550,20 @@ function TeamSlotCard({
         {...draggable.attributes}
       >
         {slot ? (
+          (() => {
+            const display = getTeamSlotDisplay(slot)
+            return (
           <PokemonLabel
-            pokemonId={slot.pokemonId}
-            nameDe={slot.nameDe}
-            slug={slot.slug}
+            pokemonId={display.pokemonId}
+            nameDe={display.nameDe}
+            slug={display.slug}
+            formKey={slot.formKey}
+            formName={display.formName}
             size="lg"
             onOpenPokedex={onOpenPokedex}
           />
+            )
+          })()
         ) : (
           <div className="flex h-16 items-center justify-center rounded-md bg-slate-100 text-sm text-slate-500">Leer</div>
         )}
@@ -837,6 +845,10 @@ function SoullinkTeamContent({ project, projectId }: { project: Project; project
         slug: p1Display.slug,
         nameDe: p1Display.nameDe,
         evolution_chain_id: p1Display.evolution_chain_id,
+        formKey: pair.p1.formKey,
+        formName: p1Display.formName,
+        formSlug: p1Display.formSlug,
+        formPokemonId: p1Display.formPokemonId ?? null,
       },
       {
         slot: slotNumber,
@@ -847,6 +859,10 @@ function SoullinkTeamContent({ project, projectId }: { project: Project; project
         slug: p2Display.slug,
         nameDe: p2Display.nameDe,
         evolution_chain_id: p2Display.evolution_chain_id,
+        formKey: pair.p2.formKey,
+        formName: p2Display.formName,
+        formSlug: p2Display.formSlug,
+        formPokemonId: p2Display.formPokemonId ?? null,
       },
     )
 
@@ -1064,13 +1080,20 @@ function SoullinkTeamSlotCard({
       </div>
       <div className="mt-2 min-h-[96px]">
         {slot ? (
+          (() => {
+            const display = getTeamSlotDisplay(slot)
+            return (
           <PokemonLabel
-            pokemonId={slot.pokemonId}
-            nameDe={slot.nameDe}
-            slug={slot.slug}
+            pokemonId={display.pokemonId}
+            nameDe={display.nameDe}
+            slug={display.slug}
+            formKey={slot.formKey}
+            formName={display.formName}
             size="lg"
             onOpenPokedex={onOpenPokedex}
           />
+            )
+          })()
         ) : (
           <div className="flex h-16 items-center justify-center rounded-md bg-slate-100 text-sm text-slate-500">Leer</div>
         )}
@@ -1126,6 +1149,8 @@ function SoullinkBoxColumn({
                 pokemonId={display.pokemonId}
                 nameDe={display.nameDe}
                 slug={display.slug}
+                formKey={encounter.formKey}
+                formName={display.formName}
                 size="md"
                 onOpenPokedex={onOpenPokedex}
               />
@@ -1366,11 +1391,17 @@ function serializeSoulLinkTeamSlot(slot: TeamSlot | undefined) {
 }
 
 function resolveEncounterDisplayForProject(project: Project, encounter: Encounter) {
+  const formDisplay = getEncounterDisplay(encounter)
   const selectedEvolutionId = project.selectedEvolutionByPokemonId?.[encounter.pokemonId]
-  return (selectedEvolutionId ? resolveEvolutionOptionById(selectedEvolutionId) : null) ?? {
-    pokemonId: encounter.pokemonId,
-    slug: encounter.slug,
-    nameDe: encounter.nameDe,
-    evolution_chain_id: encounter.evolution_chain_id,
+  const evolved = selectedEvolutionId ? resolveEvolutionOptionById(selectedEvolutionId) : null
+  if (evolved) {
+    return {
+      ...evolved,
+      formKey: undefined,
+      formName: undefined,
+      formSlug: undefined,
+      formPokemonId: null,
+    }
   }
+  return formDisplay
 }

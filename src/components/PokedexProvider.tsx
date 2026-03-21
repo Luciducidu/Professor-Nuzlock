@@ -11,12 +11,14 @@ type PokedexContextValue = {
   isOpen: boolean
   query: string
   selectedPokemonId: number | null
-  openPokedex: (pokemonId?: number | null) => void
+  selectedFormKey: string | null
+  openPokedex: (pokemonId?: number | null, formKey?: string | null) => void
   openPanel: () => void
   closePanel: () => void
   togglePanel: () => void
   setQuery: (query: string) => void
-  selectPokemon: (pokemonId: number) => void
+  selectPokemon: (pokemonId: number, formKey?: string | null) => void
+  selectForm: (formKey: string | null) => void
   backToResults: () => void
 }
 
@@ -28,6 +30,7 @@ export function PokedexProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [selectedPokemonId, setSelectedPokemonId] = useState<number | null>(null)
+  const [selectedFormKey, setSelectedFormKey] = useState<string | null>(null)
 
   useEffect(() => {
     try {
@@ -38,11 +41,13 @@ export function PokedexProvider({ children }: { children: ReactNode }) {
         isOpen?: boolean
         query?: string
         selectedPokemonId?: number | null
+        selectedFormKey?: string | null
       }
 
       setIsOpen(Boolean(parsed.isOpen))
       setQuery(typeof parsed.query === 'string' ? parsed.query : '')
       setSelectedPokemonId(typeof parsed.selectedPokemonId === 'number' ? parsed.selectedPokemonId : null)
+      setSelectedFormKey(typeof parsed.selectedFormKey === 'string' ? parsed.selectedFormKey : null)
     } catch (error) {
       console.error(error)
     }
@@ -55,18 +60,21 @@ export function PokedexProvider({ children }: { children: ReactNode }) {
         isOpen,
         query,
         selectedPokemonId,
+        selectedFormKey,
       }),
     )
-  }, [isOpen, query, selectedPokemonId])
+  }, [isOpen, query, selectedFormKey, selectedPokemonId])
 
   const value = useMemo<PokedexContextValue>(
     () => ({
       isOpen,
       query,
       selectedPokemonId,
-      openPokedex: (pokemonId) => {
+      selectedFormKey,
+      openPokedex: (pokemonId, formKey) => {
         if (typeof pokemonId === 'number') {
           setSelectedPokemonId(pokemonId)
+          setSelectedFormKey(formKey ?? null)
         }
         setIsOpen(true)
       },
@@ -74,13 +82,18 @@ export function PokedexProvider({ children }: { children: ReactNode }) {
       closePanel: () => setIsOpen(false),
       togglePanel: () => setIsOpen((current) => !current),
       setQuery,
-      selectPokemon: (pokemonId) => {
+      selectPokemon: (pokemonId, formKey) => {
         setSelectedPokemonId(pokemonId)
+        setSelectedFormKey(formKey ?? null)
         setIsOpen(true)
       },
-      backToResults: () => setSelectedPokemonId(null),
+      selectForm: (formKey) => setSelectedFormKey(formKey),
+      backToResults: () => {
+        setSelectedPokemonId(null)
+        setSelectedFormKey(null)
+      },
     }),
-    [isOpen, query, selectedPokemonId],
+    [isOpen, query, selectedFormKey, selectedPokemonId],
   )
 
   return <PokedexContext.Provider value={value}>{children}</PokedexContext.Provider>

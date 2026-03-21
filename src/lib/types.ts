@@ -61,6 +61,10 @@ export type Encounter = {
   slug: string
   nameDe: string
   evolution_chain_id: number | null
+  formKey?: string
+  formName?: string
+  formSlug?: string
+  formPokemonId?: number | null
   nickname?: string
   encounterType: EncounterType
   outcome: EncounterOutcome
@@ -73,6 +77,10 @@ export type EncounterDraftEntry = {
   slug: string
   nameDe: string
   evolution_chain_id: number | null
+  formKey?: string
+  formName?: string
+  formSlug?: string
+  formPokemonId?: number | null
   nickname: string
   encounterType: EncounterType
   outcome: EncounterOutcome
@@ -119,6 +127,10 @@ export type TeamSlot = {
   slug: string
   nameDe: string
   evolution_chain_id: number | null
+  formKey?: string
+  formName?: string
+  formSlug?: string
+  formPokemonId?: number | null
   sourcePokemonId?: number
 }
 

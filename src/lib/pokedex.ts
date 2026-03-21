@@ -2,6 +2,35 @@ import evolutionData from '../data/evolutionData.json'
 import pokedexIndex from '../data/pokedexIndex.json'
 import { TYPE_META, type PokemonTypeKey } from '../data/typeMeta'
 
+export type PokedexFormAbility = {
+  nameDe: string
+  nameEn: string
+  isHidden: boolean
+}
+
+export type PokedexFormStats = {
+  hp: number
+  attack: number
+  defense: number
+  specialAttack: number
+  specialDefense: number
+  speed: number
+  total: number
+}
+
+export type PokedexFormEntry = {
+  key: string
+  pokemonId: number
+  slug: string
+  nameEn: string
+  nameDe: string
+  spriteId: number
+  types: PokemonTypeKey[]
+  abilities: PokedexFormAbility[]
+  stats: PokedexFormStats
+  isDefault: boolean
+}
+
 export type PokedexEntry = {
   id: number
   slug: string
@@ -10,6 +39,7 @@ export type PokedexEntry = {
   spriteId: number
   types: PokemonTypeKey[]
   evolution_chain_id: number | null
+  forms: PokedexFormEntry[]
 }
 
 export type EvolutionChainNode = {
@@ -43,6 +73,23 @@ export function getPokedexEntry(pokemonId: number | null | undefined) {
   return POKEDEX_BY_ID.get(pokemonId) ?? null
 }
 
+export function getDefaultForm(entry: PokedexEntry | null) {
+  if (!entry) return null
+  return entry.forms.find((form) => form.isDefault) ?? entry.forms[0] ?? null
+}
+
+export function getFormByKey(entry: PokedexEntry | null, formKey?: string | null) {
+  if (!entry) return null
+  if (!formKey) return getDefaultForm(entry)
+  return entry.forms.find((form) => form.key === formKey) ?? getDefaultForm(entry)
+}
+
+export function getDisplayFormForPokemon(pokemonId: number, formKey?: string | null) {
+  const entry = getPokedexEntry(pokemonId)
+  if (!entry) return null
+  return getFormByKey(entry, formKey)
+}
+
 export function searchPokedex(query: string, maxResults = 30): SearchResult[] {
   const normalizedQuery = query.trim().toLowerCase()
   if (!normalizedQuery) return POKEDEX_INDEX.slice(0, maxResults)
@@ -51,8 +98,31 @@ export function searchPokedex(query: string, maxResults = 30): SearchResult[] {
     const de = entry.nameDe.toLowerCase()
     const en = entry.nameEn.toLowerCase()
     const slug = entry.slug.toLowerCase()
-    return de.includes(normalizedQuery) || en.includes(normalizedQuery) || slug.includes(normalizedQuery)
+    const formMatch = entry.forms.some((form) => {
+      const formDe = form.nameDe.toLowerCase()
+      const formEn = form.nameEn.toLowerCase()
+      const formSlug = form.slug.toLowerCase()
+      return formDe.includes(normalizedQuery) || formEn.includes(normalizedQuery) || formSlug.includes(normalizedQuery)
+    })
+    return de.includes(normalizedQuery) || en.includes(normalizedQuery) || slug.includes(normalizedQuery) || formMatch
   }).slice(0, maxResults)
+}
+
+export function queryMatchesPokedexEntry(query: string, entry: PokedexEntry, formKey?: string | null) {
+  const normalizedQuery = query.trim().toLowerCase()
+  if (!normalizedQuery) return true
+
+  const form = getFormByKey(entry, formKey)
+  return [
+    entry.nameDe,
+    entry.nameEn,
+    entry.slug,
+    form?.nameDe,
+    form?.nameEn,
+    form?.slug,
+  ]
+    .filter(Boolean)
+    .some((value) => String(value).toLowerCase().includes(normalizedQuery))
 }
 
 export function getEvolutionChain(chainId: number | null | undefined) {
@@ -74,24 +144,6 @@ export function findEvolutionPath(
   }
 
   return null
-}
-
-export function getImmediateEvolutionOptions(chain: EvolutionChain | null, pokemonId: number) {
-  if (!chain) return []
-
-  const path = findEvolutionPath(chain.root, pokemonId)
-  const currentNode = path?.at(-1)
-  if (!currentNode) return []
-
-  return currentNode.branches
-}
-
-export function getPreEvolution(chain: EvolutionChain | null, pokemonId: number) {
-  if (!chain) return null
-
-  const path = findEvolutionPath(chain.root, pokemonId)
-  if (!path || path.length < 2) return null
-  return path[path.length - 2]
 }
 
 export function getTypeMeta(type: PokemonTypeKey) {

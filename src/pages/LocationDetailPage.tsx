@@ -7,6 +7,7 @@ import { SoullinkEncounterPairModal } from '../components/SoullinkEncounterPairM
 import { ProjectLayout } from '../components/ProjectLayout'
 import { getEncounterDraftsForProject } from '../lib/encounterDrafts'
 import { db, ensureDatabaseReady } from '../lib/db'
+import { getEncounterDisplay } from '../lib/pokemonDisplay'
 import { isSoulLinkProject } from '../lib/projectSettings'
 import {
   deleteEncounterWithPartner,
@@ -589,6 +590,7 @@ function EncounterArticle({
   titlePrefix?: string
 }) {
   const isFailedOrDead = encounter.outcome === 'not_caught' || (encounter.outcome === 'caught' && encounter.isDead)
+  const display = getEncounterDisplay(encounter)
 
   return (
     <article className="rounded-lg border border-slate-200 px-4 py-4">
@@ -596,9 +598,11 @@ function EncounterArticle({
         <div>
           {titlePrefix ? <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">{titlePrefix}</p> : null}
           <PokemonLabel
-            pokemonId={encounter.pokemonId}
-            nameDe={encounter.nameDe}
-            slug={encounter.slug}
+            pokemonId={display.pokemonId}
+            nameDe={display.nameDe}
+            slug={display.slug}
+            formKey={encounter.formKey}
+            formName={display.formName}
             isDead={isFailedOrDead}
             size="lg"
             onOpenPokedex={onOpenPokedex}
@@ -647,6 +651,7 @@ function SoullinkEncounterCard({
   onEdit: () => void
   onDelete: () => void
 }) {
+  const display = encounter ? getEncounterDisplay(encounter) : null
   return (
     <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
       <div className="mb-3 flex items-center justify-between gap-2">
@@ -673,9 +678,11 @@ function SoullinkEncounterCard({
       {encounter ? (
         <div className="rounded-lg border border-slate-200 bg-white px-4 py-4">
           <PokemonLabel
-            pokemonId={encounter.pokemonId}
-            nameDe={encounter.nameDe}
-            slug={encounter.slug}
+            pokemonId={display?.pokemonId ?? encounter.pokemonId}
+            nameDe={display?.nameDe ?? encounter.nameDe}
+            slug={display?.slug ?? encounter.slug}
+            formKey={encounter.formKey}
+            formName={display?.formName}
             isDead={encounter.outcome === 'not_caught' || (encounter.outcome === 'caught' && encounter.isDead)}
             size="lg"
             onOpenPokedex={onOpenPokedex}

@@ -70,6 +70,69 @@ function joinGerman(parts) {
   return `${parts.slice(0, -1).join(', ')} und ${parts.at(-1)}`
 }
 
+function normalizeStats(stats) {
+  const byName = new Map(stats.map((entry) => [entry.stat.name, entry.base_stat]))
+  const hp = byName.get('hp') ?? 0
+  const attack = byName.get('attack') ?? 0
+  const defense = byName.get('defense') ?? 0
+  const specialAttack = byName.get('special-attack') ?? 0
+  const specialDefense = byName.get('special-defense') ?? 0
+  const speed = byName.get('speed') ?? 0
+
+  return {
+    hp,
+    attack,
+    defense,
+    specialAttack,
+    specialDefense,
+    speed,
+    total: hp + attack + defense + specialAttack + specialDefense + speed,
+  }
+}
+
+async function normalizeAbilities(abilities) {
+  const normalized = []
+  for (const abilityEntry of abilities.sort((a, b) => a.slot - b.slot)) {
+    const abilityNameDe = await getLocalizedResourceName(
+      abilityEntry.ability.url,
+      prettifySlug(abilityEntry.ability.name),
+    )
+
+    normalized.push({
+      nameDe: abilityNameDe,
+      nameEn: prettifySlug(abilityEntry.ability.name),
+      isHidden: Boolean(abilityEntry.is_hidden),
+    })
+  }
+  return normalized
+}
+
+async function buildFormEntry(baseEntry, variety, speciesBaseNameDe) {
+  const pokemon = await fetchJson(variety.pokemon.url)
+  const pokemonForm = await fetchJson(`https://pokeapi.co/api/v2/pokemon-form/${variety.pokemon.name}/`).catch(() => null)
+
+  const pokemonId = Number(pokemon.id)
+  if (!Number.isInteger(pokemonId) || pokemonId > MAX_ID) return null
+
+  const formNameDe =
+    pickLocalizedName(pokemonForm ?? {}, 'de') ??
+    pickLocalizedName(pokemonForm ?? {}, 'en') ??
+    (variety.is_default ? speciesBaseNameDe : `${speciesBaseNameDe} (${prettifySlug(variety.pokemon.name)})`)
+
+  return {
+    key: variety.pokemon.name,
+    pokemonId,
+    slug: pokemon.name,
+    nameEn: prettifySlug(pokemon.name),
+    nameDe: variety.is_default ? speciesBaseNameDe : formNameDe,
+    spriteId: pokemonId,
+    types: [...pokemon.types].sort((a, b) => a.slot - b.slot).map((typeEntry) => typeEntry.type.name),
+    abilities: await normalizeAbilities(pokemon.abilities),
+    stats: normalizeStats(pokemon.stats),
+    isDefault: Boolean(variety.is_default),
+  }
+}
+
 async function formatEvolutionDetail(detail) {
   const fragments = []
   const trigger = detail.trigger?.name ?? 'other'
@@ -83,7 +146,9 @@ async function formatEvolutionDetail(detail) {
   } else if (trigger === 'trade') {
     fragments.push('durch Tausch')
   } else if (trigger === 'use-item') {
-    const itemName = detail.item ? await getLocalizedResourceName(detail.item.url, prettifySlug(detail.item.name)) : 'einem Entwicklungsitem'
+    const itemName = detail.item
+      ? await getLocalizedResourceName(detail.item.url, prettifySlug(detail.item.name))
+      : 'einem Entwicklungsitem'
     fragments.push(`mit ${itemName}`)
   } else if (trigger === 'shed') {
     fragments.push('unter besonderen Bedingungen')
@@ -91,17 +156,9 @@ async function formatEvolutionDetail(detail) {
     fragments.push('auf besondere Weise')
   }
 
-  if (detail.min_happiness != null) {
-    fragments.push('durch Freundschaft')
-  }
-
-  if (detail.min_affection != null) {
-    fragments.push('durch Zuneigung')
-  }
-
-  if (detail.min_beauty != null) {
-    fragments.push(`mit Schönheit ${detail.min_beauty}`)
-  }
+  if (detail.min_happiness != null) fragments.push('durch Freundschaft')
+  if (detail.min_affection != null) fragments.push('durch Zuneigung')
+  if (detail.min_beauty != null) fragments.push(`mit Schönheit ${detail.min_beauty}`)
 
   if (detail.item && trigger !== 'use-item') {
     const itemName = await getLocalizedResourceName(detail.item.url, prettifySlug(detail.item.name))
@@ -135,9 +192,7 @@ async function formatEvolutionDetail(detail) {
     fragments.push(`an ${locationName}`)
   }
 
-  if (detail.needs_overworld_rain) {
-    fragments.push('bei Regen')
-  }
+  if (detail.needs_overworld_rain) fragments.push('bei Regen')
 
   if (detail.party_species) {
     const speciesName = await getLocalizedResourceName(detail.party_species.url, prettifySlug(detail.party_species.name))
@@ -158,9 +213,7 @@ async function formatEvolutionDetail(detail) {
     fragments.push(`im Tausch gegen ${tradeName}`)
   }
 
-  if (detail.turn_upside_down) {
-    fragments.push('bei umgedrehter Konsole')
-  }
+  if (detail.turn_upside_down) fragments.push('bei umgedrehter Konsole')
 
   return `Entwickelt sich ${joinGerman(fragments)}`
 }
@@ -190,17 +243,39 @@ async function buildPokedexData() {
       fetchJson(`https://pokeapi.co/api/v2/pokemon-species/${id}/`),
     ])
 
-    const chainId = species.evolution_chain?.url ? extractIdFromUrl(species.evolution_chain.url, 'evolution-chain') : null
+    const chainId = species.evolution_chain?.url
+      ? extractIdFromUrl(species.evolution_chain.url, 'evolution-chain')
+      : null
     if (chainId) chainIds.add(chainId)
 
+    const speciesBaseNameDe = pickLocalizedName(species, 'de') ?? prettifySlug(pokemon.name)
+    const forms = []
+    for (const variety of species.varieties ?? []) {
+      const formEntry = await buildFormEntry(
+        {
+          id,
+        },
+        variety,
+        speciesBaseNameDe,
+      )
+      if (formEntry) forms.push(formEntry)
+    }
+
+    forms.sort((a, b) => {
+      if (a.isDefault !== b.isDefault) return a.isDefault ? -1 : 1
+      return a.pokemonId - b.pokemonId
+    })
+
+    const defaultForm = forms.find((form) => form.isDefault) ?? forms[0]
     const entry = {
       id,
       slug: pokemon.name,
       nameEn: prettifySlug(pokemon.name),
-      nameDe: pickLocalizedName(species, 'de') ?? prettifySlug(pokemon.name),
-      spriteId: id,
-      types: [...pokemon.types].sort((a, b) => a.slot - b.slot).map((typeEntry) => typeEntry.type.name),
+      nameDe: speciesBaseNameDe,
+      spriteId: defaultForm?.spriteId ?? id,
+      types: defaultForm?.types ?? [...pokemon.types].sort((a, b) => a.slot - b.slot).map((typeEntry) => typeEntry.type.name),
       evolution_chain_id: chainId,
+      forms,
     }
 
     entries.push(entry)
@@ -209,7 +284,7 @@ async function buildPokedexData() {
     if (id % 25 === 0 || id === MAX_ID) {
       console.log(`Pokémon-Basisdaten: ${id}/${MAX_ID}`)
     }
-    await sleep(35)
+    await sleep(25)
   }
 
   const evolutionChains = []
@@ -223,6 +298,7 @@ async function buildPokedexData() {
       return null
     }
 
+    const defaultForm = entry.forms.find((form) => form.isDefault) ?? entry.forms[0] ?? null
     const branches = []
     for (const target of chainNode.evolves_to ?? []) {
       const builtTarget = await buildChainNode(target)
@@ -239,8 +315,8 @@ async function buildPokedexData() {
       slug: entry.slug,
       nameEn: entry.nameEn,
       nameDe: entry.nameDe,
-      spriteId: entry.spriteId,
-      types: entry.types,
+      spriteId: defaultForm?.spriteId ?? entry.id,
+      types: defaultForm?.types ?? entry.types,
       branches,
     }
   }
@@ -257,7 +333,7 @@ async function buildPokedexData() {
     if (chainId % 20 === 0 || chainId === sortedChainIds.at(-1)) {
       console.log(`Evolutionsketten: ${evolutionChains.length}/${sortedChainIds.length}`)
     }
-    await sleep(35)
+    await sleep(25)
   }
 
   const pokemonIndex = entries.map(({ id, slug, nameDe, evolution_chain_id }) => ({

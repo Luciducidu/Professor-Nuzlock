@@ -1,32 +1,49 @@
 import { useMemo, useState } from 'react'
 import {
+  getDefaultForm,
   getEvolutionChain,
+  getFormByKey,
   getPokedexEntry,
   getSpriteUrl,
   getTypeMeta,
+  queryMatchesPokedexEntry,
   searchPokedex,
   type EvolutionChainNode,
+  type PokedexFormAbility,
 } from '../lib/pokedex'
 import { usePokedex } from './PokedexProvider'
 
 const POKEDEX_ICON_URL = `${import.meta.env.BASE_URL}ui/pokedex-cover.jpg`
 
 export function PokedexPanel() {
-  const { isOpen, query, selectedPokemonId, setQuery, selectPokemon, backToResults, togglePanel, closePanel } =
-    usePokedex()
+  const {
+    isOpen,
+    query,
+    selectedPokemonId,
+    selectedFormKey,
+    setQuery,
+    selectPokemon,
+    selectForm,
+    backToResults,
+    togglePanel,
+    closePanel,
+  } = usePokedex()
   const [hiddenSprites, setHiddenSprites] = useState<Record<number, boolean>>({})
   const [hiddenTypeIcons, setHiddenTypeIcons] = useState<Record<string, boolean>>({})
 
   const results = useMemo(() => searchPokedex(query), [query])
   const selectedEntry = getPokedexEntry(selectedPokemonId)
+  const activeForm = getFormByKey(selectedEntry, selectedFormKey) ?? getDefaultForm(selectedEntry)
   const selectedChain = getEvolutionChain(selectedEntry?.evolution_chain_id)
+  const searchResultsActive =
+    query.trim().length > 0 && (!selectedEntry || !queryMatchesPokedexEntry(query, selectedEntry, activeForm?.key))
 
   return (
     <>
       {isOpen ? <div className="fixed inset-0 z-30 bg-slate-950/30 lg:hidden" onClick={closePanel} aria-hidden="true" /> : null}
 
       <aside
-        className={`fixed inset-y-0 left-0 z-40 flex w-[min(46vw,980px)] min-w-[420px] max-w-[94vw] flex-col border-r border-slate-300 bg-white shadow-[14px_0_50px_rgba(15,23,42,0.18)] transition-transform duration-300 ${
+        className={`fixed inset-y-0 left-0 z-40 flex w-[min(46vw,1040px)] min-w-[460px] max-w-[96vw] flex-col border-r border-slate-300 bg-white shadow-[14px_0_50px_rgba(15,23,42,0.18)] transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : 'translate-x-[calc(-100%+88px)]'
         }`}
       >
@@ -71,31 +88,43 @@ export function PokedexPanel() {
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto px-6 py-6 xl:px-8 xl:py-8">
-          {selectedEntry ? (
+        <div className="min-h-0 flex-1 overflow-y-auto px-6 py-6 xl:px-8 xl:py-8">
+          {selectedEntry && !searchResultsActive ? (
             <div className="space-y-6">
-              <button
-                type="button"
-                onClick={backToResults}
-                className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-              >
-                Zurück zur Trefferliste
-              </button>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={backToResults}
+                  className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                >
+                  Zurück zur Trefferliste
+                </button>
+                {query.trim() ? (
+                  <span className="rounded-full bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-600">
+                    Tipp: Neue Suche startet sofort beim Tippen.
+                  </span>
+                ) : null}
+              </div>
 
               <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
                 <div className="flex flex-wrap items-start gap-6">
                   <Sprite
-                    pokemonId={selectedEntry.spriteId}
-                    alt={selectedEntry.nameDe}
-                    hidden={Boolean(hiddenSprites[selectedEntry.spriteId])}
-                    onHide={() => setHiddenSprites((current) => ({ ...current, [selectedEntry.spriteId]: true }))}
-                    size="h-40 w-40"
+                    pokemonId={activeForm?.spriteId ?? selectedEntry.spriteId}
+                    alt={activeForm?.nameDe ?? selectedEntry.nameDe}
+                    hidden={Boolean(hiddenSprites[activeForm?.spriteId ?? selectedEntry.spriteId])}
+                    onHide={() =>
+                      setHiddenSprites((current) => ({
+                        ...current,
+                        [activeForm?.spriteId ?? selectedEntry.spriteId]: true,
+                      }))
+                    }
+                    size="h-44 w-44"
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="text-3xl font-bold text-slate-900 xl:text-4xl">{selectedEntry.nameDe}</p>
-                    <p className="mt-1 text-base text-slate-500 xl:text-lg">({selectedEntry.nameEn})</p>
+                    <p className="text-3xl font-bold text-slate-900 xl:text-4xl">{activeForm?.nameDe ?? selectedEntry.nameDe}</p>
+                    <p className="mt-1 text-base text-slate-500 xl:text-lg">({activeForm?.nameEn ?? selectedEntry.nameEn})</p>
                     <div className="mt-5 flex flex-wrap gap-3">
-                      {selectedEntry.types.map((type) => (
+                      {(activeForm?.types ?? selectedEntry.types).map((type) => (
                         <TypeBadge
                           key={type}
                           typeKey={type}
@@ -107,6 +136,58 @@ export function PokedexPanel() {
                   </div>
                 </div>
               </section>
+
+              {selectedEntry.forms.length > 1 ? (
+                <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6">
+                  <h3 className="text-xl font-semibold text-slate-900">Formen</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedEntry.forms.map((form) => {
+                      const active = form.key === activeForm?.key
+                      return (
+                        <button
+                          key={form.key}
+                          type="button"
+                          onClick={() => selectForm(form.key)}
+                          className={`rounded-full border px-3 py-2 text-sm font-semibold transition ${
+                            active
+                              ? 'border-sky-300 bg-sky-50 text-sky-800'
+                              : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
+                          }`}
+                        >
+                          {form.nameDe}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </section>
+              ) : null}
+
+              {activeForm ? (
+                <>
+                  <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6">
+                    <h3 className="text-xl font-semibold text-slate-900">Basiswerte</h3>
+                    <div className="grid gap-3">
+                      <StatRow label="KP" value={activeForm.stats.hp} />
+                      <StatRow label="Angriff" value={activeForm.stats.attack} />
+                      <StatRow label="Verteidigung" value={activeForm.stats.defense} />
+                      <StatRow label="Spezial-Angriff" value={activeForm.stats.specialAttack} />
+                      <StatRow label="Spezial-Verteidigung" value={activeForm.stats.specialDefense} />
+                      <StatRow label="Initiative" value={activeForm.stats.speed} />
+                      <StatRow label="Gesamt" value={activeForm.stats.total} max={720} />
+                    </div>
+                  </section>
+
+                  <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6">
+                    <h3 className="text-xl font-semibold text-slate-900">Fähigkeiten</h3>
+                    <AbilityList title="Fähigkeiten" abilities={activeForm.abilities.filter((ability) => !ability.isHidden)} />
+                    <AbilityList
+                      title="Versteckte Fähigkeit"
+                      abilities={activeForm.abilities.filter((ability) => ability.isHidden)}
+                      emptyText="Keine versteckte Fähigkeit"
+                    />
+                  </section>
+                </>
+              ) : null}
 
               <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6">
                 <h3 className="text-xl font-semibold text-slate-900">Entwicklungsreihe</h3>
@@ -125,39 +206,47 @@ export function PokedexPanel() {
             </div>
           ) : (
             <div className="grid gap-3 xl:grid-cols-2">
-              {results.map((pokemon) => (
-                <button
-                  key={pokemon.id}
-                  type="button"
-                  onClick={() => selectPokemon(pokemon.id)}
-                  className="rounded-2xl border border-slate-200 bg-white px-4 py-4 text-left transition hover:bg-slate-50"
-                >
-                  <div className="flex items-center gap-4">
-                    <Sprite
-                      pokemonId={pokemon.spriteId}
-                      alt={pokemon.nameDe}
-                      hidden={Boolean(hiddenSprites[pokemon.spriteId])}
-                      onHide={() => setHiddenSprites((current) => ({ ...current, [pokemon.spriteId]: true }))}
-                      size="h-16 w-16"
-                    />
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate text-base font-semibold text-slate-900">{pokemon.nameDe}</p>
-                      <p className="truncate text-sm text-slate-500">({pokemon.nameEn})</p>
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        {pokemon.types.map((type) => (
-                          <TypeBadge
-                            key={type}
-                            typeKey={type}
-                            compact
-                            hidden={Boolean(hiddenTypeIcons[type])}
-                            onHide={() => setHiddenTypeIcons((current) => ({ ...current, [type]: true }))}
-                          />
-                        ))}
+              {results.map((pokemon) => {
+                const previewForm = getFormByKey(pokemon, selectedPokemonId === pokemon.id ? selectedFormKey : null) ?? getDefaultForm(pokemon)
+                return (
+                  <button
+                    key={pokemon.id}
+                    type="button"
+                    onClick={() => selectPokemon(pokemon.id, previewForm?.key)}
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-4 text-left transition hover:bg-slate-50"
+                  >
+                    <div className="flex items-center gap-4">
+                      <Sprite
+                        pokemonId={previewForm?.spriteId ?? pokemon.spriteId}
+                        alt={previewForm?.nameDe ?? pokemon.nameDe}
+                        hidden={Boolean(hiddenSprites[previewForm?.spriteId ?? pokemon.spriteId])}
+                        onHide={() =>
+                          setHiddenSprites((current) => ({
+                            ...current,
+                            [previewForm?.spriteId ?? pokemon.spriteId]: true,
+                          }))
+                        }
+                        size="h-20 w-20"
+                      />
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-base font-semibold text-slate-900">{pokemon.nameDe}</p>
+                        <p className="truncate text-sm text-slate-500">({pokemon.nameEn})</p>
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          {(previewForm?.types ?? pokemon.types).map((type) => (
+                            <TypeBadge
+                              key={type}
+                              typeKey={type}
+                              compact
+                              hidden={Boolean(hiddenTypeIcons[type])}
+                              onHide={() => setHiddenTypeIcons((current) => ({ ...current, [type]: true }))}
+                            />
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </button>
-              ))}
+                  </button>
+                )
+              })}
             </div>
           )}
         </div>
@@ -176,7 +265,7 @@ function EvolutionTree({
 }: {
   node: EvolutionChainNode
   selectedPokemonId: number
-  onSelect: (pokemonId: number) => void
+  onSelect: (pokemonId: number, formKey?: string | null) => void
   hiddenTypeIcons: Record<string, boolean>
   onHideTypeIcon: (typeKey: string) => void
   depth?: number
@@ -193,7 +282,7 @@ function EvolutionTree({
         }`}
       >
         <div className="flex items-center gap-4">
-          <img src={getSpriteUrl(node.spriteId)} alt={node.nameDe} className="h-20 w-20 shrink-0" loading="lazy" />
+          <img src={getSpriteUrl(node.spriteId)} alt={node.nameDe} className="h-24 w-24 shrink-0" loading="lazy" />
           <div className="min-w-0">
             <p className="truncate text-lg font-semibold text-slate-900">{node.nameDe}</p>
             <p className="truncate text-sm text-slate-500">({node.nameEn})</p>
@@ -254,9 +343,13 @@ function TypeBadge({
       }`}
     >
       {!hidden ? (
-        <img src={iconUrl} alt={meta.label} className={compact ? 'h-4 w-4' : 'h-5 w-5'} loading="lazy" onError={onHide} />
+        <img src={iconUrl} alt={meta.label} className={compact ? 'h-5 w-5' : 'h-7 w-7'} loading="lazy" onError={onHide} />
       ) : (
-        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/60 text-[11px] font-bold">
+        <span
+          className={`inline-flex items-center justify-center rounded-full bg-white/60 font-bold ${
+            compact ? 'h-5 w-5 text-[11px]' : 'h-7 w-7 text-xs'
+          }`}
+        >
           {meta.shortLabel}
         </span>
       )}
@@ -283,4 +376,45 @@ function Sprite({
   }
 
   return <img src={getSpriteUrl(pokemonId)} alt={alt} className={`${size} shrink-0`} loading="lazy" onError={onHide} />
+}
+
+function StatRow({ label, value, max = 255 }: { label: string; value: number; max?: number }) {
+  const width = Math.max(6, Math.min(100, Math.round((value / max) * 100)))
+
+  return (
+    <div className="grid grid-cols-[140px_56px_1fr] items-center gap-3">
+      <span className="text-sm font-medium text-slate-700">{label}</span>
+      <span className="text-sm font-semibold text-slate-900">{value}</span>
+      <div className="h-3 overflow-hidden rounded-full bg-slate-100">
+        <div className="h-full rounded-full bg-sky-500 transition-[width] duration-200" style={{ width: `${width}%` }} />
+      </div>
+    </div>
+  )
+}
+
+function AbilityList({
+  title,
+  abilities,
+  emptyText = 'Keine Daten verfügbar',
+}: {
+  title: string
+  abilities: PokedexFormAbility[]
+  emptyText?: string
+}) {
+  return (
+    <div className="space-y-2">
+      <p className="text-sm font-semibold text-slate-800">{title}</p>
+      {abilities.length > 0 ? (
+        <div className="flex flex-wrap gap-2">
+          {abilities.map((ability) => (
+            <span key={`${ability.nameEn}-${ability.isHidden}`} className="rounded-full bg-slate-100 px-3 py-1.5 text-sm text-slate-700">
+              {ability.nameDe}
+            </span>
+          ))}
+        </div>
+      ) : (
+        <p className="text-sm text-slate-500">{emptyText}</p>
+      )}
+    </div>
+  )
 }

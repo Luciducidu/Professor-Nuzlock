@@ -14,13 +14,17 @@ export function buildEncounterDraftId(projectId: string, locationId: string, dra
 
 export function toDraftEntry(params: {
   selectedPokemon: PokemonIndexEntry | null
+  formKey?: string
+  formName?: string
+  formSlug?: string
+  formPokemonId?: number | null
   nickname: string
   encounterType: EncounterDraftEntry['encounterType']
   outcome: EncounterDraftEntry['outcome']
   isDead: boolean
   notes: string
 }): EncounterDraftEntry | null {
-  const { selectedPokemon, nickname, encounterType, outcome, isDead, notes } = params
+  const { selectedPokemon, formKey, formName, formSlug, formPokemonId, nickname, encounterType, outcome, isDead, notes } = params
   const hasText = nickname.trim().length > 0 || notes.trim().length > 0
 
   if (!selectedPokemon && !hasText && outcome === 'caught' && !isDead && encounterType === 'normal') {
@@ -32,6 +36,10 @@ export function toDraftEntry(params: {
     slug: selectedPokemon?.slug ?? '',
     nameDe: selectedPokemon?.nameDe ?? '',
     evolution_chain_id: selectedPokemon?.evolution_chain_id ?? null,
+    formKey,
+    formName,
+    formSlug,
+    formPokemonId: formPokemonId ?? null,
     nickname,
     encounterType,
     outcome,
