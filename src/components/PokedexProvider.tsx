@@ -75,6 +75,7 @@ export function PokedexProvider({ children }: { children: ReactNode }) {
         if (typeof pokemonId === 'number') {
           setSelectedPokemonId(pokemonId)
           setSelectedFormKey(formKey ?? null)
+          setQuery('')
         }
         setIsOpen(true)
       },
@@ -85,6 +86,7 @@ export function PokedexProvider({ children }: { children: ReactNode }) {
       selectPokemon: (pokemonId, formKey) => {
         setSelectedPokemonId(pokemonId)
         setSelectedFormKey(formKey ?? null)
+        setQuery('')
         setIsOpen(true)
       },
       selectForm: (formKey) => setSelectedFormKey(formKey),

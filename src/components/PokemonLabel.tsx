@@ -62,7 +62,11 @@ export function PokemonLabel({
         {onOpenPokedex ? (
           <button
             type="button"
-            onClick={() => onOpenPokedex(pokemonId, formKey ?? null)}
+            onClick={(event) => {
+              event.preventDefault()
+              event.stopPropagation()
+              onOpenPokedex(pokemonId, formKey ?? null)
+            }}
             className="mt-1 rounded-md border border-sky-200 bg-sky-50 px-2.5 py-1 text-xs font-semibold text-sky-800 transition hover:bg-sky-100"
           >
             Pokédexeintrag

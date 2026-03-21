@@ -166,7 +166,7 @@ export function PokedexPanel() {
                 <>
                   <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6">
                     <h3 className="text-xl font-semibold text-slate-900">Basiswerte</h3>
-                    <div className="grid gap-3">
+                    <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
                       <StatRow label="KP" value={activeForm.stats.hp} />
                       <StatRow label="Angriff" value={activeForm.stats.attack} />
                       <StatRow label="Verteidigung" value={activeForm.stats.defense} />
@@ -382,9 +382,9 @@ function StatRow({ label, value, max = 255 }: { label: string; value: number; ma
   const width = Math.max(6, Math.min(100, Math.round((value / max) * 100)))
 
   return (
-    <div className="grid grid-cols-[140px_56px_1fr] items-center gap-3">
-      <span className="text-sm font-medium text-slate-700">{label}</span>
-      <span className="text-sm font-semibold text-slate-900">{value}</span>
+    <div className="grid grid-cols-[180px_72px_1fr] items-center gap-4 border-b border-slate-200 px-5 py-4 last:border-b-0">
+      <span className="text-base font-semibold text-slate-800">{label}</span>
+      <span className="text-lg font-bold text-slate-900">{value}</span>
       <div className="h-3 overflow-hidden rounded-full bg-slate-100">
         <div className="h-full rounded-full bg-sky-500 transition-[width] duration-200" style={{ width: `${width}%` }} />
       </div>
