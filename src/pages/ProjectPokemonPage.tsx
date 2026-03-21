@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { EncounterFormModal } from '../components/EncounterFormModal'
 import { PokemonLabel } from '../components/PokemonLabel'
+import { usePokedex } from '../components/PokedexProvider'
 import { PokemonSearch } from '../components/PokemonSearch'
 import { SoullinkEncounterPairModal } from '../components/SoullinkEncounterPairModal'
 import { ProjectLayout } from '../components/ProjectLayout'
@@ -29,6 +30,7 @@ export function ProjectPokemonPage() {
 }
 
 function ProjectPokemonContent({ project, projectId }: { project: Project; projectId: string }) {
+  const { openPokedex } = usePokedex()
   const [encounters, setEncounters] = useState<Encounter[]>([])
   const [locationNameById, setLocationNameById] = useState<Record<string, string>>({})
   const [loading, setLoading] = useState(true)
@@ -208,6 +210,7 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
                         slug={display.slug}
                         isDead={encounter.isDead}
                         size="lg"
+                        onOpenPokedex={openPokedex}
                       />
                       {encounter.nickname ? <p className="mt-1 text-sm text-slate-700">Spitzname: {encounter.nickname}</p> : null}
                       <p className="mt-1 text-sm text-slate-600">Ort: {locationNameById[encounter.locationId] ?? 'Unbekannter Ort'}</p>
@@ -286,6 +289,7 @@ function ProjectPokemonContent({ project, projectId }: { project: Project; proje
                           slug={display.slug}
                           isDead
                           size="lg"
+                          onOpenPokedex={openPokedex}
                         />
                         {isSoulLinkProject(project) && encounter.linkedEncounterId ? (
                           <p className="mt-1 text-xs text-slate-500">Mit Partner verknüpft</p>

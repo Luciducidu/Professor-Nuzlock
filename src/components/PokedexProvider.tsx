@@ -11,6 +11,7 @@ type PokedexContextValue = {
   isOpen: boolean
   query: string
   selectedPokemonId: number | null
+  openPokedex: (pokemonId?: number | null) => void
   openPanel: () => void
   closePanel: () => void
   togglePanel: () => void
@@ -63,6 +64,12 @@ export function PokedexProvider({ children }: { children: ReactNode }) {
       isOpen,
       query,
       selectedPokemonId,
+      openPokedex: (pokemonId) => {
+        if (typeof pokemonId === 'number') {
+          setSelectedPokemonId(pokemonId)
+        }
+        setIsOpen(true)
+      },
       openPanel: () => setIsOpen(true),
       closePanel: () => setIsOpen(false),
       togglePanel: () => setIsOpen((current) => !current),

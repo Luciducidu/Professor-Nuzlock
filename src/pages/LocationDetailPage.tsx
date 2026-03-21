@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { EncounterFormModal } from '../components/EncounterFormModal'
 import { PokemonLabel } from '../components/PokemonLabel'
+import { usePokedex } from '../components/PokedexProvider'
 import { SoullinkEncounterPairModal } from '../components/SoullinkEncounterPairModal'
 import { ProjectLayout } from '../components/ProjectLayout'
 import { getEncounterDraftsForProject } from '../lib/encounterDrafts'
@@ -46,6 +47,7 @@ export function LocationDetailPage() {
 }
 
 function LocationDetailContent({ project, projectId }: { project: Project; projectId: string }) {
+  const { openPokedex } = usePokedex()
   const { locationId } = useParams<{ locationId: string }>()
   const navigate = useNavigate()
 
@@ -392,6 +394,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
                 <SoullinkEncounterCard
                   title={getPlayerName(project, 'p1')}
                   encounter={soulLinkPair.p1}
+                  onOpenPokedex={openPokedex}
                   onEdit={() => {
                     setEditingPair(
                       soulLinkPair.p1 && soulLinkPair.p2
@@ -405,6 +408,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
                 <SoullinkEncounterCard
                   title={getPlayerName(project, 'p2')}
                   encounter={soulLinkPair.p2}
+                  onOpenPokedex={openPokedex}
                   onEdit={() => {
                     setEditingPair(
                       soulLinkPair.p1 && soulLinkPair.p2
@@ -429,6 +433,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
                       <SoullinkEncounterCard
                         title={getPlayerName(project, 'p1')}
                         encounter={pair.p1}
+                        onOpenPokedex={openPokedex}
                         onEdit={() => {
                           setEditingPair(pair)
                           setPairModalMode('extra')
@@ -438,6 +443,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
                       <SoullinkEncounterCard
                         title={getPlayerName(project, 'p2')}
                         encounter={pair.p2}
+                        onOpenPokedex={openPokedex}
                         onEdit={() => {
                           setEditingPair(pair)
                           setPairModalMode('extra')
@@ -458,6 +464,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
               <EncounterArticle
                 key={encounter.id}
                 encounter={encounter}
+                onOpenPokedex={openPokedex}
                 onEdit={() => {
                   setEditingEncounter(encounter)
                   setEncounterModalOpen(true)
@@ -570,11 +577,13 @@ function ConfirmModal({
 
 function EncounterArticle({
   encounter,
+  onOpenPokedex,
   onEdit,
   onDelete,
   titlePrefix = '',
 }: {
   encounter: Encounter
+  onOpenPokedex: (pokemonId: number) => void
   onEdit: () => void
   onDelete: () => void
   titlePrefix?: string
@@ -592,6 +601,7 @@ function EncounterArticle({
             slug={encounter.slug}
             isDead={isFailedOrDead}
             size="lg"
+            onOpenPokedex={onOpenPokedex}
           />
           <div className="mt-2 flex flex-wrap gap-2">
             <Badge>{ENCOUNTER_TYPE_LABELS[encounter.encounterType]}</Badge>
@@ -627,11 +637,13 @@ function EncounterArticle({
 function SoullinkEncounterCard({
   title,
   encounter,
+  onOpenPokedex,
   onEdit,
   onDelete,
 }: {
   title: string
   encounter: Encounter | null
+  onOpenPokedex: (pokemonId: number) => void
   onEdit: () => void
   onDelete: () => void
 }) {
@@ -666,6 +678,7 @@ function SoullinkEncounterCard({
             slug={encounter.slug}
             isDead={encounter.outcome === 'not_caught' || (encounter.outcome === 'caught' && encounter.isDead)}
             size="lg"
+            onOpenPokedex={onOpenPokedex}
           />
           <div className="mt-2 flex flex-wrap gap-2">
             <Badge>{ENCOUNTER_TYPE_LABELS[encounter.encounterType]}</Badge>

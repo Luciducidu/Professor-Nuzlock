@@ -9,6 +9,7 @@ import { SortableContext, rectSortingStrategy } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { useEffect, useMemo, useState } from 'react'
 import { PokemonLabel } from '../components/PokemonLabel'
+import { usePokedex } from '../components/PokedexProvider'
 import { ProjectLayout } from '../components/ProjectLayout'
 import { db, ensureDatabaseReady } from '../lib/db'
 import { getEvolutionOptions, resolveEvolutionOptionById } from '../lib/evolution'
@@ -74,6 +75,7 @@ function ProjectTeamContent({ project, projectId }: { project: Project; projectI
 }
 
 function SoloTeamContent({ project, projectId }: { project: Project; projectId: string }) {
+  const { openPokedex } = usePokedex()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [encounters, setEncounters] = useState<Encounter[]>([])
@@ -415,6 +417,7 @@ function SoloTeamContent({ project, projectId }: { project: Project; projectId: 
                   key={slotNumber}
                   slotNumber={slotNumber}
                   slot={slotsByNumber.get(slotNumber)}
+                  onOpenPokedex={openPokedex}
                   isActive={activeSlot === slotNumber}
                   onSelect={setActiveSlot}
                   onClear={() => void clearSlot(slotNumber)}
@@ -447,6 +450,7 @@ function SoloTeamContent({ project, projectId }: { project: Project; projectId: 
                 key={entry.pokemonId}
                 entry={entry}
                 displayEntry={resolveSelectedEvolution(entry)}
+                onOpenPokedex={openPokedex}
                 expanded={expandedPokemonId === entry.pokemonId}
                 loadingOptions={Boolean(loadingEvolutionsByPokemonId[entry.pokemonId])}
                 options={evolutionOptionsByPokemonId[entry.pokemonId] ?? []}
@@ -483,12 +487,14 @@ function SoloTeamContent({ project, projectId }: { project: Project; projectId: 
 function TeamSlotCard({
   slotNumber,
   slot,
+  onOpenPokedex,
   isActive,
   onSelect,
   onClear,
 }: {
   slotNumber: TeamSlotNumber
   slot?: TeamSlot
+  onOpenPokedex: (pokemonId: number) => void
   isActive: boolean
   onSelect: (slot: TeamSlotNumber) => void
   onClear: () => void
@@ -543,7 +549,13 @@ function TeamSlotCard({
         {...draggable.attributes}
       >
         {slot ? (
-          <PokemonLabel pokemonId={slot.pokemonId} nameDe={slot.nameDe} slug={slot.slug} size="lg" />
+          <PokemonLabel
+            pokemonId={slot.pokemonId}
+            nameDe={slot.nameDe}
+            slug={slot.slug}
+            size="lg"
+            onOpenPokedex={onOpenPokedex}
+          />
         ) : (
           <div className="flex h-16 items-center justify-center rounded-md bg-slate-100 text-sm text-slate-500">Leer</div>
         )}
@@ -568,6 +580,7 @@ function TeamSlotCard({
 function BoxGridItem({
   entry,
   displayEntry,
+  onOpenPokedex,
   expanded,
   loadingOptions,
   options,
@@ -578,6 +591,7 @@ function BoxGridItem({
 }: {
   entry: BoxPokemonEntry
   displayEntry: EvolutionOption
+  onOpenPokedex: (pokemonId: number) => void
   expanded: boolean
   loadingOptions: boolean
   options: EvolutionOption[]
@@ -611,6 +625,7 @@ function BoxGridItem({
         nameDe={displayEntry.nameDe}
         slug={displayEntry.slug}
         size="md"
+        onOpenPokedex={onOpenPokedex}
       />
 
       <div className="mt-2 flex items-center gap-2 text-xs text-slate-600">
@@ -687,6 +702,7 @@ type SoullinkNotice = {
 }
 
 function SoullinkTeamContent({ project, projectId }: { project: Project; projectId: string }) {
+  const { openPokedex } = usePokedex()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [encounters, setEncounters] = useState<Encounter[]>([])
@@ -900,11 +916,13 @@ function SoullinkTeamContent({ project, projectId }: { project: Project; project
           <SoullinkTeamColumn
             title={getPlayerName(project, 'p1')}
             slots={slotsByPlayer.p1}
+            onOpenPokedex={openPokedex}
             onClearSlot={(slot) => void clearSlot(slot)}
           />
           <SoullinkTeamColumn
             title={getPlayerName(project, 'p2')}
             slots={slotsByPlayer.p2}
+            onOpenPokedex={openPokedex}
             onClearSlot={(slot) => void clearSlot(slot)}
           />
         </div>
@@ -948,6 +966,7 @@ function SoullinkTeamContent({ project, projectId }: { project: Project; project
             pairs={filteredPairs}
             pairSlotByGroupId={pairSlotByGroupId}
             project={project}
+            onOpenPokedex={openPokedex}
             onAutoAssign={(pair) => void handleAutoAssign(pair)}
             onChooseSlot={setSlotPickerPair}
           />
@@ -957,6 +976,7 @@ function SoullinkTeamContent({ project, projectId }: { project: Project; project
             pairs={filteredPairs}
             pairSlotByGroupId={pairSlotByGroupId}
             project={project}
+            onOpenPokedex={openPokedex}
             onAutoAssign={(pair) => void handleAutoAssign(pair)}
             onChooseSlot={setSlotPickerPair}
           />
@@ -999,10 +1019,12 @@ function InfoCard({ text }: { text: string }) {
 function SoullinkTeamColumn({
   title,
   slots,
+  onOpenPokedex,
   onClearSlot,
 }: {
   title: string
   slots: Map<TeamSlotNumber, TeamSlot>
+  onOpenPokedex: (pokemonId: number) => void
   onClearSlot: (slot: TeamSlotNumber) => void
 }) {
   return (
@@ -1014,6 +1036,7 @@ function SoullinkTeamColumn({
             key={`${title}-${slotNumber}`}
             slotNumber={slotNumber}
             slot={slots.get(slotNumber)}
+            onOpenPokedex={onOpenPokedex}
             onClear={() => onClearSlot(slotNumber)}
           />
         ))}
@@ -1025,10 +1048,12 @@ function SoullinkTeamColumn({
 function SoullinkTeamSlotCard({
   slotNumber,
   slot,
+  onOpenPokedex,
   onClear,
 }: {
   slotNumber: TeamSlotNumber
   slot?: TeamSlot
+  onOpenPokedex: (pokemonId: number) => void
   onClear: () => void
 }) {
   return (
@@ -1039,7 +1064,13 @@ function SoullinkTeamSlotCard({
       </div>
       <div className="mt-2 min-h-[96px]">
         {slot ? (
-          <PokemonLabel pokemonId={slot.pokemonId} nameDe={slot.nameDe} slug={slot.slug} size="lg" />
+          <PokemonLabel
+            pokemonId={slot.pokemonId}
+            nameDe={slot.nameDe}
+            slug={slot.slug}
+            size="lg"
+            onOpenPokedex={onOpenPokedex}
+          />
         ) : (
           <div className="flex h-16 items-center justify-center rounded-md bg-slate-100 text-sm text-slate-500">Leer</div>
         )}
@@ -1066,6 +1097,7 @@ function SoullinkBoxColumn({
   pairs,
   pairSlotByGroupId,
   project,
+  onOpenPokedex,
   onAutoAssign,
   onChooseSlot,
 }: {
@@ -1074,6 +1106,7 @@ function SoullinkBoxColumn({
   pairs: SoullinkPairEntry[]
   pairSlotByGroupId: Map<string, TeamSlotNumber>
   project: Project
+  onOpenPokedex: (pokemonId: number) => void
   onAutoAssign: (pair: SoullinkPairEntry) => void
   onChooseSlot: (pair: SoullinkPairEntry) => void
 }) {
@@ -1089,7 +1122,13 @@ function SoullinkBoxColumn({
 
           return (
             <div key={`${playerId}-${pair.linkGroupId}`} className="rounded-xl border border-slate-200 bg-white p-3">
-              <PokemonLabel pokemonId={display.pokemonId} nameDe={display.nameDe} slug={display.slug} size="md" />
+              <PokemonLabel
+                pokemonId={display.pokemonId}
+                nameDe={display.nameDe}
+                slug={display.slug}
+                size="md"
+                onOpenPokedex={onOpenPokedex}
+              />
               <div className="mt-2 space-y-2 text-sm text-slate-700">
                 <p>
                   <span className="font-semibold">Partner:</span> {partnerEncounter.nameDe}

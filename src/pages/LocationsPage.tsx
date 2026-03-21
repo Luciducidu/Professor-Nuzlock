@@ -2,6 +2,7 @@ import Dexie from 'dexie'
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PokemonLabel } from '../components/PokemonLabel'
+import { usePokedex } from '../components/PokedexProvider'
 import { ProjectLayout } from '../components/ProjectLayout'
 import { BW2_HIDDEN_GROTTO_LOCATIONS_DE } from '../data/bw2HiddenGrottoLocations.de'
 import type { SeedLocation } from '../data/seedLocations'
@@ -29,6 +30,7 @@ export function LocationsPage() {
 }
 
 function LocationsContent({ project, projectId, projectName }: { project: Project; projectId: string; projectName: string }) {
+  const { openPokedex } = usePokedex()
   const [locations, setLocations] = useState<Location[]>([])
   const [encounters, setEncounters] = useState<Encounter[]>([])
   const [drafts, setDrafts] = useState<EncounterDraft[]>([])
@@ -263,11 +265,13 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
                           title={getPlayerName(project, 'p1')}
                           encounter={soulLinkPair.p1}
                           hasDraft={Boolean(mainDraft?.pair?.p1 || extraDraft?.pair?.p1)}
+                          onOpenPokedex={openPokedex}
                         />
                         <PlayerLocationSummary
                           title={getPlayerName(project, 'p2')}
                           encounter={soulLinkPair.p2}
                           hasDraft={Boolean(mainDraft?.pair?.p2 || extraDraft?.pair?.p2)}
+                          onOpenPokedex={openPokedex}
                         />
                         {soulLinkExtras.length > 0 ? (
                           <p className="text-xs text-slate-500 lg:col-span-2">+{soulLinkExtras.length} Extra-Begegnungen</p>
@@ -282,6 +286,7 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
                           slug={primary.slug}
                           isDead={isFailedOrDead}
                           size="md"
+                          onOpenPokedex={openPokedex}
                         />
                         <div className="mt-2 flex flex-wrap gap-2">
                           <Badge>{primary.outcome === 'caught' ? 'Gefangen' : 'Nicht gefangen'}</Badge>
@@ -381,10 +386,12 @@ function PlayerLocationSummary({
   title,
   encounter,
   hasDraft,
+  onOpenPokedex,
 }: {
   title: string
   encounter: Encounter | null
   hasDraft: boolean
+  onOpenPokedex: (pokemonId: number) => void
 }) {
   return (
     <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
@@ -397,6 +404,7 @@ function PlayerLocationSummary({
             slug={encounter.slug}
             isDead={isSoullinkEncounterDead(encounter)}
             size="md"
+            onOpenPokedex={onOpenPokedex}
           />
           <div className="mt-2 flex flex-wrap gap-2">
             <Badge>{encounter.outcome === 'caught' ? 'Gefangen' : 'Nicht gefangen'}</Badge>
