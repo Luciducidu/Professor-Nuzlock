@@ -68,6 +68,39 @@ export type Encounter = {
   notes?: string
 }
 
+export type EncounterDraftEntry = {
+  pokemonId: number | null
+  slug: string
+  nameDe: string
+  evolution_chain_id: number | null
+  nickname: string
+  encounterType: EncounterType
+  outcome: EncounterOutcome
+  isDead: boolean
+  notes: string
+}
+
+export type EncounterDraftType = 'single' | 'main' | 'extra'
+
+export type EncounterDraft = {
+  id: string
+  projectId: string
+  locationId: string
+  challengeType: ChallengeType
+  draftType: EncounterDraftType
+  playerId?: PlayerId
+  linkGroupId?: string | null
+  status: 'draft'
+  updatedAt: number
+  isComplete: boolean
+  finalSaveAllowed: boolean
+  entry?: EncounterDraftEntry | null
+  pair?: {
+    p1: EncounterDraftEntry | null
+    p2: EncounterDraftEntry | null
+  }
+}
+
 export type PokemonIndexEntry = {
   id: number
   slug: string

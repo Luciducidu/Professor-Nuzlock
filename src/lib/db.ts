@@ -1,10 +1,11 @@
 import Dexie, { type Table } from 'dexie'
-import type { Encounter, EvolutionCacheEntry, Location, Project, Team } from './types'
+import type { Encounter, EncounterDraft, EvolutionCacheEntry, Location, Project, Team } from './types'
 
 class ProfessorNuzlockDB extends Dexie {
   projects!: Table<Project, string>
   locations!: Table<Location, string>
   encounters!: Table<Encounter, string>
+  encounterDrafts!: Table<EncounterDraft, string>
   teams!: Table<Team, string>
   evoCache!: Table<EvolutionCacheEntry, number>
 
@@ -44,6 +45,16 @@ class ProfessorNuzlockDB extends Dexie {
       locations: 'id, projectId, [projectId+order], [projectId+name], type, order, createdAt',
       encounters:
         'id, projectId, locationId, playerId, linkGroupId, linkedEncounterId, [projectId+locationId], [projectId+playerId], [projectId+pokemonId], [projectId+evolution_chain_id], createdAt, outcome',
+      teams: 'id, &projectId, updatedAt',
+      evoCache: 'chainId, updatedAt',
+    })
+
+    this.version(6).stores({
+      projects: 'id, createdAt, game, name',
+      locations: 'id, projectId, [projectId+order], [projectId+name], type, order, createdAt',
+      encounters:
+        'id, projectId, locationId, playerId, linkGroupId, linkedEncounterId, [projectId+locationId], [projectId+playerId], [projectId+pokemonId], [projectId+evolution_chain_id], createdAt, outcome',
+      encounterDrafts: 'id, projectId, locationId, [projectId+locationId], updatedAt, draftType, status',
       teams: 'id, &projectId, updatedAt',
       evoCache: 'chainId, updatedAt',
     })
@@ -153,8 +164,9 @@ async function migrateLocationNamesToGerman(): Promise<void> {
 }
 
 export async function deleteProjectCascade(projectId: string): Promise<void> {
-  await db.transaction('rw', db.projects, db.locations, db.encounters, db.teams, async () => {
+  await db.transaction('rw', db.projects, db.locations, db.encounters, db.encounterDrafts, db.teams, async () => {
     await db.encounters.where('projectId').equals(projectId).delete()
+    await db.encounterDrafts.where('projectId').equals(projectId).delete()
     await db.locations.where('projectId').equals(projectId).delete()
     await db.teams.where('projectId').equals(projectId).delete()
     await db.projects.delete(projectId)
