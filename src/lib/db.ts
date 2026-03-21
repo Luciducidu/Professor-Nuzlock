@@ -164,7 +164,7 @@ async function migrateLocationNamesToGerman(): Promise<void> {
 }
 
 export async function deleteProjectCascade(projectId: string): Promise<void> {
-  await db.transaction('rw', db.projects, db.locations, db.encounters, db.encounterDrafts, db.teams, async () => {
+  await db.transaction('rw', [db.projects, db.locations, db.encounters, db.encounterDrafts, db.teams], async () => {
     await db.encounters.where('projectId').equals(projectId).delete()
     await db.encounterDrafts.where('projectId').equals(projectId).delete()
     await db.locations.where('projectId').equals(projectId).delete()

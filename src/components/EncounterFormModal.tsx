@@ -1,6 +1,12 @@
-import { useMemo, useState } from 'react'
-import { PokemonSearch } from './PokemonSearch'
+import { useEffect, useMemo, useState } from 'react'
 import { db } from '../lib/db'
+import {
+  discardEncounterDraft,
+  getEncounterDraft,
+  saveSingleEncounterDraft,
+  toDraftEntry,
+  toPokemonFromDraft,
+} from '../lib/encounterDrafts'
 import { isSoulLinkProject } from '../lib/projectSettings'
 import { validateEncounterSelection } from '../lib/rules'
 import type {
@@ -11,6 +17,8 @@ import type {
   PokemonIndexEntry,
   Project,
 } from '../lib/types'
+import { EncounterDraftBox, EncounterValidBox, EncounterWarningBox } from './EncounterFeedback'
+import { PokemonSearch } from './PokemonSearch'
 
 type EncounterFormModalProps = {
   project: Project
@@ -21,6 +29,7 @@ type EncounterFormModalProps = {
   playerId?: PlayerId
   onClose: () => void
   onSaved: () => void
+  onDraftChanged?: () => void
 }
 
 const ENCOUNTER_TYPE_OPTIONS: Array<{ value: EncounterType; label: string }> = [
@@ -44,6 +53,7 @@ export function EncounterFormModal({
   playerId,
   onClose,
   onSaved,
+  onDraftChanged,
 }: EncounterFormModalProps) {
   const [selectedPokemon, setSelectedPokemon] = useState<PokemonIndexEntry | null>(
     initialEncounter
@@ -62,6 +72,40 @@ export function EncounterFormModal({
   const [notes, setNotes] = useState(initialEncounter?.notes ?? '')
   const [selectedPlayerId, setSelectedPlayerId] = useState<PlayerId>(initialEncounter?.playerId ?? playerId ?? 'p1')
   const [saving, setSaving] = useState(false)
+  const [draftSaving, setDraftSaving] = useState(false)
+  const [hasDraft, setHasDraft] = useState(false)
+  const [draftLoaded, setDraftLoaded] = useState(Boolean(initialEncounter))
+  const [draftNotice, setDraftNotice] = useState('')
+
+  useEffect(() => {
+    if (initialEncounter) return
+
+    let active = true
+
+    const loadDraft = async () => {
+      const draft = await getEncounterDraft(projectId, locationId, 'single')
+      if (!active) return
+
+      if (draft?.entry) {
+        setSelectedPokemon(toPokemonFromDraft(draft.entry))
+        setNickname(draft.entry.nickname)
+        setEncounterType(draft.entry.encounterType)
+        setOutcome(draft.entry.outcome)
+        setIsDead(draft.entry.isDead)
+        setNotes(draft.entry.notes)
+        setSelectedPlayerId(draft.playerId ?? playerId ?? 'p1')
+        setHasDraft(true)
+      }
+
+      setDraftLoaded(true)
+    }
+
+    void loadDraft()
+
+    return () => {
+      active = false
+    }
+  }, [initialEncounter, locationId, playerId, projectId])
 
   const validation = useMemo(() => {
     if (!selectedPokemon) return null
@@ -88,7 +132,88 @@ export function EncounterFormModal({
     selectedPlayerId,
   ])
 
-  const canSave = Boolean(selectedPokemon) && !saving && (validation ? validation.allowed : false)
+  const draftEntry = useMemo(
+    () =>
+      toDraftEntry({
+        selectedPokemon,
+        nickname,
+        encounterType,
+        outcome,
+        isDead: outcome === 'caught' ? isDead : false,
+        notes,
+      }),
+    [encounterType, isDead, nickname, notes, outcome, selectedPokemon],
+  )
+
+  const finalSaveAllowed = Boolean(selectedPokemon) && Boolean(validation?.allowed)
+  const canSave = finalSaveAllowed && !saving
+
+  useEffect(() => {
+    if (initialEncounter || !draftLoaded) return
+
+    const timeoutId = window.setTimeout(async () => {
+      setDraftSaving(true)
+
+      await saveSingleEncounterDraft({
+        projectId,
+        locationId,
+        challengeType: project.challengeType ?? 'nuzlocke',
+        playerId: isSoulLinkProject(project) ? selectedPlayerId : undefined,
+        entry: draftEntry,
+        finalSaveAllowed,
+      })
+
+      setHasDraft(Boolean(draftEntry))
+      setDraftSaving(false)
+      onDraftChanged?.()
+    }, 350)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [
+    draftEntry,
+    draftLoaded,
+    finalSaveAllowed,
+    initialEncounter,
+    locationId,
+    onDraftChanged,
+    project,
+    projectId,
+    selectedPlayerId,
+  ])
+
+  const handleSaveDraft = async () => {
+    if (initialEncounter) return
+
+    setDraftSaving(true)
+    await saveSingleEncounterDraft({
+      projectId,
+      locationId,
+      challengeType: project.challengeType ?? 'nuzlocke',
+      playerId: isSoulLinkProject(project) ? selectedPlayerId : undefined,
+      entry: draftEntry,
+      finalSaveAllowed,
+    })
+    setHasDraft(Boolean(draftEntry))
+    setDraftSaving(false)
+    setDraftNotice('Entwurf wurde gespeichert.')
+    onDraftChanged?.()
+  }
+
+  const handleDiscardDraft = async () => {
+    if (initialEncounter) return
+
+    await discardEncounterDraft(projectId, locationId, 'single')
+    setSelectedPokemon(null)
+    setNickname('')
+    setEncounterType('normal')
+    setOutcome('caught')
+    setIsDead(false)
+    setNotes('')
+    setSelectedPlayerId(playerId ?? 'p1')
+    setHasDraft(false)
+    setDraftNotice('')
+    onDraftChanged?.()
+  }
 
   const handleSave = async () => {
     if (!selectedPokemon || !canSave) return
@@ -122,10 +247,22 @@ export function EncounterFormModal({
     } else {
       await db.encounters.put(payload)
     }
+
+    if (!initialEncounter) {
+      await discardEncounterDraft(projectId, locationId, 'single')
+      onDraftChanged?.()
+    }
+
     setSaving(false)
     onSaved()
     onClose()
   }
+
+  const errorMessage = !selectedPokemon
+    ? 'Dieses Pokémon kann nicht gespeichert werden. Bitte wähle zuerst ein Pokémon aus.'
+    : validation && !validation.allowed
+      ? validation.message
+      : ''
 
   return (
     <div className="fixed inset-0 z-30 flex items-center justify-center bg-slate-950/40 p-4">
@@ -135,6 +272,19 @@ export function EncounterFormModal({
         </h2>
 
         <div className="mt-4 space-y-4">
+          {!initialEncounter && hasDraft ? (
+            <EncounterDraftBox
+              title="Du bearbeitest gerade einen Entwurf."
+              message="Der Entwurf bleibt erhalten, bis du ihn final speicherst oder verwirfst."
+            />
+          ) : null}
+
+          {errorMessage ? (
+            <EncounterWarningBox title="Dieses Pokémon kann nicht gespeichert werden." message={errorMessage} />
+          ) : validation?.allowed ? (
+            <EncounterValidBox />
+          ) : null}
+
           {isSoulLinkProject(project) ? (
             <div>
               <label htmlFor="encounter-player" className="mb-2 block text-sm font-medium text-slate-700">
@@ -165,10 +315,9 @@ export function EncounterFormModal({
             </div>
           )}
 
-          {validation ? (
-            <div className="space-y-1 text-sm">
-              <p className={validation.allowed ? 'text-emerald-700' : 'text-rose-700'}>{validation.message}</p>
-              {validation.warning ? <p className="text-amber-700">{validation.warning}</p> : null}
+          {validation?.warning ? (
+            <div className="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
+              {validation.warning}
             </div>
           ) : null}
 
@@ -249,28 +398,62 @@ export function EncounterFormModal({
             />
           </div>
 
-          <div className="flex gap-2">
+          {errorMessage ? (
+            <EncounterWarningBox
+              title="Speichern aktuell blockiert"
+              message="Speichern nicht möglich, solange ein Regelverstoß vorliegt."
+            />
+          ) : null}
+
+          {draftNotice ? (
+            <div className="rounded-md border border-sky-200 bg-sky-50 px-3 py-2 text-sm text-sky-700">
+              {draftNotice}
+            </div>
+          ) : null}
+
+          <div className="flex flex-wrap gap-2">
             <button
               type="button"
               onClick={handleSave}
               disabled={!canSave}
-              className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-400"
+              className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-50"
             >
-              {saving ? 'Speichert...' : 'Speichern'}
+              {saving ? 'Speichert...' : initialEncounter ? 'Final speichern' : 'Final speichern'}
             </button>
+            {!initialEncounter ? (
+              <>
+                <button
+                  type="button"
+                  onClick={() => void handleSaveDraft()}
+                  disabled={draftSaving}
+                  className="rounded-md border border-sky-300 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-800 transition hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  {draftSaving ? 'Entwurf wird gespeichert...' : hasDraft ? 'Entwurf aktualisieren' : 'Als Entwurf speichern'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => void handleDiscardDraft()}
+                  disabled={!hasDraft}
+                  className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400"
+                >
+                  Entwurf verwerfen
+                </button>
+              </>
+            ) : null}
             <button
               type="button"
               onClick={onClose}
               className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
             >
-              Abbrechen
+              Schließen
             </button>
           </div>
+
+          {errorMessage ? (
+            <p className="text-sm text-rose-700">Speichern nicht möglich, solange ein Regelverstoß vorliegt.</p>
+          ) : null}
         </div>
       </div>
     </div>
   )
 }
-
-
-

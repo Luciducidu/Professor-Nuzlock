@@ -53,7 +53,7 @@ export function checkDupesClauseForPokemon(params: {
       return {
         allowed: false,
         reason: 'species',
-        message: 'Nein. Dupes Clause: Dieses Pokémon wurde bereits registriert.',
+        message: 'Dupes Clause: Dieses Pokémon wurde bereits registriert.',
         duplicateEncounter: duplicate,
       }
     }
@@ -78,7 +78,7 @@ export function checkDupesClauseForPokemon(params: {
       return {
         allowed: false,
         reason: 'evolution',
-        message: 'Nein. Dupes Clause: Diese Evolutionslinie wurde bereits registriert.',
+        message: 'Dupes Clause: Diese Entwicklungsreihe wurde bereits registriert.',
         duplicateEncounter: duplicate,
       }
     }
@@ -233,7 +233,7 @@ export function validateEncounterSelection(params: {
         message:
           dupesCheck.reason === 'species'
             ? 'Dupes Clause: Dieses Pokémon wurde bereits registriert.'
-            : 'Dupes Clause: Diese Evolutionslinie wurde bereits registriert.',
+            : 'Dupes Clause: Diese Entwicklungsreihe wurde bereits registriert.',
         warning,
       }
     }
@@ -254,8 +254,8 @@ export function validateEncounterSelection(params: {
       allowed: false,
       message:
         soulLinkCheck.reason === 'species'
-          ? 'Soullink-Regel: Dieses Pokémon ist für beide Spieler bereits gesperrt.'
-          : 'Soullink-Regel: Diese Entwicklungsreihe ist für beide Spieler bereits gesperrt.',
+          ? 'Soullink-Regel: Diese Wahl ist für beide Spieler gesperrt.'
+          : 'Soullink-Regel: Diese Entwicklungsreihe ist für beide Spieler gesperrt.',
       warning,
     }
   }

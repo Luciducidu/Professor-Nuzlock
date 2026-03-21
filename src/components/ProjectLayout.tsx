@@ -4,6 +4,7 @@ import { db, ensureDatabaseReady, resetDatabase } from '../lib/db'
 import { normalizeProject } from '../lib/projectSettings'
 import type { Project } from '../lib/types'
 import { AppShell } from './AppShell'
+import { PokedexPanel } from './PokedexPanel'
 import { ProjectNav } from './ProjectNav'
 
 type ProjectLayoutChildren = (context: { project: Project; projectId: string }) => ReactNode
@@ -99,6 +100,7 @@ export function ProjectLayout({ children, actions, showBackupNav = true }: Proje
 
   return (
     <AppShell title="Professor Nuzlock" subtitle={project.name} actions={actions}>
+      <PokedexPanel />
       {dbResetNotice ? (
         <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800 shadow-sm">
           {dbResetNotice}

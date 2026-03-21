@@ -36,9 +36,37 @@ Das Script:
 - überspringt kaputte/ungültige Dateien
 - loggt eine Zusammenfassung (`Loaded`, `Skipped`, `Total output entries`)
 
+## Pokédex-Daten lokal bauen
+
+Erzeugt die lokalen Nachschlage-Daten für den integrierten Pokédex:
+- `src/data/pokedexIndex.json`
+- `src/data/evolutionData.json`
+- aktualisiert zusätzlich `src/data/pokemonIndex.json`
+
+```bash
+npm run build:pokedex
+```
+
+Das Script lädt lokal aufbereitete Daten für:
+- deutsche und englische Namen
+- Typen
+- Sprites über die lokale Sprite-ID
+- Entwicklungsreihen
+- Entwicklungsbedingungen wie Level, Freundschaft, Stein, Tausch, Item, Tageszeit und weitere Sonderbedingungen
+
+## Rohdaten herunterladen
+
+Falls du die minimierten Rohdaten aus der PokeAPI lokal neu anlegen möchtest:
+
+```bash
+npm run download:pokeapi
+```
+
+Hinweis: Für den integrierten Pokédex genügt in der Praxis meist direkt `npm run build:pokedex`.
+
 ## Sprites lokal herunterladen (offline)
 
-Lädt Front-Sprites für Pokémon 1–493 und speichert sie unter `public/sprites/`.
+ Lädt Front-Sprites für Pokémon 1–649 und speichert sie unter `public/sprites/`.
 
 ```bash
 npm run sprites:download

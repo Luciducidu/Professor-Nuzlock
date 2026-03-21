@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "download:pokeapi": "node ./download-pokeapi.mjs",
     "build:pokemon": "node ./scripts/build-pokemon-index.mjs",
+    "build:pokedex": "node ./scripts/build-pokedex-data.mjs",
     "sprites:download": "node ./scripts/download-sprites.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

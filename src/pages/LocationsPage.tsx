@@ -6,10 +6,11 @@ import { ProjectLayout } from '../components/ProjectLayout'
 import { BW2_HIDDEN_GROTTO_LOCATIONS_DE } from '../data/bw2HiddenGrottoLocations.de'
 import type { SeedLocation } from '../data/seedLocations'
 import { db } from '../lib/db'
+import { getEncounterDraftsForProject } from '../lib/encounterDrafts'
 import { compareLocations, ensureStarterLocation } from '../lib/locations'
 import { formatGameName, getLocationSeedsForGame, isSoulLinkProject } from '../lib/projectSettings'
 import { getPlayerName, getPrimarySoullinkPair, getSoullinkExtraPairs, isSoullinkEncounterDead } from '../lib/soullink'
-import type { Encounter, Location, LocationType, Project } from '../lib/types'
+import type { Encounter, EncounterDraft, Location, LocationType, Project } from '../lib/types'
 
 const TYPE_LABELS: Record<LocationType, string> = {
   route: 'Route',
@@ -30,6 +31,7 @@ export function LocationsPage() {
 function LocationsContent({ project, projectId, projectName }: { project: Project; projectId: string; projectName: string }) {
   const [locations, setLocations] = useState<Location[]>([])
   const [encounters, setEncounters] = useState<Encounter[]>([])
+  const [drafts, setDrafts] = useState<EncounterDraft[]>([])
   const [query, setQuery] = useState('')
   const [filter, setFilter] = useState<LocationFilter>('all')
   const [loading, setLoading] = useState(true)
@@ -43,12 +45,13 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
     const loadData = async () => {
       await ensureStarterLocation(projectId)
 
-      const [loadedLocations, loadedEncounters] = await Promise.all([
+      const [loadedLocations, loadedEncounters, loadedDrafts] = await Promise.all([
         db.locations
           .where('[projectId+order]')
           .between([projectId, Dexie.minKey], [projectId, Dexie.maxKey])
           .toArray(),
         db.encounters.where('projectId').equals(projectId).toArray(),
+        getEncounterDraftsForProject(projectId),
       ])
 
       if (!active) return
@@ -57,6 +60,7 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
 
       setLocations(sortedLocations)
       setEncounters(loadedEncounters)
+      setDrafts(loadedDrafts)
       setLoading(false)
     }
 
@@ -85,6 +89,25 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
 
     return grouped
   }, [encounters])
+
+  const draftsByLocation = useMemo(() => {
+    const grouped = new Map<string, EncounterDraft[]>()
+
+    for (const draft of drafts) {
+      const list = grouped.get(draft.locationId)
+      if (list) {
+        list.push(draft)
+      } else {
+        grouped.set(draft.locationId, [draft])
+      }
+    }
+
+    for (const list of grouped.values()) {
+      list.sort((a, b) => a.updatedAt - b.updatedAt)
+    }
+
+    return grouped
+  }, [drafts])
 
   const filteredLocations = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
@@ -195,10 +218,17 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
         ) : (
           filteredLocations.map((location) => {
             const locationEncounters = encountersByLocation.get(location.id) ?? []
+            const locationDrafts = draftsByLocation.get(location.id) ?? []
             const primary = locationEncounters[0] ?? null
             const extras = Math.max(0, locationEncounters.length - 1)
             const soulLinkPair = getPrimarySoullinkPair(locationEncounters)
             const soulLinkExtras = getSoullinkExtraPairs(locationEncounters)
+            const hasDraft = locationDrafts.length > 0
+            const hasIncompleteDraft = locationDrafts.some((draft) => !draft.isComplete)
+            const hasInvalidDraft = locationDrafts.some((draft) => draft.isComplete && !draft.finalSaveAllowed)
+            const mainDraft = locationDrafts.find((draft) => draft.draftType === 'main') ?? null
+            const extraDraft = locationDrafts.find((draft) => draft.draftType === 'extra') ?? null
+            const singleDraft = locationDrafts.find((draft) => draft.draftType === 'single') ?? null
             const isFailedOrDead =
               primary?.outcome === 'not_caught' || (primary?.outcome === 'caught' && Boolean(primary.isDead))
 
@@ -215,19 +245,30 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
                       <span className="inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
                         {TYPE_LABELS[location.type]}
                       </span>
-                      {location.name.includes('Hidden Grotto') ? (
+                      {location.name.includes('Versteckte Lichtung') ? (
                         <span className="inline-block rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700">
                           BW2 Spezial
                         </span>
                       ) : null}
+                      {hasDraft ? <Badge tone="info">Entwurf vorhanden</Badge> : null}
+                      {hasIncompleteDraft ? <Badge tone="warning">Unvollständig</Badge> : null}
+                      {!hasIncompleteDraft && hasInvalidDraft ? <Badge tone="danger">Nicht final speicherbar</Badge> : null}
                     </div>
                   </div>
 
                   <div className="min-w-[280px] text-sm text-slate-700">
                     {isSoulLinkProject(project) ? (
                       <div className="grid gap-3 lg:grid-cols-2">
-                        <PlayerLocationSummary title={getPlayerName(project, 'p1')} encounter={soulLinkPair.p1} />
-                        <PlayerLocationSummary title={getPlayerName(project, 'p2')} encounter={soulLinkPair.p2} />
+                        <PlayerLocationSummary
+                          title={getPlayerName(project, 'p1')}
+                          encounter={soulLinkPair.p1}
+                          hasDraft={Boolean(mainDraft?.pair?.p1 || extraDraft?.pair?.p1)}
+                        />
+                        <PlayerLocationSummary
+                          title={getPlayerName(project, 'p2')}
+                          encounter={soulLinkPair.p2}
+                          hasDraft={Boolean(mainDraft?.pair?.p2 || extraDraft?.pair?.p2)}
+                        />
                         {soulLinkExtras.length > 0 ? (
                           <p className="text-xs text-slate-500 lg:col-span-2">+{soulLinkExtras.length} Extra-Begegnungen</p>
                         ) : null}
@@ -245,11 +286,15 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
                         <div className="mt-2 flex flex-wrap gap-2">
                           <Badge>{primary.outcome === 'caught' ? 'Gefangen' : 'Nicht gefangen'}</Badge>
                           {isFailedOrDead ? <Badge tone="danger">Verstorben</Badge> : null}
+                          {singleDraft ? <Badge tone="info">Entwurf vorhanden</Badge> : null}
                         </div>
                         {extras > 0 ? <p className="mt-2 text-xs text-slate-500">+{extras} extra</p> : null}
                       </>
                     ) : (
-                      <p className="text-slate-500">Keine Begegnung</p>
+                      <div className="space-y-2">
+                        <p className="text-slate-500">Keine Begegnung</p>
+                        {singleDraft ? <Badge tone="info">Entwurf vorhanden</Badge> : null}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -332,7 +377,15 @@ function FilterButton({ label, active, onClick }: { label: string; active: boole
   )
 }
 
-function PlayerLocationSummary({ title, encounter }: { title: string; encounter: Encounter | null }) {
+function PlayerLocationSummary({
+  title,
+  encounter,
+  hasDraft,
+}: {
+  title: string
+  encounter: Encounter | null
+  hasDraft: boolean
+}) {
   return (
     <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
       <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">{title}</p>
@@ -349,10 +402,14 @@ function PlayerLocationSummary({ title, encounter }: { title: string; encounter:
             <Badge>{encounter.outcome === 'caught' ? 'Gefangen' : 'Nicht gefangen'}</Badge>
             {isSoullinkEncounterDead(encounter) ? <Badge tone="danger">Verstorben</Badge> : null}
             {encounter.linkedEncounterId ? <Badge>Mit Partner verknüpft</Badge> : null}
+            {hasDraft ? <Badge tone="info">Entwurf</Badge> : null}
           </div>
         </>
       ) : (
-        <p className="text-slate-500">Keine Begegnung</p>
+        <div className="space-y-2">
+          <p className="text-slate-500">Keine Begegnung</p>
+          {hasDraft ? <Badge tone="info">Entwurf</Badge> : null}
+        </div>
       )}
     </div>
   )
@@ -362,7 +419,20 @@ function InfoCard({ text }: { text: string }) {
   return <div className="rounded-xl border border-slate-200 bg-white p-6 text-sm text-slate-600 shadow-sm">{text}</div>
 }
 
-function Badge({ children, tone = 'neutral' }: { children: string; tone?: 'neutral' | 'danger' }) {
-  const cls = tone === 'danger' ? 'bg-rose-100 text-rose-700' : 'bg-slate-100 text-slate-700'
+function Badge({
+  children,
+  tone = 'neutral',
+}: {
+  children: string
+  tone?: 'neutral' | 'danger' | 'info' | 'warning'
+}) {
+  const cls =
+    tone === 'danger'
+      ? 'bg-rose-100 text-rose-700'
+      : tone === 'info'
+        ? 'bg-sky-100 text-sky-700'
+        : tone === 'warning'
+          ? 'bg-amber-100 text-amber-800'
+          : 'bg-slate-100 text-slate-700'
   return <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${cls}`}>{children}</span>
 }

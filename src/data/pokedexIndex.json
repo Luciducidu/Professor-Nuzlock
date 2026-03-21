@@ -2,3895 +2,7449 @@
   {
     "id": 1,
     "slug": "bulbasaur",
+    "nameEn": "Bulbasaur",
     "nameDe": "Bisasam",
+    "spriteId": 1,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 1
   },
   {
     "id": 2,
     "slug": "ivysaur",
+    "nameEn": "Ivysaur",
     "nameDe": "Bisaknosp",
+    "spriteId": 2,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 1
   },
   {
     "id": 3,
     "slug": "venusaur",
+    "nameEn": "Venusaur",
     "nameDe": "Bisaflor",
+    "spriteId": 3,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 1
   },
   {
     "id": 4,
     "slug": "charmander",
+    "nameEn": "Charmander",
     "nameDe": "Glumanda",
+    "spriteId": 4,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 2
   },
   {
     "id": 5,
     "slug": "charmeleon",
+    "nameEn": "Charmeleon",
     "nameDe": "Glutexo",
+    "spriteId": 5,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 2
   },
   {
     "id": 6,
     "slug": "charizard",
+    "nameEn": "Charizard",
     "nameDe": "Glurak",
+    "spriteId": 6,
+    "types": [
+      "fire",
+      "flying"
+    ],
     "evolution_chain_id": 2
   },
   {
     "id": 7,
     "slug": "squirtle",
+    "nameEn": "Squirtle",
     "nameDe": "Schiggy",
+    "spriteId": 7,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 3
   },
   {
     "id": 8,
     "slug": "wartortle",
+    "nameEn": "Wartortle",
     "nameDe": "Schillok",
+    "spriteId": 8,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 3
   },
   {
     "id": 9,
     "slug": "blastoise",
+    "nameEn": "Blastoise",
     "nameDe": "Turtok",
+    "spriteId": 9,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 3
   },
   {
     "id": 10,
     "slug": "caterpie",
+    "nameEn": "Caterpie",
     "nameDe": "Raupy",
+    "spriteId": 10,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 4
   },
   {
     "id": 11,
     "slug": "metapod",
+    "nameEn": "Metapod",
     "nameDe": "Safcon",
+    "spriteId": 11,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 4
   },
   {
     "id": 12,
     "slug": "butterfree",
+    "nameEn": "Butterfree",
     "nameDe": "Smettbo",
+    "spriteId": 12,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 4
   },
   {
     "id": 13,
     "slug": "weedle",
+    "nameEn": "Weedle",
     "nameDe": "Hornliu",
+    "spriteId": 13,
+    "types": [
+      "bug",
+      "poison"
+    ],
     "evolution_chain_id": 5
   },
   {
     "id": 14,
     "slug": "kakuna",
+    "nameEn": "Kakuna",
     "nameDe": "Kokuna",
+    "spriteId": 14,
+    "types": [
+      "bug",
+      "poison"
+    ],
     "evolution_chain_id": 5
   },
   {
     "id": 15,
     "slug": "beedrill",
+    "nameEn": "Beedrill",
     "nameDe": "Bibor",
+    "spriteId": 15,
+    "types": [
+      "bug",
+      "poison"
+    ],
     "evolution_chain_id": 5
   },
   {
     "id": 16,
     "slug": "pidgey",
+    "nameEn": "Pidgey",
     "nameDe": "Taubsi",
+    "spriteId": 16,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 6
   },
   {
     "id": 17,
     "slug": "pidgeotto",
+    "nameEn": "Pidgeotto",
     "nameDe": "Tauboga",
+    "spriteId": 17,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 6
   },
   {
     "id": 18,
     "slug": "pidgeot",
+    "nameEn": "Pidgeot",
     "nameDe": "Tauboss",
+    "spriteId": 18,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 6
   },
   {
     "id": 19,
     "slug": "rattata",
+    "nameEn": "Rattata",
     "nameDe": "Rattfratz",
+    "spriteId": 19,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 7
   },
   {
     "id": 20,
     "slug": "raticate",
+    "nameEn": "Raticate",
     "nameDe": "Rattikarl",
+    "spriteId": 20,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 7
   },
   {
     "id": 21,
     "slug": "spearow",
+    "nameEn": "Spearow",
     "nameDe": "Habitak",
+    "spriteId": 21,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 8
   },
   {
     "id": 22,
     "slug": "fearow",
+    "nameEn": "Fearow",
     "nameDe": "Ibitak",
+    "spriteId": 22,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 8
   },
   {
     "id": 23,
     "slug": "ekans",
+    "nameEn": "Ekans",
     "nameDe": "Rettan",
+    "spriteId": 23,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 9
   },
   {
     "id": 24,
     "slug": "arbok",
+    "nameEn": "Arbok",
     "nameDe": "Arbok",
+    "spriteId": 24,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 9
   },
   {
     "id": 25,
     "slug": "pikachu",
+    "nameEn": "Pikachu",
     "nameDe": "Pikachu",
+    "spriteId": 25,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 10
   },
   {
     "id": 26,
     "slug": "raichu",
+    "nameEn": "Raichu",
     "nameDe": "Raichu",
+    "spriteId": 26,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 10
   },
   {
     "id": 27,
     "slug": "sandshrew",
+    "nameEn": "Sandshrew",
     "nameDe": "Sandan",
+    "spriteId": 27,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 11
   },
   {
     "id": 28,
     "slug": "sandslash",
+    "nameEn": "Sandslash",
     "nameDe": "Sandamer",
+    "spriteId": 28,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 11
   },
   {
     "id": 29,
     "slug": "nidoran-f",
+    "nameEn": "Nidoran F",
     "nameDe": "Nidoran♀",
+    "spriteId": 29,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 12
   },
   {
     "id": 30,
     "slug": "nidorina",
+    "nameEn": "Nidorina",
     "nameDe": "Nidorina",
+    "spriteId": 30,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 12
   },
   {
     "id": 31,
     "slug": "nidoqueen",
+    "nameEn": "Nidoqueen",
     "nameDe": "Nidoqueen",
+    "spriteId": 31,
+    "types": [
+      "poison",
+      "ground"
+    ],
     "evolution_chain_id": 12
   },
   {
     "id": 32,
     "slug": "nidoran-m",
+    "nameEn": "Nidoran M",
     "nameDe": "Nidoran♂",
+    "spriteId": 32,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 13
   },
   {
     "id": 33,
     "slug": "nidorino",
+    "nameEn": "Nidorino",
     "nameDe": "Nidorino",
+    "spriteId": 33,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 13
   },
   {
     "id": 34,
     "slug": "nidoking",
+    "nameEn": "Nidoking",
     "nameDe": "Nidoking",
+    "spriteId": 34,
+    "types": [
+      "poison",
+      "ground"
+    ],
     "evolution_chain_id": 13
   },
   {
     "id": 35,
     "slug": "clefairy",
+    "nameEn": "Clefairy",
     "nameDe": "Piepi",
+    "spriteId": 35,
+    "types": [
+      "fairy"
+    ],
     "evolution_chain_id": 14
   },
   {
     "id": 36,
     "slug": "clefable",
+    "nameEn": "Clefable",
     "nameDe": "Pixi",
+    "spriteId": 36,
+    "types": [
+      "fairy"
+    ],
     "evolution_chain_id": 14
   },
   {
     "id": 37,
     "slug": "vulpix",
+    "nameEn": "Vulpix",
     "nameDe": "Vulpix",
+    "spriteId": 37,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 15
   },
   {
     "id": 38,
     "slug": "ninetales",
+    "nameEn": "Ninetales",
     "nameDe": "Vulnona",
+    "spriteId": 38,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 15
   },
   {
     "id": 39,
     "slug": "jigglypuff",
+    "nameEn": "Jigglypuff",
     "nameDe": "Pummeluff",
+    "spriteId": 39,
+    "types": [
+      "normal",
+      "fairy"
+    ],
     "evolution_chain_id": 16
   },
   {
     "id": 40,
     "slug": "wigglytuff",
+    "nameEn": "Wigglytuff",
     "nameDe": "Knuddeluff",
+    "spriteId": 40,
+    "types": [
+      "normal",
+      "fairy"
+    ],
     "evolution_chain_id": 16
   },
   {
     "id": 41,
     "slug": "zubat",
+    "nameEn": "Zubat",
     "nameDe": "Zubat",
+    "spriteId": 41,
+    "types": [
+      "poison",
+      "flying"
+    ],
     "evolution_chain_id": 17
   },
   {
     "id": 42,
     "slug": "golbat",
+    "nameEn": "Golbat",
     "nameDe": "Golbat",
+    "spriteId": 42,
+    "types": [
+      "poison",
+      "flying"
+    ],
     "evolution_chain_id": 17
   },
   {
     "id": 43,
     "slug": "oddish",
+    "nameEn": "Oddish",
     "nameDe": "Myrapla",
+    "spriteId": 43,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 18
   },
   {
     "id": 44,
     "slug": "gloom",
+    "nameEn": "Gloom",
     "nameDe": "Duflor",
+    "spriteId": 44,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 18
   },
   {
     "id": 45,
     "slug": "vileplume",
+    "nameEn": "Vileplume",
     "nameDe": "Giflor",
+    "spriteId": 45,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 18
   },
   {
     "id": 46,
     "slug": "paras",
+    "nameEn": "Paras",
     "nameDe": "Paras",
+    "spriteId": 46,
+    "types": [
+      "bug",
+      "grass"
+    ],
     "evolution_chain_id": 19
   },
   {
     "id": 47,
     "slug": "parasect",
+    "nameEn": "Parasect",
     "nameDe": "Parasek",
+    "spriteId": 47,
+    "types": [
+      "bug",
+      "grass"
+    ],
     "evolution_chain_id": 19
   },
   {
     "id": 48,
     "slug": "venonat",
+    "nameEn": "Venonat",
     "nameDe": "Bluzuk",
+    "spriteId": 48,
+    "types": [
+      "bug",
+      "poison"
+    ],
     "evolution_chain_id": 20
   },
   {
     "id": 49,
     "slug": "venomoth",
+    "nameEn": "Venomoth",
     "nameDe": "Omot",
+    "spriteId": 49,
+    "types": [
+      "bug",
+      "poison"
+    ],
     "evolution_chain_id": 20
   },
   {
     "id": 50,
     "slug": "diglett",
+    "nameEn": "Diglett",
     "nameDe": "Digda",
+    "spriteId": 50,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 21
   },
   {
     "id": 51,
     "slug": "dugtrio",
+    "nameEn": "Dugtrio",
     "nameDe": "Digdri",
+    "spriteId": 51,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 21
   },
   {
     "id": 52,
     "slug": "meowth",
+    "nameEn": "Meowth",
     "nameDe": "Mauzi",
+    "spriteId": 52,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 22
   },
   {
     "id": 53,
     "slug": "persian",
+    "nameEn": "Persian",
     "nameDe": "Snobilikat",
+    "spriteId": 53,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 22
   },
   {
     "id": 54,
     "slug": "psyduck",
+    "nameEn": "Psyduck",
     "nameDe": "Enton",
+    "spriteId": 54,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 23
   },
   {
     "id": 55,
     "slug": "golduck",
+    "nameEn": "Golduck",
     "nameDe": "Entoron",
+    "spriteId": 55,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 23
   },
   {
     "id": 56,
     "slug": "mankey",
+    "nameEn": "Mankey",
     "nameDe": "Menki",
+    "spriteId": 56,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 24
   },
   {
     "id": 57,
     "slug": "primeape",
+    "nameEn": "Primeape",
     "nameDe": "Rasaff",
+    "spriteId": 57,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 24
   },
   {
     "id": 58,
     "slug": "growlithe",
+    "nameEn": "Growlithe",
     "nameDe": "Fukano",
+    "spriteId": 58,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 25
   },
   {
     "id": 59,
     "slug": "arcanine",
+    "nameEn": "Arcanine",
     "nameDe": "Arkani",
+    "spriteId": 59,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 25
   },
   {
     "id": 60,
     "slug": "poliwag",
+    "nameEn": "Poliwag",
     "nameDe": "Quapsel",
+    "spriteId": 60,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 26
   },
   {
     "id": 61,
     "slug": "poliwhirl",
+    "nameEn": "Poliwhirl",
     "nameDe": "Quaputzi",
+    "spriteId": 61,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 26
   },
   {
     "id": 62,
     "slug": "poliwrath",
+    "nameEn": "Poliwrath",
     "nameDe": "Quappo",
+    "spriteId": 62,
+    "types": [
+      "water",
+      "fighting"
+    ],
     "evolution_chain_id": 26
   },
   {
     "id": 63,
     "slug": "abra",
+    "nameEn": "Abra",
     "nameDe": "Abra",
+    "spriteId": 63,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 27
   },
   {
     "id": 64,
     "slug": "kadabra",
+    "nameEn": "Kadabra",
     "nameDe": "Kadabra",
+    "spriteId": 64,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 27
   },
   {
     "id": 65,
     "slug": "alakazam",
+    "nameEn": "Alakazam",
     "nameDe": "Simsala",
+    "spriteId": 65,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 27
   },
   {
     "id": 66,
     "slug": "machop",
+    "nameEn": "Machop",
     "nameDe": "Machollo",
+    "spriteId": 66,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 28
   },
   {
     "id": 67,
     "slug": "machoke",
+    "nameEn": "Machoke",
     "nameDe": "Maschock",
+    "spriteId": 67,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 28
   },
   {
     "id": 68,
     "slug": "machamp",
+    "nameEn": "Machamp",
     "nameDe": "Machomei",
+    "spriteId": 68,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 28
   },
   {
     "id": 69,
     "slug": "bellsprout",
+    "nameEn": "Bellsprout",
     "nameDe": "Knofensa",
+    "spriteId": 69,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 29
   },
   {
     "id": 70,
     "slug": "weepinbell",
+    "nameEn": "Weepinbell",
     "nameDe": "Ultrigaria",
+    "spriteId": 70,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 29
   },
   {
     "id": 71,
     "slug": "victreebel",
+    "nameEn": "Victreebel",
     "nameDe": "Sarzenia",
+    "spriteId": 71,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 29
   },
   {
     "id": 72,
     "slug": "tentacool",
+    "nameEn": "Tentacool",
     "nameDe": "Tentacha",
+    "spriteId": 72,
+    "types": [
+      "water",
+      "poison"
+    ],
     "evolution_chain_id": 30
   },
   {
     "id": 73,
     "slug": "tentacruel",
+    "nameEn": "Tentacruel",
     "nameDe": "Tentoxa",
+    "spriteId": 73,
+    "types": [
+      "water",
+      "poison"
+    ],
     "evolution_chain_id": 30
   },
   {
     "id": 74,
     "slug": "geodude",
+    "nameEn": "Geodude",
     "nameDe": "Kleinstein",
+    "spriteId": 74,
+    "types": [
+      "rock",
+      "ground"
+    ],
     "evolution_chain_id": 31
   },
   {
     "id": 75,
     "slug": "graveler",
+    "nameEn": "Graveler",
     "nameDe": "Georok",
+    "spriteId": 75,
+    "types": [
+      "rock",
+      "ground"
+    ],
     "evolution_chain_id": 31
   },
   {
     "id": 76,
     "slug": "golem",
+    "nameEn": "Golem",
     "nameDe": "Geowaz",
+    "spriteId": 76,
+    "types": [
+      "rock",
+      "ground"
+    ],
     "evolution_chain_id": 31
   },
   {
     "id": 77,
     "slug": "ponyta",
+    "nameEn": "Ponyta",
     "nameDe": "Ponita",
+    "spriteId": 77,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 32
   },
   {
     "id": 78,
     "slug": "rapidash",
+    "nameEn": "Rapidash",
     "nameDe": "Gallopa",
+    "spriteId": 78,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 32
   },
   {
     "id": 79,
     "slug": "slowpoke",
+    "nameEn": "Slowpoke",
     "nameDe": "Flegmon",
+    "spriteId": 79,
+    "types": [
+      "water",
+      "psychic"
+    ],
     "evolution_chain_id": 33
   },
   {
     "id": 80,
     "slug": "slowbro",
+    "nameEn": "Slowbro",
     "nameDe": "Lahmus",
+    "spriteId": 80,
+    "types": [
+      "water",
+      "psychic"
+    ],
     "evolution_chain_id": 33
   },
   {
     "id": 81,
     "slug": "magnemite",
+    "nameEn": "Magnemite",
     "nameDe": "Magnetilo",
+    "spriteId": 81,
+    "types": [
+      "electric",
+      "steel"
+    ],
     "evolution_chain_id": 34
   },
   {
     "id": 82,
     "slug": "magneton",
+    "nameEn": "Magneton",
     "nameDe": "Magneton",
+    "spriteId": 82,
+    "types": [
+      "electric",
+      "steel"
+    ],
     "evolution_chain_id": 34
   },
   {
     "id": 83,
     "slug": "farfetchd",
+    "nameEn": "Farfetchd",
     "nameDe": "Porenta",
+    "spriteId": 83,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 35
   },
   {
     "id": 84,
     "slug": "doduo",
+    "nameEn": "Doduo",
     "nameDe": "Dodu",
+    "spriteId": 84,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 36
   },
   {
     "id": 85,
     "slug": "dodrio",
+    "nameEn": "Dodrio",
     "nameDe": "Dodri",
+    "spriteId": 85,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 36
   },
   {
     "id": 86,
     "slug": "seel",
+    "nameEn": "Seel",
     "nameDe": "Jurob",
+    "spriteId": 86,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 37
   },
   {
     "id": 87,
     "slug": "dewgong",
+    "nameEn": "Dewgong",
     "nameDe": "Jugong",
+    "spriteId": 87,
+    "types": [
+      "water",
+      "ice"
+    ],
     "evolution_chain_id": 37
   },
   {
     "id": 88,
     "slug": "grimer",
+    "nameEn": "Grimer",
     "nameDe": "Sleima",
+    "spriteId": 88,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 38
   },
   {
     "id": 89,
     "slug": "muk",
+    "nameEn": "Muk",
     "nameDe": "Sleimok",
+    "spriteId": 89,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 38
   },
   {
     "id": 90,
     "slug": "shellder",
+    "nameEn": "Shellder",
     "nameDe": "Muschas",
+    "spriteId": 90,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 39
   },
   {
     "id": 91,
     "slug": "cloyster",
+    "nameEn": "Cloyster",
     "nameDe": "Austos",
+    "spriteId": 91,
+    "types": [
+      "water",
+      "ice"
+    ],
     "evolution_chain_id": 39
   },
   {
     "id": 92,
     "slug": "gastly",
+    "nameEn": "Gastly",
     "nameDe": "Nebulak",
+    "spriteId": 92,
+    "types": [
+      "ghost",
+      "poison"
+    ],
     "evolution_chain_id": 40
   },
   {
     "id": 93,
     "slug": "haunter",
+    "nameEn": "Haunter",
     "nameDe": "Alpollo",
+    "spriteId": 93,
+    "types": [
+      "ghost",
+      "poison"
+    ],
     "evolution_chain_id": 40
   },
   {
     "id": 94,
     "slug": "gengar",
+    "nameEn": "Gengar",
     "nameDe": "Gengar",
+    "spriteId": 94,
+    "types": [
+      "ghost",
+      "poison"
+    ],
     "evolution_chain_id": 40
   },
   {
     "id": 95,
     "slug": "onix",
+    "nameEn": "Onix",
     "nameDe": "Onix",
+    "spriteId": 95,
+    "types": [
+      "rock",
+      "ground"
+    ],
     "evolution_chain_id": 41
   },
   {
     "id": 96,
     "slug": "drowzee",
+    "nameEn": "Drowzee",
     "nameDe": "Traumato",
+    "spriteId": 96,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 42
   },
   {
     "id": 97,
     "slug": "hypno",
+    "nameEn": "Hypno",
     "nameDe": "Hypno",
+    "spriteId": 97,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 42
   },
   {
     "id": 98,
     "slug": "krabby",
+    "nameEn": "Krabby",
     "nameDe": "Krabby",
+    "spriteId": 98,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 43
   },
   {
     "id": 99,
     "slug": "kingler",
+    "nameEn": "Kingler",
     "nameDe": "Kingler",
+    "spriteId": 99,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 43
   },
   {
     "id": 100,
     "slug": "voltorb",
+    "nameEn": "Voltorb",
     "nameDe": "Voltobal",
+    "spriteId": 100,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 44
   },
   {
     "id": 101,
     "slug": "electrode",
+    "nameEn": "Electrode",
     "nameDe": "Lektrobal",
+    "spriteId": 101,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 44
   },
   {
     "id": 102,
     "slug": "exeggcute",
+    "nameEn": "Exeggcute",
     "nameDe": "Owei",
+    "spriteId": 102,
+    "types": [
+      "grass",
+      "psychic"
+    ],
     "evolution_chain_id": 45
   },
   {
     "id": 103,
     "slug": "exeggutor",
+    "nameEn": "Exeggutor",
     "nameDe": "Kokowei",
+    "spriteId": 103,
+    "types": [
+      "grass",
+      "psychic"
+    ],
     "evolution_chain_id": 45
   },
   {
     "id": 104,
     "slug": "cubone",
+    "nameEn": "Cubone",
     "nameDe": "Tragosso",
+    "spriteId": 104,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 46
   },
   {
     "id": 105,
     "slug": "marowak",
+    "nameEn": "Marowak",
     "nameDe": "Knogga",
+    "spriteId": 105,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 46
   },
   {
     "id": 106,
     "slug": "hitmonlee",
+    "nameEn": "Hitmonlee",
     "nameDe": "Kicklee",
+    "spriteId": 106,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 47
   },
   {
     "id": 107,
     "slug": "hitmonchan",
+    "nameEn": "Hitmonchan",
     "nameDe": "Nockchan",
+    "spriteId": 107,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 47
   },
   {
     "id": 108,
     "slug": "lickitung",
+    "nameEn": "Lickitung",
     "nameDe": "Schlurp",
+    "spriteId": 108,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 48
   },
   {
     "id": 109,
     "slug": "koffing",
+    "nameEn": "Koffing",
     "nameDe": "Smogon",
+    "spriteId": 109,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 49
   },
   {
     "id": 110,
     "slug": "weezing",
+    "nameEn": "Weezing",
     "nameDe": "Smogmog",
+    "spriteId": 110,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 49
   },
   {
     "id": 111,
     "slug": "rhyhorn",
+    "nameEn": "Rhyhorn",
     "nameDe": "Rihorn",
+    "spriteId": 111,
+    "types": [
+      "ground",
+      "rock"
+    ],
     "evolution_chain_id": 50
   },
   {
     "id": 112,
     "slug": "rhydon",
+    "nameEn": "Rhydon",
     "nameDe": "Rizeros",
+    "spriteId": 112,
+    "types": [
+      "ground",
+      "rock"
+    ],
     "evolution_chain_id": 50
   },
   {
     "id": 113,
     "slug": "chansey",
+    "nameEn": "Chansey",
     "nameDe": "Chaneira",
+    "spriteId": 113,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 51
   },
   {
     "id": 114,
     "slug": "tangela",
+    "nameEn": "Tangela",
     "nameDe": "Tangela",
+    "spriteId": 114,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 52
   },
   {
     "id": 115,
     "slug": "kangaskhan",
+    "nameEn": "Kangaskhan",
     "nameDe": "Kangama",
+    "spriteId": 115,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 53
   },
   {
     "id": 116,
     "slug": "horsea",
+    "nameEn": "Horsea",
     "nameDe": "Seeper",
+    "spriteId": 116,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 54
   },
   {
     "id": 117,
     "slug": "seadra",
+    "nameEn": "Seadra",
     "nameDe": "Seemon",
+    "spriteId": 117,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 54
   },
   {
     "id": 118,
     "slug": "goldeen",
+    "nameEn": "Goldeen",
     "nameDe": "Goldini",
+    "spriteId": 118,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 55
   },
   {
     "id": 119,
     "slug": "seaking",
+    "nameEn": "Seaking",
     "nameDe": "Golking",
+    "spriteId": 119,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 55
   },
   {
     "id": 120,
     "slug": "staryu",
+    "nameEn": "Staryu",
     "nameDe": "Sterndu",
+    "spriteId": 120,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 56
   },
   {
     "id": 121,
     "slug": "starmie",
+    "nameEn": "Starmie",
     "nameDe": "Starmie",
+    "spriteId": 121,
+    "types": [
+      "water",
+      "psychic"
+    ],
     "evolution_chain_id": 56
   },
   {
     "id": 122,
     "slug": "mr-mime",
+    "nameEn": "Mr Mime",
     "nameDe": "Pantimos",
+    "spriteId": 122,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
     "evolution_chain_id": 57
   },
   {
     "id": 123,
     "slug": "scyther",
+    "nameEn": "Scyther",
     "nameDe": "Sichlor",
+    "spriteId": 123,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 58
   },
   {
     "id": 124,
     "slug": "jynx",
+    "nameEn": "Jynx",
     "nameDe": "Rossana",
+    "spriteId": 124,
+    "types": [
+      "ice",
+      "psychic"
+    ],
     "evolution_chain_id": 59
   },
   {
     "id": 125,
     "slug": "electabuzz",
+    "nameEn": "Electabuzz",
     "nameDe": "Elektek",
+    "spriteId": 125,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 60
   },
   {
     "id": 126,
     "slug": "magmar",
+    "nameEn": "Magmar",
     "nameDe": "Magmar",
+    "spriteId": 126,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 61
   },
   {
     "id": 127,
     "slug": "pinsir",
+    "nameEn": "Pinsir",
     "nameDe": "Pinsir",
+    "spriteId": 127,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 62
   },
   {
     "id": 128,
     "slug": "tauros",
+    "nameEn": "Tauros",
     "nameDe": "Tauros",
+    "spriteId": 128,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 63
   },
   {
     "id": 129,
     "slug": "magikarp",
+    "nameEn": "Magikarp",
     "nameDe": "Karpador",
+    "spriteId": 129,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 64
   },
   {
     "id": 130,
     "slug": "gyarados",
+    "nameEn": "Gyarados",
     "nameDe": "Garados",
+    "spriteId": 130,
+    "types": [
+      "water",
+      "flying"
+    ],
     "evolution_chain_id": 64
   },
   {
     "id": 131,
     "slug": "lapras",
+    "nameEn": "Lapras",
     "nameDe": "Lapras",
+    "spriteId": 131,
+    "types": [
+      "water",
+      "ice"
+    ],
     "evolution_chain_id": 65
   },
   {
     "id": 132,
     "slug": "ditto",
+    "nameEn": "Ditto",
     "nameDe": "Ditto",
+    "spriteId": 132,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 66
   },
   {
     "id": 133,
     "slug": "eevee",
+    "nameEn": "Eevee",
     "nameDe": "Evoli",
+    "spriteId": 133,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 67
   },
   {
     "id": 134,
     "slug": "vaporeon",
+    "nameEn": "Vaporeon",
     "nameDe": "Aquana",
+    "spriteId": 134,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 67
   },
   {
     "id": 135,
     "slug": "jolteon",
+    "nameEn": "Jolteon",
     "nameDe": "Blitza",
+    "spriteId": 135,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 67
   },
   {
     "id": 136,
     "slug": "flareon",
+    "nameEn": "Flareon",
     "nameDe": "Flamara",
+    "spriteId": 136,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 67
   },
   {
     "id": 137,
     "slug": "porygon",
+    "nameEn": "Porygon",
     "nameDe": "Porygon",
+    "spriteId": 137,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 68
   },
   {
     "id": 138,
     "slug": "omanyte",
+    "nameEn": "Omanyte",
     "nameDe": "Amonitas",
+    "spriteId": 138,
+    "types": [
+      "rock",
+      "water"
+    ],
     "evolution_chain_id": 69
   },
   {
     "id": 139,
     "slug": "omastar",
+    "nameEn": "Omastar",
     "nameDe": "Amoroso",
+    "spriteId": 139,
+    "types": [
+      "rock",
+      "water"
+    ],
     "evolution_chain_id": 69
   },
   {
     "id": 140,
     "slug": "kabuto",
+    "nameEn": "Kabuto",
     "nameDe": "Kabuto",
+    "spriteId": 140,
+    "types": [
+      "rock",
+      "water"
+    ],
     "evolution_chain_id": 70
   },
   {
     "id": 141,
     "slug": "kabutops",
+    "nameEn": "Kabutops",
     "nameDe": "Kabutops",
+    "spriteId": 141,
+    "types": [
+      "rock",
+      "water"
+    ],
     "evolution_chain_id": 70
   },
   {
     "id": 142,
     "slug": "aerodactyl",
+    "nameEn": "Aerodactyl",
     "nameDe": "Aerodactyl",
+    "spriteId": 142,
+    "types": [
+      "rock",
+      "flying"
+    ],
     "evolution_chain_id": 71
   },
   {
     "id": 143,
     "slug": "snorlax",
+    "nameEn": "Snorlax",
     "nameDe": "Relaxo",
+    "spriteId": 143,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 72
   },
   {
     "id": 144,
     "slug": "articuno",
+    "nameEn": "Articuno",
     "nameDe": "Arktos",
+    "spriteId": 144,
+    "types": [
+      "ice",
+      "flying"
+    ],
     "evolution_chain_id": 73
   },
   {
     "id": 145,
     "slug": "zapdos",
+    "nameEn": "Zapdos",
     "nameDe": "Zapdos",
+    "spriteId": 145,
+    "types": [
+      "electric",
+      "flying"
+    ],
     "evolution_chain_id": 74
   },
   {
     "id": 146,
     "slug": "moltres",
+    "nameEn": "Moltres",
     "nameDe": "Lavados",
+    "spriteId": 146,
+    "types": [
+      "fire",
+      "flying"
+    ],
     "evolution_chain_id": 75
   },
   {
     "id": 147,
     "slug": "dratini",
+    "nameEn": "Dratini",
     "nameDe": "Dratini",
+    "spriteId": 147,
+    "types": [
+      "dragon"
+    ],
     "evolution_chain_id": 76
   },
   {
     "id": 148,
     "slug": "dragonair",
+    "nameEn": "Dragonair",
     "nameDe": "Dragonir",
+    "spriteId": 148,
+    "types": [
+      "dragon"
+    ],
     "evolution_chain_id": 76
   },
   {
     "id": 149,
     "slug": "dragonite",
+    "nameEn": "Dragonite",
     "nameDe": "Dragoran",
+    "spriteId": 149,
+    "types": [
+      "dragon",
+      "flying"
+    ],
     "evolution_chain_id": 76
   },
   {
     "id": 150,
     "slug": "mewtwo",
+    "nameEn": "Mewtwo",
     "nameDe": "Mewtu",
+    "spriteId": 150,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 77
   },
   {
     "id": 151,
     "slug": "mew",
+    "nameEn": "Mew",
     "nameDe": "Mew",
+    "spriteId": 151,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 78
   },
   {
     "id": 152,
     "slug": "chikorita",
+    "nameEn": "Chikorita",
     "nameDe": "Endivie",
+    "spriteId": 152,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 79
   },
   {
     "id": 153,
     "slug": "bayleef",
+    "nameEn": "Bayleef",
     "nameDe": "Lorblatt",
+    "spriteId": 153,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 79
   },
   {
     "id": 154,
     "slug": "meganium",
+    "nameEn": "Meganium",
     "nameDe": "Meganie",
+    "spriteId": 154,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 79
   },
   {
     "id": 155,
     "slug": "cyndaquil",
+    "nameEn": "Cyndaquil",
     "nameDe": "Feurigel",
+    "spriteId": 155,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 80
   },
   {
     "id": 156,
     "slug": "quilava",
+    "nameEn": "Quilava",
     "nameDe": "Igelavar",
+    "spriteId": 156,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 80
   },
   {
     "id": 157,
     "slug": "typhlosion",
+    "nameEn": "Typhlosion",
     "nameDe": "Tornupto",
+    "spriteId": 157,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 80
   },
   {
     "id": 158,
     "slug": "totodile",
+    "nameEn": "Totodile",
     "nameDe": "Karnimani",
+    "spriteId": 158,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 81
   },
   {
     "id": 159,
     "slug": "croconaw",
+    "nameEn": "Croconaw",
     "nameDe": "Tyracroc",
+    "spriteId": 159,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 81
   },
   {
     "id": 160,
     "slug": "feraligatr",
+    "nameEn": "Feraligatr",
     "nameDe": "Impergator",
+    "spriteId": 160,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 81
   },
   {
     "id": 161,
     "slug": "sentret",
+    "nameEn": "Sentret",
     "nameDe": "Wiesor",
+    "spriteId": 161,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 82
   },
   {
     "id": 162,
     "slug": "furret",
+    "nameEn": "Furret",
     "nameDe": "Wiesenior",
+    "spriteId": 162,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 82
   },
   {
     "id": 163,
     "slug": "hoothoot",
+    "nameEn": "Hoothoot",
     "nameDe": "Hoothoot",
+    "spriteId": 163,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 83
   },
   {
     "id": 164,
     "slug": "noctowl",
+    "nameEn": "Noctowl",
     "nameDe": "Noctuh",
+    "spriteId": 164,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 83
   },
   {
     "id": 165,
     "slug": "ledyba",
+    "nameEn": "Ledyba",
     "nameDe": "Ledyba",
+    "spriteId": 165,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 84
   },
   {
     "id": 166,
     "slug": "ledian",
+    "nameEn": "Ledian",
     "nameDe": "Ledian",
+    "spriteId": 166,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 84
   },
   {
     "id": 167,
     "slug": "spinarak",
+    "nameEn": "Spinarak",
     "nameDe": "Webarak",
+    "spriteId": 167,
+    "types": [
+      "bug",
+      "poison"
+    ],
     "evolution_chain_id": 85
   },
   {
     "id": 168,
     "slug": "ariados",
+    "nameEn": "Ariados",
     "nameDe": "Ariados",
+    "spriteId": 168,
+    "types": [
+      "bug",
+      "poison"
+    ],
     "evolution_chain_id": 85
   },
   {
     "id": 169,
     "slug": "crobat",
+    "nameEn": "Crobat",
     "nameDe": "Iksbat",
+    "spriteId": 169,
+    "types": [
+      "poison",
+      "flying"
+    ],
     "evolution_chain_id": 17
   },
   {
     "id": 170,
     "slug": "chinchou",
+    "nameEn": "Chinchou",
     "nameDe": "Lampi",
+    "spriteId": 170,
+    "types": [
+      "water",
+      "electric"
+    ],
     "evolution_chain_id": 86
   },
   {
     "id": 171,
     "slug": "lanturn",
+    "nameEn": "Lanturn",
     "nameDe": "Lanturn",
+    "spriteId": 171,
+    "types": [
+      "water",
+      "electric"
+    ],
     "evolution_chain_id": 86
   },
   {
     "id": 172,
     "slug": "pichu",
+    "nameEn": "Pichu",
     "nameDe": "Pichu",
+    "spriteId": 172,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 10
   },
   {
     "id": 173,
     "slug": "cleffa",
+    "nameEn": "Cleffa",
     "nameDe": "Pii",
+    "spriteId": 173,
+    "types": [
+      "fairy"
+    ],
     "evolution_chain_id": 14
   },
   {
     "id": 174,
     "slug": "igglybuff",
+    "nameEn": "Igglybuff",
     "nameDe": "Fluffeluff",
+    "spriteId": 174,
+    "types": [
+      "normal",
+      "fairy"
+    ],
     "evolution_chain_id": 16
   },
   {
     "id": 175,
     "slug": "togepi",
+    "nameEn": "Togepi",
     "nameDe": "Togepi",
+    "spriteId": 175,
+    "types": [
+      "fairy"
+    ],
     "evolution_chain_id": 87
   },
   {
     "id": 176,
     "slug": "togetic",
+    "nameEn": "Togetic",
     "nameDe": "Togetic",
+    "spriteId": 176,
+    "types": [
+      "fairy",
+      "flying"
+    ],
     "evolution_chain_id": 87
   },
   {
     "id": 177,
     "slug": "natu",
+    "nameEn": "Natu",
     "nameDe": "Natu",
+    "spriteId": 177,
+    "types": [
+      "psychic",
+      "flying"
+    ],
     "evolution_chain_id": 88
   },
   {
     "id": 178,
     "slug": "xatu",
+    "nameEn": "Xatu",
     "nameDe": "Xatu",
+    "spriteId": 178,
+    "types": [
+      "psychic",
+      "flying"
+    ],
     "evolution_chain_id": 88
   },
   {
     "id": 179,
     "slug": "mareep",
+    "nameEn": "Mareep",
     "nameDe": "Voltilamm",
+    "spriteId": 179,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 89
   },
   {
     "id": 180,
     "slug": "flaaffy",
+    "nameEn": "Flaaffy",
     "nameDe": "Waaty",
+    "spriteId": 180,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 89
   },
   {
     "id": 181,
     "slug": "ampharos",
+    "nameEn": "Ampharos",
     "nameDe": "Ampharos",
+    "spriteId": 181,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 89
   },
   {
     "id": 182,
     "slug": "bellossom",
+    "nameEn": "Bellossom",
     "nameDe": "Blubella",
+    "spriteId": 182,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 18
   },
   {
     "id": 183,
     "slug": "marill",
+    "nameEn": "Marill",
     "nameDe": "Marill",
+    "spriteId": 183,
+    "types": [
+      "water",
+      "fairy"
+    ],
     "evolution_chain_id": 90
   },
   {
     "id": 184,
     "slug": "azumarill",
+    "nameEn": "Azumarill",
     "nameDe": "Azumarill",
+    "spriteId": 184,
+    "types": [
+      "water",
+      "fairy"
+    ],
     "evolution_chain_id": 90
   },
   {
     "id": 185,
     "slug": "sudowoodo",
+    "nameEn": "Sudowoodo",
     "nameDe": "Mogelbaum",
+    "spriteId": 185,
+    "types": [
+      "rock"
+    ],
     "evolution_chain_id": 91
   },
   {
     "id": 186,
     "slug": "politoed",
+    "nameEn": "Politoed",
     "nameDe": "Quaxo",
+    "spriteId": 186,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 26
   },
   {
     "id": 187,
     "slug": "hoppip",
+    "nameEn": "Hoppip",
     "nameDe": "Hoppspross",
+    "spriteId": 187,
+    "types": [
+      "grass",
+      "flying"
+    ],
     "evolution_chain_id": 92
   },
   {
     "id": 188,
     "slug": "skiploom",
+    "nameEn": "Skiploom",
     "nameDe": "Hubelupf",
+    "spriteId": 188,
+    "types": [
+      "grass",
+      "flying"
+    ],
     "evolution_chain_id": 92
   },
   {
     "id": 189,
     "slug": "jumpluff",
+    "nameEn": "Jumpluff",
     "nameDe": "Papungha",
+    "spriteId": 189,
+    "types": [
+      "grass",
+      "flying"
+    ],
     "evolution_chain_id": 92
   },
   {
     "id": 190,
     "slug": "aipom",
+    "nameEn": "Aipom",
     "nameDe": "Griffel",
+    "spriteId": 190,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 93
   },
   {
     "id": 191,
     "slug": "sunkern",
+    "nameEn": "Sunkern",
     "nameDe": "Sonnkern",
+    "spriteId": 191,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 94
   },
   {
     "id": 192,
     "slug": "sunflora",
+    "nameEn": "Sunflora",
     "nameDe": "Sonnflora",
+    "spriteId": 192,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 94
   },
   {
     "id": 193,
     "slug": "yanma",
+    "nameEn": "Yanma",
     "nameDe": "Yanma",
+    "spriteId": 193,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 95
   },
   {
     "id": 194,
     "slug": "wooper",
+    "nameEn": "Wooper",
     "nameDe": "Felino",
+    "spriteId": 194,
+    "types": [
+      "water",
+      "ground"
+    ],
     "evolution_chain_id": 96
   },
   {
     "id": 195,
     "slug": "quagsire",
+    "nameEn": "Quagsire",
     "nameDe": "Morlord",
+    "spriteId": 195,
+    "types": [
+      "water",
+      "ground"
+    ],
     "evolution_chain_id": 96
   },
   {
     "id": 196,
     "slug": "espeon",
+    "nameEn": "Espeon",
     "nameDe": "Psiana",
+    "spriteId": 196,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 67
   },
   {
     "id": 197,
     "slug": "umbreon",
+    "nameEn": "Umbreon",
     "nameDe": "Nachtara",
+    "spriteId": 197,
+    "types": [
+      "dark"
+    ],
     "evolution_chain_id": 67
   },
   {
     "id": 198,
     "slug": "murkrow",
+    "nameEn": "Murkrow",
     "nameDe": "Kramurx",
+    "spriteId": 198,
+    "types": [
+      "dark",
+      "flying"
+    ],
     "evolution_chain_id": 97
   },
   {
     "id": 199,
     "slug": "slowking",
+    "nameEn": "Slowking",
     "nameDe": "Laschoking",
+    "spriteId": 199,
+    "types": [
+      "water",
+      "psychic"
+    ],
     "evolution_chain_id": 33
   },
   {
     "id": 200,
     "slug": "misdreavus",
+    "nameEn": "Misdreavus",
     "nameDe": "Traunfugil",
+    "spriteId": 200,
+    "types": [
+      "ghost"
+    ],
     "evolution_chain_id": 98
   },
   {
     "id": 201,
     "slug": "unown",
+    "nameEn": "Unown",
     "nameDe": "Icognito",
+    "spriteId": 201,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 99
   },
   {
     "id": 202,
     "slug": "wobbuffet",
+    "nameEn": "Wobbuffet",
     "nameDe": "Woingenau",
+    "spriteId": 202,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 100
   },
   {
     "id": 203,
     "slug": "girafarig",
+    "nameEn": "Girafarig",
     "nameDe": "Girafarig",
+    "spriteId": 203,
+    "types": [
+      "normal",
+      "psychic"
+    ],
     "evolution_chain_id": 101
   },
   {
     "id": 204,
     "slug": "pineco",
+    "nameEn": "Pineco",
     "nameDe": "Tannza",
+    "spriteId": 204,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 102
   },
   {
     "id": 205,
     "slug": "forretress",
+    "nameEn": "Forretress",
     "nameDe": "Forstellka",
+    "spriteId": 205,
+    "types": [
+      "bug",
+      "steel"
+    ],
     "evolution_chain_id": 102
   },
   {
     "id": 206,
     "slug": "dunsparce",
+    "nameEn": "Dunsparce",
     "nameDe": "Dummisel",
+    "spriteId": 206,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 103
   },
   {
     "id": 207,
     "slug": "gligar",
+    "nameEn": "Gligar",
     "nameDe": "Skorgla",
+    "spriteId": 207,
+    "types": [
+      "ground",
+      "flying"
+    ],
     "evolution_chain_id": 104
   },
   {
     "id": 208,
     "slug": "steelix",
+    "nameEn": "Steelix",
     "nameDe": "Stahlos",
+    "spriteId": 208,
+    "types": [
+      "steel",
+      "ground"
+    ],
     "evolution_chain_id": 41
   },
   {
     "id": 209,
     "slug": "snubbull",
+    "nameEn": "Snubbull",
     "nameDe": "Snubbull",
+    "spriteId": 209,
+    "types": [
+      "fairy"
+    ],
     "evolution_chain_id": 105
   },
   {
     "id": 210,
     "slug": "granbull",
+    "nameEn": "Granbull",
     "nameDe": "Granbull",
+    "spriteId": 210,
+    "types": [
+      "fairy"
+    ],
     "evolution_chain_id": 105
   },
   {
     "id": 211,
     "slug": "qwilfish",
+    "nameEn": "Qwilfish",
     "nameDe": "Baldorfish",
+    "spriteId": 211,
+    "types": [
+      "water",
+      "poison"
+    ],
     "evolution_chain_id": 106
   },
   {
     "id": 212,
     "slug": "scizor",
+    "nameEn": "Scizor",
     "nameDe": "Scherox",
+    "spriteId": 212,
+    "types": [
+      "bug",
+      "steel"
+    ],
     "evolution_chain_id": 58
   },
   {
     "id": 213,
     "slug": "shuckle",
+    "nameEn": "Shuckle",
     "nameDe": "Pottrott",
+    "spriteId": 213,
+    "types": [
+      "bug",
+      "rock"
+    ],
     "evolution_chain_id": 107
   },
   {
     "id": 214,
     "slug": "heracross",
+    "nameEn": "Heracross",
     "nameDe": "Skaraborn",
+    "spriteId": 214,
+    "types": [
+      "bug",
+      "fighting"
+    ],
     "evolution_chain_id": 108
   },
   {
     "id": 215,
     "slug": "sneasel",
+    "nameEn": "Sneasel",
     "nameDe": "Sniebel",
+    "spriteId": 215,
+    "types": [
+      "dark",
+      "ice"
+    ],
     "evolution_chain_id": 109
   },
   {
     "id": 216,
     "slug": "teddiursa",
+    "nameEn": "Teddiursa",
     "nameDe": "Teddiursa",
+    "spriteId": 216,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 110
   },
   {
     "id": 217,
     "slug": "ursaring",
+    "nameEn": "Ursaring",
     "nameDe": "Ursaring",
+    "spriteId": 217,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 110
   },
   {
     "id": 218,
     "slug": "slugma",
+    "nameEn": "Slugma",
     "nameDe": "Schneckmag",
+    "spriteId": 218,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 111
   },
   {
     "id": 219,
     "slug": "magcargo",
+    "nameEn": "Magcargo",
     "nameDe": "Magcargo",
+    "spriteId": 219,
+    "types": [
+      "fire",
+      "rock"
+    ],
     "evolution_chain_id": 111
   },
   {
     "id": 220,
     "slug": "swinub",
+    "nameEn": "Swinub",
     "nameDe": "Quiekel",
+    "spriteId": 220,
+    "types": [
+      "ice",
+      "ground"
+    ],
     "evolution_chain_id": 112
   },
   {
     "id": 221,
     "slug": "piloswine",
+    "nameEn": "Piloswine",
     "nameDe": "Keifel",
+    "spriteId": 221,
+    "types": [
+      "ice",
+      "ground"
+    ],
     "evolution_chain_id": 112
   },
   {
     "id": 222,
     "slug": "corsola",
+    "nameEn": "Corsola",
     "nameDe": "Corasonn",
+    "spriteId": 222,
+    "types": [
+      "water",
+      "rock"
+    ],
     "evolution_chain_id": 113
   },
   {
     "id": 223,
     "slug": "remoraid",
+    "nameEn": "Remoraid",
     "nameDe": "Remoraid",
+    "spriteId": 223,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 114
   },
   {
     "id": 224,
     "slug": "octillery",
+    "nameEn": "Octillery",
     "nameDe": "Octillery",
+    "spriteId": 224,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 114
   },
   {
     "id": 225,
     "slug": "delibird",
+    "nameEn": "Delibird",
     "nameDe": "Botogel",
+    "spriteId": 225,
+    "types": [
+      "ice",
+      "flying"
+    ],
     "evolution_chain_id": 115
   },
   {
     "id": 226,
     "slug": "mantine",
+    "nameEn": "Mantine",
     "nameDe": "Mantax",
+    "spriteId": 226,
+    "types": [
+      "water",
+      "flying"
+    ],
     "evolution_chain_id": 116
   },
   {
     "id": 227,
     "slug": "skarmory",
+    "nameEn": "Skarmory",
     "nameDe": "Panzaeron",
+    "spriteId": 227,
+    "types": [
+      "steel",
+      "flying"
+    ],
     "evolution_chain_id": 117
   },
   {
     "id": 228,
     "slug": "houndour",
+    "nameEn": "Houndour",
     "nameDe": "Hunduster",
+    "spriteId": 228,
+    "types": [
+      "dark",
+      "fire"
+    ],
     "evolution_chain_id": 118
   },
   {
     "id": 229,
     "slug": "houndoom",
+    "nameEn": "Houndoom",
     "nameDe": "Hundemon",
+    "spriteId": 229,
+    "types": [
+      "dark",
+      "fire"
+    ],
     "evolution_chain_id": 118
   },
   {
     "id": 230,
     "slug": "kingdra",
+    "nameEn": "Kingdra",
     "nameDe": "Seedraking",
+    "spriteId": 230,
+    "types": [
+      "water",
+      "dragon"
+    ],
     "evolution_chain_id": 54
   },
   {
     "id": 231,
     "slug": "phanpy",
+    "nameEn": "Phanpy",
     "nameDe": "Phanpy",
+    "spriteId": 231,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 119
   },
   {
     "id": 232,
     "slug": "donphan",
+    "nameEn": "Donphan",
     "nameDe": "Donphan",
+    "spriteId": 232,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 119
   },
   {
     "id": 233,
     "slug": "porygon2",
+    "nameEn": "Porygon2",
     "nameDe": "Porygon2",
+    "spriteId": 233,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 68
   },
   {
     "id": 234,
     "slug": "stantler",
+    "nameEn": "Stantler",
     "nameDe": "Damhirplex",
+    "spriteId": 234,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 120
   },
   {
     "id": 235,
     "slug": "smeargle",
+    "nameEn": "Smeargle",
     "nameDe": "Farbeagle",
+    "spriteId": 235,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 121
   },
   {
     "id": 236,
     "slug": "tyrogue",
+    "nameEn": "Tyrogue",
     "nameDe": "Rabauz",
+    "spriteId": 236,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 47
   },
   {
     "id": 237,
     "slug": "hitmontop",
+    "nameEn": "Hitmontop",
     "nameDe": "Kapoera",
+    "spriteId": 237,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 47
   },
   {
     "id": 238,
     "slug": "smoochum",
+    "nameEn": "Smoochum",
     "nameDe": "Kussilla",
+    "spriteId": 238,
+    "types": [
+      "ice",
+      "psychic"
+    ],
     "evolution_chain_id": 59
   },
   {
     "id": 239,
     "slug": "elekid",
+    "nameEn": "Elekid",
     "nameDe": "Elekid",
+    "spriteId": 239,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 60
   },
   {
     "id": 240,
     "slug": "magby",
+    "nameEn": "Magby",
     "nameDe": "Magby",
+    "spriteId": 240,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 61
   },
   {
     "id": 241,
     "slug": "miltank",
+    "nameEn": "Miltank",
     "nameDe": "Miltank",
+    "spriteId": 241,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 122
   },
   {
     "id": 242,
     "slug": "blissey",
+    "nameEn": "Blissey",
     "nameDe": "Heiteira",
+    "spriteId": 242,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 51
   },
   {
     "id": 243,
     "slug": "raikou",
+    "nameEn": "Raikou",
     "nameDe": "Raikou",
+    "spriteId": 243,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 123
   },
   {
     "id": 244,
     "slug": "entei",
+    "nameEn": "Entei",
     "nameDe": "Entei",
+    "spriteId": 244,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 124
   },
   {
     "id": 245,
     "slug": "suicune",
+    "nameEn": "Suicune",
     "nameDe": "Suicune",
+    "spriteId": 245,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 125
   },
   {
     "id": 246,
     "slug": "larvitar",
+    "nameEn": "Larvitar",
     "nameDe": "Larvitar",
+    "spriteId": 246,
+    "types": [
+      "rock",
+      "ground"
+    ],
     "evolution_chain_id": 126
   },
   {
     "id": 247,
     "slug": "pupitar",
+    "nameEn": "Pupitar",
     "nameDe": "Pupitar",
+    "spriteId": 247,
+    "types": [
+      "rock",
+      "ground"
+    ],
     "evolution_chain_id": 126
   },
   {
     "id": 248,
     "slug": "tyranitar",
+    "nameEn": "Tyranitar",
     "nameDe": "Despotar",
+    "spriteId": 248,
+    "types": [
+      "rock",
+      "dark"
+    ],
     "evolution_chain_id": 126
   },
   {
     "id": 249,
     "slug": "lugia",
+    "nameEn": "Lugia",
     "nameDe": "Lugia",
+    "spriteId": 249,
+    "types": [
+      "psychic",
+      "flying"
+    ],
     "evolution_chain_id": 127
   },
   {
     "id": 250,
     "slug": "ho-oh",
+    "nameEn": "Ho Oh",
     "nameDe": "Ho-Oh",
+    "spriteId": 250,
+    "types": [
+      "fire",
+      "flying"
+    ],
     "evolution_chain_id": 128
   },
   {
     "id": 251,
     "slug": "celebi",
+    "nameEn": "Celebi",
     "nameDe": "Celebi",
+    "spriteId": 251,
+    "types": [
+      "psychic",
+      "grass"
+    ],
     "evolution_chain_id": 129
   },
   {
     "id": 252,
     "slug": "treecko",
+    "nameEn": "Treecko",
     "nameDe": "Geckarbor",
+    "spriteId": 252,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 130
   },
   {
     "id": 253,
     "slug": "grovyle",
+    "nameEn": "Grovyle",
     "nameDe": "Reptain",
+    "spriteId": 253,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 130
   },
   {
     "id": 254,
     "slug": "sceptile",
+    "nameEn": "Sceptile",
     "nameDe": "Gewaldro",
+    "spriteId": 254,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 130
   },
   {
     "id": 255,
     "slug": "torchic",
+    "nameEn": "Torchic",
     "nameDe": "Flemmli",
+    "spriteId": 255,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 131
   },
   {
     "id": 256,
     "slug": "combusken",
+    "nameEn": "Combusken",
     "nameDe": "Jungglut",
+    "spriteId": 256,
+    "types": [
+      "fire",
+      "fighting"
+    ],
     "evolution_chain_id": 131
   },
   {
     "id": 257,
     "slug": "blaziken",
+    "nameEn": "Blaziken",
     "nameDe": "Lohgock",
+    "spriteId": 257,
+    "types": [
+      "fire",
+      "fighting"
+    ],
     "evolution_chain_id": 131
   },
   {
     "id": 258,
     "slug": "mudkip",
+    "nameEn": "Mudkip",
     "nameDe": "Hydropi",
+    "spriteId": 258,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 132
   },
   {
     "id": 259,
     "slug": "marshtomp",
+    "nameEn": "Marshtomp",
     "nameDe": "Moorabbel",
+    "spriteId": 259,
+    "types": [
+      "water",
+      "ground"
+    ],
     "evolution_chain_id": 132
   },
   {
     "id": 260,
     "slug": "swampert",
+    "nameEn": "Swampert",
     "nameDe": "Sumpex",
+    "spriteId": 260,
+    "types": [
+      "water",
+      "ground"
+    ],
     "evolution_chain_id": 132
   },
   {
     "id": 261,
     "slug": "poochyena",
+    "nameEn": "Poochyena",
     "nameDe": "Fiffyen",
+    "spriteId": 261,
+    "types": [
+      "dark"
+    ],
     "evolution_chain_id": 133
   },
   {
     "id": 262,
     "slug": "mightyena",
+    "nameEn": "Mightyena",
     "nameDe": "Magnayen",
+    "spriteId": 262,
+    "types": [
+      "dark"
+    ],
     "evolution_chain_id": 133
   },
   {
     "id": 263,
     "slug": "zigzagoon",
+    "nameEn": "Zigzagoon",
     "nameDe": "Zigzachs",
+    "spriteId": 263,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 134
   },
   {
     "id": 264,
     "slug": "linoone",
+    "nameEn": "Linoone",
     "nameDe": "Geradaks",
+    "spriteId": 264,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 134
   },
   {
     "id": 265,
     "slug": "wurmple",
+    "nameEn": "Wurmple",
     "nameDe": "Waumpel",
+    "spriteId": 265,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 135
   },
   {
     "id": 266,
     "slug": "silcoon",
+    "nameEn": "Silcoon",
     "nameDe": "Schaloko",
+    "spriteId": 266,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 135
   },
   {
     "id": 267,
     "slug": "beautifly",
+    "nameEn": "Beautifly",
     "nameDe": "Papinella",
+    "spriteId": 267,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 135
   },
   {
     "id": 268,
     "slug": "cascoon",
+    "nameEn": "Cascoon",
     "nameDe": "Panekon",
+    "spriteId": 268,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 135
   },
   {
     "id": 269,
     "slug": "dustox",
+    "nameEn": "Dustox",
     "nameDe": "Pudox",
+    "spriteId": 269,
+    "types": [
+      "bug",
+      "poison"
+    ],
     "evolution_chain_id": 135
   },
   {
     "id": 270,
     "slug": "lotad",
+    "nameEn": "Lotad",
     "nameDe": "Loturzel",
+    "spriteId": 270,
+    "types": [
+      "water",
+      "grass"
+    ],
     "evolution_chain_id": 136
   },
   {
     "id": 271,
     "slug": "lombre",
+    "nameEn": "Lombre",
     "nameDe": "Lombrero",
+    "spriteId": 271,
+    "types": [
+      "water",
+      "grass"
+    ],
     "evolution_chain_id": 136
   },
   {
     "id": 272,
     "slug": "ludicolo",
+    "nameEn": "Ludicolo",
     "nameDe": "Kappalores",
+    "spriteId": 272,
+    "types": [
+      "water",
+      "grass"
+    ],
     "evolution_chain_id": 136
   },
   {
     "id": 273,
     "slug": "seedot",
+    "nameEn": "Seedot",
     "nameDe": "Samurzel",
+    "spriteId": 273,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 137
   },
   {
     "id": 274,
     "slug": "nuzleaf",
+    "nameEn": "Nuzleaf",
     "nameDe": "Blanas",
+    "spriteId": 274,
+    "types": [
+      "grass",
+      "dark"
+    ],
     "evolution_chain_id": 137
   },
   {
     "id": 275,
     "slug": "shiftry",
+    "nameEn": "Shiftry",
     "nameDe": "Tengulist",
+    "spriteId": 275,
+    "types": [
+      "grass",
+      "dark"
+    ],
     "evolution_chain_id": 137
   },
   {
     "id": 276,
     "slug": "taillow",
+    "nameEn": "Taillow",
     "nameDe": "Schwalbini",
+    "spriteId": 276,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 138
   },
   {
     "id": 277,
     "slug": "swellow",
+    "nameEn": "Swellow",
     "nameDe": "Schwalboss",
+    "spriteId": 277,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 138
   },
   {
     "id": 278,
     "slug": "wingull",
+    "nameEn": "Wingull",
     "nameDe": "Wingull",
+    "spriteId": 278,
+    "types": [
+      "water",
+      "flying"
+    ],
     "evolution_chain_id": 139
   },
   {
     "id": 279,
     "slug": "pelipper",
+    "nameEn": "Pelipper",
     "nameDe": "Pelipper",
+    "spriteId": 279,
+    "types": [
+      "water",
+      "flying"
+    ],
     "evolution_chain_id": 139
   },
   {
     "id": 280,
     "slug": "ralts",
+    "nameEn": "Ralts",
     "nameDe": "Trasla",
+    "spriteId": 280,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
     "evolution_chain_id": 140
   },
   {
     "id": 281,
     "slug": "kirlia",
+    "nameEn": "Kirlia",
     "nameDe": "Kirlia",
+    "spriteId": 281,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
     "evolution_chain_id": 140
   },
   {
     "id": 282,
     "slug": "gardevoir",
+    "nameEn": "Gardevoir",
     "nameDe": "Guardevoir",
+    "spriteId": 282,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
     "evolution_chain_id": 140
   },
   {
     "id": 283,
     "slug": "surskit",
+    "nameEn": "Surskit",
     "nameDe": "Gehweiher",
+    "spriteId": 283,
+    "types": [
+      "bug",
+      "water"
+    ],
     "evolution_chain_id": 141
   },
   {
     "id": 284,
     "slug": "masquerain",
+    "nameEn": "Masquerain",
     "nameDe": "Maskeregen",
+    "spriteId": 284,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 141
   },
   {
     "id": 285,
     "slug": "shroomish",
+    "nameEn": "Shroomish",
     "nameDe": "Knilz",
+    "spriteId": 285,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 142
   },
   {
     "id": 286,
     "slug": "breloom",
+    "nameEn": "Breloom",
     "nameDe": "Kapilz",
+    "spriteId": 286,
+    "types": [
+      "grass",
+      "fighting"
+    ],
     "evolution_chain_id": 142
   },
   {
     "id": 287,
     "slug": "slakoth",
+    "nameEn": "Slakoth",
     "nameDe": "Bummelz",
+    "spriteId": 287,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 143
   },
   {
     "id": 288,
     "slug": "vigoroth",
+    "nameEn": "Vigoroth",
     "nameDe": "Muntier",
+    "spriteId": 288,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 143
   },
   {
     "id": 289,
     "slug": "slaking",
+    "nameEn": "Slaking",
     "nameDe": "Letarking",
+    "spriteId": 289,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 143
   },
   {
     "id": 290,
     "slug": "nincada",
+    "nameEn": "Nincada",
     "nameDe": "Nincada",
+    "spriteId": 290,
+    "types": [
+      "bug",
+      "ground"
+    ],
     "evolution_chain_id": 144
   },
   {
     "id": 291,
     "slug": "ninjask",
+    "nameEn": "Ninjask",
     "nameDe": "Ninjask",
+    "spriteId": 291,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 144
   },
   {
     "id": 292,
     "slug": "shedinja",
+    "nameEn": "Shedinja",
     "nameDe": "Ninjatom",
+    "spriteId": 292,
+    "types": [
+      "bug",
+      "ghost"
+    ],
     "evolution_chain_id": 144
   },
   {
     "id": 293,
     "slug": "whismur",
+    "nameEn": "Whismur",
     "nameDe": "Flurmel",
+    "spriteId": 293,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 145
   },
   {
     "id": 294,
     "slug": "loudred",
+    "nameEn": "Loudred",
     "nameDe": "Krakeelo",
+    "spriteId": 294,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 145
   },
   {
     "id": 295,
     "slug": "exploud",
+    "nameEn": "Exploud",
     "nameDe": "Krawumms",
+    "spriteId": 295,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 145
   },
   {
     "id": 296,
     "slug": "makuhita",
+    "nameEn": "Makuhita",
     "nameDe": "Makuhita",
+    "spriteId": 296,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 146
   },
   {
     "id": 297,
     "slug": "hariyama",
+    "nameEn": "Hariyama",
     "nameDe": "Hariyama",
+    "spriteId": 297,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 146
   },
   {
     "id": 298,
     "slug": "azurill",
+    "nameEn": "Azurill",
     "nameDe": "Azurill",
+    "spriteId": 298,
+    "types": [
+      "normal",
+      "fairy"
+    ],
     "evolution_chain_id": 90
   },
   {
     "id": 299,
     "slug": "nosepass",
+    "nameEn": "Nosepass",
     "nameDe": "Nasgnet",
+    "spriteId": 299,
+    "types": [
+      "rock"
+    ],
     "evolution_chain_id": 147
   },
   {
     "id": 300,
     "slug": "skitty",
+    "nameEn": "Skitty",
     "nameDe": "Eneco",
+    "spriteId": 300,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 148
   },
   {
     "id": 301,
     "slug": "delcatty",
+    "nameEn": "Delcatty",
     "nameDe": "Enekoro",
+    "spriteId": 301,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 148
   },
   {
     "id": 302,
     "slug": "sableye",
+    "nameEn": "Sableye",
     "nameDe": "Zobiris",
+    "spriteId": 302,
+    "types": [
+      "dark",
+      "ghost"
+    ],
     "evolution_chain_id": 149
   },
   {
     "id": 303,
     "slug": "mawile",
+    "nameEn": "Mawile",
     "nameDe": "Flunkifer",
+    "spriteId": 303,
+    "types": [
+      "steel",
+      "fairy"
+    ],
     "evolution_chain_id": 150
   },
   {
     "id": 304,
     "slug": "aron",
+    "nameEn": "Aron",
     "nameDe": "Stollunior",
+    "spriteId": 304,
+    "types": [
+      "steel",
+      "rock"
+    ],
     "evolution_chain_id": 151
   },
   {
     "id": 305,
     "slug": "lairon",
+    "nameEn": "Lairon",
     "nameDe": "Stollrak",
+    "spriteId": 305,
+    "types": [
+      "steel",
+      "rock"
+    ],
     "evolution_chain_id": 151
   },
   {
     "id": 306,
     "slug": "aggron",
+    "nameEn": "Aggron",
     "nameDe": "Stolloss",
+    "spriteId": 306,
+    "types": [
+      "steel",
+      "rock"
+    ],
     "evolution_chain_id": 151
   },
   {
     "id": 307,
     "slug": "meditite",
+    "nameEn": "Meditite",
     "nameDe": "Meditie",
+    "spriteId": 307,
+    "types": [
+      "fighting",
+      "psychic"
+    ],
     "evolution_chain_id": 152
   },
   {
     "id": 308,
     "slug": "medicham",
+    "nameEn": "Medicham",
     "nameDe": "Meditalis",
+    "spriteId": 308,
+    "types": [
+      "fighting",
+      "psychic"
+    ],
     "evolution_chain_id": 152
   },
   {
     "id": 309,
     "slug": "electrike",
+    "nameEn": "Electrike",
     "nameDe": "Frizelbliz",
+    "spriteId": 309,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 153
   },
   {
     "id": 310,
     "slug": "manectric",
+    "nameEn": "Manectric",
     "nameDe": "Voltenso",
+    "spriteId": 310,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 153
   },
   {
     "id": 311,
     "slug": "plusle",
+    "nameEn": "Plusle",
     "nameDe": "Plusle",
+    "spriteId": 311,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 154
   },
   {
     "id": 312,
     "slug": "minun",
+    "nameEn": "Minun",
     "nameDe": "Minun",
+    "spriteId": 312,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 155
   },
   {
     "id": 313,
     "slug": "volbeat",
+    "nameEn": "Volbeat",
     "nameDe": "Volbeat",
+    "spriteId": 313,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 156
   },
   {
     "id": 314,
     "slug": "illumise",
+    "nameEn": "Illumise",
     "nameDe": "Illumise",
+    "spriteId": 314,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 157
   },
   {
     "id": 315,
     "slug": "roselia",
+    "nameEn": "Roselia",
     "nameDe": "Roselia",
+    "spriteId": 315,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 158
   },
   {
     "id": 316,
     "slug": "gulpin",
+    "nameEn": "Gulpin",
     "nameDe": "Schluppuck",
+    "spriteId": 316,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 159
   },
   {
     "id": 317,
     "slug": "swalot",
+    "nameEn": "Swalot",
     "nameDe": "Schlukwech",
+    "spriteId": 317,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 159
   },
   {
     "id": 318,
     "slug": "carvanha",
+    "nameEn": "Carvanha",
     "nameDe": "Kanivanha",
+    "spriteId": 318,
+    "types": [
+      "water",
+      "dark"
+    ],
     "evolution_chain_id": 160
   },
   {
     "id": 319,
     "slug": "sharpedo",
+    "nameEn": "Sharpedo",
     "nameDe": "Tohaido",
+    "spriteId": 319,
+    "types": [
+      "water",
+      "dark"
+    ],
     "evolution_chain_id": 160
   },
   {
     "id": 320,
     "slug": "wailmer",
+    "nameEn": "Wailmer",
     "nameDe": "Wailmer",
+    "spriteId": 320,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 161
   },
   {
     "id": 321,
     "slug": "wailord",
+    "nameEn": "Wailord",
     "nameDe": "Wailord",
+    "spriteId": 321,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 161
   },
   {
     "id": 322,
     "slug": "numel",
+    "nameEn": "Numel",
     "nameDe": "Camaub",
+    "spriteId": 322,
+    "types": [
+      "fire",
+      "ground"
+    ],
     "evolution_chain_id": 162
   },
   {
     "id": 323,
     "slug": "camerupt",
+    "nameEn": "Camerupt",
     "nameDe": "Camerupt",
+    "spriteId": 323,
+    "types": [
+      "fire",
+      "ground"
+    ],
     "evolution_chain_id": 162
   },
   {
     "id": 324,
     "slug": "torkoal",
+    "nameEn": "Torkoal",
     "nameDe": "Qurtel",
+    "spriteId": 324,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 163
   },
   {
     "id": 325,
     "slug": "spoink",
+    "nameEn": "Spoink",
     "nameDe": "Spoink",
+    "spriteId": 325,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 164
   },
   {
     "id": 326,
     "slug": "grumpig",
+    "nameEn": "Grumpig",
     "nameDe": "Groink",
+    "spriteId": 326,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 164
   },
   {
     "id": 327,
     "slug": "spinda",
+    "nameEn": "Spinda",
     "nameDe": "Pandir",
+    "spriteId": 327,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 165
   },
   {
     "id": 328,
     "slug": "trapinch",
+    "nameEn": "Trapinch",
     "nameDe": "Knacklion",
+    "spriteId": 328,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 166
   },
   {
     "id": 329,
     "slug": "vibrava",
+    "nameEn": "Vibrava",
     "nameDe": "Vibrava",
+    "spriteId": 329,
+    "types": [
+      "ground",
+      "dragon"
+    ],
     "evolution_chain_id": 166
   },
   {
     "id": 330,
     "slug": "flygon",
+    "nameEn": "Flygon",
     "nameDe": "Libelldra",
+    "spriteId": 330,
+    "types": [
+      "ground",
+      "dragon"
+    ],
     "evolution_chain_id": 166
   },
   {
     "id": 331,
     "slug": "cacnea",
+    "nameEn": "Cacnea",
     "nameDe": "Tuska",
+    "spriteId": 331,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 167
   },
   {
     "id": 332,
     "slug": "cacturne",
+    "nameEn": "Cacturne",
     "nameDe": "Noktuska",
+    "spriteId": 332,
+    "types": [
+      "grass",
+      "dark"
+    ],
     "evolution_chain_id": 167
   },
   {
     "id": 333,
     "slug": "swablu",
+    "nameEn": "Swablu",
     "nameDe": "Wablu",
+    "spriteId": 333,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 168
   },
   {
     "id": 334,
     "slug": "altaria",
+    "nameEn": "Altaria",
     "nameDe": "Altaria",
+    "spriteId": 334,
+    "types": [
+      "dragon",
+      "flying"
+    ],
     "evolution_chain_id": 168
   },
   {
     "id": 335,
     "slug": "zangoose",
+    "nameEn": "Zangoose",
     "nameDe": "Sengo",
+    "spriteId": 335,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 169
   },
   {
     "id": 336,
     "slug": "seviper",
+    "nameEn": "Seviper",
     "nameDe": "Vipitis",
+    "spriteId": 336,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 170
   },
   {
     "id": 337,
     "slug": "lunatone",
+    "nameEn": "Lunatone",
     "nameDe": "Lunastein",
+    "spriteId": 337,
+    "types": [
+      "rock",
+      "psychic"
+    ],
     "evolution_chain_id": 171
   },
   {
     "id": 338,
     "slug": "solrock",
+    "nameEn": "Solrock",
     "nameDe": "Sonnfel",
+    "spriteId": 338,
+    "types": [
+      "rock",
+      "psychic"
+    ],
     "evolution_chain_id": 172
   },
   {
     "id": 339,
     "slug": "barboach",
+    "nameEn": "Barboach",
     "nameDe": "Schmerbe",
+    "spriteId": 339,
+    "types": [
+      "water",
+      "ground"
+    ],
     "evolution_chain_id": 173
   },
   {
     "id": 340,
     "slug": "whiscash",
+    "nameEn": "Whiscash",
     "nameDe": "Welsar",
+    "spriteId": 340,
+    "types": [
+      "water",
+      "ground"
+    ],
     "evolution_chain_id": 173
   },
   {
     "id": 341,
     "slug": "corphish",
+    "nameEn": "Corphish",
     "nameDe": "Krebscorps",
+    "spriteId": 341,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 174
   },
   {
     "id": 342,
     "slug": "crawdaunt",
+    "nameEn": "Crawdaunt",
     "nameDe": "Krebutack",
+    "spriteId": 342,
+    "types": [
+      "water",
+      "dark"
+    ],
     "evolution_chain_id": 174
   },
   {
     "id": 343,
     "slug": "baltoy",
+    "nameEn": "Baltoy",
     "nameDe": "Puppance",
+    "spriteId": 343,
+    "types": [
+      "ground",
+      "psychic"
+    ],
     "evolution_chain_id": 175
   },
   {
     "id": 344,
     "slug": "claydol",
+    "nameEn": "Claydol",
     "nameDe": "Lepumentas",
+    "spriteId": 344,
+    "types": [
+      "ground",
+      "psychic"
+    ],
     "evolution_chain_id": 175
   },
   {
     "id": 345,
     "slug": "lileep",
+    "nameEn": "Lileep",
     "nameDe": "Liliep",
+    "spriteId": 345,
+    "types": [
+      "rock",
+      "grass"
+    ],
     "evolution_chain_id": 176
   },
   {
     "id": 346,
     "slug": "cradily",
+    "nameEn": "Cradily",
     "nameDe": "Wielie",
+    "spriteId": 346,
+    "types": [
+      "rock",
+      "grass"
+    ],
     "evolution_chain_id": 176
   },
   {
     "id": 347,
     "slug": "anorith",
+    "nameEn": "Anorith",
     "nameDe": "Anorith",
+    "spriteId": 347,
+    "types": [
+      "rock",
+      "bug"
+    ],
     "evolution_chain_id": 177
   },
   {
     "id": 348,
     "slug": "armaldo",
+    "nameEn": "Armaldo",
     "nameDe": "Armaldo",
+    "spriteId": 348,
+    "types": [
+      "rock",
+      "bug"
+    ],
     "evolution_chain_id": 177
   },
   {
     "id": 349,
     "slug": "feebas",
+    "nameEn": "Feebas",
     "nameDe": "Barschwa",
+    "spriteId": 349,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 178
   },
   {
     "id": 350,
     "slug": "milotic",
+    "nameEn": "Milotic",
     "nameDe": "Milotic",
+    "spriteId": 350,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 178
   },
   {
     "id": 351,
     "slug": "castform",
+    "nameEn": "Castform",
     "nameDe": "Formeo",
+    "spriteId": 351,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 179
   },
   {
     "id": 352,
     "slug": "kecleon",
+    "nameEn": "Kecleon",
     "nameDe": "Kecleon",
+    "spriteId": 352,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 180
   },
   {
     "id": 353,
     "slug": "shuppet",
+    "nameEn": "Shuppet",
     "nameDe": "Shuppet",
+    "spriteId": 353,
+    "types": [
+      "ghost"
+    ],
     "evolution_chain_id": 181
   },
   {
     "id": 354,
     "slug": "banette",
+    "nameEn": "Banette",
     "nameDe": "Banette",
+    "spriteId": 354,
+    "types": [
+      "ghost"
+    ],
     "evolution_chain_id": 181
   },
   {
     "id": 355,
     "slug": "duskull",
+    "nameEn": "Duskull",
     "nameDe": "Zwirrlicht",
+    "spriteId": 355,
+    "types": [
+      "ghost"
+    ],
     "evolution_chain_id": 182
   },
   {
     "id": 356,
     "slug": "dusclops",
+    "nameEn": "Dusclops",
     "nameDe": "Zwirrklop",
+    "spriteId": 356,
+    "types": [
+      "ghost"
+    ],
     "evolution_chain_id": 182
   },
   {
     "id": 357,
     "slug": "tropius",
+    "nameEn": "Tropius",
     "nameDe": "Tropius",
+    "spriteId": 357,
+    "types": [
+      "grass",
+      "flying"
+    ],
     "evolution_chain_id": 183
   },
   {
     "id": 358,
     "slug": "chimecho",
+    "nameEn": "Chimecho",
     "nameDe": "Palimpalim",
+    "spriteId": 358,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 184
   },
   {
     "id": 359,
     "slug": "absol",
+    "nameEn": "Absol",
     "nameDe": "Absol",
+    "spriteId": 359,
+    "types": [
+      "dark"
+    ],
     "evolution_chain_id": 185
   },
   {
     "id": 360,
     "slug": "wynaut",
+    "nameEn": "Wynaut",
     "nameDe": "Isso",
+    "spriteId": 360,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 100
   },
   {
     "id": 361,
     "slug": "snorunt",
+    "nameEn": "Snorunt",
     "nameDe": "Schneppke",
+    "spriteId": 361,
+    "types": [
+      "ice"
+    ],
     "evolution_chain_id": 186
   },
   {
     "id": 362,
     "slug": "glalie",
+    "nameEn": "Glalie",
     "nameDe": "Firnontor",
+    "spriteId": 362,
+    "types": [
+      "ice"
+    ],
     "evolution_chain_id": 186
   },
   {
     "id": 363,
     "slug": "spheal",
+    "nameEn": "Spheal",
     "nameDe": "Seemops",
+    "spriteId": 363,
+    "types": [
+      "ice",
+      "water"
+    ],
     "evolution_chain_id": 187
   },
   {
     "id": 364,
     "slug": "sealeo",
+    "nameEn": "Sealeo",
     "nameDe": "Seejong",
+    "spriteId": 364,
+    "types": [
+      "ice",
+      "water"
+    ],
     "evolution_chain_id": 187
   },
   {
     "id": 365,
     "slug": "walrein",
+    "nameEn": "Walrein",
     "nameDe": "Walraisa",
+    "spriteId": 365,
+    "types": [
+      "ice",
+      "water"
+    ],
     "evolution_chain_id": 187
   },
   {
     "id": 366,
     "slug": "clamperl",
+    "nameEn": "Clamperl",
     "nameDe": "Perlu",
+    "spriteId": 366,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 188
   },
   {
     "id": 367,
     "slug": "huntail",
+    "nameEn": "Huntail",
     "nameDe": "Aalabyss",
+    "spriteId": 367,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 188
   },
   {
     "id": 368,
     "slug": "gorebyss",
+    "nameEn": "Gorebyss",
     "nameDe": "Saganabyss",
+    "spriteId": 368,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 188
   },
   {
     "id": 369,
     "slug": "relicanth",
+    "nameEn": "Relicanth",
     "nameDe": "Relicanth",
+    "spriteId": 369,
+    "types": [
+      "water",
+      "rock"
+    ],
     "evolution_chain_id": 189
   },
   {
     "id": 370,
     "slug": "luvdisc",
+    "nameEn": "Luvdisc",
     "nameDe": "Liebiskus",
+    "spriteId": 370,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 190
   },
   {
     "id": 371,
     "slug": "bagon",
+    "nameEn": "Bagon",
     "nameDe": "Kindwurm",
+    "spriteId": 371,
+    "types": [
+      "dragon"
+    ],
     "evolution_chain_id": 191
   },
   {
     "id": 372,
     "slug": "shelgon",
+    "nameEn": "Shelgon",
     "nameDe": "Draschel",
+    "spriteId": 372,
+    "types": [
+      "dragon"
+    ],
     "evolution_chain_id": 191
   },
   {
     "id": 373,
     "slug": "salamence",
+    "nameEn": "Salamence",
     "nameDe": "Brutalanda",
+    "spriteId": 373,
+    "types": [
+      "dragon",
+      "flying"
+    ],
     "evolution_chain_id": 191
   },
   {
     "id": 374,
     "slug": "beldum",
+    "nameEn": "Beldum",
     "nameDe": "Tanhel",
+    "spriteId": 374,
+    "types": [
+      "steel",
+      "psychic"
+    ],
     "evolution_chain_id": 192
   },
   {
     "id": 375,
     "slug": "metang",
+    "nameEn": "Metang",
     "nameDe": "Metang",
+    "spriteId": 375,
+    "types": [
+      "steel",
+      "psychic"
+    ],
     "evolution_chain_id": 192
   },
   {
     "id": 376,
     "slug": "metagross",
+    "nameEn": "Metagross",
     "nameDe": "Metagross",
+    "spriteId": 376,
+    "types": [
+      "steel",
+      "psychic"
+    ],
     "evolution_chain_id": 192
   },
   {
     "id": 377,
     "slug": "regirock",
+    "nameEn": "Regirock",
     "nameDe": "Regirock",
+    "spriteId": 377,
+    "types": [
+      "rock"
+    ],
     "evolution_chain_id": 193
   },
   {
     "id": 378,
     "slug": "regice",
+    "nameEn": "Regice",
     "nameDe": "Regice",
+    "spriteId": 378,
+    "types": [
+      "ice"
+    ],
     "evolution_chain_id": 194
   },
   {
     "id": 379,
     "slug": "registeel",
+    "nameEn": "Registeel",
     "nameDe": "Registeel",
+    "spriteId": 379,
+    "types": [
+      "steel"
+    ],
     "evolution_chain_id": 195
   },
   {
     "id": 380,
     "slug": "latias",
+    "nameEn": "Latias",
     "nameDe": "Latias",
+    "spriteId": 380,
+    "types": [
+      "dragon",
+      "psychic"
+    ],
     "evolution_chain_id": 196
   },
   {
     "id": 381,
     "slug": "latios",
+    "nameEn": "Latios",
     "nameDe": "Latios",
+    "spriteId": 381,
+    "types": [
+      "dragon",
+      "psychic"
+    ],
     "evolution_chain_id": 197
   },
   {
     "id": 382,
     "slug": "kyogre",
+    "nameEn": "Kyogre",
     "nameDe": "Kyogre",
+    "spriteId": 382,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 198
   },
   {
     "id": 383,
     "slug": "groudon",
+    "nameEn": "Groudon",
     "nameDe": "Groudon",
+    "spriteId": 383,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 199
   },
   {
     "id": 384,
     "slug": "rayquaza",
+    "nameEn": "Rayquaza",
     "nameDe": "Rayquaza",
+    "spriteId": 384,
+    "types": [
+      "dragon",
+      "flying"
+    ],
     "evolution_chain_id": 200
   },
   {
     "id": 385,
     "slug": "jirachi",
+    "nameEn": "Jirachi",
     "nameDe": "Jirachi",
+    "spriteId": 385,
+    "types": [
+      "steel",
+      "psychic"
+    ],
     "evolution_chain_id": 201
   },
   {
     "id": 386,
     "slug": "deoxys-normal",
+    "nameEn": "Deoxys Normal",
     "nameDe": "Deoxys",
+    "spriteId": 386,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 202
   },
   {
     "id": 387,
     "slug": "turtwig",
+    "nameEn": "Turtwig",
     "nameDe": "Chelast",
+    "spriteId": 387,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 203
   },
   {
     "id": 388,
     "slug": "grotle",
+    "nameEn": "Grotle",
     "nameDe": "Chelcarain",
+    "spriteId": 388,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 203
   },
   {
     "id": 389,
     "slug": "torterra",
+    "nameEn": "Torterra",
     "nameDe": "Chelterrar",
+    "spriteId": 389,
+    "types": [
+      "grass",
+      "ground"
+    ],
     "evolution_chain_id": 203
   },
   {
     "id": 390,
     "slug": "chimchar",
+    "nameEn": "Chimchar",
     "nameDe": "Panflam",
+    "spriteId": 390,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 204
   },
   {
     "id": 391,
     "slug": "monferno",
+    "nameEn": "Monferno",
     "nameDe": "Panpyro",
+    "spriteId": 391,
+    "types": [
+      "fire",
+      "fighting"
+    ],
     "evolution_chain_id": 204
   },
   {
     "id": 392,
     "slug": "infernape",
+    "nameEn": "Infernape",
     "nameDe": "Panferno",
+    "spriteId": 392,
+    "types": [
+      "fire",
+      "fighting"
+    ],
     "evolution_chain_id": 204
   },
   {
     "id": 393,
     "slug": "piplup",
+    "nameEn": "Piplup",
     "nameDe": "Plinfa",
+    "spriteId": 393,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 205
   },
   {
     "id": 394,
     "slug": "prinplup",
+    "nameEn": "Prinplup",
     "nameDe": "Pliprin",
+    "spriteId": 394,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 205
   },
   {
     "id": 395,
     "slug": "empoleon",
+    "nameEn": "Empoleon",
     "nameDe": "Impoleon",
+    "spriteId": 395,
+    "types": [
+      "water",
+      "steel"
+    ],
     "evolution_chain_id": 205
   },
   {
     "id": 396,
     "slug": "starly",
+    "nameEn": "Starly",
     "nameDe": "Staralili",
+    "spriteId": 396,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 206
   },
   {
     "id": 397,
     "slug": "staravia",
+    "nameEn": "Staravia",
     "nameDe": "Staravia",
+    "spriteId": 397,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 206
   },
   {
     "id": 398,
     "slug": "staraptor",
+    "nameEn": "Staraptor",
     "nameDe": "Staraptor",
+    "spriteId": 398,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 206
   },
   {
     "id": 399,
     "slug": "bidoof",
+    "nameEn": "Bidoof",
     "nameDe": "Bidiza",
+    "spriteId": 399,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 207
   },
   {
     "id": 400,
     "slug": "bibarel",
+    "nameEn": "Bibarel",
     "nameDe": "Bidifas",
+    "spriteId": 400,
+    "types": [
+      "normal",
+      "water"
+    ],
     "evolution_chain_id": 207
   },
   {
     "id": 401,
     "slug": "kricketot",
+    "nameEn": "Kricketot",
     "nameDe": "Zirpurze",
+    "spriteId": 401,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 208
   },
   {
     "id": 402,
     "slug": "kricketune",
+    "nameEn": "Kricketune",
     "nameDe": "Zirpeise",
+    "spriteId": 402,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 208
   },
   {
     "id": 403,
     "slug": "shinx",
+    "nameEn": "Shinx",
     "nameDe": "Sheinux",
+    "spriteId": 403,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 209
   },
   {
     "id": 404,
     "slug": "luxio",
+    "nameEn": "Luxio",
     "nameDe": "Luxio",
+    "spriteId": 404,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 209
   },
   {
     "id": 405,
     "slug": "luxray",
+    "nameEn": "Luxray",
     "nameDe": "Luxtra",
+    "spriteId": 405,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 209
   },
   {
     "id": 406,
     "slug": "budew",
+    "nameEn": "Budew",
     "nameDe": "Knospi",
+    "spriteId": 406,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 158
   },
   {
     "id": 407,
     "slug": "roserade",
+    "nameEn": "Roserade",
     "nameDe": "Roserade",
+    "spriteId": 407,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 158
   },
   {
     "id": 408,
     "slug": "cranidos",
+    "nameEn": "Cranidos",
     "nameDe": "Koknodon",
+    "spriteId": 408,
+    "types": [
+      "rock"
+    ],
     "evolution_chain_id": 211
   },
   {
     "id": 409,
     "slug": "rampardos",
+    "nameEn": "Rampardos",
     "nameDe": "Rameidon",
+    "spriteId": 409,
+    "types": [
+      "rock"
+    ],
     "evolution_chain_id": 211
   },
   {
     "id": 410,
     "slug": "shieldon",
+    "nameEn": "Shieldon",
     "nameDe": "Schilterus",
+    "spriteId": 410,
+    "types": [
+      "rock",
+      "steel"
+    ],
     "evolution_chain_id": 212
   },
   {
     "id": 411,
     "slug": "bastiodon",
+    "nameEn": "Bastiodon",
     "nameDe": "Bollterus",
+    "spriteId": 411,
+    "types": [
+      "rock",
+      "steel"
+    ],
     "evolution_chain_id": 212
   },
   {
     "id": 412,
     "slug": "burmy",
+    "nameEn": "Burmy",
     "nameDe": "Burmy",
+    "spriteId": 412,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 213
   },
   {
     "id": 413,
     "slug": "wormadam-plant",
+    "nameEn": "Wormadam Plant",
     "nameDe": "Burmadame",
+    "spriteId": 413,
+    "types": [
+      "bug",
+      "grass"
+    ],
     "evolution_chain_id": 213
   },
   {
     "id": 414,
     "slug": "mothim",
+    "nameEn": "Mothim",
     "nameDe": "Moterpel",
+    "spriteId": 414,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 213
   },
   {
     "id": 415,
     "slug": "combee",
+    "nameEn": "Combee",
     "nameDe": "Wadribie",
+    "spriteId": 415,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 214
   },
   {
     "id": 416,
     "slug": "vespiquen",
+    "nameEn": "Vespiquen",
     "nameDe": "Honweisel",
+    "spriteId": 416,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 214
   },
   {
     "id": 417,
     "slug": "pachirisu",
+    "nameEn": "Pachirisu",
     "nameDe": "Pachirisu",
+    "spriteId": 417,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 215
   },
   {
     "id": 418,
     "slug": "buizel",
+    "nameEn": "Buizel",
     "nameDe": "Bamelin",
+    "spriteId": 418,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 216
   },
   {
     "id": 419,
     "slug": "floatzel",
+    "nameEn": "Floatzel",
     "nameDe": "Bojelin",
+    "spriteId": 419,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 216
   },
   {
     "id": 420,
     "slug": "cherubi",
+    "nameEn": "Cherubi",
     "nameDe": "Kikugi",
+    "spriteId": 420,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 217
   },
   {
     "id": 421,
     "slug": "cherrim",
+    "nameEn": "Cherrim",
     "nameDe": "Kinoso",
+    "spriteId": 421,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 217
   },
   {
     "id": 422,
     "slug": "shellos",
+    "nameEn": "Shellos",
     "nameDe": "Schalellos",
+    "spriteId": 422,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 218
   },
   {
     "id": 423,
     "slug": "gastrodon",
+    "nameEn": "Gastrodon",
     "nameDe": "Gastrodon",
+    "spriteId": 423,
+    "types": [
+      "water",
+      "ground"
+    ],
     "evolution_chain_id": 218
   },
   {
     "id": 424,
     "slug": "ambipom",
+    "nameEn": "Ambipom",
     "nameDe": "Ambidiffel",
+    "spriteId": 424,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 93
   },
   {
     "id": 425,
     "slug": "drifloon",
+    "nameEn": "Drifloon",
     "nameDe": "Driftlon",
+    "spriteId": 425,
+    "types": [
+      "ghost",
+      "flying"
+    ],
     "evolution_chain_id": 219
   },
   {
     "id": 426,
     "slug": "drifblim",
+    "nameEn": "Drifblim",
     "nameDe": "Drifzepeli",
+    "spriteId": 426,
+    "types": [
+      "ghost",
+      "flying"
+    ],
     "evolution_chain_id": 219
   },
   {
     "id": 427,
     "slug": "buneary",
+    "nameEn": "Buneary",
     "nameDe": "Haspiror",
+    "spriteId": 427,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 220
   },
   {
     "id": 428,
     "slug": "lopunny",
+    "nameEn": "Lopunny",
     "nameDe": "Schlapor",
+    "spriteId": 428,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 220
   },
   {
     "id": 429,
     "slug": "mismagius",
+    "nameEn": "Mismagius",
     "nameDe": "Traunmagil",
+    "spriteId": 429,
+    "types": [
+      "ghost"
+    ],
     "evolution_chain_id": 98
   },
   {
     "id": 430,
     "slug": "honchkrow",
+    "nameEn": "Honchkrow",
     "nameDe": "Kramshef",
+    "spriteId": 430,
+    "types": [
+      "dark",
+      "flying"
+    ],
     "evolution_chain_id": 97
   },
   {
     "id": 431,
     "slug": "glameow",
+    "nameEn": "Glameow",
     "nameDe": "Charmian",
+    "spriteId": 431,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 221
   },
   {
     "id": 432,
     "slug": "purugly",
+    "nameEn": "Purugly",
     "nameDe": "Shnurgarst",
+    "spriteId": 432,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 221
   },
   {
     "id": 433,
     "slug": "chingling",
+    "nameEn": "Chingling",
     "nameDe": "Klingplim",
+    "spriteId": 433,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 184
   },
   {
     "id": 434,
     "slug": "stunky",
+    "nameEn": "Stunky",
     "nameDe": "Skunkapuh",
+    "spriteId": 434,
+    "types": [
+      "poison",
+      "dark"
+    ],
     "evolution_chain_id": 223
   },
   {
     "id": 435,
     "slug": "skuntank",
+    "nameEn": "Skuntank",
     "nameDe": "Skuntank",
+    "spriteId": 435,
+    "types": [
+      "poison",
+      "dark"
+    ],
     "evolution_chain_id": 223
   },
   {
     "id": 436,
     "slug": "bronzor",
+    "nameEn": "Bronzor",
     "nameDe": "Bronzel",
+    "spriteId": 436,
+    "types": [
+      "steel",
+      "psychic"
+    ],
     "evolution_chain_id": 224
   },
   {
     "id": 437,
     "slug": "bronzong",
+    "nameEn": "Bronzong",
     "nameDe": "Bronzong",
+    "spriteId": 437,
+    "types": [
+      "steel",
+      "psychic"
+    ],
     "evolution_chain_id": 224
   },
   {
     "id": 438,
     "slug": "bonsly",
+    "nameEn": "Bonsly",
     "nameDe": "Mobai",
+    "spriteId": 438,
+    "types": [
+      "rock"
+    ],
     "evolution_chain_id": 91
   },
   {
     "id": 439,
     "slug": "mime-jr",
+    "nameEn": "Mime Jr",
     "nameDe": "Pantimimi",
+    "spriteId": 439,
+    "types": [
+      "psychic",
+      "fairy"
+    ],
     "evolution_chain_id": 57
   },
   {
     "id": 440,
     "slug": "happiny",
+    "nameEn": "Happiny",
     "nameDe": "Wonneira",
+    "spriteId": 440,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 51
   },
   {
     "id": 441,
     "slug": "chatot",
+    "nameEn": "Chatot",
     "nameDe": "Plaudagei",
+    "spriteId": 441,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 228
   },
   {
     "id": 442,
     "slug": "spiritomb",
+    "nameEn": "Spiritomb",
     "nameDe": "Kryppuk",
+    "spriteId": 442,
+    "types": [
+      "ghost",
+      "dark"
+    ],
     "evolution_chain_id": 229
   },
   {
     "id": 443,
     "slug": "gible",
+    "nameEn": "Gible",
     "nameDe": "Kaumalat",
+    "spriteId": 443,
+    "types": [
+      "dragon",
+      "ground"
+    ],
     "evolution_chain_id": 230
   },
   {
     "id": 444,
     "slug": "gabite",
+    "nameEn": "Gabite",
     "nameDe": "Knarksel",
+    "spriteId": 444,
+    "types": [
+      "dragon",
+      "ground"
+    ],
     "evolution_chain_id": 230
   },
   {
     "id": 445,
     "slug": "garchomp",
+    "nameEn": "Garchomp",
     "nameDe": "Knakrack",
+    "spriteId": 445,
+    "types": [
+      "dragon",
+      "ground"
+    ],
     "evolution_chain_id": 230
   },
   {
     "id": 446,
     "slug": "munchlax",
+    "nameEn": "Munchlax",
     "nameDe": "Mampfaxo",
+    "spriteId": 446,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 72
   },
   {
     "id": 447,
     "slug": "riolu",
+    "nameEn": "Riolu",
     "nameDe": "Riolu",
+    "spriteId": 447,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 232
   },
   {
     "id": 448,
     "slug": "lucario",
+    "nameEn": "Lucario",
     "nameDe": "Lucario",
+    "spriteId": 448,
+    "types": [
+      "fighting",
+      "steel"
+    ],
     "evolution_chain_id": 232
   },
   {
     "id": 449,
     "slug": "hippopotas",
+    "nameEn": "Hippopotas",
     "nameDe": "Hippopotas",
+    "spriteId": 449,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 233
   },
   {
     "id": 450,
     "slug": "hippowdon",
+    "nameEn": "Hippowdon",
     "nameDe": "Hippoterus",
+    "spriteId": 450,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 233
   },
   {
     "id": 451,
     "slug": "skorupi",
+    "nameEn": "Skorupi",
     "nameDe": "Pionskora",
+    "spriteId": 451,
+    "types": [
+      "poison",
+      "bug"
+    ],
     "evolution_chain_id": 234
   },
   {
     "id": 452,
     "slug": "drapion",
+    "nameEn": "Drapion",
     "nameDe": "Piondragi",
+    "spriteId": 452,
+    "types": [
+      "poison",
+      "dark"
+    ],
     "evolution_chain_id": 234
   },
   {
     "id": 453,
     "slug": "croagunk",
+    "nameEn": "Croagunk",
     "nameDe": "Glibunkel",
+    "spriteId": 453,
+    "types": [
+      "poison",
+      "fighting"
+    ],
     "evolution_chain_id": 235
   },
   {
     "id": 454,
     "slug": "toxicroak",
+    "nameEn": "Toxicroak",
     "nameDe": "Toxiquak",
+    "spriteId": 454,
+    "types": [
+      "poison",
+      "fighting"
+    ],
     "evolution_chain_id": 235
   },
   {
     "id": 455,
     "slug": "carnivine",
+    "nameEn": "Carnivine",
     "nameDe": "Venuflibis",
+    "spriteId": 455,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 236
   },
   {
     "id": 456,
     "slug": "finneon",
+    "nameEn": "Finneon",
     "nameDe": "Finneon",
+    "spriteId": 456,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 237
   },
   {
     "id": 457,
     "slug": "lumineon",
+    "nameEn": "Lumineon",
     "nameDe": "Lumineon",
+    "spriteId": 457,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 237
   },
   {
     "id": 458,
     "slug": "mantyke",
+    "nameEn": "Mantyke",
     "nameDe": "Mantirps",
+    "spriteId": 458,
+    "types": [
+      "water",
+      "flying"
+    ],
     "evolution_chain_id": 116
   },
   {
     "id": 459,
     "slug": "snover",
+    "nameEn": "Snover",
     "nameDe": "Shnebedeck",
+    "spriteId": 459,
+    "types": [
+      "grass",
+      "ice"
+    ],
     "evolution_chain_id": 239
   },
   {
     "id": 460,
     "slug": "abomasnow",
+    "nameEn": "Abomasnow",
     "nameDe": "Rexblisar",
+    "spriteId": 460,
+    "types": [
+      "grass",
+      "ice"
+    ],
     "evolution_chain_id": 239
   },
   {
     "id": 461,
     "slug": "weavile",
+    "nameEn": "Weavile",
     "nameDe": "Snibunna",
+    "spriteId": 461,
+    "types": [
+      "dark",
+      "ice"
+    ],
     "evolution_chain_id": 109
   },
   {
     "id": 462,
     "slug": "magnezone",
+    "nameEn": "Magnezone",
     "nameDe": "Magnezone",
+    "spriteId": 462,
+    "types": [
+      "electric",
+      "steel"
+    ],
     "evolution_chain_id": 34
   },
   {
     "id": 463,
     "slug": "lickilicky",
+    "nameEn": "Lickilicky",
     "nameDe": "Schlurplek",
+    "spriteId": 463,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 48
   },
   {
     "id": 464,
     "slug": "rhyperior",
+    "nameEn": "Rhyperior",
     "nameDe": "Rihornior",
+    "spriteId": 464,
+    "types": [
+      "ground",
+      "rock"
+    ],
     "evolution_chain_id": 50
   },
   {
     "id": 465,
     "slug": "tangrowth",
+    "nameEn": "Tangrowth",
     "nameDe": "Tangoloss",
+    "spriteId": 465,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 52
   },
   {
     "id": 466,
     "slug": "electivire",
+    "nameEn": "Electivire",
     "nameDe": "Elevoltek",
+    "spriteId": 466,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 60
   },
   {
     "id": 467,
     "slug": "magmortar",
+    "nameEn": "Magmortar",
     "nameDe": "Magbrant",
+    "spriteId": 467,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 61
   },
   {
     "id": 468,
     "slug": "togekiss",
+    "nameEn": "Togekiss",
     "nameDe": "Togekiss",
+    "spriteId": 468,
+    "types": [
+      "fairy",
+      "flying"
+    ],
     "evolution_chain_id": 87
   },
   {
     "id": 469,
     "slug": "yanmega",
+    "nameEn": "Yanmega",
     "nameDe": "Yanmega",
+    "spriteId": 469,
+    "types": [
+      "bug",
+      "flying"
+    ],
     "evolution_chain_id": 95
   },
   {
     "id": 470,
     "slug": "leafeon",
+    "nameEn": "Leafeon",
     "nameDe": "Folipurba",
+    "spriteId": 470,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 67
   },
   {
     "id": 471,
     "slug": "glaceon",
+    "nameEn": "Glaceon",
     "nameDe": "Glaziola",
+    "spriteId": 471,
+    "types": [
+      "ice"
+    ],
     "evolution_chain_id": 67
   },
   {
     "id": 472,
     "slug": "gliscor",
+    "nameEn": "Gliscor",
     "nameDe": "Skorgro",
+    "spriteId": 472,
+    "types": [
+      "ground",
+      "flying"
+    ],
     "evolution_chain_id": 104
   },
   {
     "id": 473,
     "slug": "mamoswine",
+    "nameEn": "Mamoswine",
     "nameDe": "Mamutel",
+    "spriteId": 473,
+    "types": [
+      "ice",
+      "ground"
+    ],
     "evolution_chain_id": 112
   },
   {
     "id": 474,
     "slug": "porygon-z",
+    "nameEn": "Porygon Z",
     "nameDe": "Porygon-Z",
+    "spriteId": 474,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 68
   },
   {
     "id": 475,
     "slug": "gallade",
+    "nameEn": "Gallade",
     "nameDe": "Galagladi",
+    "spriteId": 475,
+    "types": [
+      "psychic",
+      "fighting"
+    ],
     "evolution_chain_id": 140
   },
   {
     "id": 476,
     "slug": "probopass",
+    "nameEn": "Probopass",
     "nameDe": "Voluminas",
+    "spriteId": 476,
+    "types": [
+      "rock",
+      "steel"
+    ],
     "evolution_chain_id": 147
   },
   {
     "id": 477,
     "slug": "dusknoir",
+    "nameEn": "Dusknoir",
     "nameDe": "Zwirrfinst",
+    "spriteId": 477,
+    "types": [
+      "ghost"
+    ],
     "evolution_chain_id": 182
   },
   {
     "id": 478,
     "slug": "froslass",
+    "nameEn": "Froslass",
     "nameDe": "Frosdedje",
+    "spriteId": 478,
+    "types": [
+      "ice",
+      "ghost"
+    ],
     "evolution_chain_id": 186
   },
   {
     "id": 479,
     "slug": "rotom",
+    "nameEn": "Rotom",
     "nameDe": "Rotom",
+    "spriteId": 479,
+    "types": [
+      "electric",
+      "ghost"
+    ],
     "evolution_chain_id": 240
   },
   {
     "id": 480,
     "slug": "uxie",
+    "nameEn": "Uxie",
     "nameDe": "Selfe",
+    "spriteId": 480,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 241
   },
   {
     "id": 481,
     "slug": "mesprit",
+    "nameEn": "Mesprit",
     "nameDe": "Vesprit",
+    "spriteId": 481,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 242
   },
   {
     "id": 482,
     "slug": "azelf",
+    "nameEn": "Azelf",
     "nameDe": "Tobutz",
+    "spriteId": 482,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 243
   },
   {
     "id": 483,
     "slug": "dialga",
+    "nameEn": "Dialga",
     "nameDe": "Dialga",
+    "spriteId": 483,
+    "types": [
+      "steel",
+      "dragon"
+    ],
     "evolution_chain_id": 244
   },
   {
     "id": 484,
     "slug": "palkia",
+    "nameEn": "Palkia",
     "nameDe": "Palkia",
+    "spriteId": 484,
+    "types": [
+      "water",
+      "dragon"
+    ],
     "evolution_chain_id": 245
   },
   {
     "id": 485,
     "slug": "heatran",
+    "nameEn": "Heatran",
     "nameDe": "Heatran",
+    "spriteId": 485,
+    "types": [
+      "fire",
+      "steel"
+    ],
     "evolution_chain_id": 246
   },
   {
     "id": 486,
     "slug": "regigigas",
+    "nameEn": "Regigigas",
     "nameDe": "Regigigas",
+    "spriteId": 486,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 247
   },
   {
     "id": 487,
     "slug": "giratina-altered",
+    "nameEn": "Giratina Altered",
     "nameDe": "Giratina",
+    "spriteId": 487,
+    "types": [
+      "ghost",
+      "dragon"
+    ],
     "evolution_chain_id": 248
   },
   {
     "id": 488,
     "slug": "cresselia",
+    "nameEn": "Cresselia",
     "nameDe": "Cresselia",
+    "spriteId": 488,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 249
   },
   {
     "id": 489,
     "slug": "phione",
+    "nameEn": "Phione",
     "nameDe": "Phione",
+    "spriteId": 489,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 250
   },
   {
     "id": 490,
     "slug": "manaphy",
+    "nameEn": "Manaphy",
     "nameDe": "Manaphy",
+    "spriteId": 490,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 250
   },
   {
     "id": 491,
     "slug": "darkrai",
+    "nameEn": "Darkrai",
     "nameDe": "Darkrai",
+    "spriteId": 491,
+    "types": [
+      "dark"
+    ],
     "evolution_chain_id": 252
   },
   {
     "id": 492,
     "slug": "shaymin-land",
+    "nameEn": "Shaymin Land",
     "nameDe": "Shaymin",
+    "spriteId": 492,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 253
   },
   {
     "id": 493,
     "slug": "arceus",
+    "nameEn": "Arceus",
     "nameDe": "Arceus",
+    "spriteId": 493,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 254
   },
   {
     "id": 494,
     "slug": "victini",
+    "nameEn": "Victini",
     "nameDe": "Victini",
+    "spriteId": 494,
+    "types": [
+      "psychic",
+      "fire"
+    ],
     "evolution_chain_id": 255
   },
   {
     "id": 495,
     "slug": "snivy",
+    "nameEn": "Snivy",
     "nameDe": "Serpifeu",
+    "spriteId": 495,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 256
   },
   {
     "id": 496,
     "slug": "servine",
+    "nameEn": "Servine",
     "nameDe": "Efoserp",
+    "spriteId": 496,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 256
   },
   {
     "id": 497,
     "slug": "serperior",
+    "nameEn": "Serperior",
     "nameDe": "Serpiroyal",
+    "spriteId": 497,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 256
   },
   {
     "id": 498,
     "slug": "tepig",
+    "nameEn": "Tepig",
     "nameDe": "Floink",
+    "spriteId": 498,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 257
   },
   {
     "id": 499,
     "slug": "pignite",
+    "nameEn": "Pignite",
     "nameDe": "Ferkokel",
+    "spriteId": 499,
+    "types": [
+      "fire",
+      "fighting"
+    ],
     "evolution_chain_id": 257
   },
   {
     "id": 500,
     "slug": "emboar",
+    "nameEn": "Emboar",
     "nameDe": "Flambirex",
+    "spriteId": 500,
+    "types": [
+      "fire",
+      "fighting"
+    ],
     "evolution_chain_id": 257
   },
   {
     "id": 501,
     "slug": "oshawott",
+    "nameEn": "Oshawott",
     "nameDe": "Ottaro",
+    "spriteId": 501,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 258
   },
   {
     "id": 502,
     "slug": "dewott",
+    "nameEn": "Dewott",
     "nameDe": "Zwottronin",
+    "spriteId": 502,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 258
   },
   {
     "id": 503,
     "slug": "samurott",
+    "nameEn": "Samurott",
     "nameDe": "Admurai",
+    "spriteId": 503,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 258
   },
   {
     "id": 504,
     "slug": "patrat",
+    "nameEn": "Patrat",
     "nameDe": "Nagelotz",
+    "spriteId": 504,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 259
   },
   {
     "id": 505,
     "slug": "watchog",
+    "nameEn": "Watchog",
     "nameDe": "Kukmarda",
+    "spriteId": 505,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 259
   },
   {
     "id": 506,
     "slug": "lillipup",
+    "nameEn": "Lillipup",
     "nameDe": "Yorkleff",
+    "spriteId": 506,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 260
   },
   {
     "id": 507,
     "slug": "herdier",
+    "nameEn": "Herdier",
     "nameDe": "Terribark",
+    "spriteId": 507,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 260
   },
   {
     "id": 508,
     "slug": "stoutland",
+    "nameEn": "Stoutland",
     "nameDe": "Bissbark",
+    "spriteId": 508,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 260
   },
   {
     "id": 509,
     "slug": "purrloin",
+    "nameEn": "Purrloin",
     "nameDe": "Felilou",
+    "spriteId": 509,
+    "types": [
+      "dark"
+    ],
     "evolution_chain_id": 261
   },
   {
     "id": 510,
     "slug": "liepard",
+    "nameEn": "Liepard",
     "nameDe": "Kleoparda",
+    "spriteId": 510,
+    "types": [
+      "dark"
+    ],
     "evolution_chain_id": 261
   },
   {
     "id": 511,
     "slug": "pansage",
+    "nameEn": "Pansage",
     "nameDe": "Vegimak",
+    "spriteId": 511,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 262
   },
   {
     "id": 512,
     "slug": "simisage",
+    "nameEn": "Simisage",
     "nameDe": "Vegichita",
+    "spriteId": 512,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 262
   },
   {
     "id": 513,
     "slug": "pansear",
+    "nameEn": "Pansear",
     "nameDe": "Grillmak",
+    "spriteId": 513,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 263
   },
   {
     "id": 514,
     "slug": "simisear",
+    "nameEn": "Simisear",
     "nameDe": "Grillchita",
+    "spriteId": 514,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 263
   },
   {
     "id": 515,
     "slug": "panpour",
+    "nameEn": "Panpour",
     "nameDe": "Sodamak",
+    "spriteId": 515,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 264
   },
   {
     "id": 516,
     "slug": "simipour",
+    "nameEn": "Simipour",
     "nameDe": "Sodachita",
+    "spriteId": 516,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 264
   },
   {
     "id": 517,
     "slug": "munna",
+    "nameEn": "Munna",
     "nameDe": "Somniam",
+    "spriteId": 517,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 265
   },
   {
     "id": 518,
     "slug": "musharna",
+    "nameEn": "Musharna",
     "nameDe": "Somnivora",
+    "spriteId": 518,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 265
   },
   {
     "id": 519,
     "slug": "pidove",
+    "nameEn": "Pidove",
     "nameDe": "Dusselgurr",
+    "spriteId": 519,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 266
   },
   {
     "id": 520,
     "slug": "tranquill",
+    "nameEn": "Tranquill",
     "nameDe": "Navitaub",
+    "spriteId": 520,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 266
   },
   {
     "id": 521,
     "slug": "unfezant",
+    "nameEn": "Unfezant",
     "nameDe": "Fasasnob",
+    "spriteId": 521,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 266
   },
   {
     "id": 522,
     "slug": "blitzle",
+    "nameEn": "Blitzle",
     "nameDe": "Elezeba",
+    "spriteId": 522,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 267
   },
   {
     "id": 523,
     "slug": "zebstrika",
+    "nameEn": "Zebstrika",
     "nameDe": "Zebritz",
+    "spriteId": 523,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 267
   },
   {
     "id": 524,
     "slug": "roggenrola",
+    "nameEn": "Roggenrola",
     "nameDe": "Kiesling",
+    "spriteId": 524,
+    "types": [
+      "rock"
+    ],
     "evolution_chain_id": 268
   },
   {
     "id": 525,
     "slug": "boldore",
+    "nameEn": "Boldore",
     "nameDe": "Sedimantur",
+    "spriteId": 525,
+    "types": [
+      "rock"
+    ],
     "evolution_chain_id": 268
   },
   {
     "id": 526,
     "slug": "gigalith",
+    "nameEn": "Gigalith",
     "nameDe": "Brockoloss",
+    "spriteId": 526,
+    "types": [
+      "rock"
+    ],
     "evolution_chain_id": 268
   },
   {
     "id": 527,
     "slug": "woobat",
+    "nameEn": "Woobat",
     "nameDe": "Fleknoil",
+    "spriteId": 527,
+    "types": [
+      "psychic",
+      "flying"
+    ],
     "evolution_chain_id": 269
   },
   {
     "id": 528,
     "slug": "swoobat",
+    "nameEn": "Swoobat",
     "nameDe": "Fletiamo",
+    "spriteId": 528,
+    "types": [
+      "psychic",
+      "flying"
+    ],
     "evolution_chain_id": 269
   },
   {
     "id": 529,
     "slug": "drilbur",
+    "nameEn": "Drilbur",
     "nameDe": "Rotomurf",
+    "spriteId": 529,
+    "types": [
+      "ground"
+    ],
     "evolution_chain_id": 270
   },
   {
     "id": 530,
     "slug": "excadrill",
+    "nameEn": "Excadrill",
     "nameDe": "Stalobor",
+    "spriteId": 530,
+    "types": [
+      "ground",
+      "steel"
+    ],
     "evolution_chain_id": 270
   },
   {
     "id": 531,
     "slug": "audino",
+    "nameEn": "Audino",
     "nameDe": "Ohrdoch",
+    "spriteId": 531,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 271
   },
   {
     "id": 532,
     "slug": "timburr",
+    "nameEn": "Timburr",
     "nameDe": "Praktibalk",
+    "spriteId": 532,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 272
   },
   {
     "id": 533,
     "slug": "gurdurr",
+    "nameEn": "Gurdurr",
     "nameDe": "Strepoli",
+    "spriteId": 533,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 272
   },
   {
     "id": 534,
     "slug": "conkeldurr",
+    "nameEn": "Conkeldurr",
     "nameDe": "Meistagrif",
+    "spriteId": 534,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 272
   },
   {
     "id": 535,
     "slug": "tympole",
+    "nameEn": "Tympole",
     "nameDe": "Schallquap",
+    "spriteId": 535,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 273
   },
   {
     "id": 536,
     "slug": "palpitoad",
+    "nameEn": "Palpitoad",
     "nameDe": "Mebrana",
+    "spriteId": 536,
+    "types": [
+      "water",
+      "ground"
+    ],
     "evolution_chain_id": 273
   },
   {
     "id": 537,
     "slug": "seismitoad",
+    "nameEn": "Seismitoad",
     "nameDe": "Branawarz",
+    "spriteId": 537,
+    "types": [
+      "water",
+      "ground"
+    ],
     "evolution_chain_id": 273
   },
   {
     "id": 538,
     "slug": "throh",
+    "nameEn": "Throh",
     "nameDe": "Jiutesto",
+    "spriteId": 538,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 274
   },
   {
     "id": 539,
     "slug": "sawk",
+    "nameEn": "Sawk",
     "nameDe": "Karadonis",
+    "spriteId": 539,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 275
   },
   {
     "id": 540,
     "slug": "sewaddle",
+    "nameEn": "Sewaddle",
     "nameDe": "Strawickl",
+    "spriteId": 540,
+    "types": [
+      "bug",
+      "grass"
+    ],
     "evolution_chain_id": 276
   },
   {
     "id": 541,
     "slug": "swadloon",
+    "nameEn": "Swadloon",
     "nameDe": "Folikon",
+    "spriteId": 541,
+    "types": [
+      "bug",
+      "grass"
+    ],
     "evolution_chain_id": 276
   },
   {
     "id": 542,
     "slug": "leavanny",
+    "nameEn": "Leavanny",
     "nameDe": "Matrifol",
+    "spriteId": 542,
+    "types": [
+      "bug",
+      "grass"
+    ],
     "evolution_chain_id": 276
   },
   {
     "id": 543,
     "slug": "venipede",
+    "nameEn": "Venipede",
     "nameDe": "Toxiped",
+    "spriteId": 543,
+    "types": [
+      "bug",
+      "poison"
+    ],
     "evolution_chain_id": 277
   },
   {
     "id": 544,
     "slug": "whirlipede",
+    "nameEn": "Whirlipede",
     "nameDe": "Rollum",
+    "spriteId": 544,
+    "types": [
+      "bug",
+      "poison"
+    ],
     "evolution_chain_id": 277
   },
   {
     "id": 545,
     "slug": "scolipede",
+    "nameEn": "Scolipede",
     "nameDe": "Cerapendra",
+    "spriteId": 545,
+    "types": [
+      "bug",
+      "poison"
+    ],
     "evolution_chain_id": 277
   },
   {
     "id": 546,
     "slug": "cottonee",
+    "nameEn": "Cottonee",
     "nameDe": "Waumboll",
+    "spriteId": 546,
+    "types": [
+      "grass",
+      "fairy"
+    ],
     "evolution_chain_id": 278
   },
   {
     "id": 547,
     "slug": "whimsicott",
+    "nameEn": "Whimsicott",
     "nameDe": "Elfun",
+    "spriteId": 547,
+    "types": [
+      "grass",
+      "fairy"
+    ],
     "evolution_chain_id": 278
   },
   {
     "id": 548,
     "slug": "petilil",
+    "nameEn": "Petilil",
     "nameDe": "Lilminip",
+    "spriteId": 548,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 279
   },
   {
     "id": 549,
     "slug": "lilligant",
+    "nameEn": "Lilligant",
     "nameDe": "Dressella",
+    "spriteId": 549,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 279
   },
   {
     "id": 550,
     "slug": "basculin-red-striped",
+    "nameEn": "Basculin Red Striped",
     "nameDe": "Barschuft",
+    "spriteId": 550,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 280
   },
   {
     "id": 551,
     "slug": "sandile",
+    "nameEn": "Sandile",
     "nameDe": "Ganovil",
+    "spriteId": 551,
+    "types": [
+      "ground",
+      "dark"
+    ],
     "evolution_chain_id": 281
   },
   {
     "id": 552,
     "slug": "krokorok",
+    "nameEn": "Krokorok",
     "nameDe": "Rokkaiman",
+    "spriteId": 552,
+    "types": [
+      "ground",
+      "dark"
+    ],
     "evolution_chain_id": 281
   },
   {
     "id": 553,
     "slug": "krookodile",
+    "nameEn": "Krookodile",
     "nameDe": "Rabigator",
+    "spriteId": 553,
+    "types": [
+      "ground",
+      "dark"
+    ],
     "evolution_chain_id": 281
   },
   {
     "id": 554,
     "slug": "darumaka",
+    "nameEn": "Darumaka",
     "nameDe": "Flampion",
+    "spriteId": 554,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 282
   },
   {
     "id": 555,
     "slug": "darmanitan-standard",
+    "nameEn": "Darmanitan Standard",
     "nameDe": "Flampivian",
+    "spriteId": 555,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 282
   },
   {
     "id": 556,
     "slug": "maractus",
+    "nameEn": "Maractus",
     "nameDe": "Maracamba",
+    "spriteId": 556,
+    "types": [
+      "grass"
+    ],
     "evolution_chain_id": 283
   },
   {
     "id": 557,
     "slug": "dwebble",
+    "nameEn": "Dwebble",
     "nameDe": "Lithomith",
+    "spriteId": 557,
+    "types": [
+      "bug",
+      "rock"
+    ],
     "evolution_chain_id": 284
   },
   {
     "id": 558,
     "slug": "crustle",
+    "nameEn": "Crustle",
     "nameDe": "Castellith",
+    "spriteId": 558,
+    "types": [
+      "bug",
+      "rock"
+    ],
     "evolution_chain_id": 284
   },
   {
     "id": 559,
     "slug": "scraggy",
+    "nameEn": "Scraggy",
     "nameDe": "Zurrokex",
+    "spriteId": 559,
+    "types": [
+      "dark",
+      "fighting"
+    ],
     "evolution_chain_id": 285
   },
   {
     "id": 560,
     "slug": "scrafty",
+    "nameEn": "Scrafty",
     "nameDe": "Irokex",
+    "spriteId": 560,
+    "types": [
+      "dark",
+      "fighting"
+    ],
     "evolution_chain_id": 285
   },
   {
     "id": 561,
     "slug": "sigilyph",
+    "nameEn": "Sigilyph",
     "nameDe": "Symvolara",
+    "spriteId": 561,
+    "types": [
+      "psychic",
+      "flying"
+    ],
     "evolution_chain_id": 286
   },
   {
     "id": 562,
     "slug": "yamask",
+    "nameEn": "Yamask",
     "nameDe": "Makabaja",
+    "spriteId": 562,
+    "types": [
+      "ghost"
+    ],
     "evolution_chain_id": 287
   },
   {
     "id": 563,
     "slug": "cofagrigus",
+    "nameEn": "Cofagrigus",
     "nameDe": "Echnatoll",
+    "spriteId": 563,
+    "types": [
+      "ghost"
+    ],
     "evolution_chain_id": 287
   },
   {
     "id": 564,
     "slug": "tirtouga",
+    "nameEn": "Tirtouga",
     "nameDe": "Galapaflos",
+    "spriteId": 564,
+    "types": [
+      "water",
+      "rock"
+    ],
     "evolution_chain_id": 288
   },
   {
     "id": 565,
     "slug": "carracosta",
+    "nameEn": "Carracosta",
     "nameDe": "Karippas",
+    "spriteId": 565,
+    "types": [
+      "water",
+      "rock"
+    ],
     "evolution_chain_id": 288
   },
   {
     "id": 566,
     "slug": "archen",
+    "nameEn": "Archen",
     "nameDe": "Flapteryx",
+    "spriteId": 566,
+    "types": [
+      "rock",
+      "flying"
+    ],
     "evolution_chain_id": 289
   },
   {
     "id": 567,
     "slug": "archeops",
+    "nameEn": "Archeops",
     "nameDe": "Aeropteryx",
+    "spriteId": 567,
+    "types": [
+      "rock",
+      "flying"
+    ],
     "evolution_chain_id": 289
   },
   {
     "id": 568,
     "slug": "trubbish",
+    "nameEn": "Trubbish",
     "nameDe": "Unratütox",
+    "spriteId": 568,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 290
   },
   {
     "id": 569,
     "slug": "garbodor",
+    "nameEn": "Garbodor",
     "nameDe": "Deponitox",
+    "spriteId": 569,
+    "types": [
+      "poison"
+    ],
     "evolution_chain_id": 290
   },
   {
     "id": 570,
     "slug": "zorua",
+    "nameEn": "Zorua",
     "nameDe": "Zorua",
+    "spriteId": 570,
+    "types": [
+      "dark"
+    ],
     "evolution_chain_id": 291
   },
   {
     "id": 571,
     "slug": "zoroark",
+    "nameEn": "Zoroark",
     "nameDe": "Zoroark",
+    "spriteId": 571,
+    "types": [
+      "dark"
+    ],
     "evolution_chain_id": 291
   },
   {
     "id": 572,
     "slug": "minccino",
+    "nameEn": "Minccino",
     "nameDe": "Picochilla",
+    "spriteId": 572,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 292
   },
   {
     "id": 573,
     "slug": "cinccino",
+    "nameEn": "Cinccino",
     "nameDe": "Chillabell",
+    "spriteId": 573,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 292
   },
   {
     "id": 574,
     "slug": "gothita",
+    "nameEn": "Gothita",
     "nameDe": "Mollimorba",
+    "spriteId": 574,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 293
   },
   {
     "id": 575,
     "slug": "gothorita",
+    "nameEn": "Gothorita",
     "nameDe": "Hypnomorba",
+    "spriteId": 575,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 293
   },
   {
     "id": 576,
     "slug": "gothitelle",
+    "nameEn": "Gothitelle",
     "nameDe": "Morbitesse",
+    "spriteId": 576,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 293
   },
   {
     "id": 577,
     "slug": "solosis",
+    "nameEn": "Solosis",
     "nameDe": "Monozyto",
+    "spriteId": 577,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 294
   },
   {
     "id": 578,
     "slug": "duosion",
+    "nameEn": "Duosion",
     "nameDe": "Mitodos",
+    "spriteId": 578,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 294
   },
   {
     "id": 579,
     "slug": "reuniclus",
+    "nameEn": "Reuniclus",
     "nameDe": "Zytomega",
+    "spriteId": 579,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 294
   },
   {
     "id": 580,
     "slug": "ducklett",
+    "nameEn": "Ducklett",
     "nameDe": "Piccolente",
+    "spriteId": 580,
+    "types": [
+      "water",
+      "flying"
+    ],
     "evolution_chain_id": 295
   },
   {
     "id": 581,
     "slug": "swanna",
+    "nameEn": "Swanna",
     "nameDe": "Swaroness",
+    "spriteId": 581,
+    "types": [
+      "water",
+      "flying"
+    ],
     "evolution_chain_id": 295
   },
   {
     "id": 582,
     "slug": "vanillite",
+    "nameEn": "Vanillite",
     "nameDe": "Gelatini",
+    "spriteId": 582,
+    "types": [
+      "ice"
+    ],
     "evolution_chain_id": 296
   },
   {
     "id": 583,
     "slug": "vanillish",
+    "nameEn": "Vanillish",
     "nameDe": "Gelatroppo",
+    "spriteId": 583,
+    "types": [
+      "ice"
+    ],
     "evolution_chain_id": 296
   },
   {
     "id": 584,
     "slug": "vanilluxe",
+    "nameEn": "Vanilluxe",
     "nameDe": "Gelatwino",
+    "spriteId": 584,
+    "types": [
+      "ice"
+    ],
     "evolution_chain_id": 296
   },
   {
     "id": 585,
     "slug": "deerling",
+    "nameEn": "Deerling",
     "nameDe": "Sesokitz",
+    "spriteId": 585,
+    "types": [
+      "normal",
+      "grass"
+    ],
     "evolution_chain_id": 297
   },
   {
     "id": 586,
     "slug": "sawsbuck",
+    "nameEn": "Sawsbuck",
     "nameDe": "Kronjuwild",
+    "spriteId": 586,
+    "types": [
+      "normal",
+      "grass"
+    ],
     "evolution_chain_id": 297
   },
   {
     "id": 587,
     "slug": "emolga",
+    "nameEn": "Emolga",
     "nameDe": "Emolga",
+    "spriteId": 587,
+    "types": [
+      "electric",
+      "flying"
+    ],
     "evolution_chain_id": 298
   },
   {
     "id": 588,
     "slug": "karrablast",
+    "nameEn": "Karrablast",
     "nameDe": "Laukaps",
+    "spriteId": 588,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 299
   },
   {
     "id": 589,
     "slug": "escavalier",
+    "nameEn": "Escavalier",
     "nameDe": "Cavalanzas",
+    "spriteId": 589,
+    "types": [
+      "bug",
+      "steel"
+    ],
     "evolution_chain_id": 299
   },
   {
     "id": 590,
     "slug": "foongus",
+    "nameEn": "Foongus",
     "nameDe": "Tarnpignon",
+    "spriteId": 590,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 300
   },
   {
     "id": 591,
     "slug": "amoonguss",
+    "nameEn": "Amoonguss",
     "nameDe": "Hutsassa",
+    "spriteId": 591,
+    "types": [
+      "grass",
+      "poison"
+    ],
     "evolution_chain_id": 300
   },
   {
     "id": 592,
     "slug": "frillish-male",
+    "nameEn": "Frillish Male",
     "nameDe": "Quabbel",
+    "spriteId": 592,
+    "types": [
+      "water",
+      "ghost"
+    ],
     "evolution_chain_id": 301
   },
   {
     "id": 593,
     "slug": "jellicent-male",
+    "nameEn": "Jellicent Male",
     "nameDe": "Apoquallyp",
+    "spriteId": 593,
+    "types": [
+      "water",
+      "ghost"
+    ],
     "evolution_chain_id": 301
   },
   {
     "id": 594,
     "slug": "alomomola",
+    "nameEn": "Alomomola",
     "nameDe": "Mamolida",
+    "spriteId": 594,
+    "types": [
+      "water"
+    ],
     "evolution_chain_id": 302
   },
   {
     "id": 595,
     "slug": "joltik",
+    "nameEn": "Joltik",
     "nameDe": "Wattzapf",
+    "spriteId": 595,
+    "types": [
+      "bug",
+      "electric"
+    ],
     "evolution_chain_id": 303
   },
   {
     "id": 596,
     "slug": "galvantula",
+    "nameEn": "Galvantula",
     "nameDe": "Voltula",
+    "spriteId": 596,
+    "types": [
+      "bug",
+      "electric"
+    ],
     "evolution_chain_id": 303
   },
   {
     "id": 597,
     "slug": "ferroseed",
+    "nameEn": "Ferroseed",
     "nameDe": "Kastadur",
+    "spriteId": 597,
+    "types": [
+      "grass",
+      "steel"
+    ],
     "evolution_chain_id": 304
   },
   {
     "id": 598,
     "slug": "ferrothorn",
+    "nameEn": "Ferrothorn",
     "nameDe": "Tentantel",
+    "spriteId": 598,
+    "types": [
+      "grass",
+      "steel"
+    ],
     "evolution_chain_id": 304
   },
   {
     "id": 599,
     "slug": "klink",
+    "nameEn": "Klink",
     "nameDe": "Klikk",
+    "spriteId": 599,
+    "types": [
+      "steel"
+    ],
     "evolution_chain_id": 305
   },
   {
     "id": 600,
     "slug": "klang",
+    "nameEn": "Klang",
     "nameDe": "Kliklak",
+    "spriteId": 600,
+    "types": [
+      "steel"
+    ],
     "evolution_chain_id": 305
   },
   {
     "id": 601,
     "slug": "klinklang",
+    "nameEn": "Klinklang",
     "nameDe": "Klikdiklak",
+    "spriteId": 601,
+    "types": [
+      "steel"
+    ],
     "evolution_chain_id": 305
   },
   {
     "id": 602,
     "slug": "tynamo",
+    "nameEn": "Tynamo",
     "nameDe": "Zapplardin",
+    "spriteId": 602,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 306
   },
   {
     "id": 603,
     "slug": "eelektrik",
+    "nameEn": "Eelektrik",
     "nameDe": "Zapplalek",
+    "spriteId": 603,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 306
   },
   {
     "id": 604,
     "slug": "eelektross",
+    "nameEn": "Eelektross",
     "nameDe": "Zapplarang",
+    "spriteId": 604,
+    "types": [
+      "electric"
+    ],
     "evolution_chain_id": 306
   },
   {
     "id": 605,
     "slug": "elgyem",
+    "nameEn": "Elgyem",
     "nameDe": "Pygraulon",
+    "spriteId": 605,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 307
   },
   {
     "id": 606,
     "slug": "beheeyem",
+    "nameEn": "Beheeyem",
     "nameDe": "Megalon",
+    "spriteId": 606,
+    "types": [
+      "psychic"
+    ],
     "evolution_chain_id": 307
   },
   {
     "id": 607,
     "slug": "litwick",
+    "nameEn": "Litwick",
     "nameDe": "Lichtel",
+    "spriteId": 607,
+    "types": [
+      "ghost",
+      "fire"
+    ],
     "evolution_chain_id": 308
   },
   {
     "id": 608,
     "slug": "lampent",
+    "nameEn": "Lampent",
     "nameDe": "Laternecto",
+    "spriteId": 608,
+    "types": [
+      "ghost",
+      "fire"
+    ],
     "evolution_chain_id": 308
   },
   {
     "id": 609,
     "slug": "chandelure",
+    "nameEn": "Chandelure",
     "nameDe": "Skelabra",
+    "spriteId": 609,
+    "types": [
+      "ghost",
+      "fire"
+    ],
     "evolution_chain_id": 308
   },
   {
     "id": 610,
     "slug": "axew",
+    "nameEn": "Axew",
     "nameDe": "Milza",
+    "spriteId": 610,
+    "types": [
+      "dragon"
+    ],
     "evolution_chain_id": 309
   },
   {
     "id": 611,
     "slug": "fraxure",
+    "nameEn": "Fraxure",
     "nameDe": "Sharfax",
+    "spriteId": 611,
+    "types": [
+      "dragon"
+    ],
     "evolution_chain_id": 309
   },
   {
     "id": 612,
     "slug": "haxorus",
+    "nameEn": "Haxorus",
     "nameDe": "Maxax",
+    "spriteId": 612,
+    "types": [
+      "dragon"
+    ],
     "evolution_chain_id": 309
   },
   {
     "id": 613,
     "slug": "cubchoo",
+    "nameEn": "Cubchoo",
     "nameDe": "Petznief",
+    "spriteId": 613,
+    "types": [
+      "ice"
+    ],
     "evolution_chain_id": 310
   },
   {
     "id": 614,
     "slug": "beartic",
+    "nameEn": "Beartic",
     "nameDe": "Siberio",
+    "spriteId": 614,
+    "types": [
+      "ice"
+    ],
     "evolution_chain_id": 310
   },
   {
     "id": 615,
     "slug": "cryogonal",
+    "nameEn": "Cryogonal",
     "nameDe": "Frigometri",
+    "spriteId": 615,
+    "types": [
+      "ice"
+    ],
     "evolution_chain_id": 311
   },
   {
     "id": 616,
     "slug": "shelmet",
+    "nameEn": "Shelmet",
     "nameDe": "Schnuthelm",
+    "spriteId": 616,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 312
   },
   {
     "id": 617,
     "slug": "accelgor",
+    "nameEn": "Accelgor",
     "nameDe": "Hydragil",
+    "spriteId": 617,
+    "types": [
+      "bug"
+    ],
     "evolution_chain_id": 312
   },
   {
     "id": 618,
     "slug": "stunfisk",
+    "nameEn": "Stunfisk",
     "nameDe": "Flunschlik",
+    "spriteId": 618,
+    "types": [
+      "ground",
+      "electric"
+    ],
     "evolution_chain_id": 313
   },
   {
     "id": 619,
     "slug": "mienfoo",
+    "nameEn": "Mienfoo",
     "nameDe": "Lin-Fu",
+    "spriteId": 619,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 314
   },
   {
     "id": 620,
     "slug": "mienshao",
+    "nameEn": "Mienshao",
     "nameDe": "Wie-Shu",
+    "spriteId": 620,
+    "types": [
+      "fighting"
+    ],
     "evolution_chain_id": 314
   },
   {
     "id": 621,
     "slug": "druddigon",
+    "nameEn": "Druddigon",
     "nameDe": "Shardrago",
+    "spriteId": 621,
+    "types": [
+      "dragon"
+    ],
     "evolution_chain_id": 315
   },
   {
     "id": 622,
     "slug": "golett",
+    "nameEn": "Golett",
     "nameDe": "Golbit",
+    "spriteId": 622,
+    "types": [
+      "ground",
+      "ghost"
+    ],
     "evolution_chain_id": 316
   },
   {
     "id": 623,
     "slug": "golurk",
+    "nameEn": "Golurk",
     "nameDe": "Golgantes",
+    "spriteId": 623,
+    "types": [
+      "ground",
+      "ghost"
+    ],
     "evolution_chain_id": 316
   },
   {
     "id": 624,
     "slug": "pawniard",
+    "nameEn": "Pawniard",
     "nameDe": "Gladiantri",
+    "spriteId": 624,
+    "types": [
+      "dark",
+      "steel"
+    ],
     "evolution_chain_id": 317
   },
   {
     "id": 625,
     "slug": "bisharp",
+    "nameEn": "Bisharp",
     "nameDe": "Caesurio",
+    "spriteId": 625,
+    "types": [
+      "dark",
+      "steel"
+    ],
     "evolution_chain_id": 317
   },
   {
     "id": 626,
     "slug": "bouffalant",
+    "nameEn": "Bouffalant",
     "nameDe": "Bisofank",
+    "spriteId": 626,
+    "types": [
+      "normal"
+    ],
     "evolution_chain_id": 318
   },
   {
     "id": 627,
     "slug": "rufflet",
+    "nameEn": "Rufflet",
     "nameDe": "Geronimatz",
+    "spriteId": 627,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 319
   },
   {
     "id": 628,
     "slug": "braviary",
+    "nameEn": "Braviary",
     "nameDe": "Washakwil",
+    "spriteId": 628,
+    "types": [
+      "normal",
+      "flying"
+    ],
     "evolution_chain_id": 319
   },
   {
     "id": 629,
     "slug": "vullaby",
+    "nameEn": "Vullaby",
     "nameDe": "Skallyk",
+    "spriteId": 629,
+    "types": [
+      "dark",
+      "flying"
+    ],
     "evolution_chain_id": 320
   },
   {
     "id": 630,
     "slug": "mandibuzz",
+    "nameEn": "Mandibuzz",
     "nameDe": "Grypheldis",
+    "spriteId": 630,
+    "types": [
+      "dark",
+      "flying"
+    ],
     "evolution_chain_id": 320
   },
   {
     "id": 631,
     "slug": "heatmor",
+    "nameEn": "Heatmor",
     "nameDe": "Furnifraß",
+    "spriteId": 631,
+    "types": [
+      "fire"
+    ],
     "evolution_chain_id": 321
   },
   {
     "id": 632,
     "slug": "durant",
+    "nameEn": "Durant",
     "nameDe": "Fermicula",
+    "spriteId": 632,
+    "types": [
+      "bug",
+      "steel"
+    ],
     "evolution_chain_id": 322
   },
   {
     "id": 633,
     "slug": "deino",
+    "nameEn": "Deino",
     "nameDe": "Kapuno",
+    "spriteId": 633,
+    "types": [
+      "dark",
+      "dragon"
+    ],
     "evolution_chain_id": 323
   },
   {
     "id": 634,
     "slug": "zweilous",
+    "nameEn": "Zweilous",
     "nameDe": "Duodino",
+    "spriteId": 634,
+    "types": [
+      "dark",
+      "dragon"
+    ],
     "evolution_chain_id": 323
   },
   {
     "id": 635,
     "slug": "hydreigon",
+    "nameEn": "Hydreigon",
     "nameDe": "Trikephalo",
+    "spriteId": 635,
+    "types": [
+      "dark",
+      "dragon"
+    ],
     "evolution_chain_id": 323
   },
   {
     "id": 636,
     "slug": "larvesta",
+    "nameEn": "Larvesta",
     "nameDe": "Ignivor",
+    "spriteId": 636,
+    "types": [
+      "bug",
+      "fire"
+    ],
     "evolution_chain_id": 324
   },
   {
     "id": 637,
     "slug": "volcarona",
+    "nameEn": "Volcarona",
     "nameDe": "Ramoth",
+    "spriteId": 637,
+    "types": [
+      "bug",
+      "fire"
+    ],
     "evolution_chain_id": 324
   },
   {
     "id": 638,
     "slug": "cobalion",
+    "nameEn": "Cobalion",
     "nameDe": "Kobalium",
+    "spriteId": 638,
+    "types": [
+      "steel",
+      "fighting"
+    ],
     "evolution_chain_id": 325
   },
   {
     "id": 639,
     "slug": "terrakion",
+    "nameEn": "Terrakion",
     "nameDe": "Terrakium",
+    "spriteId": 639,
+    "types": [
+      "rock",
+      "fighting"
+    ],
     "evolution_chain_id": 326
   },
   {
     "id": 640,
     "slug": "virizion",
+    "nameEn": "Virizion",
     "nameDe": "Viridium",
+    "spriteId": 640,
+    "types": [
+      "grass",
+      "fighting"
+    ],
     "evolution_chain_id": 327
   },
   {
     "id": 641,
     "slug": "tornadus-incarnate",
+    "nameEn": "Tornadus Incarnate",
     "nameDe": "Boreos",
+    "spriteId": 641,
+    "types": [
+      "flying"
+    ],
     "evolution_chain_id": 328
   },
   {
     "id": 642,
     "slug": "thundurus-incarnate",
+    "nameEn": "Thundurus Incarnate",
     "nameDe": "Voltolos",
+    "spriteId": 642,
+    "types": [
+      "electric",
+      "flying"
+    ],
     "evolution_chain_id": 329
   },
   {
     "id": 643,
     "slug": "reshiram",
+    "nameEn": "Reshiram",
     "nameDe": "Reshiram",
+    "spriteId": 643,
+    "types": [
+      "dragon",
+      "fire"
+    ],
     "evolution_chain_id": 330
   },
   {
     "id": 644,
     "slug": "zekrom",
+    "nameEn": "Zekrom",
     "nameDe": "Zekrom",
+    "spriteId": 644,
+    "types": [
+      "dragon",
+      "electric"
+    ],
     "evolution_chain_id": 331
   },
   {
     "id": 645,
     "slug": "landorus-incarnate",
+    "nameEn": "Landorus Incarnate",
     "nameDe": "Demeteros",
+    "spriteId": 645,
+    "types": [
+      "ground",
+      "flying"
+    ],
     "evolution_chain_id": 332
   },
   {
     "id": 646,
     "slug": "kyurem",
+    "nameEn": "Kyurem",
     "nameDe": "Kyurem",
+    "spriteId": 646,
+    "types": [
+      "dragon",
+      "ice"
+    ],
     "evolution_chain_id": 333
   },
   {
     "id": 647,
     "slug": "keldeo-ordinary",
+    "nameEn": "Keldeo Ordinary",
     "nameDe": "Keldeo",
+    "spriteId": 647,
+    "types": [
+      "water",
+      "fighting"
+    ],
     "evolution_chain_id": 334
   },
   {
     "id": 648,
     "slug": "meloetta-aria",
+    "nameEn": "Meloetta Aria",
     "nameDe": "Meloetta",
+    "spriteId": 648,
+    "types": [
+      "normal",
+      "psychic"
+    ],
     "evolution_chain_id": 335
   },
   {
     "id": 649,
     "slug": "genesect",
+    "nameEn": "Genesect",
     "nameDe": "Genesect",
+    "spriteId": 649,
+    "types": [
+      "bug",
+      "steel"
+    ],
     "evolution_chain_id": 336
   }
 ]

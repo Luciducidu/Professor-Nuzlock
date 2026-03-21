@@ -4,6 +4,7 @@ import { EncounterFormModal } from '../components/EncounterFormModal'
 import { PokemonLabel } from '../components/PokemonLabel'
 import { SoullinkEncounterPairModal } from '../components/SoullinkEncounterPairModal'
 import { ProjectLayout } from '../components/ProjectLayout'
+import { getEncounterDraftsForProject } from '../lib/encounterDrafts'
 import { db, ensureDatabaseReady } from '../lib/db'
 import { isSoulLinkProject } from '../lib/projectSettings'
 import {
@@ -13,7 +14,7 @@ import {
   getSoullinkExtraPairs,
   type SoullinkEncounterPair,
 } from '../lib/soullink'
-import type { Encounter, EncounterType, Location, LocationType, Project } from '../lib/types'
+import type { Encounter, EncounterDraft, EncounterType, Location, LocationType, Project } from '../lib/types'
 
 const LOCATION_TYPE_OPTIONS: Array<{ value: LocationType; label: string }> = [
   { value: 'route', label: 'Route' },
@@ -51,6 +52,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
   const [location, setLocation] = useState<Location | null>(null)
   const [encountersAtLocation, setEncountersAtLocation] = useState<Encounter[]>([])
   const [projectEncounters, setProjectEncounters] = useState<Encounter[]>([])
+  const [draftsAtLocation, setDraftsAtLocation] = useState<EncounterDraft[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -76,10 +78,11 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
       try {
         await ensureDatabaseReady()
 
-        const [loadedLocation, loadedLocationEncounters, loadedProjectEncounters] = await Promise.all([
+        const [loadedLocation, loadedLocationEncounters, loadedProjectEncounters, loadedDrafts] = await Promise.all([
           db.locations.get(locationId),
           getEncountersForLocation(projectId, locationId),
           db.encounters.where('projectId').equals(projectId).toArray(),
+          getEncounterDraftsForProject(projectId),
         ])
 
         if (!active) return
@@ -93,6 +96,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
         setLocation(loadedLocation)
         setEncountersAtLocation(loadedLocationEncounters)
         setProjectEncounters(loadedProjectEncounters)
+        setDraftsAtLocation(loadedDrafts.filter((draft) => draft.locationId === locationId))
         setName(loadedLocation.name)
         setType(loadedLocation.type)
         setOrderValue(String(loadedLocation.order))
@@ -120,13 +124,15 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
 
     try {
       await ensureDatabaseReady()
-      const [loadedLocationEncounters, loadedProjectEncounters] = await Promise.all([
+      const [loadedLocationEncounters, loadedProjectEncounters, loadedDrafts] = await Promise.all([
         getEncountersForLocation(projectId, locationId),
         db.encounters.where('projectId').equals(projectId).toArray(),
+        getEncounterDraftsForProject(projectId),
       ])
 
       setEncountersAtLocation(loadedLocationEncounters)
       setProjectEncounters(loadedProjectEncounters)
+      setDraftsAtLocation(loadedDrafts.filter((draft) => draft.locationId === locationId))
       setError('')
     } catch (refreshError) {
       console.error(refreshError)
@@ -182,6 +188,9 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
   const soulLinkMode = isSoulLinkProject(project)
   const soulLinkPair = getPrimarySoullinkPair(encountersAtLocation)
   const soulLinkExtraPairs = getSoullinkExtraPairs(encountersAtLocation)
+  const singleDraft = draftsAtLocation.find((draft) => draft.draftType === 'single') ?? null
+  const mainDraft = draftsAtLocation.find((draft) => draft.draftType === 'main') ?? null
+  const extraDraft = draftsAtLocation.find((draft) => draft.draftType === 'extra') ?? null
 
   return (
     <>
@@ -307,7 +316,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
                   }}
                   className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
                 >
-                  Hauptbegegnung erfassen
+                  {mainDraft ? 'Hauptentwurf weiterbearbeiten' : 'Hauptbegegnung erfassen'}
                 </button>
                 <button
                   type="button"
@@ -317,7 +326,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
                   }}
                   className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                 >
-                  Extra-Begegnung hinzufügen
+                  {extraDraft ? 'Extra-Entwurf weiterbearbeiten' : 'Extra-Begegnung hinzufügen'}
                 </button>
               </>
             ) : (
@@ -329,11 +338,51 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
                 }}
                 className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
               >
-                Begegnung hinzufügen
+                {singleDraft ? 'Entwurf weiterbearbeiten' : 'Begegnung hinzufügen'}
               </button>
             )}
           </div>
         </div>
+
+        {soulLinkMode ? (
+          <div className="mb-4 grid gap-3 lg:grid-cols-2">
+            {mainDraft ? (
+              <DraftInfoCard
+                title="Soullink-Hauptentwurf vorhanden"
+                text={
+                  mainDraft.isComplete
+                    ? mainDraft.finalSaveAllowed
+                      ? 'Der Entwurf ist vollständig und kann final gespeichert werden.'
+                      : 'Der Entwurf ist vorhanden, aber aktuell nicht final speicherbar.'
+                    : 'Unvollständiger Soullink-Entwurf. Beide Seiten müssen ausgefüllt sein.'
+                }
+              />
+            ) : null}
+            {extraDraft ? (
+              <DraftInfoCard
+                title="Soullink-Extra-Entwurf vorhanden"
+                text={
+                  extraDraft.isComplete
+                    ? extraDraft.finalSaveAllowed
+                      ? 'Der Extra-Entwurf ist vollständig und kann final gespeichert werden.'
+                      : 'Der Extra-Entwurf ist vorhanden, aber aktuell nicht final speicherbar.'
+                    : 'Unvollständiger Soullink-Entwurf. Beide Seiten müssen ausgefüllt sein.'
+                }
+              />
+            ) : null}
+          </div>
+        ) : singleDraft ? (
+          <div className="mb-4">
+            <DraftInfoCard
+              title="Entwurf vorhanden"
+              text={
+                singleDraft.finalSaveAllowed
+                  ? 'Du bearbeitest hier einen Entwurf, der final gespeichert werden kann.'
+                  : 'Du bearbeitest hier einen Entwurf, der aktuell nicht final speicherbar ist.'
+              }
+            />
+          </div>
+        ) : null}
 
         {soulLinkMode ? (
           <div className="space-y-6">
@@ -434,11 +483,13 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
           title={pairModalMode === 'main' ? 'Soullink-Hauptbegegnung' : 'Soullink-Extra-Begegnung'}
           allowedEncounterTypes={pairModalMode === 'main' ? ['normal'] : ['shiny', 'static', 'gift']}
           defaultEncounterType={pairModalMode === 'main' ? 'normal' : 'shiny'}
+          draftType={pairModalMode === 'main' ? 'main' : 'extra'}
           onClose={() => {
             setPairModalMode(null)
             setEditingPair(null)
           }}
           onSaved={refreshEncounters}
+          onDraftChanged={refreshEncounters}
         />
       ) : null}
 
@@ -455,6 +506,7 @@ function LocationDetailContent({ project, projectId }: { project: Project; proje
             setEditingEncounter(undefined)
           }}
           onSaved={refreshEncounters}
+          onDraftChanged={refreshEncounters}
         />
       ) : null}
 
@@ -642,6 +694,15 @@ function InfoItem({ label, value }: { label: string; value: string }) {
     <div className="rounded-md border border-slate-200 px-3 py-2">
       <dt className="text-xs uppercase tracking-wide text-slate-500">{label}</dt>
       <dd className="mt-1 font-medium text-slate-900">{value}</dd>
+    </div>
+  )
+}
+
+function DraftInfoCard({ title, text }: { title: string; text: string }) {
+  return (
+    <div className="rounded-lg border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-sky-800">
+      <p className="font-semibold text-sky-900">{title}</p>
+      <p className="mt-1">{text}</p>
     </div>
   )
 }
