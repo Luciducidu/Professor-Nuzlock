@@ -72,8 +72,8 @@ export type EvolutionChain = {
 
 type SearchResult = PokedexEntry
 
-const POKEDEX_INDEX = pokedexIndex as PokedexEntry[]
-const EVOLUTION_CHAINS = evolutionData as EvolutionChain[]
+const POKEDEX_INDEX = (Array.isArray(pokedexIndex) ? pokedexIndex : []) as PokedexEntry[]
+const EVOLUTION_CHAINS = (Array.isArray(evolutionData) ? evolutionData : []) as EvolutionChain[]
 
 const POKEDEX_BY_ID = new Map(POKEDEX_INDEX.map((entry) => [entry.id, entry]))
 const EVOLUTION_BY_CHAIN_ID = new Map(EVOLUTION_CHAINS.map((entry) => [entry.chainId, entry]))

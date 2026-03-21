@@ -4,6 +4,7 @@ import { db, ensureDatabaseReady, resetDatabase } from '../lib/db'
 import { normalizeProject } from '../lib/projectSettings'
 import type { Project } from '../lib/types'
 import { AppShell } from './AppShell'
+import { ProjectErrorBoundary } from './ProjectErrorBoundary'
 import { PokedexPanel } from './PokedexPanel'
 import { usePokedex } from './PokedexProvider'
 import { ProjectNav } from './ProjectNav'
@@ -32,7 +33,12 @@ export function ProjectLayout({ children, actions, showBackupNav = true }: Proje
     const loadProject = async () => {
       try {
         const ready = await ensureDatabaseReady()
-        const loadedProject = await db.projects.get(projectId)
+        const projectsTable = db?.projects
+        if (!projectsTable) {
+          throw new Error('Projekttabelle ist nicht verfügbar.')
+        }
+
+        const loadedProject = await projectsTable.get(projectId)
         if (!active) return
 
         setProject(loadedProject ? normalizeProject(loadedProject) : null)
@@ -107,14 +113,16 @@ export function ProjectLayout({ children, actions, showBackupNav = true }: Proje
 
   return (
     <AppShell title="Professor Nuzlock" subtitle={project.name} actions={actions}>
-      <PokedexPanel />
-      {dbResetNotice ? (
-        <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800 shadow-sm">
-          {dbResetNotice}
-        </div>
-      ) : null}
-      <ProjectNav projectId={projectId} showBackup={showBackupNav} />
-      {children({ project, projectId })}
+      <ProjectErrorBoundary>
+        <PokedexPanel />
+        {dbResetNotice ? (
+          <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800 shadow-sm">
+            {dbResetNotice}
+          </div>
+        ) : null}
+        <ProjectNav projectId={projectId} showBackup={showBackupNav} />
+        {children({ project, projectId })}
+      </ProjectErrorBoundary>
     </AppShell>
   )
 }
