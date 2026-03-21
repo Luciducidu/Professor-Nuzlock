@@ -7,6 +7,10 @@ const pokemonIndexOutput = path.resolve(dataDir, 'pokemonIndex.json')
 const pokedexIndexOutput = path.resolve(dataDir, 'pokedexIndex.json')
 const evolutionDataOutput = path.resolve(dataDir, 'evolutionData.json')
 const MAX_ID = 649
+const LEARNSET_VERSION_GROUPS = {
+  gen4: 'platinum',
+  gen5: 'black-2-white-2',
+}
 
 const resourceCache = new Map()
 const localizedNameCache = new Map()
@@ -107,6 +111,46 @@ async function normalizeAbilities(abilities) {
   return normalized
 }
 
+async function normalizeLevelUpMoves(moves) {
+  const grouped = {
+    gen4: new Map(),
+    gen5: new Map(),
+  }
+
+  for (const moveEntry of moves) {
+    const relevantDetails = (moveEntry.version_group_details ?? []).filter(
+      (detail) =>
+        detail.move_learn_method?.name === 'level-up' &&
+        (detail.version_group?.name === LEARNSET_VERSION_GROUPS.gen4 ||
+          detail.version_group?.name === LEARNSET_VERSION_GROUPS.gen5),
+    )
+    if (relevantDetails.length === 0) continue
+
+    const moveNameDe = await getLocalizedResourceName(moveEntry.move.url, prettifySlug(moveEntry.move.name))
+    const moveNameEn = prettifySlug(moveEntry.move.name)
+
+    for (const detail of relevantDetails) {
+      const generationKey =
+        detail.version_group?.name === LEARNSET_VERSION_GROUPS.gen5 ? 'gen5' : 'gen4'
+      const level = Number(detail.level_learned_at ?? 0)
+      const bucket = grouped[generationKey]
+      const key = `${level}:${moveEntry.move.name}`
+      if (!bucket.has(key)) {
+        bucket.set(key, {
+          level,
+          moveNameDe,
+          moveNameEn,
+        })
+      }
+    }
+  }
+
+  return {
+    gen4: Array.from(grouped.gen4.values()).sort((a, b) => (a.level !== b.level ? a.level - b.level : a.moveNameDe.localeCompare(b.moveNameDe, 'de'))),
+    gen5: Array.from(grouped.gen5.values()).sort((a, b) => (a.level !== b.level ? a.level - b.level : a.moveNameDe.localeCompare(b.moveNameDe, 'de'))),
+  }
+}
+
 async function buildFormEntry(baseEntry, variety, speciesBaseNameDe) {
   const pokemon = await fetchJson(variety.pokemon.url)
   const pokemonForm = await fetchJson(`https://pokeapi.co/api/v2/pokemon-form/${variety.pokemon.name}/`).catch(() => null)
@@ -129,6 +173,7 @@ async function buildFormEntry(baseEntry, variety, speciesBaseNameDe) {
     types: [...pokemon.types].sort((a, b) => a.slot - b.slot).map((typeEntry) => typeEntry.type.name),
     abilities: await normalizeAbilities(pokemon.abilities),
     stats: normalizeStats(pokemon.stats),
+    levelUpMovesByGeneration: await normalizeLevelUpMoves(pokemon.moves),
     isDefault: Boolean(variety.is_default),
   }
 }

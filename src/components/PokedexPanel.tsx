@@ -3,6 +3,7 @@ import {
   getDefaultForm,
   getEvolutionChain,
   getFormByKey,
+  getLevelUpMovesForForm,
   getPokedexEntry,
   getSpriteUrl,
   getTypeMeta,
@@ -11,6 +12,7 @@ import {
   type EvolutionChainNode,
   type PokedexFormAbility,
 } from '../lib/pokedex'
+import { formatGameName } from '../lib/projectSettings'
 import { usePokedex } from './PokedexProvider'
 
 const POKEDEX_ICON_URL = `${import.meta.env.BASE_URL}ui/pokedex-cover.jpg`
@@ -21,6 +23,7 @@ export function PokedexPanel() {
     query,
     selectedPokemonId,
     selectedFormKey,
+    currentGame,
     setQuery,
     selectPokemon,
     selectForm,
@@ -35,6 +38,7 @@ export function PokedexPanel() {
   const selectedEntry = getPokedexEntry(selectedPokemonId)
   const activeForm = getFormByKey(selectedEntry, selectedFormKey) ?? getDefaultForm(selectedEntry)
   const selectedChain = getEvolutionChain(selectedEntry?.evolution_chain_id)
+  const levelUpMoves = getLevelUpMovesForForm(activeForm, currentGame)
   const searchResultsActive =
     query.trim().length > 0 && (!selectedEntry || !queryMatchesPokedexEntry(query, selectedEntry, activeForm?.key))
 
@@ -201,6 +205,36 @@ export function PokedexPanel() {
                   />
                 ) : (
                   <p className="text-sm text-slate-500">Keine Entwicklungsdaten verfügbar.</p>
+                )}
+              </section>
+
+              <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h3 className="text-xl font-semibold text-slate-900">Level-Up-Attacken</h3>
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+                    Learnset für {formatGameName(currentGame)}
+                  </span>
+                </div>
+                {levelUpMoves.length > 0 ? (
+                  <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+                    <div className="grid grid-cols-[120px_1fr_1fr] gap-4 border-b border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700">
+                      <span>Level</span>
+                      <span>Attacke</span>
+                      <span>Englisch</span>
+                    </div>
+                    {levelUpMoves.map((move) => (
+                      <div
+                        key={`${move.level}-${move.moveNameEn}`}
+                        className="grid grid-cols-[120px_1fr_1fr] gap-4 border-b border-slate-200 px-5 py-3 text-sm text-slate-800 last:border-b-0"
+                      >
+                        <span className="font-semibold text-slate-900">Level {move.level}</span>
+                        <span>{move.moveNameDe}</span>
+                        <span className="text-slate-500">{move.moveNameEn}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-sm text-slate-500">Keine Level-Up-Attacken gefunden.</p>
                 )}
               </section>
             </div>

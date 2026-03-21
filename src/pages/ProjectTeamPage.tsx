@@ -405,14 +405,14 @@ function SoloTeamContent({ project, projectId }: { project: Project; projectId: 
       onDragCancel={() => setDragPreview(null)}
     >
       <>
-        <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-slate-900">Team-Editor ({project.name})</h2>
           <p className="mt-1 text-sm text-slate-600">
             Ziehe Pokémon aus der Box in einen Slot oder tausche belegte Slots per Drag & Drop.
           </p>
 
           <SortableContext items={SLOT_NUMBERS.map((slot) => toSlotId(slot))} strategy={rectSortingStrategy}>
-            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {SLOT_NUMBERS.map((slotNumber) => (
                 <TeamSlotCard
                   key={slotNumber}
@@ -428,7 +428,7 @@ function SoloTeamContent({ project, projectId }: { project: Project; projectId: 
           </SortableContext>
         </section>
 
-        <section className="mt-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <section className="mt-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="text-lg font-semibold text-slate-900">Box (Gefangen)</h2>
             <div className="w-full max-w-sm">
@@ -533,7 +533,7 @@ function TeamSlotCard({
       onKeyDown={(event) => {
         if (event.key === 'Enter' || event.key === ' ') onSelect(slotNumber)
       }}
-      className={`rounded-xl border bg-white p-3 transition-colors ${
+      className={`rounded-xl border bg-white p-4 transition-colors ${
         isOver
           ? 'border-sky-500 bg-sky-50'
           : isActive
@@ -544,7 +544,7 @@ function TeamSlotCard({
     >
       <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Slot {slotNumber}</p>
       <div
-        className="mt-2 min-h-[96px]"
+        className="mt-3 min-h-[116px]"
         ref={slot ? draggable.setNodeRef : undefined}
         {...draggable.listeners}
         {...draggable.attributes}

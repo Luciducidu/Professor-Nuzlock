@@ -1,6 +1,7 @@
 import evolutionData from '../data/evolutionData.json'
 import pokedexIndex from '../data/pokedexIndex.json'
 import { TYPE_META, type PokemonTypeKey } from '../data/typeMeta'
+import type { ProjectGame } from './types'
 
 export type PokedexFormAbility = {
   nameDe: string
@@ -18,6 +19,14 @@ export type PokedexFormStats = {
   total: number
 }
 
+export type LearnsetGenerationKey = 'gen4' | 'gen5'
+
+export type PokedexLevelUpMove = {
+  level: number
+  moveNameDe: string
+  moveNameEn: string
+}
+
 export type PokedexFormEntry = {
   key: string
   pokemonId: number
@@ -28,6 +37,7 @@ export type PokedexFormEntry = {
   types: PokemonTypeKey[]
   abilities: PokedexFormAbility[]
   stats: PokedexFormStats
+  levelUpMovesByGeneration: Record<LearnsetGenerationKey, PokedexLevelUpMove[]>
   isDefault: boolean
 }
 
@@ -152,4 +162,13 @@ export function getTypeMeta(type: PokemonTypeKey) {
 
 export function getSpriteUrl(spriteId: number) {
   return `${import.meta.env.BASE_URL}sprites/${spriteId}.png`
+}
+
+export function getLearnsetGenerationForGame(game: ProjectGame): LearnsetGenerationKey {
+  return game === 'bw2' ? 'gen5' : 'gen4'
+}
+
+export function getLevelUpMovesForForm(form: PokedexFormEntry | null, game: ProjectGame) {
+  if (!form) return []
+  return form.levelUpMovesByGeneration[getLearnsetGenerationForGame(game)] ?? []
 }

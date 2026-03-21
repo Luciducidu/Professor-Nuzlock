@@ -5,6 +5,7 @@ import { normalizeProject } from '../lib/projectSettings'
 import type { Project } from '../lib/types'
 import { AppShell } from './AppShell'
 import { PokedexPanel } from './PokedexPanel'
+import { usePokedex } from './PokedexProvider'
 import { ProjectNav } from './ProjectNav'
 
 type ProjectLayoutChildren = (context: { project: Project; projectId: string }) => ReactNode
@@ -16,6 +17,7 @@ type ProjectLayoutProps = {
 }
 
 export function ProjectLayout({ children, actions, showBackupNav = true }: ProjectLayoutProps) {
+  const { setCurrentGame } = usePokedex()
   const { id: projectId } = useParams<{ id: string }>()
   const [project, setProject] = useState<Project | null>(null)
   const [loading, setLoading] = useState(true)
@@ -56,6 +58,11 @@ export function ProjectLayout({ children, actions, showBackupNav = true }: Proje
       active = false
     }
   }, [projectId])
+
+  useEffect(() => {
+    if (!project) return
+    setCurrentGame(project.game)
+  }, [project, setCurrentGame])
 
   if (!projectId) {
     return (
