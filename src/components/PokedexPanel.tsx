@@ -4,6 +4,7 @@ import {
   getEvolutionChain,
   getFormByKey,
   getLevelUpMovesForForm,
+  getMoveBySlug,
   getPokedexEntry,
   getSpriteUrl,
   getTypeMeta,
@@ -217,21 +218,31 @@ export function PokedexPanel() {
                 </div>
                 {levelUpMoves.length > 0 ? (
                   <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
-                    <div className="grid grid-cols-[120px_1fr_1fr] gap-4 border-b border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700">
+                    <div className="grid grid-cols-[110px_1.6fr_140px_100px_120px] gap-4 border-b border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700">
                       <span>Level</span>
                       <span>Attacke</span>
-                      <span>Englisch</span>
+                      <span>Kategorie</span>
+                      <span>Stärke</span>
+                      <span>Genauigkeit</span>
                     </div>
-                    {levelUpMoves.map((move) => (
-                      <div
-                        key={`${move.level}-${move.moveNameEn}`}
-                        className="grid grid-cols-[120px_1fr_1fr] gap-4 border-b border-slate-200 px-5 py-3 text-sm text-slate-800 last:border-b-0"
-                      >
-                        <span className="font-semibold text-slate-900">Level {move.level}</span>
-                        <span>{move.moveNameDe}</span>
-                        <span className="text-slate-500">{move.moveNameEn}</span>
-                      </div>
-                    ))}
+                    {levelUpMoves.map((move) => {
+                      const moveMeta = getMoveBySlug(move.moveSlug)
+                      return (
+                        <div
+                          key={`${move.level}-${move.moveSlug}`}
+                          className="grid grid-cols-[110px_1.6fr_140px_100px_120px] gap-4 border-b border-slate-200 px-5 py-3 text-sm text-slate-800 last:border-b-0"
+                        >
+                          <span className="font-semibold text-slate-900">Level {move.level}</span>
+                          <div className="min-w-0">
+                            <div className="font-medium text-slate-900">{moveMeta?.nameDe ?? move.moveSlug}</div>
+                            <div className="truncate text-xs text-slate-500">{moveMeta?.nameEn ?? '—'}</div>
+                          </div>
+                          <MoveCategoryBadge damageClass={moveMeta?.damageClass} />
+                          <span className="font-medium text-slate-900">{moveMeta?.power ?? '—'}</span>
+                          <span className="font-medium text-slate-900">{moveMeta?.accuracy ?? '—'}</span>
+                        </div>
+                      )
+                    })}
                   </div>
                 ) : (
                   <p className="text-sm text-slate-500">Keine Level-Up-Attacken gefunden.</p>
@@ -450,5 +461,30 @@ function AbilityList({
         <p className="text-sm text-slate-500">{emptyText}</p>
       )}
     </div>
+  )
+}
+
+function MoveCategoryBadge({
+  damageClass,
+}: {
+  damageClass: 'physical' | 'special' | 'status' | null | undefined
+}) {
+  const normalized = damageClass ?? 'status'
+  const iconUrl = `${import.meta.env.BASE_URL}ui/move-category/${normalized}.svg`
+  const label = normalized === 'physical' ? 'Physisch' : normalized === 'special' ? 'Speziell' : 'Status'
+  const [hidden, setHidden] = useState(false)
+
+  return (
+    <span
+      className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-700"
+      title={label}
+    >
+      {!hidden ? (
+        <img src={iconUrl} alt={label} className="h-5 w-10 shrink-0 rounded-full" loading="lazy" onError={() => setHidden(true)} />
+      ) : (
+        <span>{label}</span>
+      )}
+      {!hidden ? <span>{label}</span> : null}
+    </span>
   )
 }

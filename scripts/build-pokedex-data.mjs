@@ -6,6 +6,7 @@ const dataDir = path.resolve(projectRoot, 'src', 'data')
 const pokemonIndexOutput = path.resolve(dataDir, 'pokemonIndex.json')
 const pokedexIndexOutput = path.resolve(dataDir, 'pokedexIndex.json')
 const evolutionDataOutput = path.resolve(dataDir, 'evolutionData.json')
+const moveIndexOutput = path.resolve(dataDir, 'moveIndex.json')
 const MAX_ID = 649
 const LEARNSET_VERSION_GROUPS = {
   gen4: 'platinum',
@@ -14,6 +15,7 @@ const LEARNSET_VERSION_GROUPS = {
 
 const resourceCache = new Map()
 const localizedNameCache = new Map()
+const moveMetaBySlug = new Map()
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -128,6 +130,22 @@ async function normalizeLevelUpMoves(moves) {
 
     const moveNameDe = await getLocalizedResourceName(moveEntry.move.url, prettifySlug(moveEntry.move.name))
     const moveNameEn = prettifySlug(moveEntry.move.name)
+    const moveData = await fetchJson(moveEntry.move.url)
+    const damageClass = moveData.damage_class?.name ?? 'status'
+
+    if (!moveMetaBySlug.has(moveEntry.move.name)) {
+      moveMetaBySlug.set(moveEntry.move.name, {
+        slug: moveEntry.move.name,
+        nameDe: moveNameDe,
+        nameEn: moveNameEn,
+        power: typeof moveData.power === 'number' ? moveData.power : null,
+        accuracy: typeof moveData.accuracy === 'number' ? moveData.accuracy : null,
+        damageClass:
+          damageClass === 'physical' || damageClass === 'special' || damageClass === 'status'
+            ? damageClass
+            : 'status',
+      })
+    }
 
     for (const detail of relevantDetails) {
       const generationKey =
@@ -138,16 +156,15 @@ async function normalizeLevelUpMoves(moves) {
       if (!bucket.has(key)) {
         bucket.set(key, {
           level,
-          moveNameDe,
-          moveNameEn,
+          moveSlug: moveEntry.move.name,
         })
       }
     }
   }
 
   return {
-    gen4: Array.from(grouped.gen4.values()).sort((a, b) => (a.level !== b.level ? a.level - b.level : a.moveNameDe.localeCompare(b.moveNameDe, 'de'))),
-    gen5: Array.from(grouped.gen5.values()).sort((a, b) => (a.level !== b.level ? a.level - b.level : a.moveNameDe.localeCompare(b.moveNameDe, 'de'))),
+    gen4: Array.from(grouped.gen4.values()).sort((a, b) => (a.level !== b.level ? a.level - b.level : a.moveSlug.localeCompare(b.moveSlug, 'de'))),
+    gen5: Array.from(grouped.gen5.values()).sort((a, b) => (a.level !== b.level ? a.level - b.level : a.moveSlug.localeCompare(b.moveSlug, 'de'))),
   }
 }
 
@@ -388,10 +405,13 @@ async function buildPokedexData() {
     evolution_chain_id,
   }))
 
+  const moveIndex = Array.from(moveMetaBySlug.values()).sort((a, b) => a.nameDe.localeCompare(b.nameDe, 'de'))
+
   await mkdir(dataDir, { recursive: true })
   await writeFile(pokemonIndexOutput, `${JSON.stringify(pokemonIndex, null, 2)}\n`, 'utf8')
   await writeFile(pokedexIndexOutput, `${JSON.stringify(entries, null, 2)}\n`, 'utf8')
   await writeFile(evolutionDataOutput, `${JSON.stringify(evolutionChains, null, 2)}\n`, 'utf8')
+  await writeFile(moveIndexOutput, `${JSON.stringify(moveIndex, null, 2)}\n`, 'utf8')
 
   console.log(`pokemonIndex.json geschrieben: ${pokemonIndexOutput}`)
   console.log(`pokedexIndex.json geschrieben: ${pokedexIndexOutput}`)

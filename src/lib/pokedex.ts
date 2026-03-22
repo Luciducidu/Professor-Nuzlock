@@ -1,4 +1,5 @@
 import evolutionData from '../data/evolutionData.json'
+import moveIndex from '../data/moveIndex.json'
 import pokedexIndex from '../data/pokedexIndex.json'
 import { TYPE_META, type PokemonTypeKey } from '../data/typeMeta'
 import type { ProjectGame } from './types'
@@ -23,8 +24,16 @@ export type LearnsetGenerationKey = 'gen4' | 'gen5'
 
 export type PokedexLevelUpMove = {
   level: number
-  moveNameDe: string
-  moveNameEn: string
+  moveSlug: string
+}
+
+export type PokedexMoveEntry = {
+  slug: string
+  nameDe: string
+  nameEn: string
+  power: number | null
+  accuracy: number | null
+  damageClass: 'physical' | 'special' | 'status'
 }
 
 export type PokedexFormEntry = {
@@ -74,9 +83,11 @@ type SearchResult = PokedexEntry
 
 const POKEDEX_INDEX = (Array.isArray(pokedexIndex) ? pokedexIndex : []) as PokedexEntry[]
 const EVOLUTION_CHAINS = (Array.isArray(evolutionData) ? evolutionData : []) as EvolutionChain[]
+const MOVE_INDEX = (Array.isArray(moveIndex) ? moveIndex : []) as PokedexMoveEntry[]
 
 const POKEDEX_BY_ID = new Map(POKEDEX_INDEX.map((entry) => [entry.id, entry]))
 const EVOLUTION_BY_CHAIN_ID = new Map(EVOLUTION_CHAINS.map((entry) => [entry.chainId, entry]))
+const MOVE_BY_SLUG = new Map(MOVE_INDEX.map((entry) => [entry.slug, entry]))
 
 export function getPokedexEntry(pokemonId: number | null | undefined) {
   if (!pokemonId) return null
@@ -171,4 +182,9 @@ export function getLearnsetGenerationForGame(game: ProjectGame): LearnsetGenerat
 export function getLevelUpMovesForForm(form: PokedexFormEntry | null, game: ProjectGame) {
   if (!form) return []
   return form.levelUpMovesByGeneration[getLearnsetGenerationForGame(game)] ?? []
+}
+
+export function getMoveBySlug(moveSlug: string | null | undefined) {
+  if (!moveSlug) return null
+  return MOVE_BY_SLUG.get(moveSlug) ?? null
 }

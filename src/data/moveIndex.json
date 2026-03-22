@@ -1,0 +1,4314 @@
+[
+  {
+    "slug": "destiny-bond",
+    "nameDe": "Abgangsbund",
+    "nameEn": "Destiny Bond",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "perish-song",
+    "nameDe": "Abgesang",
+    "nameEn": "Perish Song",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "drain-punch",
+    "nameDe": "Ableithieb",
+    "nameEn": "Drain Punch",
+    "power": 75,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "knock-off",
+    "nameDe": "Abschlag",
+    "nameEn": "Knock Off",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "absorb",
+    "nameDe": "Absorber",
+    "nameEn": "Absorb",
+    "power": 20,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "aerial-ace",
+    "nameDe": "Aero-Ass",
+    "nameEn": "Aerial Ace",
+    "power": 60,
+    "accuracy": null,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "agility",
+    "nameDe": "Agilität",
+    "nameEn": "Agility",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "acrobatics",
+    "nameDe": "Akrobatik",
+    "nameEn": "Acrobatics",
+    "power": 55,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "acupressure",
+    "nameDe": "Akupressur",
+    "nameEn": "Acupressure",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "amnesia",
+    "nameDe": "Amnesie",
+    "nameEn": "Amnesia",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "signal-beam",
+    "nameDe": "Ampelleuchte",
+    "nameEn": "Signal Beam",
+    "power": 75,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "swagger",
+    "nameDe": "Angeberei",
+    "nameEn": "Swagger",
+    "power": null,
+    "accuracy": 85,
+    "damageClass": "status"
+  },
+  {
+    "slug": "ancient-power",
+    "nameDe": "Antik-Kraft",
+    "nameEn": "Ancient Power",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "attract",
+    "nameDe": "Anziehung",
+    "nameEn": "Attract",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "water-gun",
+    "nameDe": "Aquaknarre",
+    "nameEn": "Water Gun",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "water-pulse",
+    "nameDe": "Aquawelle",
+    "nameEn": "Water Pulse",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "arm-thrust",
+    "nameDe": "Armstoß",
+    "nameEn": "Arm Thrust",
+    "power": 15,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "aromatherapy",
+    "nameDe": "Aromakur",
+    "nameEn": "Aromatherapy",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "recycle",
+    "nameDe": "Aufbereitung",
+    "nameEn": "Recycle",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "defog",
+    "nameDe": "Auflockern",
+    "nameEn": "Defog",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "uproar",
+    "nameDe": "Aufruhr",
+    "nameEn": "Uproar",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "aura-sphere",
+    "nameDe": "Aurasphäre",
+    "nameEn": "Aura Sphere",
+    "power": 80,
+    "accuracy": null,
+    "damageClass": "special"
+  },
+  {
+    "slug": "aurora-beam",
+    "nameDe": "Aurorastrahl",
+    "nameEn": "Aurora Beam",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "endure",
+    "nameDe": "Ausdauer",
+    "nameEn": "Endure",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "disable",
+    "nameDe": "Aussetzer",
+    "nameEn": "Disable",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "wring-out",
+    "nameDe": "Auswringen",
+    "nameEn": "Wring Out",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "autotomize",
+    "nameDe": "Autotomie",
+    "nameEn": "Autotomize",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "barrier",
+    "nameDe": "Barriere",
+    "nameEn": "Barrier",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "belly-drum",
+    "nameDe": "Bauchtrommel",
+    "nameEn": "Belly Drum",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "cotton-spore",
+    "nameDe": "Baumwollsaat",
+    "nameEn": "Cotton Spore",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "natural-gift",
+    "nameDe": "Beerenkräfte",
+    "nameEn": "Natural Gift",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "imprison",
+    "nameDe": "Begrenzer",
+    "nameEn": "Imprison",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "storm-throw",
+    "nameDe": "Bergsturm",
+    "nameEn": "Storm Throw",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "lucky-chant",
+    "nameDe": "Beschwörung",
+    "nameEn": "Lucky Chant",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "covet",
+    "nameDe": "Bezirzer",
+    "nameEn": "Covet",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "bite",
+    "nameDe": "Biss",
+    "nameEn": "Bite",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sweet-kiss",
+    "nameDe": "Bitterkuss",
+    "nameEn": "Sweet Kiss",
+    "power": null,
+    "accuracy": 75,
+    "damageClass": "status"
+  },
+  {
+    "slug": "trick-room",
+    "nameDe": "Bizarroraum",
+    "nameEn": "Trick Room",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "leaf-storm",
+    "nameDe": "Blättersturm",
+    "nameEn": "Leaf Storm",
+    "power": 130,
+    "accuracy": 90,
+    "damageClass": "special"
+  },
+  {
+    "slug": "petal-dance",
+    "nameDe": "Blättertanz",
+    "nameEn": "Petal Dance",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "power-whip",
+    "nameDe": "Blattgeißel",
+    "nameEn": "Power Whip",
+    "power": 120,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "blue-flare",
+    "nameDe": "Blauflammen",
+    "nameEn": "Blue Flare",
+    "power": 130,
+    "accuracy": 85,
+    "damageClass": "special"
+  },
+  {
+    "slug": "flash",
+    "nameDe": "Blitz",
+    "nameEn": "Flash",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "zap-cannon",
+    "nameDe": "Blitzkanone",
+    "nameEn": "Zap Cannon",
+    "power": 120,
+    "accuracy": 50,
+    "damageClass": "special"
+  },
+  {
+    "slug": "bolt-strike",
+    "nameDe": "Blitzschlag",
+    "nameEn": "Bolt Strike",
+    "power": 130,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "blizzard",
+    "nameDe": "Blizzard",
+    "nameEn": "Blizzard",
+    "power": 110,
+    "accuracy": 70,
+    "damageClass": "special"
+  },
+  {
+    "slug": "defend-order",
+    "nameDe": "Blockbefehl",
+    "nameEn": "Defend Order",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "bubble",
+    "nameDe": "Blubber",
+    "nameEn": "Bubble",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "bubble-beam",
+    "nameDe": "Blubbstrahl",
+    "nameEn": "Bubble Beam",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "leech-life",
+    "nameDe": "Blutsauger",
+    "nameEn": "Leech Life",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "take-down",
+    "nameDe": "Bodycheck",
+    "nameEn": "Take Down",
+    "power": 90,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "safeguard",
+    "nameDe": "Bodyguard",
+    "nameEn": "Safeguard",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "body-slam",
+    "nameDe": "Bodyslam",
+    "nameEn": "Body Slam",
+    "power": 85,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "drill-peck",
+    "nameDe": "Bohrschnabel",
+    "nameEn": "Drill Peck",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "heat-crash",
+    "nameDe": "Brandstempel",
+    "nameEn": "Heat Crash",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "roar",
+    "nameDe": "Brüller",
+    "nameEn": "Roar",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "hex",
+    "nameDe": "Bürde",
+    "nameEn": "Hex",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "charm",
+    "nameDe": "Charme",
+    "nameEn": "Charm",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "bulldoze",
+    "nameDe": "Dampfwalze",
+    "nameEn": "Bulldoze",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "feather-dance",
+    "nameDe": "Daunenreigen",
+    "nameEn": "Feather Dance",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "substitute",
+    "nameDe": "Delegator",
+    "nameEn": "Substitute",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "thunder",
+    "nameDe": "Donner",
+    "nameEn": "Thunder",
+    "power": 110,
+    "accuracy": 70,
+    "damageClass": "special"
+  },
+  {
+    "slug": "thunderbolt",
+    "nameDe": "Donnerblitz",
+    "nameEn": "Thunderbolt",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "thunder-punch",
+    "nameDe": "Donnerschlag",
+    "nameEn": "Thunder Punch",
+    "power": 75,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "thunder-shock",
+    "nameDe": "Donnerschock",
+    "nameEn": "Thunder Shock",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "thunder-wave",
+    "nameDe": "Donnerwelle",
+    "nameEn": "Thunder Wave",
+    "power": null,
+    "accuracy": 90,
+    "damageClass": "status"
+  },
+  {
+    "slug": "thunder-fang",
+    "nameDe": "Donnerzahn",
+    "nameEn": "Thunder Fang",
+    "power": 65,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "dual-chop",
+    "nameDe": "Doppelhieb",
+    "nameEn": "Dual Chop",
+    "power": 40,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "double-kick",
+    "nameDe": "Doppelkick",
+    "nameEn": "Double Kick",
+    "power": 30,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "double-hit",
+    "nameDe": "Doppelschlag",
+    "nameEn": "Double Hit",
+    "power": 35,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "double-team",
+    "nameDe": "Doppelteam",
+    "nameEn": "Double Team",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "spike-cannon",
+    "nameDe": "Dornkanone",
+    "nameEn": "Spike Cannon",
+    "power": 20,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "dragon-claw",
+    "nameDe": "Drachenklaue",
+    "nameEn": "Dragon Claw",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "dragon-pulse",
+    "nameDe": "Drachenpuls",
+    "nameEn": "Dragon Pulse",
+    "power": 85,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "dragon-tail",
+    "nameDe": "Drachenrute",
+    "nameEn": "Dragon Tail",
+    "power": 60,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "dragon-rush",
+    "nameDe": "Drachenstoß",
+    "nameEn": "Dragon Rush",
+    "power": 100,
+    "accuracy": 75,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "dragon-dance",
+    "nameDe": "Drachentanz",
+    "nameEn": "Dragon Dance",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "dragon-rage",
+    "nameDe": "Drachenwut",
+    "nameEn": "Dragon Rage",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "triple-kick",
+    "nameDe": "Dreifachkick",
+    "nameEn": "Triple Kick",
+    "power": 10,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "flail",
+    "nameDe": "Dreschflegel",
+    "nameEn": "Flail",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "shadow-claw",
+    "nameDe": "Dunkelklaue",
+    "nameEn": "Shadow Claw",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "haze",
+    "nameDe": "Dunkelnebel",
+    "nameEn": "Haze",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "twineedle",
+    "nameDe": "Duonadel",
+    "nameEn": "Twineedle",
+    "power": 25,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "double-slap",
+    "nameDe": "Duplexhieb",
+    "nameEn": "Double Slap",
+    "power": 15,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "brick-break",
+    "nameDe": "Durchbruch",
+    "nameEn": "Brick Break",
+    "power": 75,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "leech-seed",
+    "nameDe": "Egelsamen",
+    "nameEn": "Leech Seed",
+    "power": null,
+    "accuracy": 90,
+    "damageClass": "status"
+  },
+  {
+    "slug": "me-first",
+    "nameDe": "Egotrip",
+    "nameEn": "Me First",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "egg-bomb",
+    "nameDe": "Eierbombe",
+    "nameEn": "Egg Bomb",
+    "power": 100,
+    "accuracy": 75,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "incinerate",
+    "nameDe": "Einäschern",
+    "nameEn": "Incinerate",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "defense-curl",
+    "nameDe": "Einigler",
+    "nameEn": "Defense Curl",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "coil",
+    "nameDe": "Einrollen",
+    "nameEn": "Coil",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "iron-defense",
+    "nameDe": "Eisenabwehr",
+    "nameEn": "Iron Defense",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "iron-head",
+    "nameDe": "Eisenschädel",
+    "nameEn": "Iron Head",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "iron-tail",
+    "nameDe": "Eisenschweif",
+    "nameEn": "Iron Tail",
+    "power": 100,
+    "accuracy": 75,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sheer-cold",
+    "nameDe": "Eiseskälte",
+    "nameEn": "Sheer Cold",
+    "power": null,
+    "accuracy": 30,
+    "damageClass": "special"
+  },
+  {
+    "slug": "ice-punch",
+    "nameDe": "Eishieb",
+    "nameEn": "Ice Punch",
+    "power": 75,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "icicle-spear",
+    "nameDe": "Eisspeer",
+    "nameEn": "Icicle Spear",
+    "power": 25,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "ice-shard",
+    "nameDe": "Eissplitter",
+    "nameEn": "Ice Shard",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "ice-beam",
+    "nameDe": "Eisstrahl",
+    "nameEn": "Ice Beam",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "icy-wind",
+    "nameDe": "Eissturm",
+    "nameEn": "Icy Wind",
+    "power": 55,
+    "accuracy": 95,
+    "damageClass": "special"
+  },
+  {
+    "slug": "ice-fang",
+    "nameDe": "Eiszahn",
+    "nameEn": "Ice Fang",
+    "power": 65,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "icicle-crash",
+    "nameDe": "Eiszapfhagel",
+    "nameEn": "Icicle Crash",
+    "power": 85,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "glaciate",
+    "nameDe": "Eiszeit",
+    "nameEn": "Glaciate",
+    "power": 65,
+    "accuracy": 95,
+    "damageClass": "special"
+  },
+  {
+    "slug": "electro-ball",
+    "nameDe": "Elektroball",
+    "nameEn": "Electro Ball",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "electroweb",
+    "nameDe": "Elektronetz",
+    "nameEn": "Electroweb",
+    "power": 55,
+    "accuracy": 95,
+    "damageClass": "special"
+  },
+  {
+    "slug": "energy-ball",
+    "nameDe": "Energieball",
+    "nameEn": "Energy Ball",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "focus-energy",
+    "nameDe": "Energiefokus",
+    "nameEn": "Focus Energy",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "spit-up",
+    "nameDe": "Entfessler",
+    "nameEn": "Spit Up",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "gravity",
+    "nameDe": "Erdanziehung",
+    "nameEn": "Gravity",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "earthquake",
+    "nameDe": "Erdbeben",
+    "nameEn": "Earthquake",
+    "power": 100,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "earth-power",
+    "nameDe": "Erdkräfte",
+    "nameEn": "Earth Power",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "rest",
+    "nameDe": "Erholung",
+    "nameEn": "Rest",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "astonish",
+    "nameDe": "Erstauner",
+    "nameEn": "Astonish",
+    "power": 30,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "eruption",
+    "nameDe": "Eruption",
+    "nameEn": "Eruption",
+    "power": 150,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "explosion",
+    "nameDe": "Explosion",
+    "nameEn": "Explosion",
+    "power": 250,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "string-shot",
+    "nameDe": "Fadenschuss",
+    "nameEn": "String Shot",
+    "power": null,
+    "accuracy": 95,
+    "damageClass": "status"
+  },
+  {
+    "slug": "skill-swap",
+    "nameDe": "Fähigkeitstausch",
+    "nameEn": "Skill Swap",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "quiver-dance",
+    "nameDe": "Falterreigen",
+    "nameEn": "Quiver Dance",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "facade",
+    "nameDe": "Fassade",
+    "nameEn": "Facade",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "rolling-kick",
+    "nameDe": "Fegekick",
+    "nameEn": "Rolling Kick",
+    "power": 60,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "rock-tomb",
+    "nameDe": "Felsgrab",
+    "nameEn": "Rock Tomb",
+    "power": 60,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "rock-wrecker",
+    "nameDe": "Felswerfer",
+    "nameEn": "Rock Wrecker",
+    "power": 150,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "rock-blast",
+    "nameDe": "Felswurf",
+    "nameEn": "Rock Blast",
+    "power": 25,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "blaze-kick",
+    "nameDe": "Feuerfeger",
+    "nameEn": "Blaze Kick",
+    "power": 85,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "dragon-breath",
+    "nameDe": "Feuerodem",
+    "nameEn": "Dragon Breath",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "fiery-dance",
+    "nameDe": "Feuerreigen",
+    "nameEn": "Fiery Dance",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "fire-punch",
+    "nameDe": "Feuerschlag",
+    "nameEn": "Fire Punch",
+    "power": 75,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "fire-blast",
+    "nameDe": "Feuersturm",
+    "nameEn": "Fire Blast",
+    "power": 110,
+    "accuracy": 85,
+    "damageClass": "special"
+  },
+  {
+    "slug": "fire-spin",
+    "nameDe": "Feuerwirbel",
+    "nameEn": "Fire Spin",
+    "power": 35,
+    "accuracy": 85,
+    "damageClass": "special"
+  },
+  {
+    "slug": "fire-fang",
+    "nameDe": "Feuerzahn",
+    "nameEn": "Fire Fang",
+    "power": 65,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "self-destruct",
+    "nameDe": "Finale",
+    "nameEn": "Self Destruct",
+    "power": 200,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "dark-pulse",
+    "nameDe": "Finsteraura",
+    "nameEn": "Dark Pulse",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "shadow-punch",
+    "nameDe": "Finsterfaust",
+    "nameEn": "Shadow Punch",
+    "power": 60,
+    "accuracy": null,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "feint-attack",
+    "nameDe": "Finte",
+    "nameEn": "Feint Attack",
+    "power": 60,
+    "accuracy": null,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "searing-shot",
+    "nameDe": "Flammenball",
+    "nameEn": "Searing Shot",
+    "power": 100,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "flare-blitz",
+    "nameDe": "Flammenblitz",
+    "nameEn": "Flare Blitz",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "flame-wheel",
+    "nameDe": "Flammenrad",
+    "nameEn": "Flame Wheel",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "lava-plume",
+    "nameDe": "Flammensturm",
+    "nameEn": "Lava Plume",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "flamethrower",
+    "nameDe": "Flammenwurf",
+    "nameEn": "Flamethrower",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "fly",
+    "nameDe": "Fliegen",
+    "nameEn": "Fly",
+    "power": 90,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "curse",
+    "nameDe": "Fluch",
+    "nameEn": "Curse",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "wing-attack",
+    "nameDe": "Flügelschlag",
+    "nameEn": "Wing Attack",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "torment",
+    "nameDe": "Folterknecht",
+    "nameEn": "Torment",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "water-spout",
+    "nameDe": "Fontränen",
+    "nameEn": "Water Spout",
+    "power": 150,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "sky-drop",
+    "nameDe": "Freier Fall",
+    "nameEn": "Sky Drop",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "ice-ball",
+    "nameDe": "Frostbeule",
+    "nameEn": "Ice Ball",
+    "power": 30,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "frustration",
+    "nameDe": "Frustration",
+    "nameEn": "Frustration",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "thrash",
+    "nameDe": "Fuchtler",
+    "nameEn": "Thrash",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "flame-burst",
+    "nameDe": "Funkenflug",
+    "nameEn": "Flame Burst",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "spark",
+    "nameDe": "Funkensprung",
+    "nameEn": "Spark",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "fury-attack",
+    "nameDe": "Furienschlag",
+    "nameEn": "Fury Attack",
+    "power": 15,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "low-kick",
+    "nameDe": "Fußkick",
+    "nameEn": "Low Kick",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "low-sweep",
+    "nameDe": "Fußtritt",
+    "nameEn": "Low Sweep",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "yawn",
+    "nameDe": "Gähner",
+    "nameEn": "Yawn",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "after-you",
+    "nameDe": "Galanterie",
+    "nameEn": "After You",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "shift-gear",
+    "nameDe": "Gangwechsel",
+    "nameEn": "Shift Gear",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "calm-mind",
+    "nameDe": "Gedankengut",
+    "nameEn": "Calm Mind",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "bide",
+    "nameDe": "Geduld",
+    "nameEn": "Bide",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "reversal",
+    "nameDe": "Gegenschlag",
+    "nameEn": "Reversal",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "payback",
+    "nameDe": "Gegenstoß",
+    "nameEn": "Payback",
+    "power": 50,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "secret-power",
+    "nameDe": "Geheimpower",
+    "nameEn": "Secret Power",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "recover",
+    "nameDe": "Genesung",
+    "nameEn": "Recover",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "fissure",
+    "nameDe": "Geofissur",
+    "nameEn": "Fissure",
+    "power": null,
+    "accuracy": 30,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "seismic-toss",
+    "nameDe": "Geowurf",
+    "nameEn": "Seismic Toss",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sing",
+    "nameDe": "Gesang",
+    "nameEn": "Sing",
+    "power": null,
+    "accuracy": 55,
+    "damageClass": "status"
+  },
+  {
+    "slug": "present",
+    "nameDe": "Geschenk",
+    "nameEn": "Present",
+    "power": null,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "chatter",
+    "nameDe": "Geschwätz",
+    "nameEn": "Chatter",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "assurance",
+    "nameDe": "Gewissheit",
+    "nameEn": "Assurance",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "poison-jab",
+    "nameDe": "Gifthieb",
+    "nameEn": "Poison Jab",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "poison-powder",
+    "nameDe": "Giftpuder",
+    "nameEn": "Poison Powder",
+    "power": null,
+    "accuracy": 75,
+    "damageClass": "status"
+  },
+  {
+    "slug": "venoshock",
+    "nameDe": "Giftschock",
+    "nameEn": "Venoshock",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "poison-tail",
+    "nameDe": "Giftschweif",
+    "nameEn": "Poison Tail",
+    "power": 50,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "toxic-spikes",
+    "nameDe": "Giftspitzen",
+    "nameEn": "Toxic Spikes",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "poison-sting",
+    "nameDe": "Giftstachel",
+    "nameEn": "Poison Sting",
+    "power": 15,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "cross-poison",
+    "nameDe": "Giftstreich",
+    "nameEn": "Cross Poison",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "poison-gas",
+    "nameDe": "Giftwolke",
+    "nameEn": "Poison Gas",
+    "power": null,
+    "accuracy": 90,
+    "damageClass": "status"
+  },
+  {
+    "slug": "poison-fang",
+    "nameDe": "Giftzahn",
+    "nameEn": "Poison Fang",
+    "power": 50,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "giga-drain",
+    "nameDe": "Gigasauger",
+    "nameEn": "Giga Drain",
+    "power": 75,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "giga-impact",
+    "nameDe": "Gigastoß",
+    "nameEn": "Giga Impact",
+    "power": 150,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "ember",
+    "nameDe": "Glut",
+    "nameEn": "Ember",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "grass-whistle",
+    "nameDe": "Grasflöte",
+    "nameEn": "Grass Whistle",
+    "power": null,
+    "accuracy": 55,
+    "damageClass": "status"
+  },
+  {
+    "slug": "leaf-tornado",
+    "nameDe": "Grasmixer",
+    "nameEn": "Leaf Tornado",
+    "power": 65,
+    "accuracy": 90,
+    "damageClass": "special"
+  },
+  {
+    "slug": "scary-face",
+    "nameDe": "Grimasse",
+    "nameEn": "Scary Face",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "spite",
+    "nameDe": "Groll",
+    "nameEn": "Spite",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "guillotine",
+    "nameDe": "Guillotine",
+    "nameEn": "Guillotine",
+    "power": null,
+    "accuracy": 30,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "gyro-ball",
+    "nameDe": "Gyroball",
+    "nameEn": "Gyro Ball",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "hail",
+    "nameDe": "Hagelsturm",
+    "nameEn": "Hail",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "hammer-arm",
+    "nameDe": "Hammerarm",
+    "nameEn": "Hammer Arm",
+    "power": 100,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "harden",
+    "nameDe": "Härtner",
+    "nameEn": "Harden",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "shell-smash",
+    "nameDe": "Hausbruch",
+    "nameEn": "Shell Smash",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "heal-order",
+    "nameDe": "Heilbefehl",
+    "nameEn": "Heal Order",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "heal-block",
+    "nameDe": "Heilblockade",
+    "nameEn": "Heal Block",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "healing-wish",
+    "nameDe": "Heilopfer",
+    "nameEn": "Healing Wish",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "refresh",
+    "nameDe": "Heilung",
+    "nameEn": "Refresh",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "heal-pulse",
+    "nameDe": "Heilwoge",
+    "nameEn": "Heal Pulse",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "retaliate",
+    "nameDe": "Heimzahlung",
+    "nameEn": "Retaliate",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "heart-stamp",
+    "nameDe": "Herzstempel",
+    "nameEn": "Heart Stamp",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "growl",
+    "nameDe": "Heuler",
+    "nameEn": "Growl",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "sky-uppercut",
+    "nameDe": "Himmelhieb",
+    "nameEn": "Sky Uppercut",
+    "power": 85,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sky-attack",
+    "nameDe": "Himmelsfeger",
+    "nameEn": "Sky Attack",
+    "power": 140,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "overheat",
+    "nameDe": "Hitzekoller",
+    "nameEn": "Overheat",
+    "power": 130,
+    "accuracy": 90,
+    "damageClass": "special"
+  },
+  {
+    "slug": "heat-wave",
+    "nameDe": "Hitzewelle",
+    "nameEn": "Heat Wave",
+    "power": 95,
+    "accuracy": 90,
+    "damageClass": "special"
+  },
+  {
+    "slug": "horn-leech",
+    "nameDe": "Holzgeweih",
+    "nameEn": "Horn Leech",
+    "power": 75,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "wood-hammer",
+    "nameDe": "Holzhammer",
+    "nameEn": "Wood Hammer",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "horn-attack",
+    "nameDe": "Hornattacke",
+    "nameEn": "Horn Attack",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "horn-drill",
+    "nameDe": "Hornbohrer",
+    "nameEn": "Horn Drill",
+    "power": null,
+    "accuracy": 30,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "mean-look",
+    "nameDe": "Horrorblick",
+    "nameEn": "Mean Look",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "stockpile",
+    "nameDe": "Horter",
+    "nameEn": "Stockpile",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "hydro-pump",
+    "nameDe": "Hydropumpe",
+    "nameEn": "Hydro Pump",
+    "power": 110,
+    "accuracy": 80,
+    "damageClass": "special"
+  },
+  {
+    "slug": "hyper-beam",
+    "nameDe": "Hyperstrahl",
+    "nameEn": "Hyper Beam",
+    "power": 150,
+    "accuracy": 90,
+    "damageClass": "special"
+  },
+  {
+    "slug": "hyper-fang",
+    "nameDe": "Hyperzahn",
+    "nameEn": "Hyper Fang",
+    "power": 80,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "hypnosis",
+    "nameDe": "Hypnose",
+    "nameEn": "Hypnosis",
+    "power": null,
+    "accuracy": 60,
+    "damageClass": "status"
+  },
+  {
+    "slug": "copycat",
+    "nameDe": "Imitator",
+    "nameEn": "Copycat",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "inferno",
+    "nameDe": "Inferno",
+    "nameEn": "Inferno",
+    "power": 100,
+    "accuracy": 50,
+    "damageClass": "special"
+  },
+  {
+    "slug": "magnitude",
+    "nameDe": "Intensität",
+    "nameEn": "Magnitude",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "will-o-wisp",
+    "nameDe": "Irrlicht",
+    "nameEn": "Will O Wisp",
+    "power": null,
+    "accuracy": 85,
+    "damageClass": "status"
+  },
+  {
+    "slug": "dizzy-punch",
+    "nameDe": "Irrschlag",
+    "nameEn": "Dizzy Punch",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "embargo",
+    "nameDe": "Itemsperre",
+    "nameEn": "Embargo",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "howl",
+    "nameDe": "Jauler",
+    "nameEn": "Howl",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "power-gem",
+    "nameDe": "Juwelenkraft",
+    "nameEn": "Power Gem",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "bug-bite",
+    "nameDe": "Käferbiss",
+    "nameEn": "Bug Bite",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "bug-buzz",
+    "nameDe": "Käfergebrumm",
+    "nameEn": "Bug Buzz",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "struggle-bug",
+    "nameDe": "Käfertrutz",
+    "nameEn": "Struggle Bug",
+    "power": 50,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "razor-shell",
+    "nameDe": "Kalkklinge",
+    "nameEn": "Razor Shell",
+    "power": 75,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "round",
+    "nameDe": "Kanon",
+    "nameEn": "Round",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "karate-chop",
+    "nameDe": "Karateschlag",
+    "nameEn": "Karate Chop",
+    "power": 50,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "waterfall",
+    "nameDe": "Kaskade",
+    "nameEn": "Waterfall",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "smack-down",
+    "nameDe": "Katapult",
+    "nameEn": "Smack Down",
+    "power": 50,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "tail-slap",
+    "nameDe": "Kehrschelle",
+    "nameEn": "Tail Slap",
+    "power": 25,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "u-turn",
+    "nameDe": "Kehrtwende",
+    "nameEn": "U Turn",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "doom-desire",
+    "nameDe": "Kismetwunsch",
+    "nameEn": "Doom Desire",
+    "power": 140,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "vice-grip",
+    "nameDe": "Klammer",
+    "nameEn": "Vice Grip",
+    "power": 55,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "bind",
+    "nameDe": "Klammergriff",
+    "nameEn": "Bind",
+    "power": 15,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "pound",
+    "nameDe": "Klaps",
+    "nameEn": "Pound",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "clear-smog",
+    "nameDe": "Klärsmog",
+    "nameEn": "Clear Smog",
+    "power": 50,
+    "accuracy": null,
+    "damageClass": "special"
+  },
+  {
+    "slug": "hone-claws",
+    "nameDe": "Klauenwetzer",
+    "nameEn": "Hone Claws",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "gear-grind",
+    "nameDe": "Klikkdiskus",
+    "nameEn": "Gear Grind",
+    "power": 50,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "razor-wind",
+    "nameDe": "Klingensturm",
+    "nameEn": "Razor Wind",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "crunch",
+    "nameDe": "Knirscher",
+    "nameEn": "Crunch",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "bone-rush",
+    "nameDe": "Knochenhatz",
+    "nameEn": "Bone Rush",
+    "power": 25,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "bone-club",
+    "nameDe": "Knochenkeule",
+    "nameEn": "Bone Club",
+    "power": 65,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "bonemerang",
+    "nameDe": "Knochmerang",
+    "nameEn": "Bonemerang",
+    "power": 50,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "comet-punch",
+    "nameDe": "Kometenhieb",
+    "nameEn": "Comet Punch",
+    "power": 18,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "minimize",
+    "nameDe": "Komprimator",
+    "nameEn": "Minimize",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "confusion",
+    "nameDe": "Konfusion",
+    "nameEn": "Confusion",
+    "power": 50,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "confuse-ray",
+    "nameDe": "Konfusstrahl",
+    "nameEn": "Confuse Ray",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "counter",
+    "nameDe": "Konter",
+    "nameEn": "Counter",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "headbutt",
+    "nameDe": "Kopfnuss",
+    "nameEn": "Headbutt",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "head-smash",
+    "nameDe": "Kopfstoß",
+    "nameEn": "Head Smash",
+    "power": 150,
+    "accuracy": 80,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "cosmic-power",
+    "nameDe": "Kosmik-Kraft",
+    "nameEn": "Cosmic Power",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "crabhammer",
+    "nameDe": "Krabbhammer",
+    "nameEn": "Crabhammer",
+    "power": 100,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "superpower",
+    "nameDe": "Kraftkoloss",
+    "nameEn": "Superpower",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "hidden-power",
+    "nameDe": "Kraftreserve",
+    "nameEn": "Hidden Power",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "work-up",
+    "nameDe": "Kraftschub",
+    "nameEn": "Work Up",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "power-swap",
+    "nameDe": "Krafttausch",
+    "nameEn": "Power Swap",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "power-split",
+    "nameDe": "Kraftteiler",
+    "nameEn": "Power Split",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "power-trick",
+    "nameDe": "Krafttrick",
+    "nameEn": "Power Trick",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "stored-power",
+    "nameDe": "Kraftvorrat",
+    "nameEn": "Stored Power",
+    "power": 20,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "force-palm",
+    "nameDe": "Kraftwelle",
+    "nameEn": "Force Palm",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "scratch",
+    "nameDe": "Kratzer",
+    "nameEn": "Scratch",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "fury-swipes",
+    "nameDe": "Kratzfurie",
+    "nameEn": "Fury Swipes",
+    "power": 18,
+    "accuracy": 80,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "rock-climb",
+    "nameDe": "Kraxler",
+    "nameEn": "Rock Climb",
+    "power": 90,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "screech",
+    "nameDe": "Kreideschrei",
+    "nameEn": "Screech",
+    "power": null,
+    "accuracy": 85,
+    "damageClass": "status"
+  },
+  {
+    "slug": "fusion-bolt",
+    "nameDe": "Kreuzdonner",
+    "nameEn": "Fusion Bolt",
+    "power": 100,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "fusion-flare",
+    "nameDe": "Kreuzflamme",
+    "nameEn": "Fusion Flare",
+    "power": 100,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "cross-chop",
+    "nameDe": "Kreuzhieb",
+    "nameEn": "Cross Chop",
+    "power": 100,
+    "accuracy": 80,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "x-scissor",
+    "nameDe": "Kreuzschere",
+    "nameEn": "X Scissor",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "bullet-seed",
+    "nameDe": "Kugelsaat",
+    "nameEn": "Bullet Seed",
+    "power": 25,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "charge-beam",
+    "nameDe": "Ladestrahl",
+    "nameEn": "Charge Beam",
+    "power": 50,
+    "accuracy": 90,
+    "damageClass": "special"
+  },
+  {
+    "slug": "charge",
+    "nameDe": "Ladevorgang",
+    "nameEn": "Charge",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "discharge",
+    "nameDe": "Ladungsstoß",
+    "nameEn": "Discharge",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "brine",
+    "nameDe": "Lake",
+    "nameEn": "Brine",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "leaf-blade",
+    "nameDe": "Laubklinge",
+    "nameEn": "Leaf Blade",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sacred-fire",
+    "nameDe": "Läuterfeuer",
+    "nameEn": "Sacred Fire",
+    "power": 100,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "magma-storm",
+    "nameDe": "Lavasturm",
+    "nameEn": "Magma Storm",
+    "power": 100,
+    "accuracy": 75,
+    "damageClass": "special"
+  },
+  {
+    "slug": "avalanche",
+    "nameDe": "Lawine",
+    "nameEn": "Avalanche",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "muddy-water",
+    "nameDe": "Lehmbrühe",
+    "nameEn": "Muddy Water",
+    "power": 90,
+    "accuracy": 85,
+    "damageClass": "special"
+  },
+  {
+    "slug": "mud-slap",
+    "nameDe": "Lehmschelle",
+    "nameEn": "Mud Slap",
+    "power": 20,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "mud-shot",
+    "nameDe": "Lehmschuss",
+    "nameEn": "Mud Shot",
+    "power": 55,
+    "accuracy": 95,
+    "damageClass": "special"
+  },
+  {
+    "slug": "mud-sport",
+    "nameDe": "Lehmsuhler",
+    "nameEn": "Mud Sport",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "pain-split",
+    "nameDe": "Leidteiler",
+    "nameEn": "Pain Split",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "flash-cannon",
+    "nameDe": "Lichtkanone",
+    "nameEn": "Flash Cannon",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "light-screen",
+    "nameDe": "Lichtschild",
+    "nameEn": "Light Screen",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "captivate",
+    "nameDe": "Liebreiz",
+    "nameEn": "Captivate",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "sweet-scent",
+    "nameDe": "Lockduft",
+    "nameEn": "Sweet Scent",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "air-slash",
+    "nameDe": "Luftschnitt",
+    "nameEn": "Air Slash",
+    "power": 75,
+    "accuracy": 95,
+    "damageClass": "special"
+  },
+  {
+    "slug": "aeroblast",
+    "nameDe": "Luftstoß",
+    "nameEn": "Aeroblast",
+    "power": 100,
+    "accuracy": 95,
+    "damageClass": "special"
+  },
+  {
+    "slug": "lunar-dance",
+    "nameDe": "Lunartanz",
+    "nameEn": "Lunar Dance",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "gastro-acid",
+    "nameDe": "Magensäfte",
+    "nameEn": "Gastro Acid",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "magic-coat",
+    "nameDe": "Magiemantel",
+    "nameEn": "Magic Coat",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "magic-room",
+    "nameDe": "Magieraum",
+    "nameEn": "Magic Room",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "magnet-bomb",
+    "nameDe": "Magnetbombe",
+    "nameEn": "Magnet Bomb",
+    "power": 60,
+    "accuracy": null,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "magnet-rise",
+    "nameDe": "Magnetflug",
+    "nameEn": "Magnet Rise",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "sludge-bomb",
+    "nameDe": "Matschbombe",
+    "nameEn": "Sludge Bomb",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "meditate",
+    "nameDe": "Meditation",
+    "nameEn": "Meditate",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "mega-punch",
+    "nameDe": "Megahieb",
+    "nameEn": "Mega Punch",
+    "power": 80,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "mega-kick",
+    "nameDe": "Megakick",
+    "nameEn": "Mega Kick",
+    "power": 120,
+    "accuracy": 75,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "mega-drain",
+    "nameDe": "Megasauger",
+    "nameEn": "Mega Drain",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "memento",
+    "nameDe": "Memento-Mori",
+    "nameEn": "Memento",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "metal-claw",
+    "nameDe": "Metallklaue",
+    "nameEn": "Metal Claw",
+    "power": 50,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "metal-sound",
+    "nameDe": "Metallsound",
+    "nameEn": "Metal Sound",
+    "power": null,
+    "accuracy": 85,
+    "damageClass": "status"
+  },
+  {
+    "slug": "metal-burst",
+    "nameDe": "Metallstoß",
+    "nameEn": "Metal Burst",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "weather-ball",
+    "nameDe": "Meteorologe",
+    "nameEn": "Weather Ball",
+    "power": 50,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "metronome",
+    "nameDe": "Metronom",
+    "nameEn": "Metronome",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "milk-drink",
+    "nameDe": "Milchgetränk",
+    "nameEn": "Milk Drink",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "mimic",
+    "nameDe": "Mimikry",
+    "nameEn": "Mimic",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "fake-out",
+    "nameDe": "Mogelhieb",
+    "nameEn": "Fake Out",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "moonlight",
+    "nameDe": "Mondschein",
+    "nameEn": "Moonlight",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "morning-sun",
+    "nameDe": "Morgengrauen",
+    "nameEn": "Morning Sun",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "gunk-shot",
+    "nameDe": "Mülltreffer",
+    "nameEn": "Gunk Shot",
+    "power": 120,
+    "accuracy": 80,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sketch",
+    "nameDe": "Nachahmer",
+    "nameEn": "Sketch",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "grudge",
+    "nameDe": "Nachspiel",
+    "nameEn": "Grudge",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "night-daze",
+    "nameDe": "Nachtflut",
+    "nameEn": "Night Daze",
+    "power": 85,
+    "accuracy": 95,
+    "damageClass": "special"
+  },
+  {
+    "slug": "night-slash",
+    "nameDe": "Nachthieb",
+    "nameEn": "Night Slash",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "nightmare",
+    "nameDe": "Nachtmahr",
+    "nameEn": "Nightmare",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "night-shade",
+    "nameDe": "Nachtnebel",
+    "nameEn": "Night Shade",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "pin-missile",
+    "nameDe": "Nadelrakete",
+    "nameEn": "Pin Missile",
+    "power": 25,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "close-combat",
+    "nameDe": "Nahkampf",
+    "nameEn": "Close Combat",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "water-sport",
+    "nameDe": "Nassmacher",
+    "nameEn": "Water Sport",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "aqua-tail",
+    "nameDe": "Nassschweif",
+    "nameEn": "Aqua Tail",
+    "power": 90,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "nature-power",
+    "nameDe": "Natur-Kraft",
+    "nameEn": "Nature Power",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "mist-ball",
+    "nameDe": "Nebelball",
+    "nameEn": "Mist Ball",
+    "power": 95,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "needle-arm",
+    "nameDe": "Nietenranke",
+    "nameEn": "Needle Arm",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "flame-charge",
+    "nameDe": "Nitroladung",
+    "nameEn": "Flame Charge",
+    "power": 50,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "endeavor",
+    "nameDe": "Notsituation",
+    "nameEn": "Endeavor",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "octazooka",
+    "nameDe": "Octazooka",
+    "nameEn": "Octazooka",
+    "power": 65,
+    "accuracy": 85,
+    "damageClass": "special"
+  },
+  {
+    "slug": "feint",
+    "nameDe": "Offenlegung",
+    "nameEn": "Feint",
+    "power": 30,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "bestow",
+    "nameDe": "Offerte",
+    "nameEn": "Bestow",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "hurricane",
+    "nameDe": "Orkan",
+    "nameEn": "Hurricane",
+    "power": 110,
+    "accuracy": 70,
+    "damageClass": "special"
+  },
+  {
+    "slug": "withdraw",
+    "nameDe": "Panzerschutz",
+    "nameEn": "Withdraw",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "bullet-punch",
+    "nameDe": "Patronenhieb",
+    "nameEn": "Bullet Punch",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "pluck",
+    "nameDe": "Pflücker",
+    "nameEn": "Pluck",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "peck",
+    "nameDe": "Pikser",
+    "nameEn": "Peck",
+    "power": 35,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "spore",
+    "nameDe": "Pilzspore",
+    "nameEn": "Spore",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "splash",
+    "nameDe": "Platscher",
+    "nameEn": "Splash",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "focus-punch",
+    "nameDe": "Power-Punch",
+    "nameEn": "Focus Punch",
+    "power": 150,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "bulk-up",
+    "nameDe": "Protzer",
+    "nameEn": "Bulk Up",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "beat-up",
+    "nameDe": "Prügler",
+    "nameEn": "Beat Up",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "psycho-shift",
+    "nameDe": "Psybann",
+    "nameEn": "Psycho Shift",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "psych-up",
+    "nameDe": "Psycho-Plus",
+    "nameEn": "Psych Up",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "psychic",
+    "nameDe": "Psychokinese",
+    "nameEn": "Psychic",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "psycho-cut",
+    "nameDe": "Psychoklinge",
+    "nameEn": "Psycho Cut",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "psyshock",
+    "nameDe": "Psychoschock",
+    "nameEn": "Psyshock",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "psystrike",
+    "nameDe": "Psychostoß",
+    "nameEn": "Psystrike",
+    "power": 100,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "kinesis",
+    "nameDe": "Psykraft",
+    "nameEn": "Kinesis",
+    "power": null,
+    "accuracy": 80,
+    "damageClass": "status"
+  },
+  {
+    "slug": "psycho-boost",
+    "nameDe": "Psyschub",
+    "nameEn": "Psycho Boost",
+    "power": 140,
+    "accuracy": 90,
+    "damageClass": "special"
+  },
+  {
+    "slug": "psybeam",
+    "nameDe": "Psystrahl",
+    "nameEn": "Psybeam",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "psywave",
+    "nameDe": "Psywelle",
+    "nameEn": "Psywave",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "powder-snow",
+    "nameDe": "Pulverschnee",
+    "nameEn": "Powder Snow",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "crush-grip",
+    "nameDe": "Quetschgriff",
+    "nameEn": "Crush Grip",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "steamroller",
+    "nameDe": "Quetschwalze",
+    "nameEn": "Steamroller",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "heavy-slam",
+    "nameDe": "Rammboss",
+    "nameEn": "Heavy Slam",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "vine-whip",
+    "nameDe": "Rankenhieb",
+    "nameEn": "Vine Whip",
+    "power": 45,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "nasty-plot",
+    "nameDe": "Ränkeschmied",
+    "nameEn": "Nasty Plot",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "quick-guard",
+    "nameDe": "Rapidschutz",
+    "nameEn": "Quick Guard",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "rage",
+    "nameDe": "Raserei",
+    "nameEn": "Rage",
+    "power": 20,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "razor-leaf",
+    "nameDe": "Rasierblatt",
+    "nameEn": "Razor Leaf",
+    "power": 55,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "thief",
+    "nameDe": "Raub",
+    "nameEn": "Thief",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "smokescreen",
+    "nameDe": "Rauchwolke",
+    "nameEn": "Smokescreen",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "spacial-rend",
+    "nameDe": "Raumschlag",
+    "nameEn": "Spacial Rend",
+    "power": 100,
+    "accuracy": 95,
+    "damageClass": "special"
+  },
+  {
+    "slug": "helping-hand",
+    "nameDe": "Rechte Hand",
+    "nameEn": "Helping Hand",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "reflect",
+    "nameDe": "Reflektor",
+    "nameEn": "Reflect",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "rain-dance",
+    "nameDe": "Regentanz",
+    "nameEn": "Rain Dance",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "smelling-salts",
+    "nameDe": "Riechsalz",
+    "nameEn": "Smelling Salts",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "double-edge",
+    "nameDe": "Risikotackle",
+    "nameEn": "Double Edge",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "role-play",
+    "nameDe": "Rollenspiel",
+    "nameEn": "Role Play",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "block",
+    "nameDe": "Rückentzug",
+    "nameEn": "Block",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "tailwind",
+    "nameDe": "Rückenwind",
+    "nameEn": "Tailwind",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "return",
+    "nameDe": "Rückkehr",
+    "nameEn": "Return",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "quick-attack",
+    "nameDe": "Ruckzuckhieb",
+    "nameEn": "Quick Attack",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "roost",
+    "nameDe": "Ruheort",
+    "nameEn": "Roost",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "wide-guard",
+    "nameDe": "Rundumschutz",
+    "nameEn": "Wide Guard",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "tail-whip",
+    "nameDe": "Rutenschlag",
+    "nameEn": "Tail Whip",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "seed-bomb",
+    "nameDe": "Samenbomben",
+    "nameEn": "Seed Bomb",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sacred-sword",
+    "nameDe": "Sanctoklinge",
+    "nameEn": "Sacred Sword",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sand-tomb",
+    "nameDe": "Sandgrab",
+    "nameEn": "Sand Tomb",
+    "power": 35,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sandstorm",
+    "nameDe": "Sandsturm",
+    "nameEn": "Sandstorm",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "sand-attack",
+    "nameDe": "Sandwirbel",
+    "nameEn": "Sand Attack",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "acid",
+    "nameDe": "Säure",
+    "nameEn": "Acid",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "acid-armor",
+    "nameDe": "Säurepanzer",
+    "nameEn": "Acid Armor",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "acid-spray",
+    "nameDe": "Säurespeier",
+    "nameEn": "Acid Spray",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "detect",
+    "nameDe": "Scanner",
+    "nameEn": "Detect",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "skull-bash",
+    "nameDe": "Schädelwumme",
+    "nameEn": "Skull Bash",
+    "power": 130,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "hyper-voice",
+    "nameDe": "Schallwelle",
+    "nameEn": "Hyper Voice",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "foresight",
+    "nameDe": "Scharfblick",
+    "nameEn": "Foresight",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "sharpen",
+    "nameDe": "Schärfer",
+    "nameEn": "Sharpen",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "shadow-sneak",
+    "nameDe": "Schattenstoß",
+    "nameEn": "Shadow Sneak",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "dig",
+    "nameDe": "Schaufler",
+    "nameEn": "Dig",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "luster-purge",
+    "nameDe": "Scheinwerfer",
+    "nameEn": "Luster Purge",
+    "power": 95,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "shadow-force",
+    "nameDe": "Schemenkraft",
+    "nameEn": "Shadow Force",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sleep-powder",
+    "nameDe": "Schlafpuder",
+    "nameEn": "Sleep Powder",
+    "power": null,
+    "accuracy": 75,
+    "damageClass": "status"
+  },
+  {
+    "slug": "sleep-talk",
+    "nameDe": "Schlafrede",
+    "nameEn": "Sleep Talk",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "attack-order",
+    "nameDe": "Schlagbefehl",
+    "nameEn": "Attack Order",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "drill-run",
+    "nameDe": "Schlagbohrer",
+    "nameEn": "Drill Run",
+    "power": 80,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sludge",
+    "nameDe": "Schlammbad",
+    "nameEn": "Sludge",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "mud-bomb",
+    "nameDe": "Schlammbombe",
+    "nameEn": "Mud Bomb",
+    "power": 65,
+    "accuracy": 85,
+    "damageClass": "special"
+  },
+  {
+    "slug": "sludge-wave",
+    "nameDe": "Schlammwoge",
+    "nameEn": "Sludge Wave",
+    "power": 95,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "glare",
+    "nameDe": "Schlangenblick",
+    "nameEn": "Glare",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "lick",
+    "nameDe": "Schlecker",
+    "nameEn": "Lick",
+    "power": 30,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "fling",
+    "nameDe": "Schleuder",
+    "nameEn": "Fling",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "slash",
+    "nameDe": "Schlitzer",
+    "nameEn": "Slash",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "dark-void",
+    "nameDe": "Schlummerort",
+    "nameEn": "Dark Void",
+    "power": null,
+    "accuracy": 50,
+    "damageClass": "status"
+  },
+  {
+    "slug": "foul-play",
+    "nameDe": "Schmarotzer",
+    "nameEn": "Foul Play",
+    "power": 95,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "flatter",
+    "nameDe": "Schmeichler",
+    "nameEn": "Flatter",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "clamp",
+    "nameDe": "Schnapper",
+    "nameEn": "Clamp",
+    "power": 35,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "snore",
+    "nameDe": "Schnarcher",
+    "nameEn": "Snore",
+    "power": 50,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "odor-sleuth",
+    "nameDe": "Schnüffler",
+    "nameEn": "Odor Sleuth",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "seed-flare",
+    "nameDe": "Schocksamen",
+    "nameEn": "Seed Flare",
+    "power": 120,
+    "accuracy": 85,
+    "damageClass": "special"
+  },
+  {
+    "slug": "shock-wave",
+    "nameDe": "Schockwelle",
+    "nameEn": "Shock Wave",
+    "power": 60,
+    "accuracy": null,
+    "damageClass": "special"
+  },
+  {
+    "slug": "protect",
+    "nameDe": "Schutzschild",
+    "nameEn": "Protect",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "guard-swap",
+    "nameDe": "Schutztausch",
+    "nameEn": "Guard Swap",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "guard-split",
+    "nameDe": "Schutzteiler",
+    "nameEn": "Guard Split",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "tail-glow",
+    "nameDe": "Schweifglanz",
+    "nameEn": "Tail Glow",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "swords-dance",
+    "nameDe": "Schwerttanz",
+    "nameEn": "Swords Dance",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "future-sight",
+    "nameDe": "Seher",
+    "nameEn": "Future Sight",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "ally-switch",
+    "nameDe": "Seitentausch",
+    "nameEn": "Ally Switch",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "scald",
+    "nameDe": "Siedewasser",
+    "nameEn": "Scald",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "leer",
+    "nameDe": "Silberblick",
+    "nameEn": "Leer",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "silver-wind",
+    "nameDe": "Silberhauch",
+    "nameEn": "Silver Wind",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "slam",
+    "nameDe": "Slam",
+    "nameEn": "Slam",
+    "power": 80,
+    "accuracy": 75,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "smog",
+    "nameDe": "Smog",
+    "nameEn": "Smog",
+    "power": 30,
+    "accuracy": 70,
+    "damageClass": "special"
+  },
+  {
+    "slug": "solar-beam",
+    "nameDe": "Solarstrahl",
+    "nameEn": "Solar Beam",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "extrasensory",
+    "nameDe": "Sondersensor",
+    "nameEn": "Extrasensory",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "sunny-day",
+    "nameDe": "Sonnentag",
+    "nameEn": "Sunny Day",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "worry-seed",
+    "nameDe": "Sorgensamen",
+    "nameEn": "Worry Seed",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "tickle",
+    "nameDe": "Spaßkanone",
+    "nameEn": "Tickle",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "mirror-coat",
+    "nameDe": "Spiegelcape",
+    "nameEn": "Mirror Coat",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "mirror-shot",
+    "nameDe": "Spiegelsalve",
+    "nameEn": "Mirror Shot",
+    "power": 65,
+    "accuracy": 85,
+    "damageClass": "special"
+  },
+  {
+    "slug": "mirror-move",
+    "nameDe": "Spiegeltrick",
+    "nameEn": "Mirror Move",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "spider-web",
+    "nameDe": "Spinnennetz",
+    "nameEn": "Spider Web",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "follow-me",
+    "nameDe": "Spotlight",
+    "nameEn": "Follow Me",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "bounce",
+    "nameDe": "Sprungfeder",
+    "nameEn": "Bounce",
+    "power": 85,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "jump-kick",
+    "nameDe": "Sprungkick",
+    "nameEn": "Jump Kick",
+    "power": 100,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "shadow-ball",
+    "nameDe": "Spukball",
+    "nameEn": "Shadow Ball",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "stun-spore",
+    "nameDe": "Stachelspore",
+    "nameEn": "Stun Spore",
+    "power": null,
+    "accuracy": 75,
+    "damageClass": "status"
+  },
+  {
+    "slug": "spikes",
+    "nameDe": "Stachler",
+    "nameEn": "Spikes",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "baton-pass",
+    "nameDe": "Stafette",
+    "nameEn": "Baton Pass",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "steel-wing",
+    "nameDe": "Stahlflügel",
+    "nameEn": "Steel Wing",
+    "power": 70,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "barrage",
+    "nameDe": "Stakkato",
+    "nameEn": "Barrage",
+    "power": 15,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "stomp",
+    "nameDe": "Stampfer",
+    "nameEn": "Stomp",
+    "power": 65,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "heart-swap",
+    "nameDe": "Statustausch",
+    "nameEn": "Heart Swap",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "rock-slide",
+    "nameDe": "Steinhagel",
+    "nameEn": "Rock Slide",
+    "power": 75,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "stone-edge",
+    "nameDe": "Steinkante",
+    "nameEn": "Stone Edge",
+    "power": 100,
+    "accuracy": 80,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "rock-polish",
+    "nameDe": "Steinpolitur",
+    "nameEn": "Rock Polish",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "head-charge",
+    "nameDe": "Steinschädel",
+    "nameEn": "Head Charge",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "rock-throw",
+    "nameDe": "Steinwurf",
+    "nameEn": "Rock Throw",
+    "power": 50,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "meteor-mash",
+    "nameDe": "Sternenhieb",
+    "nameEn": "Meteor Mash",
+    "power": 90,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "swift",
+    "nameDe": "Sternschauer",
+    "nameEn": "Swift",
+    "power": 60,
+    "accuracy": null,
+    "damageClass": "special"
+  },
+  {
+    "slug": "punishment",
+    "nameDe": "Strafattacke",
+    "nameEn": "Punishment",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "grass-knot",
+    "nameDe": "Strauchler",
+    "nameEn": "Grass Knot",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "wild-charge",
+    "nameDe": "Stromstoß",
+    "nameEn": "Wild Charge",
+    "power": 90,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "brave-bird",
+    "nameDe": "Sturzflug",
+    "nameEn": "Brave Bird",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "supersonic",
+    "nameDe": "Superschall",
+    "nameEn": "Supersonic",
+    "power": null,
+    "accuracy": 55,
+    "damageClass": "status"
+  },
+  {
+    "slug": "super-fang",
+    "nameDe": "Superzahn",
+    "nameEn": "Super Fang",
+    "power": null,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "synchronoise",
+    "nameDe": "Synchrolärm",
+    "nameEn": "Synchronoise",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "synthesis",
+    "nameDe": "Synthese",
+    "nameEn": "Synthesis",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "tackle",
+    "nameDe": "Tackle",
+    "nameEn": "Tackle",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "slack-off",
+    "nameDe": "Tagedieb",
+    "nameEn": "Slack Off",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "stealth-rock",
+    "nameDe": "Tarnsteine",
+    "nameEn": "Stealth Rock",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "camouflage",
+    "nameDe": "Tarnung",
+    "nameEn": "Camouflage",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "dive",
+    "nameDe": "Taucher",
+    "nameEn": "Dive",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "teeter-dance",
+    "nameDe": "Taumeltanz",
+    "nameEn": "Teeter Dance",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "techno-blast",
+    "nameDe": "Techblaster",
+    "nameEn": "Techno Blast",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "telekinesis",
+    "nameDe": "Telekinese",
+    "nameEn": "Telekinesis",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "teleport",
+    "nameDe": "Teleport",
+    "nameEn": "Teleport",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "mach-punch",
+    "nameDe": "Tempohieb",
+    "nameEn": "Mach Punch",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sucker-punch",
+    "nameDe": "Tiefschlag",
+    "nameEn": "Sucker Punch",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "lovely-kiss",
+    "nameDe": "Todeskuss",
+    "nameEn": "Lovely Kiss",
+    "power": null,
+    "accuracy": 75,
+    "damageClass": "status"
+  },
+  {
+    "slug": "toxic",
+    "nameDe": "Toxin",
+    "nameEn": "Toxic",
+    "power": null,
+    "accuracy": 90,
+    "damageClass": "status"
+  },
+  {
+    "slug": "dream-eater",
+    "nameDe": "Traumfresser",
+    "nameEn": "Dream Eater",
+    "power": 100,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "trick",
+    "nameDe": "Trickbetrug",
+    "nameEn": "Trick",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "tri-attack",
+    "nameDe": "Triplette",
+    "nameEn": "Tri Attack",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "false-swipe",
+    "nameDe": "Trugschlag",
+    "nameEn": "False Swipe",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "fake-tears",
+    "nameDe": "Trugträne",
+    "nameEn": "Fake Tears",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "trump-card",
+    "nameDe": "Trumpfkarte",
+    "nameEn": "Trump Card",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "special"
+  },
+  {
+    "slug": "rapid-spin",
+    "nameDe": "Turbodreher",
+    "nameEn": "Rapid Spin",
+    "power": 50,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "extreme-speed",
+    "nameDe": "Turbotempo",
+    "nameEn": "Extreme Speed",
+    "power": 80,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "high-jump-kick",
+    "nameDe": "Turmkick",
+    "nameEn": "High Jump Kick",
+    "power": 130,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "reflect-type",
+    "nameDe": "Typenspiegel",
+    "nameEn": "Reflect Type",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "soak",
+    "nameDe": "Überflutung",
+    "nameEn": "Soak",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "circle-throw",
+    "nameDe": "Überkopfwurf",
+    "nameEn": "Circle Throw",
+    "power": 60,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "snatch",
+    "nameDe": "Übernahme",
+    "nameEn": "Snatch",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "submission",
+    "nameDe": "Überroller",
+    "nameEn": "Submission",
+    "power": 80,
+    "accuracy": 80,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "vital-throw",
+    "nameDe": "Überwurf",
+    "nameEn": "Vital Throw",
+    "power": 70,
+    "accuracy": null,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "sonic-boom",
+    "nameDe": "Ultraschall",
+    "nameEn": "Sonic Boom",
+    "power": null,
+    "accuracy": 90,
+    "damageClass": "special"
+  },
+  {
+    "slug": "constrict",
+    "nameDe": "Umklammerung",
+    "nameEn": "Constrict",
+    "power": 10,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "conversion",
+    "nameDe": "Umwandlung",
+    "nameEn": "Conversion",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "conversion-2",
+    "nameDe": "Umwandlung2",
+    "nameEn": "Conversion 2",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "ominous-wind",
+    "nameDe": "Unheilböen",
+    "nameEn": "Ominous Wind",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "judgment",
+    "nameDe": "Urteilskraft",
+    "nameEn": "Judgment",
+    "power": 100,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "vacuum-wave",
+    "nameDe": "Vakuumwelle",
+    "nameEn": "Vacuum Wave",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "pursuit",
+    "nameDe": "Verfolgung",
+    "nameEn": "Pursuit",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "revenge",
+    "nameDe": "Vergeltung",
+    "nameEn": "Revenge",
+    "power": 60,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "taunt",
+    "nameDe": "Verhöhner",
+    "nameEn": "Taunt",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "ingrain",
+    "nameDe": "Verwurzler",
+    "nameEn": "Ingrain",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "swallow",
+    "nameDe": "Verzehrer",
+    "nameEn": "Swallow",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "quash",
+    "nameDe": "Verzögerung",
+    "nameEn": "Quash",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "megahorn",
+    "nameDe": "Vielender",
+    "nameEn": "Megahorn",
+    "power": 120,
+    "accuracy": 85,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "heal-bell",
+    "nameDe": "Vitalglocke",
+    "nameEn": "Heal Bell",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "volt-switch",
+    "nameDe": "Voltwechsel",
+    "nameEn": "Volt Switch",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "growth",
+    "nameDe": "Wachstum",
+    "nameEn": "Growth",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "final-gambit",
+    "nameDe": "Wagemut",
+    "nameEn": "Final Gambit",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "rollout",
+    "nameDe": "Walzer",
+    "nameEn": "Rollout",
+    "power": 30,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "transform",
+    "nameDe": "Wandler",
+    "nameEn": "Transform",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "simple-beam",
+    "nameDe": "Wankelstrahl",
+    "nameEn": "Simple Beam",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "aqua-jet",
+    "nameDe": "Wasserdüse",
+    "nameEn": "Aqua Jet",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "aqua-ring",
+    "nameDe": "Wasserring",
+    "nameEn": "Aqua Ring",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "cotton-guard",
+    "nameDe": "Watteschild",
+    "nameEn": "Cotton Guard",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "switcheroo",
+    "nameDe": "Wechseldich",
+    "nameEn": "Switcheroo",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "wake-up-slap",
+    "nameDe": "Weckruf",
+    "nameEn": "Wake Up Slap",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "soft-boiled",
+    "nameDe": "Weichei",
+    "nameEn": "Soft Boiled",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "mist",
+    "nameDe": "Weißnebel",
+    "nameEn": "Mist",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "whirlpool",
+    "nameDe": "Whirlpool",
+    "nameEn": "Whirlpool",
+    "power": 35,
+    "accuracy": 85,
+    "damageClass": "special"
+  },
+  {
+    "slug": "wrap",
+    "nameDe": "Wickel",
+    "nameEn": "Wrap",
+    "power": 15,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "echoed-voice",
+    "nameDe": "Widerhall",
+    "nameEn": "Echoed Voice",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "mind-reader",
+    "nameDe": "Willensleser",
+    "nameEn": "Mind Reader",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "twister",
+    "nameDe": "Windhose",
+    "nameEn": "Twister",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "air-cutter",
+    "nameDe": "Windschnitt",
+    "nameEn": "Air Cutter",
+    "power": 60,
+    "accuracy": 95,
+    "damageClass": "special"
+  },
+  {
+    "slug": "gust",
+    "nameDe": "Windstoß",
+    "nameEn": "Gust",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "special"
+  },
+  {
+    "slug": "whirlwind",
+    "nameDe": "Wirbelwind",
+    "nameEn": "Whirlwind",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "dynamic-punch",
+    "nameDe": "Wuchtschlag",
+    "nameEn": "Dynamic Punch",
+    "power": 100,
+    "accuracy": 50,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "miracle-eye",
+    "nameDe": "Wunderauge",
+    "nameEn": "Miracle Eye",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "wonder-room",
+    "nameDe": "Wunderraum",
+    "nameEn": "Wonder Room",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "wish",
+    "nameDe": "Wunschtraum",
+    "nameEn": "Wish",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "outrage",
+    "nameDe": "Wutanfall",
+    "nameEn": "Outrage",
+    "power": 120,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "rage-powder",
+    "nameDe": "Wutpulver",
+    "nameEn": "Rage Powder",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "pay-day",
+    "nameDe": "Zahltag",
+    "nameEn": "Pay Day",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "magical-leaf",
+    "nameDe": "Zauberblatt",
+    "nameEn": "Magical Leaf",
+    "power": 60,
+    "accuracy": null,
+    "damageClass": "special"
+  },
+  {
+    "slug": "roar-of-time",
+    "nameDe": "Zeitenlärm",
+    "nameEn": "Roar Of Time",
+    "power": 150,
+    "accuracy": 90,
+    "damageClass": "special"
+  },
+  {
+    "slug": "zen-headbutt",
+    "nameDe": "Zen-Kopfstoß",
+    "nameEn": "Zen Headbutt",
+    "power": 80,
+    "accuracy": 90,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "crush-claw",
+    "nameDe": "Zermalmklaue",
+    "nameEn": "Crush Claw",
+    "power": 75,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "chip-away",
+    "nameDe": "Zermürben",
+    "nameEn": "Chip Away",
+    "power": 70,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "rock-smash",
+    "nameDe": "Zertrümmerer",
+    "nameEn": "Rock Smash",
+    "power": 40,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "lock-on",
+    "nameDe": "Zielschuss",
+    "nameEn": "Lock On",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "fury-cutter",
+    "nameDe": "Zornklinge",
+    "nameEn": "Fury Cutter",
+    "power": 40,
+    "accuracy": 95,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "last-resort",
+    "nameDe": "Zuflucht",
+    "nameEn": "Last Resort",
+    "power": 140,
+    "accuracy": 100,
+    "damageClass": "physical"
+  },
+  {
+    "slug": "encore",
+    "nameDe": "Zugabe",
+    "nameEn": "Encore",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  },
+  {
+    "slug": "assist",
+    "nameDe": "Zuschuss",
+    "nameEn": "Assist",
+    "power": null,
+    "accuracy": null,
+    "damageClass": "status"
+  },
+  {
+    "slug": "entrainment",
+    "nameDe": "Zwango",
+    "nameEn": "Entrainment",
+    "power": null,
+    "accuracy": 100,
+    "damageClass": "status"
+  }
+]
