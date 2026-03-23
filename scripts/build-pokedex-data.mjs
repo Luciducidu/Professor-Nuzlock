@@ -336,6 +336,7 @@ async function buildPokedexData() {
       nameDe: speciesBaseNameDe,
       spriteId: defaultForm?.spriteId ?? id,
       types: defaultForm?.types ?? [...pokemon.types].sort((a, b) => a.slot - b.slot).map((typeEntry) => typeEntry.type.name),
+      catchRate: typeof species.capture_rate === 'number' ? species.capture_rate : null,
       evolution_chain_id: chainId,
       forms,
     }

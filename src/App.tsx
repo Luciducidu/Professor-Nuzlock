@@ -12,6 +12,7 @@ import { ProjectTeamPage } from './pages/ProjectTeamPage'
 import { ProjectLevelCapsPage } from './pages/ProjectLevelCapsPage'
 import { ProjectTypesPage } from './pages/ProjectTypesPage'
 import { ProjectNaturesPage } from './pages/ProjectNaturesPage'
+import { ProjectCatchRatePage } from './pages/ProjectCatchRatePage'
 import { PokedexProvider } from './components/PokedexProvider'
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/project/:id/team" element={<ProjectTeamPage />} />
         <Route path="/project/:id/levelcaps" element={<ProjectLevelCapsPage />} />
         <Route path="/project/:id/typen" element={<ProjectTypesPage />} />
+        <Route path="/project/:id/fangrate" element={<ProjectCatchRatePage />} />
         <Route path="/project/:id/wesen" element={<ProjectNaturesPage />} />
         <Route path="/project/:id/backup" element={<ProjectBackupPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />

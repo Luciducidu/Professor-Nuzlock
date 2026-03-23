@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import {
   getDefaultForm,
   getEvolutionChain,
@@ -19,6 +20,8 @@ import { usePokedex } from './PokedexProvider'
 const POKEDEX_ICON_URL = `${import.meta.env.BASE_URL}ui/pokedex-cover.jpg`
 
 export function PokedexPanel() {
+  const navigate = useNavigate()
+  const { id: projectId } = useParams<{ id: string }>()
   const {
     isOpen,
     query,
@@ -138,6 +141,19 @@ export function PokedexPanel() {
                         />
                       ))}
                     </div>
+                    {projectId ? (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          navigate(`/project/${projectId}/fangrate`, {
+                            state: { pokemonId: selectedEntry.id, formKey: activeForm?.key ?? null },
+                          })
+                        }
+                        className="mt-5 rounded-md border border-sky-300 bg-sky-50 px-3 py-2 text-sm font-semibold text-sky-800 transition hover:bg-sky-100"
+                      >
+                        Im Fangratenrechner öffnen
+                      </button>
+                    ) : null}
                   </div>
                 </div>
               </section>

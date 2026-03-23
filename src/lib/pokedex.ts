@@ -57,6 +57,7 @@ export type PokedexEntry = {
   nameDe: string
   spriteId: number
   types: PokemonTypeKey[]
+  catchRate: number | null
   evolution_chain_id: number | null
   forms: PokedexFormEntry[]
 }

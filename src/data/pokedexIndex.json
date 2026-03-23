@@ -9,6 +9,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 1,
     "forms": [
       {
@@ -175,6 +176,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 1,
     "forms": [
       {
@@ -357,6 +359,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 1,
     "forms": [
       {
@@ -554,6 +557,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 2,
     "forms": [
       {
@@ -694,6 +698,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 2,
     "forms": [
       {
@@ -843,6 +848,7 @@
       "fire",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 2,
     "forms": [
       {
@@ -1048,6 +1054,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 3,
     "forms": [
       {
@@ -1212,6 +1219,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 3,
     "forms": [
       {
@@ -1392,6 +1400,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 3,
     "forms": [
       {
@@ -1588,6 +1597,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 4,
     "forms": [
       {
@@ -1664,6 +1674,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 4,
     "forms": [
       {
@@ -1728,6 +1739,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 4,
     "forms": [
       {
@@ -1902,6 +1914,7 @@
       "bug",
       "poison"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 5,
     "forms": [
       {
@@ -1980,6 +1993,7 @@
       "bug",
       "poison"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 5,
     "forms": [
       {
@@ -2045,6 +2059,7 @@
       "bug",
       "poison"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 5,
     "forms": [
       {
@@ -2195,6 +2210,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 6,
     "forms": [
       {
@@ -2362,6 +2378,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 6,
     "forms": [
       {
@@ -2545,6 +2562,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 6,
     "forms": [
       {
@@ -2735,6 +2753,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 7,
     "forms": [
       {
@@ -2896,6 +2915,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 127,
     "evolution_chain_id": 7,
     "forms": [
       {
@@ -3090,6 +3110,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 8,
     "forms": [
       {
@@ -3232,6 +3253,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 8,
     "forms": [
       {
@@ -3401,6 +3423,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 9,
     "forms": [
       {
@@ -3578,6 +3601,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 9,
     "forms": [
       {
@@ -3803,6 +3827,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 10,
     "forms": [
       {
@@ -3963,6 +3988,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 10,
     "forms": [
       {
@@ -4047,6 +4073,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 11,
     "forms": [
       {
@@ -4219,6 +4246,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 11,
     "forms": [
       {
@@ -4415,6 +4443,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 235,
     "evolution_chain_id": 12,
     "forms": [
       {
@@ -4576,6 +4605,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 12,
     "forms": [
       {
@@ -4738,6 +4768,7 @@
       "poison",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 12,
     "forms": [
       {
@@ -4856,6 +4887,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 235,
     "evolution_chain_id": 13,
     "forms": [
       {
@@ -5017,6 +5049,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 13,
     "forms": [
       {
@@ -5179,6 +5212,7 @@
       "poison",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 13,
     "forms": [
       {
@@ -5297,6 +5331,7 @@
     "types": [
       "fairy"
     ],
+    "catchRate": 150,
     "evolution_chain_id": 14,
     "forms": [
       {
@@ -5506,6 +5541,7 @@
     "types": [
       "fairy"
     ],
+    "catchRate": 25,
     "evolution_chain_id": 14,
     "forms": [
       {
@@ -5595,6 +5631,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 15,
     "forms": [
       {
@@ -5783,6 +5820,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 15,
     "forms": [
       {
@@ -5876,6 +5914,7 @@
       "normal",
       "fairy"
     ],
+    "catchRate": 170,
     "evolution_chain_id": 16,
     "forms": [
       {
@@ -6043,6 +6082,7 @@
       "normal",
       "fairy"
     ],
+    "catchRate": 50,
     "evolution_chain_id": 16,
     "forms": [
       {
@@ -6134,6 +6174,7 @@
       "poison",
       "flying"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 17,
     "forms": [
       {
@@ -6284,6 +6325,7 @@
       "poison",
       "flying"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 17,
     "forms": [
       {
@@ -6458,6 +6500,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 18,
     "forms": [
       {
@@ -6608,6 +6651,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 18,
     "forms": [
       {
@@ -6774,6 +6818,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 18,
     "forms": [
       {
@@ -6876,6 +6921,7 @@
       "bug",
       "grass"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 19,
     "forms": [
       {
@@ -7023,6 +7069,7 @@
       "bug",
       "grass"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 19,
     "forms": [
       {
@@ -7202,6 +7249,7 @@
       "bug",
       "poison"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 20,
     "forms": [
       {
@@ -7373,6 +7421,7 @@
       "bug",
       "poison"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 20,
     "forms": [
       {
@@ -7579,6 +7628,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 21,
     "forms": [
       {
@@ -7744,6 +7794,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 50,
     "evolution_chain_id": 21,
     "forms": [
       {
@@ -7941,6 +7992,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 22,
     "forms": [
       {
@@ -8118,6 +8170,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 22,
     "forms": [
       {
@@ -8323,6 +8376,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 23,
     "forms": [
       {
@@ -8496,6 +8550,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 23,
     "forms": [
       {
@@ -8693,6 +8748,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 24,
     "forms": [
       {
@@ -8874,6 +8930,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 24,
     "forms": [
       {
@@ -9063,6 +9120,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 25,
     "forms": [
       {
@@ -9252,6 +9310,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 25,
     "forms": [
       {
@@ -9357,6 +9416,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 26,
     "forms": [
       {
@@ -9518,6 +9578,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 26,
     "forms": [
       {
@@ -9696,6 +9757,7 @@
       "water",
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 26,
     "forms": [
       {
@@ -9806,6 +9868,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 27,
     "forms": [
       {
@@ -9871,6 +9934,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 100,
     "evolution_chain_id": 27,
     "forms": [
       {
@@ -10048,6 +10112,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 50,
     "evolution_chain_id": 27,
     "forms": [
       {
@@ -10225,6 +10290,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 180,
     "evolution_chain_id": 28,
     "forms": [
       {
@@ -10390,6 +10456,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 28,
     "forms": [
       {
@@ -10567,6 +10634,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 28,
     "forms": [
       {
@@ -10749,6 +10817,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 29,
     "forms": [
       {
@@ -10907,6 +10976,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 29,
     "forms": [
       {
@@ -11081,6 +11151,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 29,
     "forms": [
       {
@@ -11211,6 +11282,7 @@
       "water",
       "poison"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 30,
     "forms": [
       {
@@ -11386,6 +11458,7 @@
       "water",
       "poison"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 30,
     "forms": [
       {
@@ -11577,6 +11650,7 @@
       "rock",
       "ground"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 31,
     "forms": [
       {
@@ -11752,6 +11826,7 @@
       "rock",
       "ground"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 31,
     "forms": [
       {
@@ -11943,6 +12018,7 @@
       "rock",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 31,
     "forms": [
       {
@@ -12137,6 +12213,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 32,
     "forms": [
       {
@@ -12298,6 +12375,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 32,
     "forms": [
       {
@@ -12500,6 +12578,7 @@
       "water",
       "psychic"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 33,
     "forms": [
       {
@@ -12683,6 +12762,7 @@
       "water",
       "psychic"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 33,
     "forms": [
       {
@@ -12882,6 +12962,7 @@
       "electric",
       "steel"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 34,
     "forms": [
       {
@@ -13069,6 +13150,7 @@
       "electric",
       "steel"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 34,
     "forms": [
       {
@@ -13284,6 +13366,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 35,
     "forms": [
       {
@@ -13479,6 +13562,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 36,
     "forms": [
       {
@@ -13638,6 +13722,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 36,
     "forms": [
       {
@@ -13820,6 +13905,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 37,
     "forms": [
       {
@@ -14010,6 +14096,7 @@
       "water",
       "ice"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 37,
     "forms": [
       {
@@ -14232,6 +14319,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 38,
     "forms": [
       {
@@ -14405,6 +14493,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 38,
     "forms": [
       {
@@ -14594,6 +14683,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 39,
     "forms": [
       {
@@ -14768,6 +14858,7 @@
       "water",
       "ice"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 39,
     "forms": [
       {
@@ -14887,6 +14978,7 @@
       "ghost",
       "poison"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 40,
     "forms": [
       {
@@ -15052,6 +15144,7 @@
       "ghost",
       "poison"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 40,
     "forms": [
       {
@@ -15233,6 +15326,7 @@
       "ghost",
       "poison"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 40,
     "forms": [
       {
@@ -15414,6 +15508,7 @@
       "rock",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 41,
     "forms": [
       {
@@ -15624,6 +15719,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 42,
     "forms": [
       {
@@ -15809,6 +15905,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 42,
     "forms": [
       {
@@ -16026,6 +16123,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 225,
     "evolution_chain_id": 43,
     "forms": [
       {
@@ -16203,6 +16301,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 43,
     "forms": [
       {
@@ -16396,6 +16495,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 44,
     "forms": [
       {
@@ -16569,6 +16669,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 44,
     "forms": [
       {
@@ -16767,6 +16868,7 @@
       "grass",
       "psychic"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 45,
     "forms": [
       {
@@ -16937,6 +17039,7 @@
       "grass",
       "psychic"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 45,
     "forms": [
       {
@@ -17062,6 +17165,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 46,
     "forms": [
       {
@@ -17235,6 +17339,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 46,
     "forms": [
       {
@@ -17432,6 +17537,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 47,
     "forms": [
       {
@@ -17621,6 +17727,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 47,
     "forms": [
       {
@@ -17814,6 +17921,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 48,
     "forms": [
       {
@@ -17987,6 +18095,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 49,
     "forms": [
       {
@@ -18152,6 +18261,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 49,
     "forms": [
       {
@@ -18334,6 +18444,7 @@
       "ground",
       "rock"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 50,
     "forms": [
       {
@@ -18493,6 +18604,7 @@
       "ground",
       "rock"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 50,
     "forms": [
       {
@@ -18675,6 +18787,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 51,
     "forms": [
       {
@@ -18856,6 +18969,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 52,
     "forms": [
       {
@@ -19053,6 +19167,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 53,
     "forms": [
       {
@@ -19226,6 +19341,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 225,
     "evolution_chain_id": 54,
     "forms": [
       {
@@ -19379,6 +19495,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 54,
     "forms": [
       {
@@ -19556,6 +19673,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 225,
     "evolution_chain_id": 55,
     "forms": [
       {
@@ -19721,6 +19839,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 55,
     "forms": [
       {
@@ -19902,6 +20021,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 225,
     "evolution_chain_id": 56,
     "forms": [
       {
@@ -20080,6 +20200,7 @@
       "water",
       "psychic"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 56,
     "forms": [
       {
@@ -20179,6 +20300,7 @@
       "psychic",
       "fairy"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 57,
     "forms": [
       {
@@ -20410,6 +20532,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 58,
     "forms": [
       {
@@ -20613,6 +20736,7 @@
       "ice",
       "psychic"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 59,
     "forms": [
       {
@@ -20811,6 +20935,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 60,
     "forms": [
       {
@@ -20975,6 +21100,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 61,
     "forms": [
       {
@@ -21139,6 +21265,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 62,
     "forms": [
       {
@@ -21312,6 +21439,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 63,
     "forms": [
       {
@@ -21477,6 +21605,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 64,
     "forms": [
       {
@@ -21554,6 +21683,7 @@
       "water",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 64,
     "forms": [
       {
@@ -21696,6 +21826,7 @@
       "water",
       "ice"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 65,
     "forms": [
       {
@@ -21874,6 +22005,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 35,
     "evolution_chain_id": 66,
     "forms": [
       {
@@ -21934,6 +22066,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 67,
     "forms": [
       {
@@ -22091,6 +22224,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 67,
     "forms": [
       {
@@ -22255,6 +22389,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 67,
     "forms": [
       {
@@ -22419,6 +22554,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 67,
     "forms": [
       {
@@ -22583,6 +22719,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 68,
     "forms": [
       {
@@ -22761,6 +22898,7 @@
       "rock",
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 69,
     "forms": [
       {
@@ -22928,6 +23066,7 @@
       "rock",
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 69,
     "forms": [
       {
@@ -23111,6 +23250,7 @@
       "rock",
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 70,
     "forms": [
       {
@@ -23266,6 +23406,7 @@
       "rock",
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 70,
     "forms": [
       {
@@ -23461,6 +23602,7 @@
       "rock",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 71,
     "forms": [
       {
@@ -23651,6 +23793,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 25,
     "evolution_chain_id": 72,
     "forms": [
       {
@@ -23829,6 +23972,7 @@
       "ice",
       "flying"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 73,
     "forms": [
       {
@@ -23999,6 +24143,7 @@
       "electric",
       "flying"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 74,
     "forms": [
       {
@@ -24169,6 +24314,7 @@
       "fire",
       "flying"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 75,
     "forms": [
       {
@@ -24338,6 +24484,7 @@
     "types": [
       "dragon"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 76,
     "forms": [
       {
@@ -24498,6 +24645,7 @@
     "types": [
       "dragon"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 76,
     "forms": [
       {
@@ -24675,6 +24823,7 @@
       "dragon",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 76,
     "forms": [
       {
@@ -24888,6 +25037,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 77,
     "forms": [
       {
@@ -25080,6 +25230,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 78,
     "forms": [
       {
@@ -25227,6 +25378,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 79,
     "forms": [
       {
@@ -25391,6 +25543,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 79,
     "forms": [
       {
@@ -25571,6 +25724,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 79,
     "forms": [
       {
@@ -25759,6 +25913,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 80,
     "forms": [
       {
@@ -25923,6 +26078,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 80,
     "forms": [
       {
@@ -26095,6 +26251,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 80,
     "forms": [
       {
@@ -26283,6 +26440,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 81,
     "forms": [
       {
@@ -26459,6 +26617,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 81,
     "forms": [
       {
@@ -26643,6 +26802,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 81,
     "forms": [
       {
@@ -26843,6 +27003,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 82,
     "forms": [
       {
@@ -27012,6 +27173,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 82,
     "forms": [
       {
@@ -27198,6 +27360,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 83,
     "forms": [
       {
@@ -27385,6 +27548,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 83,
     "forms": [
       {
@@ -27588,6 +27752,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 84,
     "forms": [
       {
@@ -27751,6 +27916,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 84,
     "forms": [
       {
@@ -27930,6 +28096,7 @@
       "bug",
       "poison"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 85,
     "forms": [
       {
@@ -28105,6 +28272,7 @@
       "bug",
       "poison"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 85,
     "forms": [
       {
@@ -28304,6 +28472,7 @@
       "poison",
       "flying"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 17,
     "forms": [
       {
@@ -28486,6 +28655,7 @@
       "water",
       "electric"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 86,
     "forms": [
       {
@@ -28661,6 +28831,7 @@
       "water",
       "electric"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 86,
     "forms": [
       {
@@ -28867,6 +29038,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 10,
     "forms": [
       {
@@ -28967,6 +29139,7 @@
     "types": [
       "fairy"
     ],
+    "catchRate": 150,
     "evolution_chain_id": 14,
     "forms": [
       {
@@ -29081,6 +29254,7 @@
       "normal",
       "fairy"
     ],
+    "catchRate": 170,
     "evolution_chain_id": 16,
     "forms": [
       {
@@ -29187,6 +29361,7 @@
     "types": [
       "fairy"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 87,
     "forms": [
       {
@@ -29357,6 +29532,7 @@
       "fairy",
       "flying"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 87,
     "forms": [
       {
@@ -29552,6 +29728,7 @@
       "psychic",
       "flying"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 88,
     "forms": [
       {
@@ -29735,6 +29912,7 @@
       "psychic",
       "flying"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 88,
     "forms": [
       {
@@ -29925,6 +30103,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 235,
     "evolution_chain_id": 89,
     "forms": [
       {
@@ -30081,6 +30260,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 89,
     "forms": [
       {
@@ -30253,6 +30433,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 89,
     "forms": [
       {
@@ -30445,6 +30626,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 18,
     "forms": [
       {
@@ -30554,6 +30736,7 @@
       "water",
       "fairy"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 90,
     "forms": [
       {
@@ -30717,6 +30900,7 @@
       "water",
       "fairy"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 90,
     "forms": [
       {
@@ -30899,6 +31083,7 @@
     "types": [
       "rock"
     ],
+    "catchRate": 65,
     "evolution_chain_id": 91,
     "forms": [
       {
@@ -31100,6 +31285,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 26,
     "forms": [
       {
@@ -31214,6 +31400,7 @@
       "grass",
       "flying"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 92,
     "forms": [
       {
@@ -31409,6 +31596,7 @@
       "grass",
       "flying"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 92,
     "forms": [
       {
@@ -31628,6 +31816,7 @@
       "grass",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 92,
     "forms": [
       {
@@ -31846,6 +32035,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 93,
     "forms": [
       {
@@ -32015,6 +32205,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 235,
     "evolution_chain_id": 94,
     "forms": [
       {
@@ -32188,6 +32379,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 94,
     "forms": [
       {
@@ -32370,6 +32562,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 95,
     "forms": [
       {
@@ -32557,6 +32750,7 @@
       "water",
       "ground"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 96,
     "forms": [
       {
@@ -32720,6 +32914,7 @@
       "water",
       "ground"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 96,
     "forms": [
       {
@@ -32890,6 +33085,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 67,
     "forms": [
       {
@@ -33054,6 +33250,7 @@
     "types": [
       "dark"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 67,
     "forms": [
       {
@@ -33219,6 +33416,7 @@
       "dark",
       "flying"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 97,
     "forms": [
       {
@@ -33382,6 +33580,7 @@
       "water",
       "psychic"
     ],
+    "catchRate": 70,
     "evolution_chain_id": 33,
     "forms": [
       {
@@ -33580,6 +33779,7 @@
     "types": [
       "ghost"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 98,
     "forms": [
       {
@@ -33735,6 +33935,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 225,
     "evolution_chain_id": 99,
     "forms": [
       {
@@ -33790,6 +33991,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 100,
     "forms": [
       {
@@ -33875,6 +34077,7 @@
       "normal",
       "psychic"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 101,
     "forms": [
       {
@@ -34061,6 +34264,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 102,
     "forms": [
       {
@@ -34226,6 +34430,7 @@
       "bug",
       "steel"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 102,
     "forms": [
       {
@@ -34447,6 +34652,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 103,
     "forms": [
       {
@@ -34633,6 +34839,7 @@
       "ground",
       "flying"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 104,
     "forms": [
       {
@@ -34804,6 +35011,7 @@
       "steel",
       "ground"
     ],
+    "catchRate": 25,
     "evolution_chain_id": 41,
     "forms": [
       {
@@ -35038,6 +35246,7 @@
     "types": [
       "fairy"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 105,
     "forms": [
       {
@@ -35215,6 +35424,7 @@
     "types": [
       "fairy"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 105,
     "forms": [
       {
@@ -35397,6 +35607,7 @@
       "water",
       "poison"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 106,
     "forms": [
       {
@@ -35600,6 +35811,7 @@
       "bug",
       "steel"
     ],
+    "catchRate": 25,
     "evolution_chain_id": 58,
     "forms": [
       {
@@ -35803,6 +36015,7 @@
       "bug",
       "rock"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 107,
     "forms": [
       {
@@ -35974,6 +36187,7 @@
       "bug",
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 108,
     "forms": [
       {
@@ -36149,6 +36363,7 @@
       "dark",
       "ice"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 109,
     "forms": [
       {
@@ -36323,6 +36538,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 110,
     "forms": [
       {
@@ -36492,6 +36708,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 110,
     "forms": [
       {
@@ -36661,6 +36878,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 111,
     "forms": [
       {
@@ -36827,6 +37045,7 @@
       "fire",
       "rock"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 111,
     "forms": [
       {
@@ -37014,6 +37233,7 @@
       "ice",
       "ground"
     ],
+    "catchRate": 225,
     "evolution_chain_id": 112,
     "forms": [
       {
@@ -37189,6 +37409,7 @@
       "ice",
       "ground"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 112,
     "forms": [
       {
@@ -37396,6 +37617,7 @@
       "water",
       "rock"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 113,
     "forms": [
       {
@@ -37578,6 +37800,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 114,
     "forms": [
       {
@@ -37731,6 +37954,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 114,
     "forms": [
       {
@@ -37933,6 +38157,7 @@
       "ice",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 115,
     "forms": [
       {
@@ -38000,6 +38225,7 @@
       "water",
       "flying"
     ],
+    "catchRate": 25,
     "evolution_chain_id": 116,
     "forms": [
       {
@@ -38211,6 +38437,7 @@
       "steel",
       "flying"
     ],
+    "catchRate": 25,
     "evolution_chain_id": 117,
     "forms": [
       {
@@ -38386,6 +38613,7 @@
       "dark",
       "fire"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 118,
     "forms": [
       {
@@ -38565,6 +38793,7 @@
       "dark",
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 118,
     "forms": [
       {
@@ -38768,6 +38997,7 @@
       "water",
       "dragon"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 54,
     "forms": [
       {
@@ -38954,6 +39184,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 119,
     "forms": [
       {
@@ -39110,6 +39341,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 119,
     "forms": [
       {
@@ -39290,6 +39522,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 68,
     "forms": [
       {
@@ -39475,6 +39708,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 120,
     "forms": [
       {
@@ -39648,6 +39882,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 121,
     "forms": [
       {
@@ -39785,6 +40020,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 47,
     "forms": [
       {
@@ -39874,6 +40110,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 47,
     "forms": [
       {
@@ -40052,6 +40289,7 @@
       "ice",
       "psychic"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 59,
     "forms": [
       {
@@ -40226,6 +40464,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 60,
     "forms": [
       {
@@ -40382,6 +40621,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 61,
     "forms": [
       {
@@ -40538,6 +40778,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 122,
     "forms": [
       {
@@ -40699,6 +40940,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 51,
     "forms": [
       {
@@ -40880,6 +41122,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 123,
     "forms": [
       {
@@ -41044,6 +41287,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 124,
     "forms": [
       {
@@ -41208,6 +41452,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 125,
     "forms": [
       {
@@ -41373,6 +41618,7 @@
       "rock",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 126,
     "forms": [
       {
@@ -41535,6 +41781,7 @@
       "rock",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 126,
     "forms": [
       {
@@ -41708,6 +41955,7 @@
       "rock",
       "dark"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 126,
     "forms": [
       {
@@ -41914,6 +42162,7 @@
       "psychic",
       "flying"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 127,
     "forms": [
       {
@@ -42092,6 +42341,7 @@
       "fire",
       "flying"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 128,
     "forms": [
       {
@@ -42270,6 +42520,7 @@
       "psychic",
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 129,
     "forms": [
       {
@@ -42430,6 +42681,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 130,
     "forms": [
       {
@@ -42578,6 +42830,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 130,
     "forms": [
       {
@@ -42750,6 +43003,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 130,
     "forms": [
       {
@@ -42930,6 +43184,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 131,
     "forms": [
       {
@@ -43071,6 +43326,7 @@
       "fire",
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 131,
     "forms": [
       {
@@ -43245,6 +43501,7 @@
       "fire",
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 131,
     "forms": [
       {
@@ -43438,6 +43695,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 132,
     "forms": [
       {
@@ -43587,6 +43845,7 @@
       "water",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 132,
     "forms": [
       {
@@ -43761,6 +44020,7 @@
       "water",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 132,
     "forms": [
       {
@@ -43942,6 +44202,7 @@
     "types": [
       "dark"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 133,
     "forms": [
       {
@@ -44111,6 +44372,7 @@
     "types": [
       "dark"
     ],
+    "catchRate": 127,
     "evolution_chain_id": 133,
     "forms": [
       {
@@ -44304,6 +44566,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 134,
     "forms": [
       {
@@ -44469,6 +44732,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 134,
     "forms": [
       {
@@ -44658,6 +44922,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 135,
     "forms": [
       {
@@ -44742,6 +45007,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 135,
     "forms": [
       {
@@ -44806,6 +45072,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 135,
     "forms": [
       {
@@ -44951,6 +45218,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 135,
     "forms": [
       {
@@ -45015,6 +45283,7 @@
       "bug",
       "poison"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 135,
     "forms": [
       {
@@ -45161,6 +45430,7 @@
       "water",
       "grass"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 136,
     "forms": [
       {
@@ -45308,6 +45578,7 @@
       "water",
       "grass"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 136,
     "forms": [
       {
@@ -45455,6 +45726,7 @@
       "water",
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 136,
     "forms": [
       {
@@ -45545,6 +45817,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 137,
     "forms": [
       {
@@ -45659,6 +45932,7 @@
       "grass",
       "dark"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 137,
     "forms": [
       {
@@ -45806,6 +46080,7 @@
       "grass",
       "dark"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 137,
     "forms": [
       {
@@ -45909,6 +46184,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 138,
     "forms": [
       {
@@ -46043,6 +46319,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 138,
     "forms": [
       {
@@ -46201,6 +46478,7 @@
       "water",
       "flying"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 139,
     "forms": [
       {
@@ -46364,6 +46642,7 @@
       "water",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 139,
     "forms": [
       {
@@ -46571,6 +46850,7 @@
       "psychic",
       "fairy"
     ],
+    "catchRate": 235,
     "evolution_chain_id": 140,
     "forms": [
       {
@@ -46742,6 +47022,7 @@
       "psychic",
       "fairy"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 140,
     "forms": [
       {
@@ -46937,6 +47218,7 @@
       "psychic",
       "fairy"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 140,
     "forms": [
       {
@@ -47140,6 +47422,7 @@
       "bug",
       "water"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 141,
     "forms": [
       {
@@ -47266,6 +47549,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 141,
     "forms": [
       {
@@ -47443,6 +47727,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 142,
     "forms": [
       {
@@ -47597,6 +47882,7 @@
       "grass",
       "fighting"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 142,
     "forms": [
       {
@@ -47783,6 +48069,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 143,
     "forms": [
       {
@@ -47906,6 +48193,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 143,
     "forms": [
       {
@@ -48053,6 +48341,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 143,
     "forms": [
       {
@@ -48225,6 +48514,7 @@
       "bug",
       "ground"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 144,
     "forms": [
       {
@@ -48359,6 +48649,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 144,
     "forms": [
       {
@@ -48549,6 +48840,7 @@
       "bug",
       "ghost"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 144,
     "forms": [
       {
@@ -48693,6 +48985,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 145,
     "forms": [
       {
@@ -48837,6 +49130,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 145,
     "forms": [
       {
@@ -49013,6 +49307,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 145,
     "forms": [
       {
@@ -49229,6 +49524,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 180,
     "evolution_chain_id": 146,
     "forms": [
       {
@@ -49418,6 +49714,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 146,
     "forms": [
       {
@@ -49632,6 +49929,7 @@
       "normal",
       "fairy"
     ],
+    "catchRate": 150,
     "evolution_chain_id": 90,
     "forms": [
       {
@@ -49754,6 +50052,7 @@
     "types": [
       "rock"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 147,
     "forms": [
       {
@@ -49931,6 +50230,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 148,
     "forms": [
       {
@@ -50124,6 +50424,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 148,
     "forms": [
       {
@@ -50214,6 +50515,7 @@
       "dark",
       "ghost"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 149,
     "forms": [
       {
@@ -50421,6 +50723,7 @@
       "steel",
       "fairy"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 150,
     "forms": [
       {
@@ -50592,6 +50895,7 @@
       "steel",
       "rock"
     ],
+    "catchRate": 180,
     "evolution_chain_id": 151,
     "forms": [
       {
@@ -50771,6 +51075,7 @@
       "steel",
       "rock"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 151,
     "forms": [
       {
@@ -50970,6 +51275,7 @@
       "steel",
       "rock"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 151,
     "forms": [
       {
@@ -51169,6 +51475,7 @@
       "fighting",
       "psychic"
     ],
+    "catchRate": 180,
     "evolution_chain_id": 152,
     "forms": [
       {
@@ -51339,6 +51646,7 @@
       "fighting",
       "psychic"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 152,
     "forms": [
       {
@@ -51556,6 +51864,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 153,
     "forms": [
       {
@@ -51721,6 +52030,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 153,
     "forms": [
       {
@@ -51918,6 +52228,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 154,
     "forms": [
       {
@@ -52106,6 +52417,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 155,
     "forms": [
       {
@@ -52294,6 +52606,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 150,
     "evolution_chain_id": 156,
     "forms": [
       {
@@ -52455,6 +52768,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 150,
     "evolution_chain_id": 157,
     "forms": [
       {
@@ -52609,6 +52923,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 150,
     "evolution_chain_id": 158,
     "forms": [
       {
@@ -52795,6 +53110,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 225,
     "evolution_chain_id": 159,
     "forms": [
       {
@@ -52968,6 +53284,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 159,
     "forms": [
       {
@@ -53174,6 +53491,7 @@
       "water",
       "dark"
     ],
+    "catchRate": 225,
     "evolution_chain_id": 160,
     "forms": [
       {
@@ -53332,6 +53650,7 @@
       "water",
       "dark"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 160,
     "forms": [
       {
@@ -53537,6 +53856,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 125,
     "evolution_chain_id": 161,
     "forms": [
       {
@@ -53718,6 +54038,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 161,
     "forms": [
       {
@@ -53924,6 +54245,7 @@
       "fire",
       "ground"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 162,
     "forms": [
       {
@@ -54091,6 +54413,7 @@
       "fire",
       "ground"
     ],
+    "catchRate": 150,
     "evolution_chain_id": 162,
     "forms": [
       {
@@ -54281,6 +54604,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 163,
     "forms": [
       {
@@ -54466,6 +54790,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 164,
     "forms": [
       {
@@ -54639,6 +54964,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 164,
     "forms": [
       {
@@ -54836,6 +55162,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 165,
     "forms": [
       {
@@ -54997,6 +55324,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 166,
     "forms": [
       {
@@ -55171,6 +55499,7 @@
       "ground",
       "dragon"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 166,
     "forms": [
       {
@@ -55336,6 +55665,7 @@
       "ground",
       "dragon"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 166,
     "forms": [
       {
@@ -55512,6 +55842,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 167,
     "forms": [
       {
@@ -55693,6 +56024,7 @@
       "grass",
       "dark"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 167,
     "forms": [
       {
@@ -55899,6 +56231,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 168,
     "forms": [
       {
@@ -56065,6 +56398,7 @@
       "dragon",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 168,
     "forms": [
       {
@@ -56270,6 +56604,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 169,
     "forms": [
       {
@@ -56438,6 +56773,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 170,
     "forms": [
       {
@@ -56607,6 +56943,7 @@
       "rock",
       "psychic"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 171,
     "forms": [
       {
@@ -56772,6 +57109,7 @@
       "rock",
       "psychic"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 172,
     "forms": [
       {
@@ -56937,6 +57275,7 @@
       "water",
       "ground"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 173,
     "forms": [
       {
@@ -57108,6 +57447,7 @@
       "water",
       "ground"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 173,
     "forms": [
       {
@@ -57310,6 +57650,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 205,
     "evolution_chain_id": 174,
     "forms": [
       {
@@ -57472,6 +57813,7 @@
       "water",
       "dark"
     ],
+    "catchRate": 155,
     "evolution_chain_id": 174,
     "forms": [
       {
@@ -57667,6 +58009,7 @@
       "ground",
       "psychic"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 175,
     "forms": [
       {
@@ -57840,6 +58183,7 @@
       "ground",
       "psychic"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 175,
     "forms": [
       {
@@ -58041,6 +58385,7 @@
       "rock",
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 176,
     "forms": [
       {
@@ -58199,6 +58544,7 @@
       "rock",
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 176,
     "forms": [
       {
@@ -58373,6 +58719,7 @@
       "rock",
       "bug"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 177,
     "forms": [
       {
@@ -58523,6 +58870,7 @@
       "rock",
       "bug"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 177,
     "forms": [
       {
@@ -58688,6 +59036,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 178,
     "forms": [
       {
@@ -58769,6 +59118,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 178,
     "forms": [
       {
@@ -58938,6 +59288,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 179,
     "forms": [
       {
@@ -59065,6 +59416,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 180,
     "forms": [
       {
@@ -59257,6 +59609,7 @@
     "types": [
       "ghost"
     ],
+    "catchRate": 225,
     "evolution_chain_id": 181,
     "forms": [
       {
@@ -59430,6 +59783,7 @@
     "types": [
       "ghost"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 181,
     "forms": [
       {
@@ -59627,6 +59981,7 @@
     "types": [
       "ghost"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 182,
     "forms": [
       {
@@ -59787,6 +60142,7 @@
     "types": [
       "ghost"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 182,
     "forms": [
       {
@@ -60004,6 +60360,7 @@
       "grass",
       "flying"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 183,
     "forms": [
       {
@@ -60182,6 +60539,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 184,
     "forms": [
       {
@@ -60341,6 +60699,7 @@
     "types": [
       "dark"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 185,
     "forms": [
       {
@@ -60542,6 +60901,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 125,
     "evolution_chain_id": 100,
     "forms": [
       {
@@ -60650,6 +61010,7 @@
     "types": [
       "ice"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 186,
     "forms": [
       {
@@ -60803,6 +61164,7 @@
     "types": [
       "ice"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 186,
     "forms": [
       {
@@ -60981,6 +61343,7 @@
       "ice",
       "water"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 187,
     "forms": [
       {
@@ -61144,6 +61507,7 @@
       "ice",
       "water"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 187,
     "forms": [
       {
@@ -61315,6 +61679,7 @@
       "ice",
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 187,
     "forms": [
       {
@@ -61501,6 +61866,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 188,
     "forms": [
       {
@@ -61589,6 +61955,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 188,
     "forms": [
       {
@@ -61737,6 +62104,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 188,
     "forms": [
       {
@@ -61886,6 +62254,7 @@
       "water",
       "rock"
     ],
+    "catchRate": 25,
     "evolution_chain_id": 189,
     "forms": [
       {
@@ -62048,6 +62417,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 225,
     "evolution_chain_id": 190,
     "forms": [
       {
@@ -62208,6 +62578,7 @@
     "types": [
       "dragon"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 191,
     "forms": [
       {
@@ -62356,6 +62727,7 @@
     "types": [
       "dragon"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 191,
     "forms": [
       {
@@ -62537,6 +62909,7 @@
       "dragon",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 191,
     "forms": [
       {
@@ -62747,6 +63120,7 @@
       "steel",
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 192,
     "forms": [
       {
@@ -62809,6 +63183,7 @@
       "steel",
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 192,
     "forms": [
       {
@@ -62987,6 +63362,7 @@
       "steel",
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 192,
     "forms": [
       {
@@ -63172,6 +63548,7 @@
     "types": [
       "rock"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 193,
     "forms": [
       {
@@ -63328,6 +63705,7 @@
     "types": [
       "ice"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 194,
     "forms": [
       {
@@ -63484,6 +63862,7 @@
     "types": [
       "steel"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 195,
     "forms": [
       {
@@ -63657,6 +64036,7 @@
       "dragon",
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 196,
     "forms": [
       {
@@ -63838,6 +64218,7 @@
       "dragon",
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 197,
     "forms": [
       {
@@ -64018,6 +64399,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 198,
     "forms": [
       {
@@ -64165,6 +64547,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 199,
     "forms": [
       {
@@ -64313,6 +64696,7 @@
       "dragon",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 200,
     "forms": [
       {
@@ -64462,6 +64846,7 @@
       "steel",
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 201,
     "forms": [
       {
@@ -64638,6 +65023,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 202,
     "forms": [
       {
@@ -64797,6 +65183,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 203,
     "forms": [
       {
@@ -64945,6 +65332,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 203,
     "forms": [
       {
@@ -65102,6 +65490,7 @@
       "grass",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 203,
     "forms": [
       {
@@ -65291,6 +65680,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 204,
     "forms": [
       {
@@ -65444,6 +65834,7 @@
       "fire",
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 204,
     "forms": [
       {
@@ -65614,6 +66005,7 @@
       "fire",
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 204,
     "forms": [
       {
@@ -65791,6 +66183,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 205,
     "forms": [
       {
@@ -65947,6 +66340,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 205,
     "forms": [
       {
@@ -66120,6 +66514,7 @@
       "water",
       "steel"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 205,
     "forms": [
       {
@@ -66310,6 +66705,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 206,
     "forms": [
       {
@@ -66456,6 +66852,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 206,
     "forms": [
       {
@@ -66610,6 +67007,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 206,
     "forms": [
       {
@@ -66779,6 +67177,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 207,
     "forms": [
       {
@@ -66933,6 +67332,7 @@
       "normal",
       "water"
     ],
+    "catchRate": 127,
     "evolution_chain_id": 207,
     "forms": [
       {
@@ -67103,6 +67503,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 208,
     "forms": [
       {
@@ -67183,6 +67584,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 208,
     "forms": [
       {
@@ -67339,6 +67741,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 235,
     "evolution_chain_id": 209,
     "forms": [
       {
@@ -67488,6 +67891,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 209,
     "forms": [
       {
@@ -67645,6 +68049,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 209,
     "forms": [
       {
@@ -67811,6 +68216,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 158,
     "forms": [
       {
@@ -67918,6 +68324,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 158,
     "forms": [
       {
@@ -68016,6 +68423,7 @@
     "types": [
       "rock"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 211,
     "forms": [
       {
@@ -68160,6 +68568,7 @@
     "types": [
       "rock"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 211,
     "forms": [
       {
@@ -68313,6 +68722,7 @@
       "rock",
       "steel"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 212,
     "forms": [
       {
@@ -68459,6 +68869,7 @@
       "rock",
       "steel"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 212,
     "forms": [
       {
@@ -68628,6 +69039,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 213,
     "forms": [
       {
@@ -68713,6 +69125,7 @@
       "bug",
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 213,
     "forms": [
       {
@@ -68871,6 +69284,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 213,
     "forms": [
       {
@@ -69033,6 +69447,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 214,
     "forms": [
       {
@@ -69115,6 +69530,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 214,
     "forms": [
       {
@@ -69300,6 +69716,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 215,
     "forms": [
       {
@@ -69457,6 +69874,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 216,
     "forms": [
       {
@@ -69609,6 +70027,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 216,
     "forms": [
       {
@@ -69793,6 +70212,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 217,
     "forms": [
       {
@@ -69924,6 +70344,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 217,
     "forms": [
       {
@@ -70071,6 +70492,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 218,
     "forms": [
       {
@@ -70209,6 +70631,7 @@
       "water",
       "ground"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 218,
     "forms": [
       {
@@ -70371,6 +70794,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 93,
     "forms": [
       {
@@ -70557,6 +70981,7 @@
       "ghost",
       "flying"
     ],
+    "catchRate": 125,
     "evolution_chain_id": 219,
     "forms": [
       {
@@ -70728,6 +71153,7 @@
       "ghost",
       "flying"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 219,
     "forms": [
       {
@@ -70914,6 +71340,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 220,
     "forms": [
       {
@@ -71091,6 +71518,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 220,
     "forms": [
       {
@@ -71284,6 +71712,7 @@
     "types": [
       "ghost"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 98,
     "forms": [
       {
@@ -71380,6 +71809,7 @@
       "dark",
       "flying"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 97,
     "forms": [
       {
@@ -71510,6 +71940,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 221,
     "forms": [
       {
@@ -71667,6 +72098,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 221,
     "forms": [
       {
@@ -71848,6 +72280,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 184,
     "forms": [
       {
@@ -71948,6 +72381,7 @@
       "poison",
       "dark"
     ],
+    "catchRate": 225,
     "evolution_chain_id": 223,
     "forms": [
       {
@@ -72107,6 +72541,7 @@
       "poison",
       "dark"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 223,
     "forms": [
       {
@@ -72282,6 +72717,7 @@
       "steel",
       "psychic"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 224,
     "forms": [
       {
@@ -72457,6 +72893,7 @@
       "steel",
       "psychic"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 224,
     "forms": [
       {
@@ -72671,6 +73108,7 @@
     "types": [
       "rock"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 91,
     "forms": [
       {
@@ -72833,6 +73271,7 @@
       "psychic",
       "fairy"
     ],
+    "catchRate": 145,
     "evolution_chain_id": 57,
     "forms": [
       {
@@ -73035,6 +73474,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 130,
     "evolution_chain_id": 51,
     "forms": [
       {
@@ -73133,6 +73573,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 228,
     "forms": [
       {
@@ -73300,6 +73741,7 @@
       "ghost",
       "dark"
     ],
+    "catchRate": 100,
     "evolution_chain_id": 229,
     "forms": [
       {
@@ -73458,6 +73900,7 @@
       "dragon",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 230,
     "forms": [
       {
@@ -73592,6 +74035,7 @@
       "dragon",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 230,
     "forms": [
       {
@@ -73738,6 +74182,7 @@
       "dragon",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 230,
     "forms": [
       {
@@ -73915,6 +74360,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 50,
     "evolution_chain_id": 72,
     "forms": [
       {
@@ -74100,6 +74546,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 232,
     "forms": [
       {
@@ -74238,6 +74685,7 @@
       "fighting",
       "steel"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 232,
     "forms": [
       {
@@ -74436,6 +74884,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 140,
     "evolution_chain_id": 233,
     "forms": [
       {
@@ -74572,6 +75021,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 233,
     "forms": [
       {
@@ -74749,6 +75199,7 @@
       "poison",
       "bug"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 234,
     "forms": [
       {
@@ -74920,6 +75371,7 @@
       "poison",
       "dark"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 234,
     "forms": [
       {
@@ -75123,6 +75575,7 @@
       "poison",
       "fighting"
     ],
+    "catchRate": 140,
     "evolution_chain_id": 235,
     "forms": [
       {
@@ -75298,6 +75751,7 @@
       "poison",
       "fighting"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 235,
     "forms": [
       {
@@ -75488,6 +75942,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 236,
     "forms": [
       {
@@ -75643,6 +76098,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 237,
     "forms": [
       {
@@ -75808,6 +76264,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 237,
     "forms": [
       {
@@ -75990,6 +76447,7 @@
       "water",
       "flying"
     ],
+    "catchRate": 25,
     "evolution_chain_id": 116,
     "forms": [
       {
@@ -76161,6 +76619,7 @@
       "grass",
       "ice"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 239,
     "forms": [
       {
@@ -76311,6 +76770,7 @@
       "grass",
       "ice"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 239,
     "forms": [
       {
@@ -76485,6 +76945,7 @@
       "dark",
       "ice"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 109,
     "forms": [
       {
@@ -76687,6 +77148,7 @@
       "electric",
       "steel"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 34,
     "forms": [
       {
@@ -76909,6 +77371,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 48,
     "forms": [
       {
@@ -77091,6 +77554,7 @@
       "ground",
       "rock"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 50,
     "forms": [
       {
@@ -77285,6 +77749,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 52,
     "forms": [
       {
@@ -77490,6 +77955,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 60,
     "forms": [
       {
@@ -77678,6 +78144,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 61,
     "forms": [
       {
@@ -77867,6 +78334,7 @@
       "fairy",
       "flying"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 87,
     "forms": [
       {
@@ -77958,6 +78426,7 @@
       "bug",
       "flying"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 95,
     "forms": [
       {
@@ -78176,6 +78645,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 67,
     "forms": [
       {
@@ -78340,6 +78810,7 @@
     "types": [
       "ice"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 67,
     "forms": [
       {
@@ -78505,6 +78976,7 @@
       "ground",
       "flying"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 104,
     "forms": [
       {
@@ -78724,6 +79196,7 @@
       "ice",
       "ground"
     ],
+    "catchRate": 50,
     "evolution_chain_id": 112,
     "forms": [
       {
@@ -78930,6 +79403,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 68,
     "forms": [
       {
@@ -79124,6 +79598,7 @@
       "psychic",
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 140,
     "forms": [
       {
@@ -79335,6 +79810,7 @@
       "rock",
       "steel"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 147,
     "forms": [
       {
@@ -79553,6 +80029,7 @@
     "types": [
       "ghost"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 182,
     "forms": [
       {
@@ -79770,6 +80247,7 @@
       "ice",
       "ghost"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 186,
     "forms": [
       {
@@ -79944,6 +80422,7 @@
       "electric",
       "ghost"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 240,
     "forms": [
       {
@@ -80096,6 +80575,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 241,
     "forms": [
       {
@@ -80239,6 +80719,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 242,
     "forms": [
       {
@@ -80382,6 +80863,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 243,
     "forms": [
       {
@@ -80526,6 +81008,7 @@
       "steel",
       "dragon"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 244,
     "forms": [
       {
@@ -80676,6 +81159,7 @@
       "water",
       "dragon"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 245,
     "forms": [
       {
@@ -80826,6 +81310,7 @@
       "fire",
       "steel"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 246,
     "forms": [
       {
@@ -80983,6 +81468,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 247,
     "forms": [
       {
@@ -81131,6 +81617,7 @@
       "ghost",
       "dragon"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 248,
     "forms": [
       {
@@ -81280,6 +81767,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 249,
     "forms": [
       {
@@ -81423,6 +81911,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 250,
     "forms": [
       {
@@ -81558,6 +82047,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 250,
     "forms": [
       {
@@ -81709,6 +82199,7 @@
     "types": [
       "dark"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 252,
     "forms": [
       {
@@ -81852,6 +82343,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 253,
     "forms": [
       {
@@ -81995,6 +82487,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 254,
     "forms": [
       {
@@ -82155,6 +82648,7 @@
       "psychic",
       "fire"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 255,
     "forms": [
       {
@@ -82270,6 +82764,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 256,
     "forms": [
       {
@@ -82381,6 +82876,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 256,
     "forms": [
       {
@@ -82504,6 +83000,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 256,
     "forms": [
       {
@@ -82627,6 +83124,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 257,
     "forms": [
       {
@@ -82739,6 +83237,7 @@
       "fire",
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 257,
     "forms": [
       {
@@ -82868,6 +83367,7 @@
       "fire",
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 257,
     "forms": [
       {
@@ -83000,6 +83500,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 258,
     "forms": [
       {
@@ -83111,6 +83612,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 258,
     "forms": [
       {
@@ -83234,6 +83736,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 258,
     "forms": [
       {
@@ -83365,6 +83868,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 259,
     "forms": [
       {
@@ -83481,6 +83985,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 259,
     "forms": [
       {
@@ -83613,6 +84118,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 260,
     "forms": [
       {
@@ -83721,6 +84227,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 260,
     "forms": [
       {
@@ -83837,6 +84344,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 260,
     "forms": [
       {
@@ -83965,6 +84473,7 @@
     "types": [
       "dark"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 261,
     "forms": [
       {
@@ -84085,6 +84594,7 @@
     "types": [
       "dark"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 261,
     "forms": [
       {
@@ -84217,6 +84727,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 262,
     "forms": [
       {
@@ -84328,6 +84839,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 262,
     "forms": [
       {
@@ -84395,6 +84907,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 263,
     "forms": [
       {
@@ -84506,6 +85019,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 263,
     "forms": [
       {
@@ -84573,6 +85087,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 264,
     "forms": [
       {
@@ -84684,6 +85199,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 264,
     "forms": [
       {
@@ -84751,6 +85267,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 265,
     "forms": [
       {
@@ -84875,6 +85392,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 265,
     "forms": [
       {
@@ -84948,6 +85466,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 266,
     "forms": [
       {
@@ -85066,6 +85585,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 266,
     "forms": [
       {
@@ -85196,6 +85716,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 266,
     "forms": [
       {
@@ -85325,6 +85846,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 267,
     "forms": [
       {
@@ -85433,6 +85955,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 267,
     "forms": [
       {
@@ -85553,6 +86076,7 @@
     "types": [
       "rock"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 268,
     "forms": [
       {
@@ -85661,6 +86185,7 @@
     "types": [
       "rock"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 268,
     "forms": [
       {
@@ -85785,6 +86310,7 @@
     "types": [
       "rock"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 268,
     "forms": [
       {
@@ -85910,6 +86436,7 @@
       "psychic",
       "flying"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 269,
     "forms": [
       {
@@ -86024,6 +86551,7 @@
       "psychic",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 269,
     "forms": [
       {
@@ -86149,6 +86677,7 @@
     "types": [
       "ground"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 270,
     "forms": [
       {
@@ -86266,6 +86795,7 @@
       "ground",
       "steel"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 270,
     "forms": [
       {
@@ -86395,6 +86925,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 271,
     "forms": [
       {
@@ -86507,6 +87038,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 180,
     "evolution_chain_id": 272,
     "forms": [
       {
@@ -86627,6 +87159,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 272,
     "forms": [
       {
@@ -86755,6 +87288,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 272,
     "forms": [
       {
@@ -86883,6 +87417,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 273,
     "forms": [
       {
@@ -86996,6 +87531,7 @@
       "water",
       "ground"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 273,
     "forms": [
       {
@@ -87118,6 +87654,7 @@
       "water",
       "ground"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 273,
     "forms": [
       {
@@ -87247,6 +87784,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 274,
     "forms": [
       {
@@ -87363,6 +87901,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 275,
     "forms": [
       {
@@ -87480,6 +88019,7 @@
       "bug",
       "grass"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 276,
     "forms": [
       {
@@ -87570,6 +88110,7 @@
       "bug",
       "grass"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 276,
     "forms": [
       {
@@ -87652,6 +88193,7 @@
       "bug",
       "grass"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 276,
     "forms": [
       {
@@ -87770,6 +88312,7 @@
       "bug",
       "poison"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 277,
     "forms": [
       {
@@ -87884,6 +88427,7 @@
       "bug",
       "poison"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 277,
     "forms": [
       {
@@ -88010,6 +88554,7 @@
       "bug",
       "poison"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 277,
     "forms": [
       {
@@ -88140,6 +88685,7 @@
       "grass",
       "fairy"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 278,
     "forms": [
       {
@@ -88262,6 +88808,7 @@
       "grass",
       "fairy"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 278,
     "forms": [
       {
@@ -88347,6 +88894,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 279,
     "forms": [
       {
@@ -88467,6 +89015,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 279,
     "forms": [
       {
@@ -88551,6 +89100,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 25,
     "evolution_chain_id": 280,
     "forms": [
       {
@@ -88672,6 +89222,7 @@
       "ground",
       "dark"
     ],
+    "catchRate": 180,
     "evolution_chain_id": 281,
     "forms": [
       {
@@ -88798,6 +89349,7 @@
       "ground",
       "dark"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 281,
     "forms": [
       {
@@ -88932,6 +89484,7 @@
       "ground",
       "dark"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 281,
     "forms": [
       {
@@ -89065,6 +89618,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 282,
     "forms": [
       {
@@ -89180,6 +89734,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 282,
     "forms": [
       {
@@ -89311,6 +89866,7 @@
     "types": [
       "grass"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 283,
     "forms": [
       {
@@ -89440,6 +89996,7 @@
       "bug",
       "rock"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 284,
     "forms": [
       {
@@ -89558,6 +90115,7 @@
       "bug",
       "rock"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 284,
     "forms": [
       {
@@ -89688,6 +90246,7 @@
       "dark",
       "fighting"
     ],
+    "catchRate": 180,
     "evolution_chain_id": 285,
     "forms": [
       {
@@ -89810,6 +90369,7 @@
       "dark",
       "fighting"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 285,
     "forms": [
       {
@@ -89940,6 +90500,7 @@
       "psychic",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 286,
     "forms": [
       {
@@ -90065,6 +90626,7 @@
     "types": [
       "ghost"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 287,
     "forms": [
       {
@@ -90171,6 +90733,7 @@
     "types": [
       "ghost"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 287,
     "forms": [
       {
@@ -90290,6 +90853,7 @@
       "water",
       "rock"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 288,
     "forms": [
       {
@@ -90420,6 +90984,7 @@
       "water",
       "rock"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 288,
     "forms": [
       {
@@ -90554,6 +91119,7 @@
       "rock",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 289,
     "forms": [
       {
@@ -90674,6 +91240,7 @@
       "rock",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 289,
     "forms": [
       {
@@ -90797,6 +91364,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 290,
     "forms": [
       {
@@ -90917,6 +91485,7 @@
     "types": [
       "poison"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 290,
     "forms": [
       {
@@ -91045,6 +91614,7 @@
     "types": [
       "dark"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 291,
     "forms": [
       {
@@ -91155,6 +91725,7 @@
     "types": [
       "dark"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 291,
     "forms": [
       {
@@ -91281,6 +91852,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 292,
     "forms": [
       {
@@ -91405,6 +91977,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 292,
     "forms": [
       {
@@ -91485,6 +92058,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 293,
     "forms": [
       {
@@ -91605,6 +92179,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 100,
     "evolution_chain_id": 293,
     "forms": [
       {
@@ -91737,6 +92312,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 50,
     "evolution_chain_id": 293,
     "forms": [
       {
@@ -91869,6 +92445,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 294,
     "forms": [
       {
@@ -91989,6 +92566,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 100,
     "evolution_chain_id": 294,
     "forms": [
       {
@@ -92121,6 +92699,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 50,
     "evolution_chain_id": 294,
     "forms": [
       {
@@ -92258,6 +92837,7 @@
       "water",
       "flying"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 295,
     "forms": [
       {
@@ -92376,6 +92956,7 @@
       "water",
       "flying"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 295,
     "forms": [
       {
@@ -92505,6 +93086,7 @@
     "types": [
       "ice"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 296,
     "forms": [
       {
@@ -92621,6 +93203,7 @@
     "types": [
       "ice"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 296,
     "forms": [
       {
@@ -92749,6 +93332,7 @@
     "types": [
       "ice"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 296,
     "forms": [
       {
@@ -92882,6 +93466,7 @@
       "normal",
       "grass"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 297,
     "forms": [
       {
@@ -93000,6 +93585,7 @@
       "normal",
       "grass"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 297,
     "forms": [
       {
@@ -93134,6 +93720,7 @@
       "electric",
       "flying"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 298,
     "forms": [
       {
@@ -93246,6 +93833,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 299,
     "forms": [
       {
@@ -93363,6 +93951,7 @@
       "bug",
       "steel"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 299,
     "forms": [
       {
@@ -93493,6 +94082,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 300,
     "forms": [
       {
@@ -93606,6 +94196,7 @@
       "grass",
       "poison"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 300,
     "forms": [
       {
@@ -93731,6 +94322,7 @@
       "water",
       "ghost"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 301,
     "forms": [
       {
@@ -93845,6 +94437,7 @@
       "water",
       "ghost"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 301,
     "forms": [
       {
@@ -93966,6 +94559,7 @@
     "types": [
       "water"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 302,
     "forms": [
       {
@@ -94091,6 +94685,7 @@
       "bug",
       "electric"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 303,
     "forms": [
       {
@@ -94213,6 +94808,7 @@
       "bug",
       "electric"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 303,
     "forms": [
       {
@@ -94339,6 +94935,7 @@
       "grass",
       "steel"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 304,
     "forms": [
       {
@@ -94447,6 +95044,7 @@
       "grass",
       "steel"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 304,
     "forms": [
       {
@@ -94575,6 +95173,7 @@
     "types": [
       "steel"
     ],
+    "catchRate": 130,
     "evolution_chain_id": 305,
     "forms": [
       {
@@ -94691,6 +95290,7 @@
     "types": [
       "steel"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 305,
     "forms": [
       {
@@ -94819,6 +95419,7 @@
     "types": [
       "steel"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 305,
     "forms": [
       {
@@ -94947,6 +95548,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 306,
     "forms": [
       {
@@ -95009,6 +95611,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 306,
     "forms": [
       {
@@ -95115,6 +95718,7 @@
     "types": [
       "electric"
     ],
+    "catchRate": 30,
     "evolution_chain_id": 306,
     "forms": [
       {
@@ -95181,6 +95785,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 255,
     "evolution_chain_id": 307,
     "forms": [
       {
@@ -95309,6 +95914,7 @@
     "types": [
       "psychic"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 307,
     "forms": [
       {
@@ -95450,6 +96056,7 @@
       "ghost",
       "fire"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 308,
     "forms": [
       {
@@ -95576,6 +96183,7 @@
       "ghost",
       "fire"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 308,
     "forms": [
       {
@@ -95710,6 +96318,7 @@
       "ghost",
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 308,
     "forms": [
       {
@@ -95783,6 +96392,7 @@
     "types": [
       "dragon"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 309,
     "forms": [
       {
@@ -95903,6 +96513,7 @@
     "types": [
       "dragon"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 309,
     "forms": [
       {
@@ -96035,6 +96646,7 @@
     "types": [
       "dragon"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 309,
     "forms": [
       {
@@ -96167,6 +96779,7 @@
     "types": [
       "ice"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 310,
     "forms": [
       {
@@ -96283,6 +96896,7 @@
     "types": [
       "ice"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 310,
     "forms": [
       {
@@ -96423,6 +97037,7 @@
     "types": [
       "ice"
     ],
+    "catchRate": 25,
     "evolution_chain_id": 311,
     "forms": [
       {
@@ -96541,6 +97156,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 200,
     "evolution_chain_id": 312,
     "forms": [
       {
@@ -96657,6 +97273,7 @@
     "types": [
       "bug"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 312,
     "forms": [
       {
@@ -96786,6 +97403,7 @@
       "ground",
       "electric"
     ],
+    "catchRate": 75,
     "evolution_chain_id": 313,
     "forms": [
       {
@@ -96903,6 +97521,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 180,
     "evolution_chain_id": 314,
     "forms": [
       {
@@ -97023,6 +97642,7 @@
     "types": [
       "fighting"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 314,
     "forms": [
       {
@@ -97155,6 +97775,7 @@
     "types": [
       "dragon"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 315,
     "forms": [
       {
@@ -97276,6 +97897,7 @@
       "ground",
       "ghost"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 316,
     "forms": [
       {
@@ -97394,6 +98016,7 @@
       "ground",
       "ghost"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 316,
     "forms": [
       {
@@ -97520,6 +98143,7 @@
       "dark",
       "steel"
     ],
+    "catchRate": 120,
     "evolution_chain_id": 317,
     "forms": [
       {
@@ -97642,6 +98266,7 @@
       "dark",
       "steel"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 317,
     "forms": [
       {
@@ -97779,6 +98404,7 @@
     "types": [
       "normal"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 318,
     "forms": [
       {
@@ -97892,6 +98518,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 319,
     "forms": [
       {
@@ -98014,6 +98641,7 @@
       "normal",
       "flying"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 319,
     "forms": [
       {
@@ -98148,6 +98776,7 @@
       "dark",
       "flying"
     ],
+    "catchRate": 190,
     "evolution_chain_id": 320,
     "forms": [
       {
@@ -98270,6 +98899,7 @@
       "dark",
       "flying"
     ],
+    "catchRate": 60,
     "evolution_chain_id": 320,
     "forms": [
       {
@@ -98403,6 +99033,7 @@
     "types": [
       "fire"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 321,
     "forms": [
       {
@@ -98524,6 +99155,7 @@
       "bug",
       "steel"
     ],
+    "catchRate": 90,
     "evolution_chain_id": 322,
     "forms": [
       {
@@ -98642,6 +99274,7 @@
       "dark",
       "dragon"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 323,
     "forms": [
       {
@@ -98754,6 +99387,7 @@
       "dark",
       "dragon"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 323,
     "forms": [
       {
@@ -98874,6 +99508,7 @@
       "dark",
       "dragon"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 323,
     "forms": [
       {
@@ -98994,6 +99629,7 @@
       "bug",
       "fire"
     ],
+    "catchRate": 45,
     "evolution_chain_id": 324,
     "forms": [
       {
@@ -99095,6 +99731,7 @@
       "bug",
       "fire"
     ],
+    "catchRate": 15,
     "evolution_chain_id": 324,
     "forms": [
       {
@@ -99208,6 +99845,7 @@
       "steel",
       "fighting"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 325,
     "forms": [
       {
@@ -99312,6 +99950,7 @@
       "rock",
       "fighting"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 326,
     "forms": [
       {
@@ -99416,6 +100055,7 @@
       "grass",
       "fighting"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 327,
     "forms": [
       {
@@ -99519,6 +100159,7 @@
     "types": [
       "flying"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 328,
     "forms": [
       {
@@ -99639,6 +100280,7 @@
       "electric",
       "flying"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 329,
     "forms": [
       {
@@ -99760,6 +100402,7 @@
       "dragon",
       "fire"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 330,
     "forms": [
       {
@@ -99872,6 +100515,7 @@
       "dragon",
       "electric"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 331,
     "forms": [
       {
@@ -99984,6 +100628,7 @@
       "ground",
       "flying"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 332,
     "forms": [
       {
@@ -100105,6 +100750,7 @@
       "dragon",
       "ice"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 333,
     "forms": [
       {
@@ -100213,6 +100859,7 @@
       "water",
       "fighting"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 334,
     "forms": [
       {
@@ -100317,6 +100964,7 @@
       "normal",
       "psychic"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 335,
     "forms": [
       {
@@ -100425,6 +101073,7 @@
       "bug",
       "steel"
     ],
+    "catchRate": 3,
     "evolution_chain_id": 336,
     "forms": [
       {

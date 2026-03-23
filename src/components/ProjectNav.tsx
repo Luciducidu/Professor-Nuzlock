@@ -37,6 +37,9 @@ export function ProjectNav({ projectId, showBackup = true }: ProjectNavProps) {
             <NavItem to={`/project/${projectId}/typen`} label="Typen" />
           </li>
           <li>
+            <NavItem to={`/project/${projectId}/fangrate`} label="Fangratenrechner" />
+          </li>
+          <li>
             <NavItem to={`/project/${projectId}/wesen`} label="Wesen" />
           </li>
           {showBackup ? (
