@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { PokemonSearch } from '../components/PokemonSearch'
+import pokemonIndex from '../data/pokemonIndex.json'
 import { ProjectLayout } from '../components/ProjectLayout'
-import { getDefaultForm, getFormByKey, getPokedexEntry } from '../lib/pokedex'
-import { formatGameName } from '../lib/projectSettings'
 import { calculateCatchRate, type CatchBall, type CatchStatus } from '../lib/catchRate'
+import { getDefaultForm, getFormByKey, getPokedexEntry, getSpriteUrl, getTypeMeta } from '../lib/pokedex'
+import { formatGameName } from '../lib/projectSettings'
 import type { PokemonIndexEntry, Project } from '../lib/types'
+
+const POKEMON_INDEX = pokemonIndex as PokemonIndexEntry[]
 
 const BALL_OPTIONS: Array<{ value: CatchBall; label: string }> = [
   { value: 'poke-ball', label: 'Poké Ball' },
@@ -47,13 +49,15 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
   const location = useLocation()
   const routeState = (location.state as CatchRateLocationState | null) ?? null
 
+  const [query, setQuery] = useState('')
   const [selectedPokemon, setSelectedPokemon] = useState<PokemonIndexEntry | null>(null)
   const [formKey, setFormKey] = useState('')
   const [level, setLevel] = useState('10')
-  const [maxHp, setMaxHp] = useState('30')
-  const [currentHp, setCurrentHp] = useState('30')
   const [ball, setBall] = useState<CatchBall>('poke-ball')
   const [status, setStatus] = useState<CatchStatus>('none')
+  const [hpPercent, setHpPercent] = useState(100)
+  const [maxHp, setMaxHp] = useState('100')
+  const [currentHp, setCurrentHp] = useState('100')
   const [isFirstTurn, setIsFirstTurn] = useState(true)
   const [turnsPassed, setTurnsPassed] = useState('1')
   const [alreadyOwned, setAlreadyOwned] = useState(false)
@@ -74,6 +78,16 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
     setFormKey(routeState.formKey ?? '')
   }, [routeState?.formKey, routeState?.pokemonId])
 
+  const searchResults = useMemo(() => {
+    const normalized = query.trim().toLowerCase()
+    if (!normalized) return POKEMON_INDEX.slice(0, 12)
+    return POKEMON_INDEX.filter((pokemon) => {
+      const de = pokemon.nameDe.toLowerCase()
+      const en = pokemon.slug.toLowerCase()
+      return de.includes(normalized) || en.includes(normalized)
+    }).slice(0, 12)
+  }, [query])
+
   const selectedEntry = useMemo(
     () => (selectedPokemon ? getPokedexEntry(selectedPokemon.id) : null),
     [selectedPokemon],
@@ -93,6 +107,16 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
   const parsedMaxHp = Math.max(1, Number(maxHp) || 1)
   const parsedCurrentHp = Math.min(parsedMaxHp, Math.max(1, Number(currentHp) || 1))
   const parsedTurns = Math.max(1, Number(turnsPassed) || 1)
+
+  useEffect(() => {
+    const nextCurrentHp = Math.max(1, Math.round((parsedMaxHp * hpPercent) / 100))
+    setCurrentHp(String(nextCurrentHp))
+  }, [hpPercent, parsedMaxHp])
+
+  useEffect(() => {
+    const nextPercent = Math.max(1, Math.min(100, Math.round((parsedCurrentHp / parsedMaxHp) * 100)))
+    setHpPercent((current) => (current === nextPercent ? current : nextPercent))
+  }, [parsedCurrentHp, parsedMaxHp])
 
   const result = useMemo(() => {
     if (!selectedEntry || selectedEntry.catchRate == null) return null
@@ -128,12 +152,20 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
     status,
   ])
 
+  const resultMessage = !selectedPokemon
+    ? 'Bitte ein Pokémon auswählen.'
+    : !selectedEntry
+      ? 'Für dieses Pokémon fehlen Pokédexdaten.'
+      : selectedEntry.catchRate == null
+        ? 'Für dieses Pokémon fehlen Fangdaten.'
+        : null
+
   return (
     <div className="space-y-4">
       <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">Fangratenrechner</h2>
+            <h2 className="text-xl font-semibold text-slate-900">Fangratenrechner</h2>
             <p className="mt-1 text-sm text-slate-600">Berechnung für {formatGameName(project.game)}</p>
           </div>
           <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800">
@@ -142,106 +174,188 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
         </div>
       </section>
 
-      <section className="grid gap-4 xl:grid-cols-[1.2fr_0.8fr]">
-        <div className="space-y-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <PokemonSearch onSelect={setSelectedPokemon} />
-
-          {selectedPokemon ? (
-            <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-              <p className="text-base font-semibold text-slate-900">
-                {selectedPokemon.nameDe} ({selectedPokemon.slug})
-              </p>
-              {availableForms.length > 1 ? (
-                <div className="mt-3">
-                  <label htmlFor="catch-form" className="mb-2 block text-sm font-medium text-slate-700">
-                    Form
-                  </label>
-                  <select
-                    id="catch-form"
-                    value={activeForm?.key ?? ''}
-                    onChange={(event) => setFormKey(event.target.value)}
-                    className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 transition focus:ring-2"
-                  >
-                    {availableForms.map((form) => (
-                      <option key={form.key} value={form.key}>
-                        {form.nameDe}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              ) : null}
-              <p className="mt-3 text-sm text-slate-600">Fangrate: {selectedEntry?.catchRate ?? 'Keine Daten verfügbar'}</p>
+      <section className="space-y-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="grid gap-4 xl:grid-cols-[1.1fr_0.9fr]">
+          <div className="space-y-3">
+            <label htmlFor="catch-pokemon-query" className="block text-sm font-medium text-slate-700">
+              Pokémon auswählen
+            </label>
+            <input
+              id="catch-pokemon-query"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Pokémon suchen..."
+              className="w-full rounded-xl border border-slate-300 px-4 py-3 text-base text-slate-900 outline-none ring-sky-500 transition focus:ring-2"
+            />
+            <div className="grid gap-2 sm:grid-cols-2">
+              {searchResults.map((pokemon) => (
+                <button
+                  key={pokemon.id}
+                  type="button"
+                  onClick={() => setSelectedPokemon(pokemon)}
+                  className={`flex items-center gap-3 rounded-xl border px-3 py-3 text-left transition ${
+                    selectedPokemon?.id === pokemon.id
+                      ? 'border-sky-300 bg-sky-50'
+                      : 'border-slate-200 bg-white hover:bg-slate-50'
+                  }`}
+                >
+                  <img src={getSpriteUrl(pokemon.id)} alt={pokemon.nameDe} className="h-12 w-12 shrink-0" loading="lazy" />
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-semibold text-slate-900">{pokemon.nameDe}</p>
+                    <p className="truncate text-xs text-slate-500">({pokemon.slug})</p>
+                  </div>
+                </button>
+              ))}
             </div>
-          ) : (
-            <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-500">
-              Bitte zuerst ein Pokémon auswählen.
-            </div>
-          )}
-
-          <div className="grid gap-4 md:grid-cols-2">
-            <NumberField label="Level" value={level} onChange={setLevel} min={1} />
-            <SelectField label="Status" value={status} onChange={(value) => setStatus(value as CatchStatus)} options={STATUS_OPTIONS} />
-            <NumberField label="Maximale KP" value={maxHp} onChange={setMaxHp} min={1} />
-            <div>
-              <NumberField label="Aktuelle KP" value={currentHp} onChange={setCurrentHp} min={1} max={parsedMaxHp} />
-              <button
-                type="button"
-                onClick={() => setCurrentHp('1')}
-                className="mt-2 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-50"
-              >
-                Auf 1 KP setzen
-              </button>
-            </div>
-            <SelectField label="Poké Ball" value={ball} onChange={(value) => setBall(value as CatchBall)} options={BALL_OPTIONS} />
-            <NumberField label="Züge vergangen" value={turnsPassed} onChange={setTurnsPassed} min={1} />
           </div>
 
-          <div className="grid gap-3 md:grid-cols-2">
-            <ToggleField label="Erster Zug" checked={isFirstTurn} onChange={setIsFirstTurn} />
-            <ToggleField label="Bereits im Pokédex als gefangen" checked={alreadyOwned} onChange={setAlreadyOwned} />
-            <ToggleField label="Nacht oder Höhle" checked={isDarkArea} onChange={setIsDarkArea} />
-            <ToggleField label="Surfen / Angeln / Wasser" checked={isWaterEncounter} onChange={setIsWaterEncounter} />
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            {selectedEntry ? (
+              <div className="flex gap-4">
+                <img
+                  src={getSpriteUrl(activeForm?.spriteId ?? selectedEntry.spriteId)}
+                  alt={activeForm?.nameDe ?? selectedEntry.nameDe}
+                  className="h-24 w-24 shrink-0"
+                  loading="lazy"
+                />
+                <div className="min-w-0 flex-1">
+                  <p className="text-lg font-semibold text-slate-900">{activeForm?.nameDe ?? selectedEntry.nameDe}</p>
+                  <p className="text-sm text-slate-500">({activeForm?.nameEn ?? selectedEntry.nameEn})</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {(activeForm?.types ?? selectedEntry.types).map((type) => (
+                      <TypeChip key={type} typeKey={type} />
+                    ))}
+                  </div>
+                  <p className="mt-3 text-sm text-slate-700">
+                    Fangrate: <span className="font-semibold text-slate-900">{selectedEntry.catchRate ?? 'Keine Daten verfügbar'}</span>
+                  </p>
+                  {availableForms.length > 1 ? (
+                    <div className="mt-3">
+                      <label htmlFor="catch-form" className="mb-2 block text-sm font-medium text-slate-700">
+                        Form
+                      </label>
+                      <select
+                        id="catch-form"
+                        value={activeForm?.key ?? ''}
+                        onChange={(event) => setFormKey(event.target.value)}
+                        className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-sky-500 transition focus:ring-2"
+                      >
+                        {availableForms.map((form) => (
+                          <option key={form.key} value={form.key}>
+                            {form.nameDe}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            ) : (
+              <div className="flex min-h-[132px] items-center justify-center rounded-xl border border-dashed border-slate-300 bg-white px-4 text-sm text-slate-500">
+                Noch kein Pokémon ausgewählt.
+              </div>
+            )}
           </div>
         </div>
 
-        <section className="space-y-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 className="text-lg font-semibold text-slate-900">Ergebnis</h3>
-          {selectedEntry && result ? (
-            <>
-              <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                <p className="text-sm text-slate-600">Fangchance pro Ball</p>
-                <p className="mt-1 text-3xl font-bold text-slate-900">{formatPercent(result.chancePerBall)}</p>
-              </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          <SelectField label="Poké Ball" value={ball} onChange={(value) => setBall(value as CatchBall)} options={BALL_OPTIONS} />
+          <SelectField label="Status" value={status} onChange={(value) => setStatus(value as CatchStatus)} options={STATUS_OPTIONS} />
+          <NumberField label="Level" value={level} onChange={setLevel} min={1} />
+        </div>
+      </section>
 
-              <div className="grid gap-3 sm:grid-cols-3">
-                <ResultCard label="Nach 5 Bällen" value={formatPercent(result.chanceAfter5)} />
-                <ResultCard label="Nach 10 Bällen" value={formatPercent(result.chanceAfter10)} />
-                <ResultCard label="Nach 20 Bällen" value={formatPercent(result.chanceAfter20)} />
-              </div>
+      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900">KP-Leiste</h3>
+            <p className="mt-1 text-sm text-slate-600">
+              Aktuell: {parsedCurrentHp} / {parsedMaxHp} KP ({hpPercent}%)
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setHpPercent(1)}
+            className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            Auf 1 KP setzen
+          </button>
+        </div>
 
-              <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-                <p className="font-semibold text-slate-900">Zusammenfassung</p>
-                <ul className="mt-2 space-y-1">
-                  <li>Spiel: {formatGameName(project.game)}</li>
-                  <li>Pokémon: {selectedEntry.nameDe}</li>
-                  <li>Level: {parsedLevel}</li>
-                  <li>KP: {parsedCurrentHp} / {parsedMaxHp}</li>
-                  <li>Ball: {BALL_OPTIONS.find((option) => option.value === ball)?.label ?? ball}</li>
-                  <li>Status: {STATUS_OPTIONS.find((option) => option.value === status)?.label ?? status}</li>
-                </ul>
-              </div>
+        <div className="mt-5">
+          <input
+            type="range"
+            min={1}
+            max={100}
+            value={hpPercent}
+            onChange={(event) => setHpPercent(Number(event.target.value))}
+            className="h-3 w-full cursor-pointer accent-emerald-500"
+          />
+          <div className="mt-4 h-5 overflow-hidden rounded-full bg-slate-200">
+            <div
+              className="h-full rounded-full bg-emerald-500 transition-[width] duration-150"
+              style={{ width: `${hpPercent}%` }}
+            />
+          </div>
+        </div>
+      </section>
 
-              <div className="rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-700">
-                <p>Ball-Multiplikator: {formatMultiplier(result.ballModifier)}</p>
-                <p className="mt-1">Status-Multiplikator: {formatMultiplier(result.statusModifier)}</p>
+      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h3 className="text-lg font-semibold text-slate-900">Ergebnis</h3>
+        {result && !resultMessage ? (
+          <div className="mt-4 space-y-4">
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+              <p className="text-sm font-medium text-emerald-800">Fangchance pro Ball</p>
+              <p className="mt-2 text-4xl font-bold text-emerald-900">{formatPercent(result.chancePerBall)}</p>
+              <div className="mt-4 h-3 overflow-hidden rounded-full bg-white/80">
+                <div
+                  className="h-full rounded-full bg-emerald-500 transition-[width] duration-200"
+                  style={{ width: `${Math.max(2, result.chancePerBall * 100)}%` }}
+                />
               </div>
-            </>
-          ) : (
-            <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-500">
-              Keine Daten verfügbar. Bitte ein Pokémon auswählen, damit die Fangchance berechnet werden kann.
             </div>
-          )}
-        </section>
+
+            <div className="grid gap-3 md:grid-cols-3">
+              <ResultCard label="Chance nach 5 Bällen" value={formatPercent(result.chanceAfter5)} />
+              <ResultCard label="Chance nach 10 Bällen" value={formatPercent(result.chanceAfter10)} />
+              <ResultCard label="Chance nach 20 Bällen" value={formatPercent(result.chanceAfter20)} />
+            </div>
+
+            <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+              <p className="font-semibold text-slate-900">Verwendete Eingaben</p>
+              <ul className="mt-2 grid gap-1 md:grid-cols-2">
+                <li>Spiel: {formatGameName(project.game)}</li>
+                <li>Pokémon: {selectedEntry?.nameDe}</li>
+                <li>Level: {parsedLevel}</li>
+                <li>Ball: {BALL_OPTIONS.find((option) => option.value === ball)?.label ?? ball}</li>
+                <li>Status: {STATUS_OPTIONS.find((option) => option.value === status)?.label ?? status}</li>
+                <li>KP: {parsedCurrentHp} / {parsedMaxHp}</li>
+              </ul>
+            </div>
+          </div>
+        ) : (
+          <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+            {resultMessage ?? 'Bitte gültige Fangdaten angeben.'}
+          </div>
+        )}
+      </section>
+
+      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h3 className="text-lg font-semibold text-slate-900">Erweiterte Fangbedingungen</h3>
+        <div className="mt-4 grid gap-4 lg:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <ToggleField label="Erster Zug" checked={isFirstTurn} onChange={setIsFirstTurn} />
+            <ToggleField label="Bereits im Pokédex gefangen" checked={alreadyOwned} onChange={setAlreadyOwned} />
+            <ToggleField label="Nacht oder Höhle" checked={isDarkArea} onChange={setIsDarkArea} />
+            <ToggleField label="Surfen / Angeln / Wasser" checked={isWaterEncounter} onChange={setIsWaterEncounter} />
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <NumberField label="Züge vergangen" value={turnsPassed} onChange={setTurnsPassed} min={1} />
+            <NumberField label="Maximale KP" value={maxHp} onChange={setMaxHp} min={1} />
+            <NumberField label="Aktuelle KP" value={currentHp} onChange={setCurrentHp} min={1} max={parsedMaxHp} />
+          </div>
+        </div>
       </section>
     </div>
   )
@@ -328,18 +442,25 @@ function ToggleField({
 
 function ResultCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+    <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
       <p className="text-sm text-slate-600">{label}</p>
-      <p className="mt-1 text-xl font-semibold text-slate-900">{value}</p>
+      <p className="mt-1 text-2xl font-semibold text-slate-900">{value}</p>
     </div>
+  )
+}
+
+function TypeChip({ typeKey }: { typeKey: string }) {
+  const meta = getTypeMeta(typeKey as Parameters<typeof getTypeMeta>[0])
+  const iconUrl = `${import.meta.env.BASE_URL}type-icons/${typeKey}.svg`
+
+  return (
+    <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold ${meta.classes}`}>
+      <img src={iconUrl} alt={meta.label} className="h-4 w-4" loading="lazy" />
+      <span>{meta.label}</span>
+    </span>
   )
 }
 
 function formatPercent(value: number) {
   return `${(value * 100).toFixed(1).replace('.', ',')} %`
-}
-
-function formatMultiplier(value: number) {
-  if (!Number.isFinite(value)) return 'Garantiert'
-  return `${value.toFixed(2).replace('.', ',')}×`
 }
