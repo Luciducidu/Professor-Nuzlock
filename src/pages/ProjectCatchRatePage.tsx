@@ -283,20 +283,20 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
         </div>
 
         <div className="mt-5">
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <p className={`text-lg font-semibold ${getHpTextClass(hpPercent)}`}>{hpPercent} % HP</p>
+            <p className="text-sm text-slate-500">{parsedCurrentHp} / {parsedMaxHp} KP</p>
+          </div>
           <input
             type="range"
             min={1}
             max={100}
             value={hpPercent}
             onChange={(event) => setHpPercent(Number(event.target.value))}
-            className="h-3 w-full cursor-pointer accent-emerald-500"
+            aria-label="Aktuelle KP in Prozent"
+            className={`h-4 w-full cursor-grab appearance-none rounded-full active:cursor-grabbing ${getHpSliderClass(hpPercent)}`}
+            style={getHpSliderStyle(hpPercent)}
           />
-          <div className="mt-4 h-5 overflow-hidden rounded-full bg-slate-200">
-            <div
-              className="h-full rounded-full bg-emerald-500 transition-[width] duration-150"
-              style={{ width: `${hpPercent}%` }}
-            />
-          </div>
         </div>
       </section>
 
@@ -463,4 +463,35 @@ function TypeChip({ typeKey }: { typeKey: string }) {
 
 function formatPercent(value: number) {
   return `${(value * 100).toFixed(1).replace('.', ',')} %`
+}
+
+function getHpSliderClass(hpPercent: number) {
+  if (hpPercent <= 20) {
+    return '[&::-webkit-slider-thumb]:mt-[-6px] [&::-webkit-slider-thumb]:h-7 [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-red-500 [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-runnable-track]:h-4 [&::-webkit-slider-runnable-track]:rounded-full [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-4 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-red-500 [&::-moz-range-thumb]:shadow-lg [&::-moz-range-track]:h-4 [&::-moz-range-track]:rounded-full [&::-moz-range-track]:bg-transparent'
+  }
+
+  if (hpPercent <= 50) {
+    return '[&::-webkit-slider-thumb]:mt-[-6px] [&::-webkit-slider-thumb]:h-7 [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-amber-400 [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-runnable-track]:h-4 [&::-webkit-slider-runnable-track]:rounded-full [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-4 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-amber-400 [&::-moz-range-thumb]:shadow-lg [&::-moz-range-track]:h-4 [&::-moz-range-track]:rounded-full [&::-moz-range-track]:bg-transparent'
+  }
+
+  return '[&::-webkit-slider-thumb]:mt-[-6px] [&::-webkit-slider-thumb]:h-7 [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:bg-emerald-500 [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-runnable-track]:h-4 [&::-webkit-slider-runnable-track]:rounded-full [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-4 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-emerald-500 [&::-moz-range-thumb]:shadow-lg [&::-moz-range-track]:h-4 [&::-moz-range-track]:rounded-full [&::-moz-range-track]:bg-transparent'
+}
+
+function getHpTextClass(hpPercent: number) {
+  if (hpPercent <= 20) {
+    return 'text-red-600'
+  }
+
+  if (hpPercent <= 50) {
+    return 'text-amber-600'
+  }
+
+  return 'text-emerald-600'
+}
+
+function getHpSliderStyle(hpPercent: number) {
+  const fillColor = hpPercent <= 20 ? '#ef4444' : hpPercent <= 50 ? '#fbbf24' : '#10b981'
+  return {
+    background: `linear-gradient(to right, ${fillColor} 0%, ${fillColor} ${hpPercent}%, #e2e8f0 ${hpPercent}%, #e2e8f0 100%)`,
+  }
 }
