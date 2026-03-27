@@ -57,7 +57,6 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
   const [status, setStatus] = useState<CatchStatus>('none')
   const [hpPercent, setHpPercent] = useState(100)
   const [maxHp, setMaxHp] = useState('100')
-  const [currentHp, setCurrentHp] = useState('100')
   const [isFirstTurn, setIsFirstTurn] = useState(true)
   const [turnsPassed, setTurnsPassed] = useState('1')
   const [alreadyOwned, setAlreadyOwned] = useState(false)
@@ -105,18 +104,8 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
 
   const parsedLevel = Math.max(1, Number(level) || 1)
   const parsedMaxHp = Math.max(1, Number(maxHp) || 1)
-  const parsedCurrentHp = Math.min(parsedMaxHp, Math.max(1, Number(currentHp) || 1))
+  const parsedCurrentHp = Math.max(1, Math.min(parsedMaxHp, Math.round((parsedMaxHp * hpPercent) / 100)))
   const parsedTurns = Math.max(1, Number(turnsPassed) || 1)
-
-  useEffect(() => {
-    const nextCurrentHp = Math.max(1, Math.round((parsedMaxHp * hpPercent) / 100))
-    setCurrentHp(String(nextCurrentHp))
-  }, [hpPercent, parsedMaxHp])
-
-  useEffect(() => {
-    const nextPercent = Math.max(1, Math.min(100, Math.round((parsedCurrentHp / parsedMaxHp) * 100)))
-    setHpPercent((current) => (current === nextPercent ? current : nextPercent))
-  }, [parsedCurrentHp, parsedMaxHp])
 
   const result = useMemo(() => {
     if (!selectedEntry || selectedEntry.catchRate == null) return null
@@ -353,7 +342,13 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
           <div className="grid gap-4 sm:grid-cols-2">
             <NumberField label="Züge vergangen" value={turnsPassed} onChange={setTurnsPassed} min={1} />
             <NumberField label="Maximale KP" value={maxHp} onChange={setMaxHp} min={1} />
-            <NumberField label="Aktuelle KP" value={currentHp} onChange={setCurrentHp} min={1} max={parsedMaxHp} />
+            <NumberField
+              label="Aktuelle KP"
+              value={String(parsedCurrentHp)}
+              onChange={(value) => setHpPercent(getPercentFromHp(value, parsedMaxHp))}
+              min={1}
+              max={parsedMaxHp}
+            />
           </div>
         </div>
       </section>
@@ -494,4 +489,9 @@ function getHpSliderStyle(hpPercent: number) {
   return {
     background: `linear-gradient(to right, ${fillColor} 0%, ${fillColor} ${hpPercent}%, #e2e8f0 ${hpPercent}%, #e2e8f0 100%)`,
   }
+}
+
+function getPercentFromHp(currentHp: string, maxHp: number) {
+  const parsedHp = Math.max(1, Math.min(maxHp, Number(currentHp) || 1))
+  return Math.max(1, Math.min(100, Math.round((parsedHp / maxHp) * 100)))
 }
