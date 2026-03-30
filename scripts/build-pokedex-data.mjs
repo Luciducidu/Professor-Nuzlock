@@ -132,12 +132,14 @@ async function normalizeLevelUpMoves(moves) {
     const moveNameEn = prettifySlug(moveEntry.move.name)
     const moveData = await fetchJson(moveEntry.move.url)
     const damageClass = moveData.damage_class?.name ?? 'status'
+    const moveType = moveData.type?.name ?? null
 
     if (!moveMetaBySlug.has(moveEntry.move.name)) {
       moveMetaBySlug.set(moveEntry.move.name, {
         slug: moveEntry.move.name,
         nameDe: moveNameDe,
         nameEn: moveNameEn,
+        type: typeof moveType === 'string' ? moveType : null,
         power: typeof moveData.power === 'number' ? moveData.power : null,
         accuracy: typeof moveData.accuracy === 'number' ? moveData.accuracy : null,
         damageClass:

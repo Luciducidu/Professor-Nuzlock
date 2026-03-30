@@ -164,7 +164,7 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
       </section>
 
       <section className="space-y-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-        <div className="grid gap-4 xl:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-4 2xl:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-3">
             <label htmlFor="catch-pokemon-query" className="block text-sm font-medium text-slate-700">
               Pokémon auswählen
@@ -176,7 +176,7 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
               placeholder="Pokémon suchen..."
               className="w-full rounded-xl border border-slate-300 px-4 py-3 text-base text-slate-900 outline-none ring-sky-500 transition focus:ring-2"
             />
-            <div className="grid gap-2 sm:grid-cols-2">
+            <div className="grid gap-2 lg:grid-cols-2">
               {searchResults.map((pokemon) => (
                 <button
                   key={pokemon.id}
@@ -200,7 +200,7 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
 
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
             {selectedEntry ? (
-              <div className="flex gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 <img
                   src={getSpriteUrl(activeForm?.spriteId ?? selectedEntry.spriteId)}
                   alt={activeForm?.nameDe ?? selectedEntry.nameDe}
@@ -247,7 +247,7 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
           </div>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 lg:grid-cols-3">
           <SelectField label="Poké Ball" value={ball} onChange={(value) => setBall(value as CatchBall)} options={BALL_OPTIONS} />
           <SelectField label="Status" value={status} onChange={(value) => setStatus(value as CatchStatus)} options={STATUS_OPTIONS} />
           <NumberField label="Level" value={level} onChange={setLevel} min={1} />
@@ -272,7 +272,7 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
         </div>
 
         <div className="mt-5">
-          <div className="mb-3 flex items-center justify-between gap-3">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
             <p className={`text-lg font-semibold ${getHpTextClass(hpPercent)}`}>{hpPercent} % HP</p>
             <p className="text-sm text-slate-500">{parsedCurrentHp} / {parsedMaxHp} KP</p>
           </div>
@@ -304,7 +304,7 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
               </div>
             </div>
 
-            <div className="grid gap-3 md:grid-cols-3">
+            <div className="grid gap-3 xl:grid-cols-3">
               <ResultCard label="Chance nach 5 Bällen" value={formatPercent(result.chanceAfter5)} />
               <ResultCard label="Chance nach 10 Bällen" value={formatPercent(result.chanceAfter10)} />
               <ResultCard label="Chance nach 20 Bällen" value={formatPercent(result.chanceAfter20)} />
@@ -312,7 +312,7 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
 
             <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
               <p className="font-semibold text-slate-900">Verwendete Eingaben</p>
-              <ul className="mt-2 grid gap-1 md:grid-cols-2">
+              <ul className="mt-2 grid gap-1 xl:grid-cols-2">
                 <li>Spiel: {formatGameName(project.game)}</li>
                 <li>Pokémon: {selectedEntry?.nameDe}</li>
                 <li>Level: {parsedLevel}</li>
@@ -331,7 +331,7 @@ function ProjectCatchRateContent({ project }: { project: Project }) {
 
       <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
         <h3 className="text-lg font-semibold text-slate-900">Erweiterte Fangbedingungen</h3>
-        <div className="mt-4 grid gap-4 lg:grid-cols-2">
+        <div className="mt-4 grid gap-4 xl:grid-cols-2">
           <div className="grid gap-3 sm:grid-cols-2">
             <ToggleField label="Erster Zug" checked={isFirstTurn} onChange={setIsFirstTurn} />
             <ToggleField label="Bereits im Pokédex gefangen" checked={alreadyOwned} onChange={setAlreadyOwned} />

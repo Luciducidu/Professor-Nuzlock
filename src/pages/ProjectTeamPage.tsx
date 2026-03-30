@@ -412,7 +412,7 @@ function SoloTeamContent({ project, projectId }: { project: Project; projectId: 
           </p>
 
           <SortableContext items={SLOT_NUMBERS.map((slot) => toSlotId(slot))} strategy={rectSortingStrategy}>
-            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3">
               {SLOT_NUMBERS.map((slotNumber) => (
                 <TeamSlotCard
                   key={slotNumber}
@@ -445,7 +445,7 @@ function SoloTeamContent({ project, projectId }: { project: Project; projectId: 
             </div>
           </div>
 
-          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             {filteredBoxEntries.map((entry) => (
               <BoxGridItem
                 key={entry.pokemonId}
@@ -928,7 +928,7 @@ function SoullinkTeamContent({ project, projectId }: { project: Project; project
           Beide Seiten bleiben gekoppelt. Ein Paar wird immer im selben Slot für beide Spieler gesetzt oder entfernt.
         </p>
 
-        <div className="mt-4 grid gap-4 xl:grid-cols-2">
+        <div className="mt-4 grid gap-4 2xl:grid-cols-2">
           <SoullinkTeamColumn
             title={getPlayerName(project, 'p1')}
             slots={slotsByPlayer.p1}
@@ -975,7 +975,7 @@ function SoullinkTeamContent({ project, projectId }: { project: Project; project
           ) : null}
         </div>
 
-        <div className="mt-4 grid gap-4 xl:grid-cols-2">
+        <div className="mt-4 grid gap-4 2xl:grid-cols-2">
           <SoullinkBoxColumn
             title={getPlayerName(project, 'p1')}
             playerId="p1"

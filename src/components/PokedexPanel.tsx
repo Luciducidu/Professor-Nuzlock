@@ -51,7 +51,7 @@ export function PokedexPanel() {
       {isOpen ? <div className="fixed inset-0 z-30 bg-slate-950/30 lg:hidden" onClick={closePanel} aria-hidden="true" /> : null}
 
       <aside
-        className={`fixed inset-y-0 left-0 z-40 flex w-[min(46vw,1040px)] min-w-[460px] max-w-[96vw] flex-col border-r border-slate-300 bg-white shadow-[14px_0_50px_rgba(15,23,42,0.18)] transition-transform duration-300 ${
+        className={`fixed inset-y-0 left-0 z-40 flex w-[clamp(20rem,42vw,58rem)] max-w-[calc(100vw-0.75rem)] flex-col border-r border-slate-300 bg-white shadow-[14px_0_50px_rgba(15,23,42,0.18)] transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : 'translate-x-[calc(-100%+88px)]'
         }`}
       >
@@ -64,7 +64,7 @@ export function PokedexPanel() {
           <img src={POKEDEX_ICON_URL} alt="Pokédex" className="h-16 w-16 rounded-xl object-cover" />
         </button>
 
-        <div className="border-b border-slate-200 bg-slate-50 px-6 py-6 xl:px-8">
+        <div className="border-b border-slate-200 bg-slate-50 px-4 py-5 sm:px-6 xl:px-8">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <img src={POKEDEX_ICON_URL} alt="Pokédex" className="h-16 w-16 rounded-2xl object-cover shadow-sm" />
@@ -96,7 +96,7 @@ export function PokedexPanel() {
           </div>
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto px-6 py-6 xl:px-8 xl:py-8">
+        <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5 sm:px-6 xl:px-8 xl:py-8">
           {selectedEntry && !searchResultsActive ? (
             <div className="space-y-6">
               <div className="flex flex-wrap gap-2">
@@ -114,8 +114,8 @@ export function PokedexPanel() {
                 ) : null}
               </div>
 
-              <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                <div className="flex flex-wrap items-start gap-6">
+              <section className="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-6">
+                <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-start sm:gap-6">
                   <Sprite
                     pokemonId={activeForm?.spriteId ?? selectedEntry.spriteId}
                     alt={activeForm?.nameDe ?? selectedEntry.nameDe}
@@ -129,8 +129,8 @@ export function PokedexPanel() {
                     size="h-44 w-44"
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="text-3xl font-bold text-slate-900 xl:text-4xl">{activeForm?.nameDe ?? selectedEntry.nameDe}</p>
-                    <p className="mt-1 text-base text-slate-500 xl:text-lg">({activeForm?.nameEn ?? selectedEntry.nameEn})</p>
+                    <p className="break-words text-2xl font-bold text-slate-900 sm:text-3xl xl:text-4xl">{activeForm?.nameDe ?? selectedEntry.nameDe}</p>
+                    <p className="mt-1 break-words text-sm text-slate-500 sm:text-base xl:text-lg">({activeForm?.nameEn ?? selectedEntry.nameEn})</p>
                     <div className="mt-5 flex flex-wrap gap-3">
                       {(activeForm?.types ?? selectedEntry.types).map((type) => (
                         <TypeBadge
@@ -233,10 +233,12 @@ export function PokedexPanel() {
                   </span>
                 </div>
                 {levelUpMoves.length > 0 ? (
-                  <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
-                    <div className="grid grid-cols-[110px_1.6fr_140px_100px_120px] gap-4 border-b border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700">
+                  <div className="overflow-x-auto rounded-xl border border-slate-200 bg-slate-50">
+                    <div className="min-w-[760px]">
+                    <div className="grid grid-cols-[110px_1.6fr_130px_140px_100px_120px] gap-4 border-b border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700">
                       <span>Level</span>
                       <span>Attacke</span>
+                      <span>Typ</span>
                       <span>Kategorie</span>
                       <span>Stärke</span>
                       <span>Genauigkeit</span>
@@ -246,19 +248,21 @@ export function PokedexPanel() {
                       return (
                         <div
                           key={`${move.level}-${move.moveSlug}`}
-                          className="grid grid-cols-[110px_1.6fr_140px_100px_120px] gap-4 border-b border-slate-200 px-5 py-3 text-sm text-slate-800 last:border-b-0"
+                          className="grid grid-cols-[110px_1.6fr_130px_140px_100px_120px] gap-4 border-b border-slate-200 px-5 py-3 text-sm text-slate-800 last:border-b-0"
                         >
                           <span className="font-semibold text-slate-900">Level {move.level}</span>
                           <div className="min-w-0">
                             <div className="font-medium text-slate-900">{moveMeta?.nameDe ?? move.moveSlug}</div>
                             <div className="truncate text-xs text-slate-500">{moveMeta?.nameEn ?? '—'}</div>
                           </div>
+                          <MoveTypeBadge typeKey={moveMeta?.type} />
                           <MoveCategoryBadge damageClass={moveMeta?.damageClass} />
                           <span className="font-medium text-slate-900">{moveMeta?.power ?? '—'}</span>
                           <span className="font-medium text-slate-900">{moveMeta?.accuracy ?? '—'}</span>
                         </div>
                       )
                     })}
+                    </div>
                   </div>
                 ) : (
                   <p className="text-sm text-slate-500">Keine Level-Up-Attacken gefunden.</p>
@@ -266,7 +270,7 @@ export function PokedexPanel() {
               </section>
             </div>
           ) : (
-            <div className="grid gap-3 xl:grid-cols-2">
+            <div className="grid gap-3 2xl:grid-cols-2">
               {results.map((pokemon) => {
                 const previewForm = getFormByKey(pokemon, selectedPokemonId === pokemon.id ? selectedFormKey : null) ?? getDefaultForm(pokemon)
                 return (
@@ -332,7 +336,7 @@ function EvolutionTree({
   depth?: number
 }) {
   return (
-    <div className={depth === 0 ? 'space-y-4' : 'ml-6 space-y-4 border-l border-slate-200 pl-5'}>
+    <div className={depth === 0 ? 'space-y-4' : 'ml-3 space-y-4 border-l border-slate-200 pl-3 sm:ml-6 sm:pl-5'}>
       <button
         type="button"
         onClick={() => onSelect(node.pokemonId)}
@@ -342,8 +346,8 @@ function EvolutionTree({
             : 'border-slate-200 bg-slate-50 hover:bg-slate-100'
         }`}
       >
-        <div className="flex items-center gap-4">
-          <img src={getSpriteUrl(node.spriteId)} alt={node.nameDe} className="h-24 w-24 shrink-0" loading="lazy" />
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <img src={getSpriteUrl(node.spriteId)} alt={node.nameDe} className="h-20 w-20 shrink-0 sm:h-24 sm:w-24" loading="lazy" />
           <div className="min-w-0">
             <p className="truncate text-lg font-semibold text-slate-900">{node.nameDe}</p>
             <p className="truncate text-sm text-slate-500">({node.nameEn})</p>
@@ -443,7 +447,7 @@ function StatRow({ label, value, max = 255 }: { label: string; value: number; ma
   const width = Math.max(6, Math.min(100, Math.round((value / max) * 100)))
 
   return (
-    <div className="grid grid-cols-[180px_72px_1fr] items-center gap-4 border-b border-slate-200 px-5 py-4 last:border-b-0">
+    <div className="grid gap-3 border-b border-slate-200 px-4 py-4 last:border-b-0 sm:grid-cols-[minmax(0,180px)_72px_1fr] sm:items-center sm:gap-4 sm:px-5">
       <span className="text-base font-semibold text-slate-800">{label}</span>
       <span className="text-lg font-bold text-slate-900">{value}</span>
       <div className="h-3 overflow-hidden rounded-full bg-slate-100">
@@ -501,6 +505,30 @@ function MoveCategoryBadge({
         <span>{label}</span>
       )}
       {!hidden ? <span>{label}</span> : null}
+    </span>
+  )
+}
+
+function MoveTypeBadge({ typeKey }: { typeKey: Parameters<typeof getTypeMeta>[0] | null | undefined }) {
+  const [hidden, setHidden] = useState(false)
+
+  if (!typeKey) {
+    return <span className="font-medium text-slate-500">—</span>
+  }
+
+  const meta = getTypeMeta(typeKey)
+  const iconUrl = `${import.meta.env.BASE_URL}type-icons/${typeKey}.svg`
+
+  return (
+    <span className={`inline-flex items-center gap-2 rounded-full border px-2.5 py-1 text-xs font-semibold ${meta.classes}`}>
+      {!hidden ? (
+        <img src={iconUrl} alt={meta.label} className="h-4 w-4 shrink-0" loading="lazy" onError={() => setHidden(true)} />
+      ) : (
+        <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-white/60 text-[10px] font-bold">
+          {meta.shortLabel}
+        </span>
+      )}
+      <span>{meta.label}</span>
     </span>
   )
 }

@@ -16,8 +16,8 @@ export function ProjectNav({ projectId, showBackup = true }: ProjectNavProps) {
           Startseite
         </Link>
       </div>
-      <div className="border-b border-slate-200">
-        <ul className="flex flex-wrap gap-2">
+      <div className="overflow-x-auto border-b border-slate-200 pb-1">
+        <ul className="flex min-w-max gap-2 pr-2">
           <li>
             <NavItem to={`/project/${projectId}`} label="Übersicht" end />
           </li>
@@ -59,7 +59,7 @@ function NavItem({ to, label, end = false }: { to: string; label: string; end?: 
       to={to}
       end={end}
       className={({ isActive }) =>
-        `inline-block rounded-t-md px-3 py-2 text-sm font-semibold transition ${
+        `inline-flex whitespace-nowrap rounded-t-md px-3 py-2 text-sm font-semibold transition ${
           isActive
             ? 'border-b-2 border-slate-900 text-slate-900'
             : 'text-slate-600 hover:text-slate-900'

@@ -31,6 +31,7 @@ export type PokedexMoveEntry = {
   slug: string
   nameDe: string
   nameEn: string
+  type: PokemonTypeKey | null
   power: number | null
   accuracy: number | null
   damageClass: 'physical' | 'special' | 'status'

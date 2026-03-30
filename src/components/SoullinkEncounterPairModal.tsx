@@ -302,7 +302,7 @@ export function SoullinkEncounterPairModal({
               type="button"
               onClick={handleSave}
               disabled={!finalSaveAllowed || saving}
-              className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-50"
+                className="min-w-[11rem] rounded-md bg-slate-900 px-4 py-2 text-center text-sm font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-50"
             >
               {saving ? 'Speichert...' : 'Final speichern'}
             </button>
@@ -310,7 +310,7 @@ export function SoullinkEncounterPairModal({
               type="button"
               onClick={() => void handleSaveDraft()}
               disabled={draftSaving}
-              className="rounded-md border border-sky-300 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-800 transition hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-70"
+                className="min-w-[13rem] rounded-md border border-sky-300 bg-sky-50 px-4 py-2 text-center text-sm font-semibold text-sky-800 transition hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {draftSaving ? 'Entwurf wird gespeichert...' : hasDraft ? 'Entwurf aktualisieren' : 'Als Entwurf speichern'}
             </button>
@@ -318,14 +318,14 @@ export function SoullinkEncounterPairModal({
               type="button"
               onClick={() => void handleDiscardDraft()}
               disabled={!hasDraft && !draftEntryP1 && !draftEntryP2}
-              className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400"
+                className="min-w-[11rem] rounded-md border border-slate-300 bg-white px-4 py-2 text-center text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400"
             >
               Entwurf verwerfen
             </button>
             <button
               type="button"
               onClick={onClose}
-              className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+              className="min-w-[8rem] rounded-md border border-slate-300 bg-white px-4 py-2 text-center text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
             >
               Schließen
             </button>

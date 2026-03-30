@@ -161,7 +161,7 @@ export function ProjectListPage() {
           Noch keine Projekte vorhanden. Lege dein erstes Projekt an.
         </div>
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 2xl:grid-cols-3">
           {projects.map((project) => (
             <article
               key={project.id}

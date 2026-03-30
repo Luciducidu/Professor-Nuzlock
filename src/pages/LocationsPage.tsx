@@ -259,9 +259,9 @@ function LocationsContent({ project, projectId, projectName }: { project: Projec
                     </div>
                   </div>
 
-                  <div className="min-w-[280px] text-sm text-slate-700">
+                  <div className="min-w-0 text-sm text-slate-700">
                     {isSoulLinkProject(project) ? (
-                      <div className="grid gap-3 lg:grid-cols-2">
+                      <div className="grid gap-3 2xl:grid-cols-2">
                         <PlayerLocationSummary
                           title={getPlayerName(project, 'p1')}
                           encounter={soulLinkPair.p1}

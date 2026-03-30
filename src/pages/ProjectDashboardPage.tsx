@@ -164,7 +164,7 @@ function DashboardContent({
 
       <section className="mt-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
         <h2 className="text-base font-semibold text-slate-900">Projektstatistik</h2>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5">
           {statItems.map((item) => (
             <div key={item.label} className="rounded-md border border-slate-200 px-3 py-2">
               <p className="text-xs uppercase tracking-wide text-slate-500">{item.label}</p>
