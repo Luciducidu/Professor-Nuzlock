@@ -52,14 +52,14 @@ export function PokedexPanel() {
 
       <aside
         className={`fixed inset-y-0 left-0 z-40 flex w-[clamp(20rem,42vw,58rem)] max-w-[calc(100vw-0.75rem)] flex-col border-r border-slate-300 bg-white shadow-[14px_0_50px_rgba(15,23,42,0.18)] transition-transform duration-300 ${
-          isOpen ? 'translate-x-0' : 'translate-x-[calc(-100%+88px)]'
+          isOpen ? 'translate-x-0' : 'translate-x-[calc(-100%+60px)] xl:translate-x-[calc(-100%+88px)]'
         }`}
       >
         <button
           type="button"
           onClick={togglePanel}
           aria-label={isOpen ? 'Pokédex schließen' : 'Pokédex öffnen'}
-          className="absolute right-[-44px] top-1/2 z-50 flex h-[132px] w-[88px] -translate-y-1/2 items-center justify-center rounded-r-full border-y border-r border-slate-300 bg-white shadow-[12px_0_26px_rgba(15,23,42,0.16)] transition hover:bg-slate-50"
+          className="absolute right-[-30px] top-1/2 z-50 flex h-[96px] w-[60px] -translate-y-1/2 items-center justify-center overflow-hidden rounded-r-full border-y border-r border-slate-300 bg-white shadow-[12px_0_26px_rgba(15,23,42,0.16)] transition hover:bg-slate-50 xl:right-[-44px] xl:h-[132px] xl:w-[88px]"
         >
           <img src={POKEDEX_ICON_URL} alt="Pokédex" className="h-16 w-16 rounded-xl object-cover" />
         </button>
